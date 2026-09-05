@@ -1,33 +1,128 @@
-import { Link } from 'react-router-dom';
-import Nav from './Nav';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 
 function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [toggleState, setToggleState] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md bg-zinc-950/70 border-b border-zinc-800/40 transition-all">
-      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Left side: hemchand. brand pill box */}
-        <Link 
-          to="/" 
-          className="bg-zinc-900/90 hover:bg-zinc-900 border border-zinc-800/90 hover:border-zinc-700 text-white font-black text-xl px-6 py-2 rounded-full shadow-lg flex items-center justify-center tracking-tight no-underline transition-all duration-200 hover:scale-[1.02] active:scale-95"
-        >
-          hemchand<span className="text-amber-400">.</span>
-        </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 w-full px-8 lg:px-16 py-6 transition-all duration-500 pointer-events-auto ${
+          scrolled
+            ? 'bg-[#070707]/90 backdrop-blur-xl border-b border-white/10 py-5 shadow-2xl'
+            : 'bg-transparent py-7'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between font-mono text-xs uppercase tracking-widest text-zinc-400">
+          {/* Top Left Name Logo */}
+          <Link
+            to="/"
+            className="text-white font-medium tracking-widest hover:text-amber-400 transition-colors no-underline"
+          >
+            HEMCHAND P.
+          </Link>
 
-        {/* Center: Nav component */}
-        <Nav />
+          {/* Center Navigation Links matching Reference (WORKS, ABOUT) */}
+          <nav className="hidden md:flex items-center gap-12">
+            <a
+              href="#work"
+              className="hover:text-white transition-colors py-1 relative group text-zinc-400"
+            >
+              WORKS
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-amber-400 group-hover:w-full transition-all duration-300" />
+            </a>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `hover:text-white transition-colors py-1 relative group ${
+                  isActive ? 'text-white' : 'text-zinc-400'
+                }`
+              }
+            >
+              ABOUT
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-amber-400 group-hover:w-full transition-all duration-300" />
+            </NavLink>
+          </nav>
 
-        {/* Right side: Book a call button */}
-        <Button 
-          asChild 
-          className="bg-amber-400 text-zinc-950 font-semibold rounded-full px-5 py-2 hover:bg-amber-300 hover:-translate-y-0.5 active:scale-95 active:translate-y-0 transition-all duration-200 shadow-md"
-        >
-          <a href="mailto:hemchandrp21@gmail.com">
-            Book a call
-          </a>
-        </Button>
-      </div>
-    </header>
+          {/* Top Right Pill Switch matching Reference */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setToggleState(!toggleState)}
+              aria-label="Toggle Theme State"
+              className="w-12 h-6 rounded-full bg-white/10 border border-white/20 p-0.5 transition-colors focus:outline-none flex items-center"
+            >
+              <span
+                className={`w-4 h-4 rounded-full transition-transform duration-300 ${
+                  toggleState ? 'translate-x-6 bg-amber-400' : 'translate-x-0 bg-white'
+                }`}
+              />
+            </button>
+
+            {/* Mobile Toggle Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none"
+              aria-label="Toggle Navigation Menu"
+            >
+              <span className={`w-5 h-[1.5px] bg-white transition-transform duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+              <span className={`w-5 h-[1.5px] bg-white transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+              <span className={`w-5 h-[1.5px] bg-white transition-transform duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-white/98 backdrop-blur-2xl flex flex-col justify-between px-8 py-24 md:hidden">
+          <div className="flex flex-col space-y-8 font-mono">
+            <span className="text-[10px] tracking-[0.3em] text-zinc-500 uppercase">
+              Navigation
+            </span>
+            <a
+              href="#work"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-3xl font-display uppercase tracking-tight text-zinc-900 hover:text-amber-600 transition-colors border-b border-zinc-200 pb-4"
+            >
+              WORKS
+            </a>
+            <Link
+              to="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-3xl font-display uppercase tracking-tight text-zinc-900 hover:text-amber-600 transition-colors border-b border-zinc-200 pb-4"
+            >
+              ABOUT
+            </Link>
+          </div>
+
+          <div className="flex flex-col space-y-2 border-t border-zinc-200 pt-6 font-mono text-xs text-zinc-600">
+            <span>hemchandrp21@gmail.com</span>
+            <span className="text-[10px] text-zinc-500 uppercase">
+              B.Des UX Design Student &bull; Symbiosis Institute of Design
+            </span>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
