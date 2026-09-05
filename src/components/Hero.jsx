@@ -34,7 +34,7 @@ function Hero() {
         <div className="lg:col-span-6 flex flex-col justify-between h-full py-6 pointer-events-auto space-y-12 lg:space-y-20">
           {/* Main Title matching reference screenshot proportion */}
           <div className="pt-4 max-w-sm">
-            <h1 className="font-sans font-normal text-2xl sm:text-3xl lg:text-4xl tracking-tight text-zinc-100 leading-[1.25]">
+            <h1 className="font-sans font-normal text-2xl sm:text-3xl lg:text-4xl tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] leading-[1.25]">
               UI/UX Designer <br />
               and <br />
               Creative Technologist
@@ -43,7 +43,7 @@ function Hero() {
 
           {/* Subtitle Bio snippet matching reference text scale */}
           <div className="max-w-[280px] sm:max-w-xs">
-            <p className="text-[11px] sm:text-xs text-zinc-400 font-mono leading-relaxed tracking-normal opacity-90">
+            <p className="text-[11px] sm:text-xs text-zinc-300 font-mono leading-relaxed tracking-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
               I design digital experiences that blend creativity, functionality and human emotion -- turning ideas into meaningful products.
             </p>
           </div>
@@ -53,14 +53,14 @@ function Hero() {
         <div className="hidden lg:block lg:col-span-1" />
 
         {/* Right Side: 2 Columns matching Reference Screenshot */}
-        <div className="lg:col-span-5 grid grid-cols-2 gap-8 text-[10px] sm:text-[11px] font-mono tracking-widest text-zinc-400 uppercase pointer-events-auto self-center lg:pl-6">
+        <div className="lg:col-span-5 grid grid-cols-2 gap-8 text-[10px] sm:text-[11px] font-mono tracking-widest text-zinc-300 uppercase pointer-events-auto self-center lg:pl-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
           {/* Column 1: DESIGN */}
           <div className="space-y-4">
             <div>
-              <span className="text-zinc-600 text-[10px] block font-mono">--</span>
-              <span className="text-zinc-400 font-medium tracking-widest text-[10px] block mt-0.5">DESIGN</span>
+              <span className="text-zinc-500 text-[10px] block font-mono">--</span>
+              <span className="text-zinc-300 font-semibold tracking-widest text-[10px] block mt-0.5">DESIGN</span>
             </div>
-            <div className="space-y-2 text-zinc-300">
+            <div className="space-y-2 text-zinc-200 font-medium">
               <p className="hover:text-amber-400 transition-colors cursor-pointer">UI/UX</p>
               <p className="hover:text-amber-400 transition-colors cursor-pointer">PRODUCT DESIGN</p>
               <p className="hover:text-amber-400 transition-colors cursor-pointer">BRAND IDENTITY</p>
@@ -72,10 +72,10 @@ function Hero() {
           {/* Column 2: FEATURED */}
           <div className="space-y-4">
             <div>
-              <span className="text-zinc-600 text-[10px] block font-mono">--</span>
-              <span className="text-zinc-400 font-medium tracking-widest text-[10px] block mt-0.5">FEATURED</span>
+              <span className="text-zinc-500 text-[10px] block font-mono">--</span>
+              <span className="text-zinc-300 font-semibold tracking-widest text-[10px] block mt-0.5">FEATURED</span>
             </div>
-            <div className="space-y-2 text-zinc-300">
+            <div className="space-y-2 text-zinc-200 font-medium">
               <p className="hover:text-amber-400 transition-colors cursor-pointer">COLLEGE PROJECTS</p>
               <p className="hover:text-amber-400 transition-colors cursor-pointer">PERSONAL WORK</p>
               <p className="hover:text-amber-400 transition-colors cursor-pointer">INTERNSHIPS</p>
@@ -87,22 +87,22 @@ function Hero() {
       </div>
 
       {/* Bottom Row: SCROLL (Left) & Coordinates (Right) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex items-end justify-between pointer-events-none text-[10px] font-mono text-zinc-500 uppercase tracking-widest pt-2">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex items-end justify-between pointer-events-none text-[10px] font-mono text-zinc-400 uppercase tracking-widest pt-2 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
         {/* Bottom Left Scroll Indicator */}
         <div className="pointer-events-auto flex flex-col space-y-0.5">
-          <span className="text-zinc-600 text-[9px]">--</span>
+          <span className="text-zinc-500 text-[9px]">--</span>
           <a
             href="#work"
             onClick={scrollToWork}
-            className="hover:text-amber-400 transition-colors no-underline cursor-pointer text-zinc-400"
+            className="hover:text-amber-400 transition-colors no-underline cursor-pointer text-zinc-300 font-medium"
           >
             SCROLL
           </a>
         </div>
 
         {/* Bottom Right Live Mouse Coordinates matching Reference */}
-        <div className="pointer-events-auto text-zinc-500 font-mono tracking-widest">
-          X: <span className="text-zinc-300">{coords.x}</span> &nbsp;&nbsp; Y: <span className="text-zinc-300">{coords.y}</span>
+        <div className="pointer-events-auto text-zinc-400 font-mono tracking-widest">
+          X: <span className="text-zinc-200 font-semibold">{coords.x}</span> &nbsp;&nbsp; Y: <span className="text-zinc-200 font-semibold">{coords.y}</span>
         </div>
       </div>
     </section>
