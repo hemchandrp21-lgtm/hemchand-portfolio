@@ -78,13 +78,13 @@
   90% { transform: translate(5%, 3%); }
 }
 
-/* Light Mode Cinematic Vignette */
+/* Cinematic Vignette (Subtle Dark Edge Integration) */
 .cinematic-vignette {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 30;
-  background: radial-gradient(circle at center, transparent 60%, rgba(248, 249, 250, 0.6) 100%);
+  background: radial-gradient(circle at center, transparent 70%, rgba(7, 7, 7, 0.4) 100%);
 }
 
 /* RGB Chromatic Split & Prism Refraction */
