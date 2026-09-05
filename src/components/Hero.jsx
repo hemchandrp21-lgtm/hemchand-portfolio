@@ -30,8 +30,8 @@ function Hero() {
       {/* Main Grid Content matching exact reference scale */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto pointer-events-none">
         
-        {/* Left Side: Title & Bio Subtext */}
-        <div className="lg:col-span-6 flex flex-col justify-between h-full pointer-events-auto space-y-8 lg:space-y-12 items-start text-left">
+        {/* Left Side: Title & Bio Subtext (Vertically Centered Mid-Left) */}
+        <div className="lg:col-span-6 flex flex-col justify-center self-center my-auto pointer-events-auto space-y-6 sm:space-y-8 items-start text-left">
           {/* Main Title matching reference screenshot proportion - ALL CAPS */}
           <div className="max-w-md">
             <h1 className="font-sans font-normal text-2xl sm:text-3xl lg:text-4xl tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] leading-[1.25] uppercase">
