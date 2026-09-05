@@ -32,11 +32,11 @@ function Header() {
             : 'bg-transparent py-7'
         }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between font-mono text-xs uppercase tracking-widest text-zinc-400">
+        <div className="max-w-7xl mx-auto flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-zinc-400">
           {/* Top Left Name Logo */}
           <Link
             to="/"
-            className="text-white font-medium tracking-widest hover:text-amber-400 transition-colors no-underline"
+            className="text-zinc-200 font-normal tracking-widest hover:text-amber-400 transition-colors no-underline text-[11px]"
           >
             HEMCHAND P.
           </Link>
@@ -45,7 +45,7 @@ function Header() {
           <nav className="hidden md:flex items-center gap-12">
             <a
               href="#work"
-              className="hover:text-white transition-colors py-1 relative group text-zinc-400"
+              className="hover:text-white transition-colors py-1 relative group text-zinc-400 text-[11px]"
             >
               WORKS
               <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-amber-400 group-hover:w-full transition-all duration-300" />
@@ -53,7 +53,7 @@ function Header() {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `hover:text-white transition-colors py-1 relative group ${
+                `hover:text-white transition-colors py-1 relative group text-[11px] ${
                   isActive ? 'text-white' : 'text-zinc-400'
                 }`
               }
@@ -68,11 +68,11 @@ function Header() {
             <button
               onClick={() => setToggleState(!toggleState)}
               aria-label="Toggle Theme State"
-              className="w-12 h-6 rounded-full bg-white/10 border border-white/20 p-0.5 transition-colors focus:outline-none flex items-center"
+              className="w-10 h-5 rounded-full bg-white/10 border border-white/20 p-0.5 transition-colors focus:outline-none flex items-center"
             >
               <span
-                className={`w-4 h-4 rounded-full transition-transform duration-300 ${
-                  toggleState ? 'translate-x-6 bg-amber-400' : 'translate-x-0 bg-white'
+                className={`w-3.5 h-3.5 rounded-full transition-transform duration-300 ${
+                  toggleState ? 'translate-x-5 bg-amber-400' : 'translate-x-0 bg-white'
                 }`}
               />
             </button>

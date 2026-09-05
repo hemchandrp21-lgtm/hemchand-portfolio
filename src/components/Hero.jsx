@@ -21,43 +21,46 @@ function Hero() {
   };
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] overflow-hidden bg-[#070707] text-white flex flex-col justify-between px-8 lg:px-16 pt-24 pb-8 select-none">
+    <section className="relative w-full h-screen min-h-[650px] overflow-hidden bg-[#070707] text-white flex flex-col justify-between px-8 lg:px-16 pt-24 pb-8 select-none">
       {/* Full-Screen Cinematic Background Effect */}
       <div className="absolute inset-0 w-full h-full pointer-events-auto z-0">
         <CinematicHeroEffect imageSrc="/hero_portrait_suit.jpg" />
       </div>
 
-      {/* Main Grid Content matching reference mockup floating typography */}
+      {/* Main Grid Content matching exact reference scale */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto pointer-events-none">
         
-        {/* Left Side: Headline & Bio Subtext */}
-        <div className="lg:col-span-7 flex flex-col justify-between h-full py-8 pointer-events-auto space-y-16 lg:space-y-24">
-          {/* Main Title matching reference layout */}
-          <div className="pt-6">
-            <h1 className="font-sans font-light text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white/90 leading-[1.15]">
+        {/* Left Side: Title & Bio Subtext */}
+        <div className="lg:col-span-6 flex flex-col justify-between h-full py-6 pointer-events-auto space-y-12 lg:space-y-20">
+          {/* Main Title matching reference screenshot proportion */}
+          <div className="pt-4 max-w-sm">
+            <h1 className="font-sans font-normal text-2xl sm:text-3xl lg:text-4xl tracking-tight text-zinc-100 leading-[1.25]">
               UI/UX Designer <br />
               and <br />
               Creative Technologist
             </h1>
           </div>
 
-          {/* Subtitle Bio matching reference snippet */}
-          <div className="max-w-sm">
-            <p className="text-xs sm:text-sm text-zinc-400 font-mono leading-relaxed tracking-wide">
+          {/* Subtitle Bio snippet matching reference text scale */}
+          <div className="max-w-[280px] sm:max-w-xs">
+            <p className="text-[11px] sm:text-xs text-zinc-400 font-mono leading-relaxed tracking-normal opacity-90">
               I design digital experiences that blend creativity, functionality and human emotion -- turning ideas into meaningful products.
             </p>
           </div>
         </div>
 
-        {/* Right Side: 2 Detailed Columns matching Reference Screenshot */}
-        <div className="lg:col-span-5 grid grid-cols-2 gap-12 text-[11px] sm:text-xs font-mono tracking-widest text-zinc-300 uppercase pointer-events-auto self-center lg:pl-8">
+        {/* Center Space */}
+        <div className="hidden lg:block lg:col-span-1" />
+
+        {/* Right Side: 2 Columns matching Reference Screenshot */}
+        <div className="lg:col-span-5 grid grid-cols-2 gap-8 text-[10px] sm:text-[11px] font-mono tracking-widest text-zinc-400 uppercase pointer-events-auto self-center lg:pl-6">
           {/* Column 1: DESIGN */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <div>
-              <span className="text-zinc-500 text-[11px] block font-mono">--</span>
-              <span className="text-zinc-400 font-semibold tracking-widest text-xs block mt-1">DESIGN</span>
+              <span className="text-zinc-600 text-[10px] block font-mono">--</span>
+              <span className="text-zinc-400 font-medium tracking-widest text-[10px] block mt-0.5">DESIGN</span>
             </div>
-            <div className="space-y-3 text-zinc-300">
+            <div className="space-y-2 text-zinc-300">
               <p className="hover:text-amber-400 transition-colors cursor-pointer">UI/UX</p>
               <p className="hover:text-amber-400 transition-colors cursor-pointer">PRODUCT DESIGN</p>
               <p className="hover:text-amber-400 transition-colors cursor-pointer">BRAND IDENTITY</p>
@@ -67,12 +70,12 @@ function Hero() {
           </div>
 
           {/* Column 2: FEATURED */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <div>
-              <span className="text-zinc-500 text-[11px] block font-mono">--</span>
-              <span className="text-zinc-400 font-semibold tracking-widest text-xs block mt-1">FEATURED</span>
+              <span className="text-zinc-600 text-[10px] block font-mono">--</span>
+              <span className="text-zinc-400 font-medium tracking-widest text-[10px] block mt-0.5">FEATURED</span>
             </div>
-            <div className="space-y-3 text-zinc-300">
+            <div className="space-y-2 text-zinc-300">
               <p className="hover:text-amber-400 transition-colors cursor-pointer">COLLEGE PROJECTS</p>
               <p className="hover:text-amber-400 transition-colors cursor-pointer">PERSONAL WORK</p>
               <p className="hover:text-amber-400 transition-colors cursor-pointer">INTERNSHIPS</p>
@@ -84,10 +87,10 @@ function Hero() {
       </div>
 
       {/* Bottom Row: SCROLL (Left) & Coordinates (Right) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex items-end justify-between pointer-events-none text-xs font-mono text-zinc-400 uppercase tracking-widest pt-4">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex items-end justify-between pointer-events-none text-[10px] font-mono text-zinc-500 uppercase tracking-widest pt-2">
         {/* Bottom Left Scroll Indicator */}
-        <div className="pointer-events-auto flex flex-col space-y-1">
-          <span className="text-zinc-500 text-[10px]">--</span>
+        <div className="pointer-events-auto flex flex-col space-y-0.5">
+          <span className="text-zinc-600 text-[9px]">--</span>
           <a
             href="#work"
             onClick={scrollToWork}
@@ -97,9 +100,9 @@ function Hero() {
           </a>
         </div>
 
-        {/* Bottom Right Live Mouse Coordinates matching Reference: X: 153  Y: 283 */}
-        <div className="pointer-events-auto text-zinc-400 font-mono tracking-widest">
-          X: <span className="text-zinc-200">{coords.x}</span> &nbsp;&nbsp; Y: <span className="text-zinc-200">{coords.y}</span>
+        {/* Bottom Right Live Mouse Coordinates matching Reference */}
+        <div className="pointer-events-auto text-zinc-500 font-mono tracking-widest">
+          X: <span className="text-zinc-300">{coords.x}</span> &nbsp;&nbsp; Y: <span className="text-zinc-300">{coords.y}</span>
         </div>
       </div>
     </section>
