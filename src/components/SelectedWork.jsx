@@ -1,10 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projects, workCategories } from '../data/projectsData';
+import { trackEvent } from '../utils/analytics';
 
 function SelectedWork() {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [hoveredId, setHoveredId] = useState(null);
+
+  const handleProjectClick = (proj) => {
+    trackEvent('select_content', {
+      content_type: 'project_case_study',
+      item_id: proj.id,
+      title: proj.title,
+      category: proj.category
+    });
+  };
 
   const filteredProjects = selectedCategory === 'ALL'
     ? projects

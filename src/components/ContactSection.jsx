@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { personalInfo } from '../data/projectsData';
+import { trackEvent } from '../utils/analytics';
 
 function ContactSection() {
   const [copied, setCopied] = useState(false);
@@ -11,6 +12,7 @@ function ContactSection() {
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
     setCopied(true);
+    trackEvent('copy_email', { email: emailAddress });
     setTimeout(() => setCopied(false), 2500);
   };
 
@@ -18,6 +20,11 @@ function ContactSection() {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) return;
     setSubmitted(true);
+    trackEvent('generate_lead', {
+      event_category: 'Contact',
+      name: formState.name,
+      topic: formState.topic || 'General'
+    });
     setTimeout(() => {
       setSubmitted(false);
       setFormState({ name: '', email: '', message: '', topic: '' });
