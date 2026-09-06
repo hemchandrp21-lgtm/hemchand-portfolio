@@ -9,8 +9,8 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #f8f9fa;
-    color: #18181b;
+    background-color: #070707;
+    color: #f4f4f5;
     overflow-x: hidden;
   }
 
@@ -28,14 +28,14 @@
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #070707;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #27272a;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #3f3f46;
 }
 
 /* Custom Cursor */
@@ -121,8 +121,8 @@
 
 /* Text Selection */
 ::selection {
-  background: #fef08a;
-  color: #09090b;
+  background: #f59e0b;
+  color: #000000;
 }
 
 /* Editorial Gradient Text */

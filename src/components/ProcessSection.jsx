@@ -6,19 +6,19 @@ function ProcessSection() {
   const current = designProcessSteps[activeStep];
 
   return (
-    <section id="process" className="relative w-full py-32 px-6 lg:px-12 bg-[#ffffff] text-zinc-900 border-t border-zinc-200">
+    <section id="process" className="relative w-full py-32 px-6 lg:px-12 bg-[#070707] text-white border-t border-white/10">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
-        <div className="border-b border-zinc-200 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="border-b border-white/10 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="text-xs font-mono tracking-[0.3em] uppercase text-amber-600 font-semibold">
+            <span className="text-xs font-mono tracking-[0.3em] uppercase text-amber-400 font-semibold">
               13 &mdash; DESIGN METHODOLOGY
             </span>
-            <h2 className="text-4xl sm:text-6xl font-display font-extrabold tracking-tight uppercase mt-2 text-zinc-900">
+            <h2 className="text-4xl sm:text-6xl font-display font-extrabold tracking-tight uppercase mt-2 text-white">
               DESIGN PROCESS.
             </h2>
           </div>
-          <p className="text-sm text-zinc-600 max-w-md font-sans leading-relaxed">
+          <p className="text-sm text-zinc-400 max-w-md font-sans leading-relaxed">
             An 8-stage iterative framework moving from observation and qualitative research to refined digital products.
           </p>
         </div>
@@ -33,11 +33,11 @@ function ProcessSection() {
                 onClick={() => setActiveStep(idx)}
                 className={`p-4 text-left transition-all duration-300 border flex flex-col justify-between space-y-3 ${
                   isActive
-                    ? 'bg-amber-600 text-white border-amber-600 shadow-md scale-105 z-10'
-                    : 'bg-zinc-100 text-zinc-800 border-zinc-200 hover:bg-zinc-200'
+                    ? 'bg-amber-400 text-black border-amber-400 shadow-md shadow-amber-500/20 scale-105 z-10'
+                    : 'bg-zinc-950 text-zinc-300 border-zinc-800 hover:bg-zinc-900 hover:text-white'
                 }`}
               >
-                <span className={`font-mono text-xs font-bold ${isActive ? 'text-white' : 'text-amber-700'}`}>
+                <span className={`font-mono text-xs font-bold ${isActive ? 'text-black' : 'text-amber-400'}`}>
                   {step.num}
                 </span>
                 <h3 className="font-display font-bold uppercase text-xs sm:text-sm tracking-tight leading-tight">
@@ -49,16 +49,16 @@ function ProcessSection() {
         </div>
 
         {/* Active Step Highlight Banner */}
-        <div className="p-8 sm:p-12 bg-white border border-zinc-200 shadow-sm rounded-sm space-y-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div className="p-8 sm:p-12 bg-zinc-950 border border-white/10 shadow-sm rounded-sm space-y-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="space-y-3 max-w-3xl">
-            <span className="text-xs font-mono text-amber-600 uppercase tracking-widest block font-bold">
+            <span className="text-xs font-mono text-amber-400 uppercase tracking-widest block font-bold">
               STAGE {current.num} &bull; {current.title}
             </span>
-            <h3 className="text-2xl sm:text-4xl font-display font-extrabold uppercase text-zinc-900">
+            <h3 className="text-2xl sm:text-4xl font-display font-extrabold uppercase text-white">
               "{current.desc}"
             </h3>
           </div>
-          <div className="text-5xl font-mono text-amber-600/20 font-black">
+          <div className="text-5xl font-mono text-amber-400/20 font-black">
             {current.num}
           </div>
         </div>

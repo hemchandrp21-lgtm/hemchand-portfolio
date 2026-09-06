@@ -13,7 +13,7 @@ import Footer from '../components/Footer';
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#f8f9fa] text-zinc-900 selection:bg-amber-600 selection:text-white font-sans">
+    <div className="min-h-screen bg-[#070707] text-white selection:bg-amber-400 selection:text-black font-sans">
       <FilmOverlay />
       <CustomCursor />
       <Header />

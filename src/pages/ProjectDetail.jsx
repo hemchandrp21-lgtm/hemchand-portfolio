@@ -18,9 +18,9 @@ function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-[#f8f9fa] text-zinc-900 flex flex-col items-center justify-center space-y-6">
+      <div className="min-h-screen bg-[#070707] text-white flex flex-col items-center justify-center space-y-6">
         <h1 className="text-4xl font-display uppercase font-bold">Project Not Found</h1>
-        <Link to="/" className="text-sm font-mono tracking-widest text-amber-600 uppercase border-b border-amber-600">
+        <Link to="/" className="text-sm font-mono tracking-widest text-amber-400 uppercase border-b border-amber-400">
           &larr; Return to Portfolio Home
         </Link>
       </div>
@@ -31,7 +31,7 @@ function ProjectDetail() {
   const prevProject = projects[(projectIndex - 1 + projects.length) % projects.length];
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] text-zinc-900 selection:bg-amber-600 selection:text-white">
+    <div className="min-h-screen bg-[#070707] text-white selection:bg-amber-400 selection:text-black">
       <FilmOverlay />
       <CustomCursor />
       <Header />

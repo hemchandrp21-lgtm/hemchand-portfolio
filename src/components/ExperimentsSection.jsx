@@ -5,7 +5,7 @@ function ExperimentsSection() {
   const [selectedExp, setSelectedExp] = useState(null);
 
   return (
-    <section id="experiments" className="relative w-full py-32 px-6 lg:px-12 bg-[#050505] text-white border-t border-white/10">
+    <section id="experiments" className="relative w-full py-32 px-6 lg:px-12 bg-[#070707] text-white border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-16 border-b border-white/10 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">

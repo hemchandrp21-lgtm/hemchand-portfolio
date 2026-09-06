@@ -6,7 +6,7 @@ import ContactSection from '../components/ContactSection';
 
 function Contact() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-amber-400 selection:text-black">
+    <div className="min-h-screen bg-[#070707] text-white selection:bg-amber-400 selection:text-black">
       <FilmOverlay />
       <CustomCursor />
       <Header />

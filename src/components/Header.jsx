@@ -93,7 +93,7 @@ function Header() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-white/98 backdrop-blur-2xl flex flex-col justify-between px-8 py-24 md:hidden">
+        <div className="fixed inset-0 z-40 bg-[#070707]/98 backdrop-blur-2xl flex flex-col justify-between px-8 py-24 md:hidden border-b border-white/10">
           <div className="flex flex-col space-y-8 font-mono">
             <span className="text-[10px] tracking-[0.3em] text-zinc-500 uppercase">
               Navigation
@@ -101,20 +101,20 @@ function Header() {
             <a
               href="#work"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-tight text-zinc-900 hover:text-amber-600 transition-colors border-b border-zinc-200 pb-4"
+              className="text-3xl font-display uppercase tracking-tight text-white hover:text-amber-400 transition-colors border-b border-white/10 pb-4"
             >
               WORKS
             </a>
             <Link
               to="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-tight text-zinc-900 hover:text-amber-600 transition-colors border-b border-zinc-200 pb-4"
+              className="text-3xl font-display uppercase tracking-tight text-white hover:text-amber-400 transition-colors border-b border-white/10 pb-4"
             >
               ABOUT
             </Link>
           </div>
 
-          <div className="flex flex-col space-y-2 border-t border-zinc-200 pt-6 font-mono text-xs text-zinc-600">
+          <div className="flex flex-col space-y-2 border-t border-white/10 pt-6 font-mono text-xs text-zinc-400">
             <span>hemchandrp21@gmail.com</span>
             <span className="text-[10px] text-zinc-500 uppercase">
               B.Des UX Design Student &bull; Symbiosis Institute of Design
