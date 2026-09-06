@@ -54,20 +54,20 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
 
     window.addEventListener('resize', handleResize);
 
-    // Generate smoke cloud particles
-    const smokeCount = 32;
+    // 1. General ambient smoke cloud puffs
+    const smokeCount = 28;
     const smokeParticles = Array.from({ length: smokeCount }, (_, i) => {
-      const isAmberZone = i % 2 === 0; // Alternate amber smoke on right and cool charcoal mist
+      const isAmberZone = i % 2 === 0;
       return {
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 180 + 120, // Volumetric soft puffs
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: -(Math.random() * 0.4 + 0.15), // Slow upward drift
+        radius: Math.random() * 160 + 100,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: -(Math.random() * 0.35 + 0.1),
         rotation: Math.random() * Math.PI * 2,
         spin: (Math.random() - 0.5) * 0.002,
-        alpha: Math.random() * 0.25 + 0.1,
-        maxAlpha: Math.random() * 0.35 + 0.15,
+        alpha: Math.random() * 0.2 + 0.08,
+        maxAlpha: Math.random() * 0.3 + 0.12,
         fadeSpeed: Math.random() * 0.002 + 0.001,
         fadeDirection: Math.random() > 0.5 ? 1 : -1,
         isAmber: isAmberZone,
@@ -76,10 +76,26 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
       };
     });
 
-    // Floating embers/sparks in smoke atmosphere
+    // 2. Targeted Smoke Ring Vortex Tendrils (specifically around photo smoke cloud on left-center)
+    const vortexCount = 22;
+    const vortexParticles = Array.from({ length: vortexCount }, () => {
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.random() * 140 + 40;
+      return {
+        angle,
+        distance,
+        orbitSpeed: (Math.random() * 0.006 + 0.002) * (Math.random() > 0.5 ? 1 : -1),
+        radius: Math.random() * 90 + 50,
+        alpha: Math.random() * 0.3 + 0.15,
+        pulsePhase: Math.random() * Math.PI * 2,
+        pulseSpeed: Math.random() * 0.015 + 0.008,
+      };
+    });
+
+    // 3. Floating embers/sparks in atmosphere
     const emberCount = 35;
     const emberParticles = Array.from({ length: emberCount }, () => ({
-      x: width * 0.4 + Math.random() * width * 0.6, // Concentrated near glowing right side
+      x: width * 0.35 + Math.random() * width * 0.65,
       y: Math.random() * height,
       size: Math.random() * 2.2 + 0.8,
       vx: (Math.random() - 0.5) * 0.5,
@@ -92,21 +108,47 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
     let mouseShiftY = 0;
 
     const render = () => {
-      // Smooth interpolation for parallax
       mouseShiftX += (mousePos.x * 25 - mouseShiftX) * 0.05;
       mouseShiftY += (mousePos.y * 20 - mouseShiftY) * 0.05;
 
       ctx.clearRect(0, 0, width, height);
 
-      // Render Smoke Cloud Puffs
+      // --- Render Targeted Smoke Ring Vortex (Behind Subject Head) ---
+      const vortexCenterX = width * 0.32 + mouseShiftX * 0.3;
+      const vortexCenterY = height * 0.38 + mouseShiftY * 0.2;
+
+      vortexParticles.forEach((vp) => {
+        vp.angle += vp.orbitSpeed;
+        vp.pulsePhase += vp.pulseSpeed;
+
+        const currentDist = vp.distance + Math.sin(vp.pulsePhase) * 15;
+        const x = vortexCenterX + Math.cos(vp.angle) * currentDist;
+        const y = vortexCenterY + Math.sin(vp.angle) * (currentDist * 0.75); // Slightly oval ring
+        const currentAlpha = vp.alpha * (0.6 + 0.4 * Math.sin(vp.pulsePhase));
+
+        ctx.save();
+        ctx.translate(x, y);
+
+        const vGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, vp.radius);
+        vGrad.addColorStop(0, `rgba(220, 225, 240, ${currentAlpha * 0.4})`);
+        vGrad.addColorStop(0.4, `rgba(160, 170, 190, ${currentAlpha * 0.2})`);
+        vGrad.addColorStop(0.8, `rgba(80, 90, 110, ${currentAlpha * 0.05})`);
+        vGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+        ctx.fillStyle = vGrad;
+        ctx.beginPath();
+        ctx.arc(0, 0, vp.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      // --- Render Ambient Smoke Cloud Puffs ---
       smokeParticles.forEach((p) => {
-        // Position update with subtle sway
         p.swayPhase += p.swaySpeed;
         p.x += p.vx + Math.sin(p.swayPhase) * 0.25;
         p.y += p.vy;
         p.rotation += p.spin;
 
-        // Opacity pulsing
         p.alpha += p.fadeSpeed * p.fadeDirection;
         if (p.alpha >= p.maxAlpha) {
           p.alpha = p.maxAlpha;
@@ -116,7 +158,6 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
           p.fadeDirection = 1;
         }
 
-        // Boundary wrap
         if (p.y + p.radius < -50) {
           p.y = height + p.radius + 20;
           p.x = Math.random() * width;
@@ -124,7 +165,6 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
         if (p.x - p.radius > width + 50) p.x = -p.radius;
         if (p.x + p.radius < -50) p.x = width + p.radius;
 
-        // Apply mouse parallax to smoke layer
         const drawX = p.x + mouseShiftX * 0.4;
         const drawY = p.y + mouseShiftY * 0.3;
 
@@ -134,16 +174,14 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
 
         const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, p.radius);
         if (p.isAmber) {
-          // Warm amber smoke puff
-          grad.addColorStop(0, `rgba(245, 158, 11, ${p.alpha * 0.45})`);
-          grad.addColorStop(0.4, `rgba(217, 119, 6, ${p.alpha * 0.25})`);
-          grad.addColorStop(0.75, `rgba(180, 83, 9, ${p.alpha * 0.08})`);
+          grad.addColorStop(0, `rgba(245, 158, 11, ${p.alpha * 0.4})`);
+          grad.addColorStop(0.4, `rgba(217, 119, 6, ${p.alpha * 0.22})`);
+          grad.addColorStop(0.75, `rgba(180, 83, 9, ${p.alpha * 0.06})`);
           grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
         } else {
-          // Moody cool charcoal mist
-          grad.addColorStop(0, `rgba(180, 185, 200, ${p.alpha * 0.3})`);
-          grad.addColorStop(0.5, `rgba(100, 105, 120, ${p.alpha * 0.15})`);
-          grad.addColorStop(0.8, `rgba(40, 40, 50, ${p.alpha * 0.05})`);
+          grad.addColorStop(0, `rgba(190, 195, 210, ${p.alpha * 0.25})`);
+          grad.addColorStop(0.5, `rgba(110, 115, 130, ${p.alpha * 0.12})`);
+          grad.addColorStop(0.8, `rgba(40, 45, 55, ${p.alpha * 0.04})`);
           grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
         }
 
@@ -154,7 +192,7 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
         ctx.restore();
       });
 
-      // Render Floating Embers
+      // --- Render Floating Embers ---
       emberParticles.forEach((e) => {
         e.y += e.vy;
         e.x += e.vx + Math.sin(e.pulse) * 0.3;
@@ -200,17 +238,51 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
       ref={containerRef}
       className={`relative w-full h-full overflow-hidden select-none bg-[#070707] ${className}`}
     >
-      {/* Slightly Darkened Portrait Photo for Crisp Text Contrast */}
+      {/* SVG Turbulence Filter for Fluid Photo Smoke Animation */}
+      <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
+        <filter id="photo-smoke-distortion">
+          <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="2" result="noise">
+            <animate
+              attributeName="baseFrequency"
+              dur="18s"
+              values="0.01 0.014; 0.018 0.024; 0.01 0.014"
+              repeatCount="indefinite"
+            />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
+
+      {/* Main Crisp Portrait Photo */}
       <img
         src={imageSrc}
         alt="Hemchand Paunikar"
-        className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.1] opacity-100 transition-transform duration-700 ease-out"
+        className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.1] opacity-100 transition-transform duration-700 ease-out z-0"
         style={{
           transform: `scale(${isHovered ? 1.02 : 1.0}) translate(${shiftX * 0.08}px, ${shiftY * 0.08}px)`,
         }}
       />
 
-      {/* Animated Canvas Smoke & Ember Effect Overlay */}
+      {/* Dynamic Animated Smoke Layer created directly from the Photo's background smoke ring */}
+      <div
+        className="absolute inset-0 pointer-events-none mix-blend-screen opacity-75 overflow-hidden z-0"
+        style={{
+          filter: 'url(#photo-smoke-distortion) blur(0.5px)',
+          maskImage: 'radial-gradient(circle at 32% 38%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, transparent 60%)',
+          WebkitMaskImage: 'radial-gradient(circle at 32% 38%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, transparent 60%)',
+        }}
+      >
+        <img
+          src={imageSrc}
+          alt=""
+          className="w-full h-full object-cover object-center scale-[1.03] transition-transform duration-700 ease-out"
+          style={{
+            transform: `translate(${shiftX * 0.12}px, ${shiftY * 0.12}px)`,
+          }}
+        />
+      </div>
+
+      {/* Interactive Canvas Smoke Vortex & Ambient Mist Overlay */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none mix-blend-screen opacity-85 z-10"
@@ -218,7 +290,7 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
 
       {/* Warm Amber Fire Lens Flare Glow on Right */}
       <div
-        className="absolute right-0 top-1/4 w-[45rem] h-[45rem] pointer-events-none mix-blend-screen opacity-50 transition-transform duration-700 animate-pulse"
+        className="absolute right-0 top-1/4 w-[45rem] h-[45rem] pointer-events-none mix-blend-screen opacity-50 transition-transform duration-700 animate-pulse z-10"
         style={{
           background: 'radial-gradient(circle at 75% 50%, rgba(245, 158, 11, 0.45) 0%, rgba(217, 119, 6, 0.2) 40%, transparent 75%)',
           transform: `translate(${shiftX * 0.6}px, ${shiftY * 0.4}px)`,
@@ -235,4 +307,5 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
 }
 
 export default CinematicHeroEffect;
+
 
