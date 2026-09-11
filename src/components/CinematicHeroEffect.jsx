@@ -80,21 +80,23 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
       ref={containerRef}
       className={`relative w-full h-full overflow-hidden select-none bg-[#070707] ${className}`}
     >
-      {/* Slightly Darkened Portrait Photo for Crisp Text Contrast */}
+      {/* Sharpened High-Definition Portrait Photo */}
       <img
         ref={imgRef}
         src={imageSrc}
         alt="Hemchand Paunikar"
-        className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.1] opacity-100 will-change-transform"
+        className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.22] saturate-[1.08] opacity-100 will-change-transform"
         style={{
           transform: 'scale(1) translate3d(0px, 0px, 0)',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
         }}
       />
 
       {/* Warm Amber Fire Lens Flare Glow on Right */}
       <div
         ref={flareRef}
-        className="absolute right-0 top-1/4 w-[45rem] h-[45rem] pointer-events-none mix-blend-screen opacity-50 will-change-transform"
+        className="absolute right-0 top-1/4 w-[45rem] h-[45rem] pointer-events-none mix-blend-screen opacity-45 will-change-transform"
         style={{
           background: 'radial-gradient(circle at 75% 50%, rgba(245, 158, 11, 0.45) 0%, rgba(217, 119, 6, 0.2) 40%, transparent 75%)',
           transform: 'translate3d(0px, 0px, 0)',
@@ -103,8 +105,8 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
       />
 
       {/* Dark Legibility Gradient Overlays behind Text */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070707]/60 via-transparent to-[#070707]/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070707]/80 via-transparent to-[#070707]/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#070707]/50 via-transparent to-[#070707]/35 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070707]/75 via-transparent to-[#070707]/30 pointer-events-none" />
     </div>
   );
 }
