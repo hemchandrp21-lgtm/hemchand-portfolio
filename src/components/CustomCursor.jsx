@@ -6,6 +6,9 @@ function CustomCursor() {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
+  const hoverRef = useRef(false);
+  const textRef = useRef('');
+
   useEffect(() => {
     // Only activate on desktop (min-width 1024px)
     if (window.innerWidth < 1024) return;
@@ -15,11 +18,13 @@ function CustomCursor() {
     let animFrameId = null;
     let clientX = -100;
     let clientY = -100;
+    let targetEl = null;
     let scheduled = false;
 
     const handleMouseMove = (e) => {
       clientX = e.clientX;
       clientY = e.clientY;
+      targetEl = e.target;
 
       if (!scheduled) {
         scheduled = true;
@@ -27,18 +32,27 @@ function CustomCursor() {
           if (cursorRef.current) {
             cursorRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0) translate(-50%, -50%)`;
           }
+
+          if (targetEl) {
+            const target = targetEl.closest ? targetEl.closest('[data-cursor]') : null;
+            if (target) {
+              const text = target.getAttribute('data-cursor') || 'VIEW';
+              if (textRef.current !== text || !hoverRef.current) {
+                textRef.current = text;
+                hoverRef.current = true;
+                setCursorText(text);
+                setIsHovered(true);
+              }
+            } else if (hoverRef.current) {
+              hoverRef.current = false;
+              textRef.current = '';
+              setIsHovered(false);
+              setCursorText('');
+            }
+          }
+
           scheduled = false;
         });
-      }
-
-      const target = e.target.closest('[data-cursor]');
-      if (target) {
-        const text = target.getAttribute('data-cursor') || 'VIEW';
-        setCursorText(text);
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
-        setCursorText('');
       }
     };
 
@@ -79,4 +93,3 @@ function CustomCursor() {
 }
 
 export default CustomCursor;
-
