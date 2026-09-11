@@ -1,9 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { useIceFire } from '../context/IceFireContext';
 
 function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className = '' }) {
   const containerRef = useRef(null);
   const imgRef = useRef(null);
-  const flareRef = useRef(null);
+  const fireFlareRef = useRef(null);
+  const iceFlareRef = useRef(null);
+  const { isFire } = useIceFire();
 
   useEffect(() => {
     const container = containerRef.current;
@@ -28,7 +31,7 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
       if (!rect.width || !rect.height) rect = container.getBoundingClientRect();
       targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
       targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-      
+
       if (!isMoving) {
         isMoving = true;
         animFrameId = requestAnimationFrame(loop);
@@ -70,11 +73,15 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
         imgRef.current.style.transform = `scale3d(${scale}, ${scale}, 1) translate3d(${shiftX * 0.06}px, ${shiftY * 0.06}px, 0)`;
       }
 
-      if (flareRef.current) {
-        flareRef.current.style.transform = `translate3d(${shiftX * 0.5}px, ${shiftY * 0.35}px, 0)`;
+      if (fireFlareRef.current) {
+        fireFlareRef.current.style.transform = `translate3d(${shiftX * 0.5}px, ${shiftY * 0.35}px, 0)`;
       }
 
-      // If animation has settled, stop rAF loop to save 100% CPU/GPU when idle
+      if (iceFlareRef.current) {
+        iceFlareRef.current.style.transform = `translate3d(${-shiftX * 0.5}px, ${-shiftY * 0.35}px, 0)`;
+      }
+
+      // Pause loop when settled to save 100% CPU/GPU when idle
       if (Math.abs(dx) < 0.0005 && Math.abs(dy) < 0.0005) {
         isMoving = false;
         animFrameId = null;
@@ -99,33 +106,47 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-full overflow-hidden select-none bg-[#070707] ${className}`}
+      className={`relative w-full h-full overflow-hidden select-none bg-[#050505] ${className}`}
       style={{ contain: 'layout style paint' }}
     >
-      {/* 1. Portrait Photo */}
+      {/* 1. Cinematic Portrait Image */}
       <img
         ref={imgRef}
         src={imageSrc}
         alt="Hemchand Paunikar"
-        className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.1] opacity-100 will-change-transform"
+        className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.78] contrast-[1.15] opacity-100 will-change-transform transition-all duration-700"
         style={{
           transform: 'scale3d(1, 1, 1) translate3d(0px, 0px, 0)',
         }}
       />
 
-      {/* 2. Warm Amber Fire Lens Flare Glow (Pre-computed smooth radial gradient, 0 CSS blur cost) */}
+      {/* 2. Cold Icy Cyan Volumetric Glow (Top-Left / Opposite Balance) */}
       <div
-        ref={flareRef}
-        className="absolute right-0 top-1/4 w-[45rem] h-[45rem] pointer-events-none mix-blend-screen opacity-50 will-change-transform"
+        ref={iceFlareRef}
+        className={`absolute -left-20 -top-20 w-[42rem] h-[42rem] pointer-events-none mix-blend-screen transition-opacity duration-700 will-change-transform ${
+          isFire ? 'opacity-35' : 'opacity-80'
+        }`}
         style={{
-          background: 'radial-gradient(circle at 75% 50%, rgba(245, 158, 11, 0.45) 0%, rgba(245, 158, 11, 0.25) 25%, rgba(217, 119, 6, 0.12) 50%, transparent 75%)',
+          background: 'radial-gradient(circle at 30% 30%, rgba(114, 216, 255, 0.45) 0%, rgba(63, 188, 232, 0.2) 45%, transparent 75%)',
           transform: 'translate3d(0px, 0px, 0)',
         }}
       />
 
-      {/* 3. Dark Legibility Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070707]/60 via-transparent to-[#070707]/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070707]/80 via-transparent to-[#070707]/40 pointer-events-none" />
+      {/* 3. Warm Amber Fire Volumetric Flare Glow (Bottom-Right / Fire Balance) */}
+      <div
+        ref={fireFlareRef}
+        className={`absolute -right-20 bottom-0 w-[46rem] h-[46rem] pointer-events-none mix-blend-screen transition-opacity duration-700 will-change-transform ${
+          isFire ? 'opacity-80' : 'opacity-35'
+        }`}
+        style={{
+          background: 'radial-gradient(circle at 75% 65%, rgba(255, 122, 24, 0.5) 0%, rgba(255, 181, 46, 0.2) 45%, transparent 75%)',
+          transform: 'translate3d(0px, 0px, 0)',
+        }}
+      />
+
+      {/* 4. Editorial Legibility Vignette Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/85 via-[#050505]/40 to-[#050505]/75 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/50 pointer-events-none" />
     </div>
   );
 }
