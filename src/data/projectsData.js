@@ -30,11 +30,15 @@ export const projects = [
     role: 'UX Researcher & Product Designer',
     tools: ['Figma', 'Usability Testing', 'Wireframing', 'Prototyping', 'User Research'],
     image: '/nobroker_behance.jpg',
+    gallery: [
+      '/nobroker_behance.jpg',
+      '/nobroker_ux.jpg',
+      '/nobroker_cropped.jpg'
+    ],
     aspect: 'aspect-video lg:aspect-[16/9]',
     colSpan: 'lg:col-span-8',
     summary: 'A UX redesign focused on reducing confusion and improving transparency in the Packers & Movers booking experience.',
     
-    // Detailed Case Study Fields
     problemStatement: 'The existing booking experience created friction around inventory selection, pricing visibility and trust. Users struggled to understand what they were selecting and became uncertain when costs appeared late in the flow.',
     
     researchFindings: [
@@ -81,6 +85,10 @@ export const projects = [
     role: 'Mobile UX & Interface Designer',
     tools: ['Figma', 'Mobile UX', 'Micro-Interactions', 'Dark Mode UI'],
     image: '/mobile_app_behance.jpg',
+    gallery: [
+      '/mobile_app_behance.jpg',
+      '/work1.jpg'
+    ],
     aspect: 'aspect-[4/3]',
     colSpan: 'lg:col-span-4 lg:translate-y-8',
     summary: 'Dark mode mobile app UI design featuring intuitive financial tracking, task workflows, and fluid micro-interactions.',
@@ -110,6 +118,10 @@ export const projects = [
     role: 'UI/UX & Brand Designer',
     tools: ['Figma', 'Design Systems', 'E-commerce Flows', 'Mobile Prototyping'],
     image: '/inkscale_behance.jpg',
+    gallery: [
+      '/inkscale_behance.jpg',
+      '/work2.jpg'
+    ],
     aspect: 'aspect-[16/9]',
     colSpan: 'lg:col-span-7',
     summary: 'Mobile shopping application for Inkscale spring collection featuring vibrant magenta branding and effortless checkout flows.',
@@ -139,6 +151,10 @@ export const projects = [
     role: 'Web UI/UX Designer',
     tools: ['Figma', 'Responsive Web Design', 'Web Architecture', 'Design System'],
     image: '/hozatra_behance.jpg',
+    gallery: [
+      '/hozatra_behance.jpg',
+      '/work3.jpg'
+    ],
     aspect: 'aspect-[3/4]',
     colSpan: 'lg:col-span-5 lg:-translate-y-6',
     summary: 'Responsive corporate website UI design for Hozatra, highlighting global impact, analytics dashboards, and sustainable growth.',
@@ -168,6 +184,9 @@ export const projects = [
     role: 'UI/UX & Web Designer',
     tools: ['Figma', 'Accessibility (WCAG)', 'Responsive Web', 'Child-Centric Design'],
     image: '/little_craft_behance.jpg',
+    gallery: [
+      '/little_craft_behance.jpg'
+    ],
     aspect: 'aspect-video lg:aspect-[16/9]',
     colSpan: 'lg:col-span-8',
     summary: 'Accessible tablet and desktop web UI for Little Craft Nursery School, featuring cheerful navigation and parent enrollment flows.',
@@ -197,6 +216,9 @@ export const projects = [
     role: 'UI/UX Designer',
     tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web'],
     image: '/resort_web_behance.jpg',
+    gallery: [
+      '/resort_web_behance.jpg'
+    ],
     aspect: 'aspect-[4/3]',
     colSpan: 'lg:col-span-4 lg:translate-y-8',
     summary: 'High-end responsive resort portal bringing families together in beautiful destinations with immersive villa photography.',
@@ -226,6 +248,9 @@ export const projects = [
     role: 'Product & Web App Designer',
     tools: ['Figma', 'Web App UX', 'Dark Mode UI', '3D Asset Management'],
     image: '/texture_lab_behance.jpg',
+    gallery: [
+      '/texture_lab_behance.jpg'
+    ],
     aspect: 'aspect-[16/9]',
     colSpan: 'lg:col-span-7',
     summary: 'A dark 3D material library web app UI designed for 3D artists, texture creators, and digital surface rendering workflows.',
@@ -255,6 +280,9 @@ export const projects = [
     role: 'Visual & Product Designer',
     tools: ['Figma', 'Photoshop', 'Product Branding', 'Visual Hierarchy'],
     image: '/titan_watch_behance.jpg',
+    gallery: [
+      '/titan_watch_behance.jpg'
+    ],
     aspect: 'aspect-[3/4]',
     colSpan: 'lg:col-span-5 lg:-translate-y-4',
     summary: 'Premium product showcase for Titan Men\'s Timeless Style Watch featuring refined black dial aesthetics and circular halo lighting.',
