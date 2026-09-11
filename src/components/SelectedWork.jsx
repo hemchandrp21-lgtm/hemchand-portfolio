@@ -1,155 +1,176 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projects, workCategories } from '../data/projectsData';
-import { trackEvent } from '../utils/analytics';
+import { useIceFire } from '../context/IceFireContext';
 
 function SelectedWork() {
-  const [selectedCategory, setSelectedCategory] = useState('ALL');
-  const [hoveredId, setHoveredId] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('ALL');
+  const { isFire } = useIceFire();
 
-  const handleProjectClick = (proj) => {
-    trackEvent('select_content', {
-      content_type: 'project_case_study',
-      item_id: proj.id,
-      title: proj.title,
-      category: proj.category
-    });
-  };
-
-  const filteredProjects = selectedCategory === 'ALL'
-    ? projects
-    : projects.filter((p) => p.category.includes(selectedCategory) || (p.typeTag && p.typeTag.includes(selectedCategory)));
+  const filteredProjects = projects.filter((project) => {
+    if (activeCategory === 'ALL') return true;
+    if (activeCategory === 'UX / UI') return project.category.includes('UX');
+    if (activeCategory === 'MOBILE') return project.typeTag?.toLowerCase().includes('mobile');
+    if (activeCategory === 'WEB') return project.typeTag?.toLowerCase().includes('web');
+    if (activeCategory === 'E-COMMERCE') return project.typeTag?.toLowerCase().includes('e-commerce');
+    if (activeCategory === 'BRANDING') return project.typeTag?.toLowerCase().includes('brand');
+    return true;
+  });
 
   return (
-    <section id="work" className="relative w-full py-32 px-6 lg:px-12 bg-[#070707] text-white border-t border-white/10">
-      {/* Section Editorial Header */}
-      <div className="max-w-7xl mx-auto mb-16">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
-          <div>
-            <span className="text-xs font-mono tracking-[0.3em] uppercase text-amber-400 font-semibold">
-              01 &mdash; FEATURED PROJECTS
-            </span>
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight uppercase mt-3 text-white">
-              SELECTED WORK.
+    <section id="work" className="relative w-full py-28 px-6 sm:px-10 lg:px-16 bg-[#050505] text-white">
+      {/* Background Volumetric Ambient Lighting */}
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-amber-500/10 rounded-full filter blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto space-y-16">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/10 pb-8">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-zinc-400 uppercase">
+              <span className={`w-1.5 h-1.5 rounded-full ${isFire ? 'bg-amber-400' : 'bg-cyan-400'}`} />
+              <span>FEATURED CASE STUDIES</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white">
+              SELECTED <span className={isFire ? 'gradient-text-fire' : 'gradient-text-ice'}>WORK</span>
             </h2>
           </div>
-          <p className="text-sm text-zinc-400 max-w-md leading-relaxed font-sans">
-            Case studies spanning UX research, product design, enterprise dashboards, e-commerce ecosystems, and visual story publications.
-          </p>
+
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em]">
+            {workCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-full border transition-all duration-300 cursor-pointer ${
+                  activeCategory === cat
+                    ? isFire
+                      ? 'bg-amber-500 text-black border-amber-500 font-semibold'
+                      : 'bg-cyan-500 text-black border-cyan-500 font-semibold'
+                    : 'bg-white/5 text-zinc-400 border-white/10 hover:border-white/20 hover:text-white'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2.5 mt-8">
-          {workCategories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 text-[11px] font-mono tracking-widest uppercase transition-all duration-300 rounded-none ${
-                selectedCategory === cat
-                  ? 'bg-amber-400 text-black font-bold shadow-md shadow-amber-500/20'
-                  : 'bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
+        {/* Featured Visual Story Project List */}
+        <div className="space-y-24">
+          {filteredProjects.map((project, idx) => {
+            const isEven = idx % 2 === 0;
+            return (
+              <article
+                key={project.id}
+                className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-b border-white/10 pb-20"
+              >
+                {/* Visual Image Showcase */}
+                <div
+                  className={`lg:col-span-7 relative rounded-2xl overflow-hidden glass-card transition-all duration-500 group-hover:border-white/30 ${
+                    isEven ? 'lg:order-1' : 'lg:order-2'
+                  }`}
+                >
+                  <Link to={`/work/${project.id}`} className="block relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-center filter brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700 ease-out"
+                    />
+                    {/* Dark gradient overlay & glow */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+                    
+                    {/* Floating Tag */}
+                    <div className="absolute top-6 left-6 px-3 py-1.5 rounded-full bg-[#050505]/80 backdrop-blur-md border border-white/15 text-[10px] font-mono tracking-widest text-zinc-300">
+                      {project.typeTag || project.category}
+                    </div>
 
-      {/* Asymmetric Case Study Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {filteredProjects.map((project) => {
-          const isHovered = hoveredId === project.id;
-          return (
-            <div
-              key={project.id}
-              className={`${project.colSpan} group relative flex flex-col space-y-6 cursor-pointer`}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              data-cursor="VIEW CASE"
-            >
-              {/* Image Container with Soft Shadow & Border */}
-              <Link to={`/work/${project.id}`} className="relative block overflow-hidden bg-zinc-950 rounded-sm border border-white/10 shadow-lg">
-                <div className={`relative w-full ${project.aspect} overflow-hidden`}>
-                  {/* Primary Photo */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover object-center filter contrast-[1.08] brightness-[0.85] transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-100"
-                  />
-
-                  {/* Light Aberration Overlay */}
-                  <img
-                    src={project.image}
-                    alt=""
-                    aria-hidden="true"
-                    className={`absolute inset-0 w-full h-full object-cover object-center mix-blend-screen opacity-0 transition-all duration-300 pointer-events-none filter hue-rotate-[-40deg] ${
-                      isHovered ? 'opacity-25 translate-x-2 -translate-y-1 scale-105' : ''
-                    }`}
-                  />
-
-                  {/* Top-Right Tag */}
-                  <div className="absolute top-5 right-5 z-10 px-3 py-1 bg-black/80 backdrop-blur-md border border-white/10 text-[10px] font-mono tracking-widest text-amber-400 font-bold uppercase shadow-sm">
-                    {project.num} &bull; {project.category}
-                  </div>
-                </div>
-              </Link>
-
-              {/* Information */}
-              <div className="flex flex-col space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-zinc-400">
-                  <span className="text-amber-400 uppercase font-semibold">{project.typeTag}</span>
-                  <span>{project.role}</span>
-                </div>
-
-                <Link to={`/work/${project.id}`} className="group/title">
-                  <h3 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold uppercase tracking-tight text-white group-hover/title:text-amber-400 transition-colors leading-tight flex items-center gap-3">
-                    {project.title}
-                    <span className="text-xl opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300">
-                      &rarr;
-                    </span>
-                  </h3>
-                </Link>
-
-                <p className="text-base text-amber-300 font-display uppercase tracking-wide font-medium">
-                  "{project.subtitle}"
-                </p>
-
-                <p className="text-sm text-zinc-300 leading-relaxed font-sans max-w-xl">
-                  {project.summary}
-                </p>
-
-                {/* Key Metric / Takeaway Highlight */}
-                {project.keyTakeaway && (
-                  <div className="p-3 bg-amber-500/10 border-l-2 border-amber-400 text-xs font-mono text-amber-300 font-medium">
-                    &bull; {project.keyTakeaway}
-                  </div>
-                )}
-
-                {/* Tools & Link */}
-                <div className="pt-3 flex flex-wrap items-center justify-between gap-4 border-t border-white/10">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tools.map((tool, i) => (
-                      <span
-                        key={i}
-                        className="text-[10px] font-mono text-zinc-300 bg-zinc-900 px-2.5 py-0.5 rounded-sm border border-zinc-800"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-
-                  <Link
-                    to={`/work/${project.id}`}
-                    className="text-xs font-bold font-mono tracking-widest uppercase text-zinc-200 hover:text-amber-400 transition-colors inline-flex items-center gap-2"
-                  >
-                    View Case Study <span className="text-sm">&rarr;</span>
+                    {/* View Button Indicator */}
+                    <div className="absolute bottom-6 right-6 px-4 py-2 rounded-full bg-white text-black font-mono text-[10px] font-bold uppercase tracking-widest opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                      VIEW CASE STUDY &rarr;
+                    </div>
                   </Link>
                 </div>
-              </div>
-            </div>
-          );
-        })}
+
+                {/* Project Editorial Metadata */}
+                <div
+                  className={`lg:col-span-5 flex flex-col justify-center space-y-6 ${
+                    isEven ? 'lg:order-2' : 'lg:order-1'
+                  }`}
+                >
+                  {/* Number & Year */}
+                  <div className="flex items-center justify-between font-mono text-xs text-zinc-500 border-b border-white/10 pb-3">
+                    <span className={`text-sm font-bold tracking-widest ${isFire ? 'text-amber-400' : 'text-cyan-400'}`}>
+                      {project.num}
+                    </span>
+                    <span className="tracking-widest uppercase">{project.year} &bull; {project.client}</span>
+                  </div>
+
+                  {/* Title & Subtitle */}
+                  <div className="space-y-2">
+                    <h3 className="text-2xl sm:text-3xl font-display font-medium text-white tracking-tight uppercase group-hover:text-amber-400 transition-colors">
+                      <Link to={`/work/${project.id}`} className="no-underline text-white hover:text-amber-400">
+                        {project.title}
+                      </Link>
+                    </h3>
+                    <p className="text-xs font-mono text-zinc-400 tracking-wider">
+                      {project.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Summary */}
+                  <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed">
+                    {project.summary}
+                  </p>
+
+                  {/* Metrics Highlight (if available) */}
+                  {project.beforeAfterMetrics && project.beforeAfterMetrics.length > 0 && (
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2 font-mono text-[11px]">
+                      <span className="text-[10px] text-zinc-400 uppercase tracking-widest block">
+                        METRIC IMPACT
+                      </span>
+                      <div className="flex flex-wrap gap-4 text-zinc-200">
+                        {project.beforeAfterMetrics.map((m, i) => (
+                          <div key={i} className="flex items-center gap-2">
+                            <span className={`w-1.5 h-1.5 rounded-full ${isFire ? 'bg-amber-400' : 'bg-cyan-400'}`} />
+                            <span>{m.metric}: <strong className="text-white">{m.change}</strong></span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Tools */}
+                  {project.tools && (
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {project.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-zinc-400"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Action Link */}
+                  <div className="pt-2">
+                    <Link
+                      to={`/work/${project.id}`}
+                      className={`inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase no-underline transition-colors ${
+                        isFire ? 'text-amber-400 hover:text-amber-300' : 'text-cyan-400 hover:text-cyan-300'
+                      }`}
+                    >
+                      <span>EXPLORE CASE STUDY</span>
+                      <span>&rarr;</span>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

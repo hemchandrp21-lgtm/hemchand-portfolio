@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { IceFireProvider } from './context/IceFireContext';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -20,18 +21,21 @@ function AnalyticsTracker() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AnalyticsTracker />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/work/:id" element={<ProjectDetail />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
+    <IceFireProvider>
+      <BrowserRouter>
+        <AnalyticsTracker />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/:id" element={<ProjectDetail />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+    </IceFireProvider>
   );
 }
 
 export default App;
+

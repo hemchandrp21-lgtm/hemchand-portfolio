@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 function CustomCursor() {
-  const [pos, setPos] = useState({ x: -100, y: -100 });
+  const cursorRef = useRef(null);
   const [cursorText, setCursorText] = useState('');
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -12,9 +12,24 @@ function CustomCursor() {
 
     document.body.classList.add('custom-cursor-active');
 
+    let animFrameId = null;
+    let clientX = -100;
+    let clientY = -100;
+    let scheduled = false;
+
     const handleMouseMove = (e) => {
-      setPos({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      clientX = e.clientX;
+      clientY = e.clientY;
+
+      if (!scheduled) {
+        scheduled = true;
+        animFrameId = requestAnimationFrame(() => {
+          if (cursorRef.current) {
+            cursorRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0) translate(-50%, -50%)`;
+          }
+          scheduled = false;
+        });
+      }
 
       const target = e.target.closest('[data-cursor]');
       if (target) {
@@ -30,7 +45,7 @@ function CustomCursor() {
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
 
@@ -39,21 +54,23 @@ function CustomCursor() {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
+      if (animFrameId) cancelAnimationFrame(animFrameId);
     };
-  }, [isVisible]);
-
-  if (!isVisible) return null;
+  }, []);
 
   return (
     <div
-      className={`fixed pointer-events-none z-50 transition-transform duration-100 ease-out -translate-x-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center rounded-full ${
+      ref={cursorRef}
+      className={`fixed top-0 left-0 pointer-events-none z-50 transition-opacity duration-150 hidden lg:flex items-center justify-center rounded-full ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      } ${
         isHovered
-          ? 'w-20 h-20 bg-white/90 text-zinc-950 font-bold text-xs tracking-widest uppercase shadow-2xl backdrop-blur-sm scale-100'
+          ? 'w-20 h-20 bg-white/90 text-zinc-950 font-bold text-xs tracking-widest uppercase shadow-2xl backdrop-blur-sm'
           : 'w-3.5 h-3.5 bg-white mix-blend-difference'
       }`}
       style={{
-        left: `${pos.x}px`,
-        top: `${pos.y}px`,
+        transform: 'translate3d(-100px, -100px, 0) translate(-50%, -50%)',
+        willChange: 'transform',
       }}
     >
       {isHovered && <span>{cursorText}</span>}
@@ -62,3 +79,4 @@ function CustomCursor() {
 }
 
 export default CustomCursor;
+

@@ -1,73 +1,134 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useIceFire } from '../context/IceFireContext';
 
 function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className = '' }) {
   const containerRef = useRef(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const imgRef = useRef(null);
+  const fireFlareRef = useRef(null);
+  const iceFlareRef = useRef(null);
+  const { isFire } = useIceFire();
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
+    let animFrameId = null;
+    let isHovered = false;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let rect = container.getBoundingClientRect();
+
+    const updateRect = () => {
+      rect = container.getBoundingClientRect();
+    };
+
+    window.addEventListener('resize', updateRect, { passive: true });
+
     const handleMouseMove = (e) => {
-      const rect = container.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-      setMousePos({ x, y });
+      if (!rect.width || !rect.height) rect = container.getBoundingClientRect();
+      targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
     };
 
-    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseEnter = () => {
+      isHovered = true;
+      updateRect();
+    };
+
     const handleMouseLeave = () => {
-      setIsHovered(false);
-      setMousePos({ x: 0, y: 0 });
+      isHovered = false;
+      targetX = 0;
+      targetY = 0;
     };
 
-    container.addEventListener('mousemove', handleMouseMove);
-    container.addEventListener('mouseenter', handleMouseEnter);
-    container.addEventListener('mouseleave', handleMouseLeave);
+    const loop = () => {
+      // Smooth lerp for buttery cinematic inertia
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+
+      const shiftX = currentX * 20;
+      const shiftY = currentY * 15;
+      const scale = isHovered ? 1.02 : 1.0;
+
+      if (imgRef.current) {
+        imgRef.current.style.transform = `scale(${scale}) translate3d(${shiftX * 0.08}px, ${shiftY * 0.08}px, 0)`;
+      }
+
+      if (fireFlareRef.current) {
+        fireFlareRef.current.style.transform = `translate3d(${shiftX * 0.5}px, ${shiftY * 0.35}px, 0)`;
+      }
+
+      if (iceFlareRef.current) {
+        iceFlareRef.current.style.transform = `translate3d(${-shiftX * 0.5}px, ${-shiftY * 0.35}px, 0)`;
+      }
+
+      animFrameId = requestAnimationFrame(loop);
+    };
+
+    loop();
+
+    container.addEventListener('mousemove', handleMouseMove, { passive: true });
+    container.addEventListener('mouseenter', handleMouseEnter, { passive: true });
+    container.addEventListener('mouseleave', handleMouseLeave, { passive: true });
 
     return () => {
+      window.removeEventListener('resize', updateRect);
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseenter', handleMouseEnter);
       container.removeEventListener('mouseleave', handleMouseLeave);
+      if (animFrameId) cancelAnimationFrame(animFrameId);
     };
   }, []);
-
-  const shiftX = mousePos.x * 20;
-  const shiftY = mousePos.y * 15;
 
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-full overflow-hidden select-none bg-[#070707] ${className}`}
+      className={`relative w-full h-full overflow-hidden select-none bg-[#050505] ${className}`}
     >
-      {/* Slightly Darkened Portrait Photo for Crisp Text Contrast */}
+      {/* 1. Cinematic Portrait Image */}
       <img
+        ref={imgRef}
         src={imageSrc}
         alt="Hemchand Paunikar"
-        className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.1] opacity-100 transition-transform duration-700 ease-out"
+        className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.78] contrast-[1.15] opacity-100 will-change-transform transition-all duration-700"
         style={{
-          transform: `scale(${isHovered ? 1.02 : 1.0}) translate(${shiftX * 0.08}px, ${shiftY * 0.08}px)`,
+          transform: 'scale(1) translate3d(0px, 0px, 0)',
         }}
       />
 
-      {/* Warm Amber Fire Lens Flare Glow on Right */}
+      {/* 2. Cold Icy Cyan Volumetric Glow (Top-Left / Opposite Balance) */}
       <div
-        className="absolute right-0 top-1/4 w-[45rem] h-[45rem] pointer-events-none mix-blend-screen opacity-50 transition-transform duration-700"
+        ref={iceFlareRef}
+        className={`absolute -left-20 -top-20 w-[42rem] h-[42rem] pointer-events-none mix-blend-screen transition-opacity duration-700 will-change-transform ${
+          isFire ? 'opacity-35' : 'opacity-80'
+        }`}
         style={{
-          background: 'radial-gradient(circle at 75% 50%, rgba(245, 158, 11, 0.45) 0%, rgba(217, 119, 6, 0.2) 40%, transparent 75%)',
-          transform: `translate(${shiftX * 0.6}px, ${shiftY * 0.4}px)`,
-          filter: 'blur(60px)',
+          background: 'radial-gradient(circle at 30% 30%, rgba(114, 216, 255, 0.45) 0%, rgba(63, 188, 232, 0.2) 45%, transparent 75%)',
+          transform: 'translate3d(0px, 0px, 0)',
+          filter: 'blur(50px)',
         }}
       />
 
-      {/* Dark Legibility Gradient Overlays behind Text */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070707]/60 via-transparent to-[#070707]/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070707]/80 via-transparent to-[#070707]/40 pointer-events-none" />
+      {/* 3. Warm Amber Fire Volumetric Flare Glow (Bottom-Right / Fire Balance) */}
+      <div
+        ref={fireFlareRef}
+        className={`absolute -right-20 bottom-0 w-[46rem] h-[46rem] pointer-events-none mix-blend-screen transition-opacity duration-700 will-change-transform ${
+          isFire ? 'opacity-80' : 'opacity-35'
+        }`}
+        style={{
+          background: 'radial-gradient(circle at 75% 65%, rgba(255, 122, 24, 0.5) 0%, rgba(255, 181, 46, 0.2) 45%, transparent 75%)',
+          transform: 'translate3d(0px, 0px, 0)',
+          filter: 'blur(55px)',
+        }}
+      />
+
+      {/* 4. Editorial Legibility Vignette Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/85 via-[#050505]/40 to-[#050505]/75 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/50 pointer-events-none" />
     </div>
   );
 }
 
 export default CinematicHeroEffect;
-
-
