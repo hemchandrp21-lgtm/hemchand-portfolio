@@ -49,75 +49,35 @@ function Hero() {
         <CinematicHeroEffect imageSrc="/hero_portrait_suit.jpg" />
       </div>
 
-      {/* 2. Main Grid Content */}
+      {/* 2. Main Grid Content matching Reference Layout */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto pointer-events-none">
         
-        {/* Left Side: Editorial Typography & Positioning */}
-        <div className="lg:col-span-7 flex flex-col justify-center self-center my-auto pointer-events-auto space-y-6 sm:space-y-8 items-start text-left">
-          {/* Tag & Subhead */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-zinc-300 uppercase">
-            <span className={`w-1.5 h-1.5 rounded-full ${isFire ? 'bg-amber-400 animate-pulse' : 'bg-cyan-400 animate-pulse'}`} />
-            <span>ICE &times; FIRE PORTFOLIO</span>
-          </div>
-
-          {/* Main Title - Architectural Uppercase */}
-          <div className="max-w-xl">
-            <h1 className="font-sans font-normal text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white leading-[1.18] uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-              UI/UX DESIGNER <br />
-              AND <br />
-              <span className={`transition-colors duration-500 ${isFire ? 'gradient-text-fire' : 'gradient-text-ice'}`}>
-                CREATIVE TECHNOLOGIST
-              </span>
-            </h1>
-          </div>
-
-          {/* Bio Subtext */}
-          <div className="max-w-md">
-            <p className="text-xs sm:text-sm text-zinc-300 font-mono leading-relaxed tracking-normal drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-              I design digital experiences that blend creativity, functionality, technology and human emotion — turning ideas into meaningful products.
-            </p>
-          </div>
-
-          {/* Call to Action CTA */}
-          <div className="pt-2 flex items-center gap-6">
-            <a
-              href="#work"
-              onClick={scrollToWork}
-              className={`px-6 py-3 rounded-full text-xs font-mono tracking-[0.2em] uppercase transition-all duration-300 flex items-center gap-3 no-underline shadow-lg ${
-                isFire
-                  ? 'bg-amber-500 text-black font-semibold hover:bg-amber-400 hover:shadow-amber-500/30'
-                  : 'bg-cyan-500 text-black font-semibold hover:bg-cyan-400 hover:shadow-cyan-500/30'
-              }`}
-            >
-              <span>EXPLORE WORK</span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </a>
-
-            <a
-              href="/about"
-              className="text-xs font-mono tracking-[0.2em] text-zinc-300 hover:text-white transition-colors no-underline uppercase"
-            >
-              ABOUT ME &rarr;
-            </a>
-          </div>
+        {/* Left Side: Headline & Bio Subtext cleanly aligned */}
+        <div className="lg:col-span-7 flex flex-col justify-center self-center my-auto pointer-events-auto items-start text-left space-y-6">
+          <h1 className="font-sans font-medium text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] tracking-tight text-zinc-100 leading-[1.25] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+            UI/UX Designer <br />
+            and <br />
+            Creative Technologist
+          </h1>
+          <p className="text-xs sm:text-sm text-zinc-300 font-mono leading-relaxed tracking-normal max-w-md drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+            I design digital experiences <br />
+            that blend creativity, functionality <br />
+            and human emotion -- turning ideas <br />
+            into meaningful products.
+          </p>
         </div>
 
-        {/* Center Space */}
-        <div className="hidden lg:block lg:col-span-1" />
-
-        {/* Right Side: Editorial Micro UI HUD Details */}
-        <div className="hidden lg:grid lg:col-span-4 grid-cols-2 gap-8 text-[11px] font-mono tracking-[0.2em] text-zinc-300 uppercase pointer-events-auto self-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+        {/* Right Side: Monospace Minimal HUD Columns matching Reference Image */}
+        <div className="hidden lg:grid lg:col-span-4 grid-cols-2 gap-8 text-[11px] font-mono tracking-[0.2em] text-zinc-400 uppercase pointer-events-auto self-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
           {/* Column 1: DESIGN */}
           <div className="space-y-4">
             <div>
               <span className="text-zinc-500 text-[10px] block font-mono">--</span>
-              <span className={`font-semibold tracking-[0.25em] text-[10px] block mt-0.5 ${isFire ? 'text-amber-400' : 'text-cyan-400'}`}>
+              <span className="font-semibold tracking-[0.25em] text-[10px] text-zinc-300 block mt-0.5">
                 DESIGN
               </span>
             </div>
-            <div className="space-y-2.5 text-zinc-300 font-medium">
+            <div className="space-y-2.5 text-zinc-400 font-medium">
               <p className="hover:text-white transition-colors cursor-default">UI/UX</p>
               <p className="hover:text-white transition-colors cursor-default">PRODUCT DESIGN</p>
               <p className="hover:text-white transition-colors cursor-default">BRAND IDENTITY</p>
@@ -130,11 +90,11 @@ function Hero() {
           <div className="space-y-4">
             <div>
               <span className="text-zinc-500 text-[10px] block font-mono">--</span>
-              <span className={`font-semibold tracking-[0.25em] text-[10px] block mt-0.5 ${isFire ? 'text-amber-400' : 'text-cyan-400'}`}>
+              <span className="font-semibold tracking-[0.25em] text-[10px] text-zinc-300 block mt-0.5">
                 FEATURED
               </span>
             </div>
-            <div className="space-y-2.5 text-zinc-300 font-medium">
+            <div className="space-y-2.5 text-zinc-400 font-medium">
               <p className="hover:text-white transition-colors cursor-default">COLLEGE PROJECTS</p>
               <p className="hover:text-white transition-colors cursor-default">PERSONAL WORK</p>
               <p className="hover:text-white transition-colors cursor-default">INTERNSHIPS</p>
@@ -145,20 +105,18 @@ function Hero() {
         </div>
       </div>
 
-      {/* 3. Bottom Row: SCROLL (Left) & Live Coordinates (Right) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex items-end justify-between pointer-events-none text-[10px] font-mono text-zinc-400 uppercase tracking-widest pt-4 border-t border-white/10">
+      {/* 3. Bottom Row: SCROLL & Live Mouse Coordinates */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex items-end justify-between pointer-events-none text-[10px] font-mono text-zinc-400 uppercase tracking-widest pt-4">
         {/* Bottom Left Scroll Indicator */}
-        <div className="pointer-events-auto flex items-center space-x-3">
-          <span className="text-zinc-500 text-[10px]">--</span>
+        <div className="pointer-events-auto space-y-1">
           <a
             href="#work"
             onClick={scrollToWork}
-            className={`transition-colors no-underline cursor-pointer font-medium tracking-[0.25em] ${
-              isFire ? 'hover:text-amber-400 text-zinc-300' : 'hover:text-cyan-400 text-zinc-300'
-            }`}
+            className="transition-colors no-underline cursor-pointer font-medium tracking-[0.25em] text-zinc-300 hover:text-white block"
           >
-            SCROLL DOWN
+            SCROLL
           </a>
+          <span className="text-zinc-500 text-[10px] block font-mono">--</span>
         </div>
 
         {/* Bottom Right Live Mouse Coordinates */}
@@ -171,3 +129,5 @@ function Hero() {
 }
 
 export default Hero;
+
+
