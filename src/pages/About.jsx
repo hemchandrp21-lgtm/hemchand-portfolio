@@ -3,14 +3,14 @@ import CustomCursor from '../components/CustomCursor';
 import Header from '../components/Header';
 import AboutSection from '../components/AboutSection';
 import ExperienceSection from '../components/ExperienceSection';
-import SkillsSection from '../components/SkillsSection';
 import ProcessSection from '../components/ProcessSection';
+import SkillsSection from '../components/SkillsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 function About() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-amber-400 selection:text-black">
+    <div className="min-h-screen bg-[#040507] text-white font-sans selection:bg-white selection:text-black">
       <FilmOverlay />
       <CustomCursor />
       <Header />
@@ -18,8 +18,8 @@ function About() {
       <main className="pt-20">
         <AboutSection />
         <ExperienceSection />
-        <ProcessSection />
         <SkillsSection />
+        <ProcessSection />
         <ContactSection />
       </main>
 

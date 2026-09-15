@@ -1,33 +1,33 @@
-import { useIceFire } from '../context/IceFireContext';
 import { ArrowUp } from 'lucide-react';
+import { playHoverSound, playClickSound } from '../utils/audioEngine';
 
 function Footer() {
-  const { isFire } = useIceFire();
-
   const scrollToTop = () => {
+    playClickSound();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="w-full py-12 px-6 sm:px-10 lg:px-16 bg-[#050507] text-white border-t border-white/10 font-mono text-[11px] uppercase tracking-widest text-zinc-400">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Left Info */}
-        <div className="flex flex-wrap items-center gap-3">
-          <span className={`w-2 h-2 rounded-full animate-pulse ${isFire ? 'bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' : 'bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]'}`} />
-          <span className="text-zinc-200 font-semibold tracking-[0.2em]">HEMCHAND PAUNIKAR</span>
-          <span className="text-zinc-500">&bull; UI/UX &amp; CREATIVE TECH</span>
+    <footer className="relative w-full py-16 px-6 md:px-16 bg-[#040507] text-white border-t border-white/10 font-display text-xs uppercase tracking-[0.2em] z-10">
+      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        {/* Left Brand Line */}
+        <div className="flex flex-wrap items-center gap-4 text-white/60">
+          <div className="w-2 h-2 bg-white rotate-45 animate-pulse" />
+          <span className="text-white font-bold tracking-[0.24em]">HEMCHAND PAUNIKAR</span>
+          <span className="text-white/30">&bull; BRAND &amp; PRODUCT DESIGNER</span>
         </div>
 
         {/* Right Info & Back to Top */}
-        <div className="flex items-center gap-6">
-          <span className="text-zinc-500 text-[10px]">
-            &copy; {new Date().getFullYear()} ECHO VALE THEME &bull; ALL RIGHTS RESERVED
-          </span>
+        <div className="flex flex-wrap items-center gap-8 text-white/40">
+          <span>&copy; {new Date().getFullYear()} ALL RIGHTS RESERVED</span>
           <button
             onClick={scrollToTop}
-            className="p-2 rounded-full bg-white/5 border border-white/10 hover:border-white/30 text-zinc-300 hover:text-white transition-all cursor-pointer"
-            title="Back to Top"
+            onMouseEnter={playHoverSound}
+            className="flex items-center gap-2 px-4 py-2 border border-white/10 hover:border-white text-white transition-all cursor-pointer font-display text-xs tracking-[0.2em] uppercase"
+            title="Back to top of page"
           >
+            <span>BACK TO TOP</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -37,4 +37,5 @@ function Footer() {
 }
 
 export default Footer;
+
 

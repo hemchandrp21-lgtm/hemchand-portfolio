@@ -1,154 +1,182 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import { useIceFire } from '../context/IceFireContext';
+import { Link, useLocation } from 'react-router-dom';
+import { toggleAudioMute, getAudioMutedState, playHoverSound, playClickSound } from '../utils/audioEngine';
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(() => getAudioMutedState());
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme, isFire } = useIceFire();
+  const [timeStr, setTimeStr] = useState('');
   const location = useLocation();
 
+  const isHomePage = location.pathname === '/';
+
+  const handleSoundToggle = () => {
+    playClickSound();
+    const muted = toggleAudioMute();
+    setIsMuted(muted);
+  };
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
+
+  // Track live clock for subpages
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const mins = String(now.getMinutes()).padStart(2, '0');
+      const secs = String(now.getSeconds()).padStart(2, '0');
+      setTimeStr(`${hours}:${mins}:${secs}`);
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Track scroll position to conditionally show sticky nav on scroll
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 150);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock scroll when menu is open
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [menuOpen]);
+
+  // On home page, hero handles top nav when scrolled to top. Only show sticky subpage header when scrolled on Home or when on subpages.
+  if (isHomePage && !scrolled && !menuOpen) {
+    return null;
+  }
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 w-full px-6 sm:px-10 lg:px-16 transition-all duration-500 pointer-events-auto ${
-          scrolled
-            ? 'bg-[#050505]/85 backdrop-blur-xl border-b border-white/10 py-4 shadow-2xl'
-            : 'bg-transparent py-6'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400">
-          {/* Top Left Name Logo */}
-          <Link
-            to="/"
-            className="text-zinc-100 font-semibold tracking-[0.25em] hover:text-amber-400 transition-colors no-underline text-xs flex items-center gap-2 group"
-          >
-            <span className={`w-2 h-2 rounded-full transition-colors duration-500 ${isFire ? 'bg-amber-400 shadow-[0_0_10px_#FF7A18]' : 'bg-cyan-400 shadow-[0_0_10px_#3FBCE8]'}`} />
-            <span>HEMCHAND P.</span>
-          </Link>
+      {/* Sleek Floating Header matching reference aesthetic */}
+      <header className={`fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-6 flex items-center justify-between transition-all duration-500 ${
+        scrolled ? 'bg-[#040507]/90 backdrop-blur-md border-b border-white/10 shadow-2xl' : 'bg-transparent'
+      }`}>
+        {/* Brand Logo */}
+        <Link
+          to="/"
+          onMouseEnter={playHoverSound}
+          onClick={playClickSound}
+          className="font-display font-bold text-lg sm:text-xl tracking-tight text-white no-underline hover:text-white/80 transition-colors pointer-events-auto"
+        >
+          Hemchand&reg;
+        </Link>
 
-          {/* Center Navigation Links (WORKS, ABOUT, CONTACT) */}
-          <nav className="hidden md:flex items-center gap-12 text-[11px]">
-            <a
-              href="/#work"
-              className="hover:text-white transition-colors py-1 relative group text-zinc-400 tracking-[0.2em]"
-            >
-              WORKS
-              <span className={`absolute bottom-0 left-0 w-0 h-[1px] transition-all duration-300 group-hover:w-full ${isFire ? 'bg-amber-400' : 'bg-cyan-400'}`} />
-            </a>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `hover:text-white transition-colors py-1 relative group tracking-[0.2em] ${
-                  isActive ? 'text-white font-semibold' : 'text-zinc-400'
-                }`
-              }
-            >
-              ABOUT
-              <span className={`absolute bottom-0 left-0 w-0 h-[1px] transition-all duration-300 group-hover:w-full ${isFire ? 'bg-amber-400' : 'bg-cyan-400'}`} />
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `hover:text-white transition-colors py-1 relative group tracking-[0.2em] ${
-                  isActive ? 'text-white font-semibold' : 'text-zinc-400'
-                }`
-              }
-            >
-              CONTACT
-              <span className={`absolute bottom-0 left-0 w-0 h-[1px] transition-all duration-300 group-hover:w-full ${isFire ? 'bg-amber-400' : 'bg-cyan-400'}`} />
-            </NavLink>
-          </nav>
-
-          {/* Top Right ICE / FIRE Toggle Switch */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle ICE vs FIRE visual theme"
-              className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300 group cursor-pointer focus:outline-none"
-            >
-              <span className="text-[9px] tracking-widest text-zinc-400 group-hover:text-zinc-200">
-                {isFire ? 'FIRE' : 'ICE'}
-              </span>
-              <div
-                className={`w-8 h-4 rounded-full p-0.5 transition-colors duration-500 relative flex items-center ${
-                  isFire ? 'bg-amber-500/20 border border-amber-500/40' : 'bg-cyan-500/20 border border-cyan-500/40'
-                }`}
-              >
-                <div
-                  className={`w-3 h-3 rounded-full transition-transform duration-500 shadow-md ${
-                    isFire ? 'translate-x-4 bg-amber-400 shadow-amber-500/50' : 'translate-x-0 bg-cyan-400 shadow-cyan-500/50'
-                  }`}
-                />
-              </div>
-            </button>
-
-            {/* Mobile Toggle Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none"
-              aria-label="Toggle Navigation Menu"
-            >
-              <span className={`w-5 h-[1.5px] bg-white transition-transform duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-              <span className={`w-5 h-[1.5px] bg-white transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
-              <span className={`w-5 h-[1.5px] bg-white transition-transform duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
-            </button>
-          </div>
+        {/* Center Live Ticker (Subpages) */}
+        <div className="hidden md:flex items-center gap-2 font-mono text-[11px] sm:text-xs text-white/80 tracking-[0.25em] pointer-events-auto">
+          <span>INDIA</span>
+          <span className="font-bold text-white">{timeStr || '12:00:00'}</span>
         </div>
+
+        {/* Desktop Navigation Links */}
+        <nav className="flex items-center gap-6 sm:gap-8 font-mono text-[11px] sm:text-xs tracking-[0.2em] uppercase pointer-events-auto">
+          <Link
+            to="/about"
+            onMouseEnter={playHoverSound}
+            onClick={playClickSound}
+            className="hover:text-white transition-colors no-underline text-white/80"
+          >
+            About
+          </Link>
+          <Link
+            to="/work"
+            onMouseEnter={playHoverSound}
+            onClick={playClickSound}
+            className="hover:text-white transition-colors no-underline text-white/80"
+          >
+            Work
+          </Link>
+          <Link
+            to="/playground"
+            onMouseEnter={playHoverSound}
+            onClick={playClickSound}
+            className="hover:text-white transition-colors no-underline text-white/80"
+          >
+            Playground
+          </Link>
+          <Link
+            to="/contact"
+            onMouseEnter={playHoverSound}
+            onClick={playClickSound}
+            className="hover:text-white transition-colors no-underline text-white/80"
+          >
+            Contact
+          </Link>
+        </nav>
       </header>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#050505]/98 backdrop-blur-2xl flex flex-col justify-between px-8 py-24 md:hidden border-b border-white/10">
-          <div className="flex flex-col space-y-8 font-mono">
-            <span className="text-[10px] tracking-[0.3em] text-zinc-500 uppercase">
-              Navigation &bull; ICE &times; FIRE
-            </span>
-            <a
-              href="/#work"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-tight text-white hover:text-amber-400 transition-colors border-b border-white/10 pb-4"
-            >
-              WORKS
-            </a>
-            <Link
-              to="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-tight text-white hover:text-amber-400 transition-colors border-b border-white/10 pb-4"
-            >
-              ABOUT
-            </Link>
-            <Link
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-tight text-white hover:text-amber-400 transition-colors border-b border-white/10 pb-4"
-            >
-              CONTACT
-            </Link>
-          </div>
+      {/* Fullscreen Claudiu Angheloni Style Cyber Menu Panel */}
+      <div
+        className={`fixed inset-0 z-40 bg-[#040507]/98 backdrop-blur-2xl transition-all duration-500 flex flex-col justify-between px-8 md:px-24 py-28 overflow-y-auto ${
+          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        {/* Background Overlay Art Lines */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
+          <div className="absolute top-1/4 left-10 w-96 h-96 border border-white rotate-12" />
+          <div className="absolute bottom-1/4 right-20 w-[500px] h-[500px] border border-white -rotate-45" />
+          <div className="absolute top-0 right-1/3 w-[1px] h-full bg-white/20" />
+        </div>
 
-          <div className="flex flex-col space-y-2 border-t border-white/10 pt-6 font-mono text-xs text-zinc-400">
-            <span className="text-zinc-200">hemchandrp21@gmail.com</span>
-            <span className="text-[10px] text-zinc-500 uppercase tracking-widest">
-              B.Des UX Design &bull; Symbiosis Institute of Design
-            </span>
+        {/* Menu Navigation Links */}
+        <nav className="relative z-10 flex flex-col space-y-4 max-w-4xl">
+          {[
+            { num: '01', label: 'HOME', path: '/' },
+            { num: '02', label: 'ABOUT ME', path: '/about' },
+            { num: '03', label: 'WORK', path: '/work' },
+            { num: '04', label: 'PLAYGROUND', path: '/playground' },
+            { num: '05', label: 'CONTACT', path: '/contact' },
+          ].map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              onMouseEnter={playHoverSound}
+              onClick={() => { playClickSound(); setMenuOpen(false); }}
+              className="group flex items-baseline gap-6 text-[#040507] hover:text-white transition-colors no-underline border-b border-white/10 pb-4"
+            >
+              <span className="font-display font-light text-xl md:text-2xl text-white/40 group-hover:text-white transition-colors tracking-widest">
+                {item.num}
+              </span>
+              <span className="font-display font-bold text-4xl md:text-7xl text-white tracking-wider group-hover:translate-x-4 transition-transform duration-300">
+                {item.label}
+              </span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* Menu Drawer Footer Info */}
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-white/10 text-white/60 font-display text-xs tracking-[0.16em] uppercase">
+          <div>
+            <span className="block text-white/30 text-[10px]">LOCATION</span>
+            <span>PUNE & MUMBAI, INDIA</span>
+          </div>
+          <div>
+            <span className="block text-white/30 text-[10px]">DIRECT INQUIRIES</span>
+            <a href="mailto:hemchandrp21@gmail.com" className="text-white hover:underline">
+              HEMCHANDRP21@GMAIL.COM
+            </a>
+          </div>
+          <div>
+            <span className="block text-white/30 text-[10px]">DISCIPLINE</span>
+            <span>UI/UX, BRAND IDENTITY & DESIGN SYSTEMS</span>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 }
 
 export default Header;
+

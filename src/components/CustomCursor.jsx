@@ -1,13 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 function CustomCursor() {
   const cursorRef = useRef(null);
-  const [cursorText, setCursorText] = useState('');
-  const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const hoverRef = useRef(false);
-  const textRef = useRef('');
+  const spanRef = useRef(null);
 
   useEffect(() => {
     // Only activate on desktop (min-width 1024px)
@@ -20,6 +15,8 @@ function CustomCursor() {
     let clientY = -100;
     let targetEl = null;
     let scheduled = false;
+    let isHovered = false;
+    let currentText = '';
 
     const handleMouseMove = (e) => {
       clientX = e.clientX;
@@ -37,17 +34,25 @@ function CustomCursor() {
             const target = targetEl.closest ? targetEl.closest('[data-cursor]') : null;
             if (target) {
               const text = target.getAttribute('data-cursor') || 'VIEW';
-              if (textRef.current !== text || !hoverRef.current) {
-                textRef.current = text;
-                hoverRef.current = true;
-                setCursorText(text);
-                setIsHovered(true);
+              if (!isHovered || currentText !== text) {
+                isHovered = true;
+                currentText = text;
+                if (cursorRef.current) {
+                  cursorRef.current.classList.add('is-hovered');
+                }
+                if (spanRef.current) {
+                  spanRef.current.textContent = text;
+                }
               }
-            } else if (hoverRef.current) {
-              hoverRef.current = false;
-              textRef.current = '';
-              setIsHovered(false);
-              setCursorText('');
+            } else if (isHovered) {
+              isHovered = false;
+              currentText = '';
+              if (cursorRef.current) {
+                cursorRef.current.classList.remove('is-hovered');
+              }
+              if (spanRef.current) {
+                spanRef.current.textContent = '';
+              }
             }
           }
 
@@ -56,8 +61,12 @@ function CustomCursor() {
       }
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseLeave = () => {
+      if (cursorRef.current) cursorRef.current.style.opacity = '0';
+    };
+    const handleMouseEnter = () => {
+      if (cursorRef.current) cursorRef.current.style.opacity = '1';
+    };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
@@ -75,19 +84,13 @@ function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className={`fixed top-0 left-0 pointer-events-none z-50 transition-opacity duration-150 hidden lg:flex items-center justify-center rounded-full ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      } ${
-        isHovered
-          ? 'w-20 h-20 bg-white/90 text-zinc-950 font-bold text-xs tracking-widest uppercase shadow-2xl backdrop-blur-sm'
-          : 'w-3.5 h-3.5 bg-white mix-blend-difference'
-      }`}
+      className="fixed top-0 left-0 pointer-events-none z-50 transition-[width,height,background-color,border-color,opacity] duration-150 ease-out hidden lg:flex items-center justify-center rounded-full w-3.5 h-3.5 bg-white mix-blend-difference [&.is-hovered]:w-20 [&.is-hovered]:h-20 [&.is-hovered]:bg-white/90 [&.is-hovered]:text-zinc-950 [&.is-hovered]:font-bold [&.is-hovered]:text-xs [&.is-hovered]:tracking-widest [&.is-hovered]:uppercase [&.is-hovered]:shadow-2xl [&.is-hovered]:mix-blend-normal"
       style={{
         transform: 'translate3d(-100px, -100px, 0) translate(-50%, -50%)',
         willChange: 'transform',
       }}
     >
-      {isHovered && <span>{cursorText}</span>}
+      <span ref={spanRef} />
     </div>
   );
 }

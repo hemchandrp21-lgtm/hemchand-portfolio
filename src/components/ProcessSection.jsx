@@ -1,67 +1,125 @@
-import { designProcessSteps } from '../data/projectsData';
-import { useIceFire } from '../context/IceFireContext';
-import { Compass, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 function ProcessSection() {
-  const { isFire } = useIceFire();
+  const approachSteps = [
+    {
+      num: '01',
+      tag: '01 / OBSERVE',
+      title: 'OBSERVE & RESEARCH',
+      desc: 'Before designing, I try to understand the people, context and problem behind the interface.'
+    },
+    {
+      num: '02',
+      tag: '02 / QUESTION',
+      title: 'CHALLENGE & QUESTION',
+      desc: 'I challenge assumptions and look for the opportunity hidden inside the problem.'
+    },
+    {
+      num: '03',
+      tag: '03 / EXPLORE',
+      title: 'SKETCH & EXPERIMENT',
+      desc: 'I sketch, experiment, prototype and explore different visual directions before settling on one.'
+    },
+    {
+      num: '04',
+      tag: '04 / DESIGN',
+      title: 'CREATE & EXECUTE',
+      desc: 'I turn insights into clear, usable and visually distinctive experiences.'
+    },
+    {
+      num: '05',
+      tag: '05 / REFINE',
+      title: 'ITERATE & REFINE',
+      desc: 'The details matter. I iterate until the interaction, hierarchy and visual language feel right.'
+    }
+  ];
 
   return (
-    <section className="relative w-full py-28 px-6 sm:px-10 lg:px-16 bg-[#050507] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-28 px-6 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
       {/* Ambient Glow */}
-      <div className={`absolute bottom-0 left-1/3 w-[450px] h-[450px] rounded-full filter blur-[150px] pointer-events-none transition-colors duration-700 ${
-        isFire ? 'bg-amber-600/10' : 'bg-cyan-500/10'
-      }`} />
+      <div className="absolute bottom-0 left-1/3 w-[450px] h-[450px] rounded-full filter blur-[160px] pointer-events-none bg-white/[0.02]" />
 
-      <div className="max-w-7xl mx-auto space-y-16 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-white/10 pb-8">
-          <div className="space-y-4 max-w-xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-zinc-400 uppercase backdrop-blur-md">
-              <span className={`w-2 h-2 rounded-full animate-pulse ${isFire ? 'bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' : 'bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]'}`} />
-              <span>DESIGN METHODOLOGY</span>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-white/10 pb-12"
+        >
+          <div className="space-y-6 max-w-3xl">
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-[2px] bg-white/40" />
+              <span className="text-[11px] font-display tracking-[0.25em] text-white/50 uppercase">
+                04 / APPROACH &amp; PROCESS
+              </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold uppercase tracking-tight text-white leading-none">
-              PROCESS <span className={isFire ? 'gradient-text-fire' : 'gradient-text-ice'}>FRAMEWORK</span>
+
+            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.02]">
+              I DESIGN WITH CURIOSITY, <br />
+              <span className="text-white/60">NOT ASSUMPTIONS.</span>
             </h2>
           </div>
 
-          <p className="text-xs font-mono text-zinc-400 max-w-md uppercase tracking-wider leading-relaxed">
-            Iterative UX framework from empathetic user discovery to high-fidelity prototype testing and handoff.
+          <p className="text-sm font-sans text-white/60 max-w-sm leading-relaxed">
+            An uninterrupted, measured sequence of discovery, questioning, experimentation, and refined visual craft.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Echo Vale Process Grid Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {designProcessSteps.map((step) => (
-            <div
-              key={step.num}
-              className="p-6 sm:p-7 rounded-3xl bg-zinc-900/40 border border-white/10 backdrop-blur-xl relative overflow-hidden group space-y-4 transition-all duration-500 hover:border-white/25 hover:-translate-y-1.5 hover:shadow-2xl flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3 font-mono text-xs">
-                  <span className={`font-bold tracking-widest text-sm ${isFire ? 'text-amber-400' : 'text-cyan-400'}`}>
-                    {step.num}
-                  </span>
-                  <span className="text-[9px] text-zinc-500 uppercase tracking-widest flex items-center gap-1">
-                    <Compass className="w-3 h-3" />
-                    PHASE
-                  </span>
-                </div>
+        {/* Horizontal Sequence Timeline Bar */}
+        <div className="space-y-12">
+          {/* Horizontal Line with White Node Dots */}
+          <div className="hidden lg:block relative w-full h-[1px] bg-white/10 my-8">
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: 'easeInOut' }}
+              className="absolute inset-0 bg-white/20 origin-left"
+            />
+            <div className="absolute inset-0 flex justify-between items-center -top-[4px]">
+              {approachSteps.map((s, idx) => (
+                <motion.div 
+                  key={idx} 
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + idx * 0.15 }}
+                  className="relative flex flex-col items-center"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
 
-                <h3 className="text-lg font-display font-semibold uppercase tracking-tight text-white group-hover:text-amber-400 transition-colors">
+          {/* Sequence Node Items Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 font-display text-xs">
+            {approachSteps.map((step, idx) => (
+              <motion.div 
+                key={idx} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="space-y-3 group p-6 rounded-2xl bg-[#080a0f] border border-white/10 hover:border-white/30 transition-all cursor-pointer shadow-lg"
+              >
+                <span className="text-[10px] text-white/40 uppercase tracking-widest block border-b border-white/10 pb-2">
+                  {step.tag}
+                </span>
+
+                <h3 className="text-base font-display font-bold uppercase tracking-tight text-white group-hover:text-white transition-colors pt-1">
                   {step.title}
                 </h3>
 
-                <p className="text-xs text-zinc-300 font-sans leading-relaxed">
+                <p className="text-xs text-white/60 font-sans leading-relaxed pt-1">
                   {step.desc}
                 </p>
-              </div>
-
-              <div className="pt-4 border-t border-white/5 flex items-center justify-end">
-                <CheckCircle2 className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors" />
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -69,4 +127,6 @@ function ProcessSection() {
 }
 
 export default ProcessSection;
+
+
 

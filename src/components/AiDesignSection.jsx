@@ -1,8 +1,27 @@
-import { useIceFire } from '../context/IceFireContext';
-import { Bot, Cpu, Sparkles, Brain } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 
 function AiDesignSection() {
-  const { isFire } = useIceFire();
+  const isFire = true;
+
+  const curiousTopics = [
+    'AI × DESIGN',
+    'INTERACTION',
+    '3D',
+    'MOTION',
+    'CREATIVE CODING',
+    'DIGITAL EXPERIENCES',
+    'VISUAL STORYTELLING',
+    'HUMAN BEHAVIOUR'
+  ];
+
+  const personalityKeywords = [
+    'CURIOUS',
+    'EXPERIMENTAL',
+    'VISUAL',
+    'OBSERVANT',
+    'ITERATIVE',
+    'BOLD'
+  ];
 
   return (
     <section className="relative w-full py-28 px-6 sm:px-10 lg:px-16 bg-[#050507] text-white border-t border-white/10 overflow-hidden">
@@ -11,44 +30,63 @@ function AiDesignSection() {
         isFire ? 'bg-amber-600/10' : 'bg-cyan-500/10'
       }`} />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
+        {/* CURRENTLY EXPLORING BLOCK */}
         <div className="p-8 sm:p-12 rounded-3xl bg-zinc-900/40 border border-white/10 backdrop-blur-xl space-y-8 relative overflow-hidden">
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono tracking-[0.25em] text-zinc-400 uppercase backdrop-blur-md">
-              <Bot className={`w-3.5 h-3.5 ${isFire ? 'text-amber-400' : 'text-cyan-400'}`} />
-              <span>AI &amp; CREATIVE TECH PHILOSOPHY</span>
+              <Sparkles className={`w-3.5 h-3.5 ${isFire ? 'text-amber-400' : 'text-cyan-400'}`} />
+              <span>CURRENTLY EXPLORING</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-semibold uppercase tracking-tight text-white">
-              AI AS AN <span className={isFire ? 'gradient-text-fire' : 'gradient-text-ice'}>AUGMENTATION LAYER</span>
+            <h3 className="text-2xl sm:text-4xl font-display font-semibold uppercase tracking-tight text-white flex items-center gap-3">
+              CURRENTLY CURIOUS ABOUT <ArrowRight className={`w-6 h-6 ${isFire ? 'text-amber-400' : 'text-cyan-400'}`} />
             </h3>
           </div>
 
-          <p className="text-sm sm:text-base text-zinc-300 font-sans leading-relaxed max-w-4xl">
-            I leverage AI to accelerate iteration, generate rapid wireframe variants, automate visual asset prep, and test creative concepts faster. However, core human empathy, structural clarity, and emotional storytelling remain human-driven.
-          </p>
+          <div className="flex flex-wrap gap-3 font-mono text-xs">
+            {curiousTopics.map((topic) => (
+              <span
+                key={topic}
+                className="px-4 py-2.5 rounded-2xl bg-black/50 border border-white/10 text-zinc-200 hover:text-white hover:border-white/30 transition-all duration-300"
+              >
+                {topic}
+              </span>
+            ))}
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10 font-mono text-xs">
-            <div className="p-5 rounded-2xl bg-black/40 border border-white/5 space-y-2">
-              <div className="flex items-center gap-2">
-                <Cpu className={`w-4 h-4 ${isFire ? 'text-amber-400' : 'text-cyan-400'}`} />
-                <span className="text-white font-bold block text-[11px]">01 &bull; RAPID PROTOTYPING</span>
-              </div>
-              <p className="text-zinc-400 text-xs font-sans leading-relaxed">Accelerating concept generation and layout exploration by 3x.</p>
-            </div>
-            <div className="p-5 rounded-2xl bg-black/40 border border-white/5 space-y-2">
-              <div className="flex items-center gap-2">
-                <Brain className={`w-4 h-4 ${isFire ? 'text-amber-400' : 'text-cyan-400'}`} />
-                <span className="text-white font-bold block text-[11px]">02 &bull; DATA AUGMENTATION</span>
-              </div>
-              <p className="text-zinc-400 text-xs font-sans leading-relaxed">Synthesizing qualitative user test feedback into actionable insights.</p>
-            </div>
-            <div className="p-5 rounded-2xl bg-black/40 border border-white/5 space-y-2">
-              <div className="flex items-center gap-2">
-                <Sparkles className={`w-4 h-4 ${isFire ? 'text-amber-400' : 'text-cyan-400'}`} />
-                <span className="text-white font-bold block text-[11px]">03 &bull; INTENTIONAL CRAFT</span>
-              </div>
-              <p className="text-zinc-400 text-xs font-sans leading-relaxed">Ensuring human nuance, visual hierarchy, and emotion lead final execution.</p>
-            </div>
+          <p className="text-sm sm:text-base text-zinc-300 font-sans italic leading-relaxed pt-2 border-t border-white/10">
+            &ldquo;I&apos;m interested in what happens when design moves beyond static screens and becomes an experience.&rdquo;
+          </p>
+        </div>
+
+        {/* SO, WHO IS HEMCHAND? BLOCK */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-zinc-900/40 border border-white/10 backdrop-blur-xl space-y-8 relative overflow-hidden">
+          <div className="space-y-4">
+            <h3 className="text-3xl sm:text-5xl font-display font-semibold uppercase tracking-tight text-white">
+              SO, WHO IS <span className={isFire ? 'gradient-text-fire' : 'gradient-text-ice'}>HEMCHAND?</span>
+            </h3>
+          </div>
+
+          <div className="space-y-4 text-sm sm:text-base text-zinc-300 font-sans leading-relaxed max-w-4xl">
+            <p>
+              I&apos;m a designer who enjoys moving between different worlds. One day I&apos;m thinking about user behaviour and information architecture. The next, I&apos;m experimenting with typography, 3D visuals, motion or a completely new visual direction.
+            </p>
+            <p>
+              I enjoy the uncomfortable stage where an idea isn&apos;t figured out yet — because that&apos;s usually where the interesting work begins. I&apos;m constantly learning, experimenting and looking for better ways to turn ideas into experiences.
+            </p>
+          </div>
+
+          <div className="pt-6 border-t border-white/10 flex flex-wrap gap-2.5 font-mono text-xs">
+            {personalityKeywords.map((kw) => (
+              <span
+                key={kw}
+                className={`px-3.5 py-1.5 rounded-full border text-[10px] tracking-widest uppercase font-bold ${
+                  isFire ? 'bg-amber-400/10 text-amber-300 border-amber-400/30' : 'bg-cyan-400/10 text-cyan-300 border-cyan-400/30'
+                }`}
+              >
+                {kw}
+              </span>
+            ))}
           </div>
         </div>
       </div>
@@ -57,4 +95,5 @@ function AiDesignSection() {
 }
 
 export default AiDesignSection;
+
 

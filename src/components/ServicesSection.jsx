@@ -1,94 +1,92 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useIceFire } from '../context/IceFireContext';
+import { playHoverSound, playClickSound } from '../utils/audioEngine';
 
 function ServicesSection() {
   const [activeImage, setActiveImage] = useState('/work1.jpg');
-  const { isFire } = useIceFire();
 
   const services = [
     {
       num: '01',
-      title: 'UI/UX & Product Design',
-      desc: 'User research, usability testing, information architecture, wireframing, and design systems.',
+      title: 'BRAND IDENTITY',
+      desc: 'Visual systems, logo direction, guidelines and campaign-ready design tokens built for brand scale.',
       img: '/nobroker_behance.jpg',
     },
     {
       num: '02',
-      title: 'Mobile App Experience',
-      desc: 'Tactile dark-mode financial mobile UI, ergonomic thumb zones, and seamless screen flows.',
+      title: 'UI/UX & PRODUCT DESIGN',
+      desc: 'Interfaces, mobile app flows and product systems shaped for clarity, ergonomics and high conversion.',
       img: '/mobile_app_behance.jpg',
     },
     {
       num: '03',
-      title: 'E-Commerce & Brand Systems',
-      desc: 'High-converting mobile shopping experiences, brand design tokens, and friction-free checkout.',
+      title: 'DESIGN SYSTEMS',
+      desc: 'Reusable visual rules, component libraries and content logic ensuring brand coherence over time.',
       img: '/inkscale_behance.jpg',
     },
     {
       num: '04',
-      title: 'Corporate Web UI & Dashboards',
-      desc: 'Dark obsidian web architecture, global impact dashboards, and enterprise solution portals.',
+      title: 'CREATIVE DIRECTION',
+      desc: 'A flexible, strategic approach that keeps digital products relevant while maintaining design excellence.',
       img: '/hozatra_behance.jpg',
     },
     {
       num: '05',
-      title: 'Creative Technology & Motion',
-      desc: 'AI-augmented design workflows, micro-interactions, rapid prototyping, and dynamic web motion.',
+      title: 'CREATIVE TECHNOLOGY & MOTION',
+      desc: 'Micro-interactions, rapid prototyping, AI-driven workflows and interactive WebGL experiences.',
       img: '/texture_lab_behance.jpg',
     },
   ];
 
   return (
-    <section className="relative w-full bg-[#050505] text-white py-28 px-6 sm:px-10 lg:px-16 border-t border-white/10 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative w-full bg-[#040507] text-white py-28 px-6 md:px-16 border-t border-white/10 overflow-hidden z-10">
+      <div className="max-w-[1280px] mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/10 pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/10 pb-8 gap-4">
           <div>
-            <span className={`text-xs font-mono tracking-[0.3em] uppercase mb-3 block ${isFire ? 'text-amber-400' : 'text-cyan-400'}`}>
-              02 &mdash; CAPABILITIES
+            <span className="text-xs font-display tracking-[0.2em] uppercase text-white/40 block mb-2">
+              DESIGN SERVICES
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white">
-              SERVICES &amp; <span className={isFire ? 'gradient-text-fire' : 'gradient-text-ice'}>DISCIPLINE</span>
+            <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight text-white">
+              WHAT I DO / <span className="text-white/40">DISCIPLINE</span>
             </h2>
           </div>
           <Link
-            to="/about"
-            className={`mt-4 md:mt-0 text-xs font-mono tracking-[0.2em] uppercase transition-colors ${
-              isFire ? 'text-amber-400 hover:text-amber-300' : 'text-cyan-400 hover:text-cyan-300'
-            }`}
+            to="/playground"
+            onMouseEnter={playHoverSound}
+            onClick={playClickSound}
+            className="text-xs font-display tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors no-underline border-b border-white/30 pb-1"
           >
-            VIEW FULL ABOUT &amp; SKILLS &rarr;
+            EXPLORE PLAYGROUND &rarr;
           </Link>
         </div>
 
-        {/* Services List Grid with Interactive Preview */}
+        {/* Services Grid with Image Hover Preview */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Services List Column */}
-          <div className="lg:col-span-7 space-y-0 divide-y divide-white/10 border-t border-b border-white/10">
+          <div className="lg:col-span-7 divide-y divide-white/10 border-t border-b border-white/10">
             {services.map((service) => (
               <div
                 key={service.num}
-                onMouseEnter={() => setActiveImage(service.img)}
+                onMouseEnter={() => { playHoverSound(); setActiveImage(service.img); }}
                 className="group py-8 px-2 flex flex-col sm:flex-row sm:items-center justify-between transition-colors duration-300 hover:bg-white/[0.02] cursor-pointer"
-                data-cursor="EXPLORE"
               >
                 <div className="flex items-baseline gap-6">
-                  <span className={`text-sm font-mono transition-colors ${isFire ? 'group-hover:text-amber-400 text-zinc-500' : 'group-hover:text-cyan-400 text-zinc-500'}`}>
+                  <span className="font-display font-light text-xl text-white/40 group-hover:text-white transition-colors">
                     {service.num}
                   </span>
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-zinc-200 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
+                    <h3 className="text-2xl sm:text-4xl font-display font-bold uppercase tracking-tight text-white group-hover:translate-x-2 transition-transform duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-zinc-400 text-xs sm:text-sm mt-1 max-w-md group-hover:text-zinc-300 transition-colors font-sans">
+                    <p className="text-white/60 font-display text-sm sm:text-base mt-2 max-w-md font-light leading-relaxed">
                       {service.desc}
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-4 sm:mt-0 text-right">
-                  <span className={`text-xs font-mono tracking-widest uppercase transition-colors ${isFire ? 'group-hover:text-amber-400 text-zinc-500' : 'group-hover:text-cyan-400 text-zinc-500'}`}>
+                  <span className="text-xs font-display tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">
                     [EXPLORE]
                   </span>
                 </div>
@@ -96,17 +94,17 @@ function ServicesSection() {
             ))}
           </div>
 
-          {/* Dynamic Image Hover Preview Column */}
-          <div className="hidden lg:block lg:col-span-5 sticky top-28">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl glass-card">
+          {/* Dynamic Image Hover Preview */}
+          <div className="hidden lg:block lg:col-span-5 sticky top-32">
+            <div className="relative aspect-[4/5] border border-white/10 overflow-hidden cyber-card">
               <img
                 src={activeImage}
-                alt="Service Preview"
-                className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-all duration-500 ease-out"
+                alt="Service Visual Preview"
+                className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 text-[10px] font-mono tracking-widest text-zinc-300 uppercase bg-[#050505]/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
-                PREVIEW &mdash; SELECTED CASE STUDY
+              <div className="absolute inset-0 bg-gradient-to-t from-[#040507]/90 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 text-[10px] font-display tracking-[0.2em] text-white/70 uppercase bg-[#040507]/80 backdrop-blur-md p-3 border border-white/10">
+                CAPABILITY PREVIEW &bull; SELECTED CASE STUDY
               </div>
             </div>
           </div>

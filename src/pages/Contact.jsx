@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 function Contact() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-amber-400 selection:text-black">
+    <div className="min-h-screen bg-[#040507] text-white font-sans selection:bg-[#A93207] selection:text-white">
       <FilmOverlay />
       <CustomCursor />
       <Header />

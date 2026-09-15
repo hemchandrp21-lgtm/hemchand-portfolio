@@ -21,10 +21,10 @@ export function IceFireProvider({ children }) {
     isFire: theme === 'fire',
     isIce: theme === 'ice',
     // Dynamic color helper classes
-    accentColor: theme === 'ice' ? '#3FBCE8' : '#FF7A18',
+    accentColor: theme === 'ice' ? '#E1CBA6' : '#A93207',
     glowGradient: theme === 'ice'
-      ? 'radial-gradient(circle at center, rgba(63, 188, 232, 0.25) 0%, rgba(15, 23, 42, 0) 70%)'
-      : 'radial-gradient(circle at center, rgba(255, 122, 24, 0.25) 0%, rgba(15, 23, 42, 0) 70%)',
+      ? 'radial-gradient(circle at center, rgba(225, 203, 166, 0.25) 0%, rgba(0, 0, 0, 0) 70%)'
+      : 'radial-gradient(circle at center, rgba(169, 50, 7, 0.3) 0%, rgba(0, 0, 0, 0) 70%)',
   };
 
   return (
@@ -37,7 +37,15 @@ export function IceFireProvider({ children }) {
 export function useIceFire() {
   const context = useContext(IceFireContext);
   if (!context) {
-    throw new Error('useIceFire must be used within an IceFireProvider');
+    return {
+      theme: 'fire',
+      setTheme: () => {},
+      toggleTheme: () => {},
+      isFire: true,
+      isIce: false,
+      accentColor: '#A93207',
+      glowGradient: 'radial-gradient(circle at center, rgba(169, 50, 7, 0.3) 0%, rgba(0, 0, 0, 0) 70%)',
+    };
   }
   return context;
 }
