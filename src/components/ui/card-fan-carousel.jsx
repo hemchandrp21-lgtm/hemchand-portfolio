@@ -8,7 +8,7 @@ const CARD_DATA = [
     title: "Family Time UX",
     category: "RESEARCH · UX DESIGN",
     description: "Exploring meaningful social connections & modern family dynamics.",
-    image: "/nobroker_behance.jpg",
+    image: "/.webp",
     tags: ["Research", "Figma", "UX"]
   },
   {
@@ -16,7 +16,7 @@ const CARD_DATA = [
     title: "Inkscale Store",
     category: "E-COMMERCE · BRAND",
     description: "Brand identity system and responsive shopping experience.",
-    image: "/inkscale_behance.jpg",
+    image: "/.webp",
     tags: ["Shopify", "UI/UX", "Brand"]
   },
   {
@@ -24,7 +24,7 @@ const CARD_DATA = [
     title: "Digital Identity",
     category: "PERSONAL BRAND",
     description: "Interactive visual world showcasing projects and experiments.",
-    image: "/hozatra_behance.jpg",
+    image: "/.webp",
     tags: ["React", "Motion", "Design"]
   },
   {
@@ -32,7 +32,7 @@ const CARD_DATA = [
     title: "3D Spatial Lab",
     category: "CREATIVE TECH",
     description: "Cinematic 3D experiments and spatial composition.",
-    image: "/mobile_app_behance.jpg",
+    image: "/.webp",
     tags: ["3D Art", "Direction", "WebGL"]
   },
   {
@@ -40,7 +40,7 @@ const CARD_DATA = [
     title: "Echo Engine",
     category: "EXPERIMENTAL FX",
     description: "Volumetric particle systems and dynamic theme engines.",
-    image: "/hozatra_behance.jpg",
+    image: "/.webp",
     tags: ["Shaders", "GLSL", "Interactive"]
   }
 ];

@@ -2,12 +2,12 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 function Word({ children, progress, range, isHighlight }) {
-  const opacity = useTransform(progress, range, [0.18, 1]);
+  const opacity = useTransform(progress, range, [0.35, 1]);
   const color = useTransform(
     progress,
     range,
     [
-      'rgba(255, 255, 255, 0.18)',
+      'rgba(255, 255, 255, 0.35)',
       '#FFFFFF'
     ]
   );
@@ -42,8 +42,8 @@ function TextRevealSection() {
         <div className="max-w-6xl mx-auto text-center space-y-8">
           {/* Label Indicator */}
           <div className="flex items-center gap-3 justify-center mb-6">
-            <span className="w-8 h-[2px] bg-white/40" />
-            <span className="text-xs font-display tracking-[0.25em] text-white/40 uppercase">
+            <span className="w-8 h-[2px] bg-white/60" />
+            <span className="text-xs font-display tracking-[0.25em] text-white/60 uppercase font-semibold">
               PHILOSOPHY / STATEMENT
             </span>
           </div>

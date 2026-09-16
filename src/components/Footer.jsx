@@ -15,11 +15,11 @@ function Footer() {
         <div className="flex flex-wrap items-center gap-4 text-white/60">
           <div className="w-2 h-2 bg-white rotate-45 animate-pulse" />
           <span className="text-white font-bold tracking-[0.24em]">HEMCHAND PAUNIKAR</span>
-          <span className="text-white/30">&bull; BRAND &amp; PRODUCT DESIGNER</span>
+          <span className="text-white/60">&bull; BRAND &amp; PRODUCT DESIGNER</span>
         </div>
 
         {/* Right Info & Back to Top */}
-        <div className="flex flex-wrap items-center gap-8 text-white/40">
+        <div className="flex flex-wrap items-center gap-8 text-white/70">
           <span>&copy; {new Date().getFullYear()} ALL RIGHTS RESERVED</span>
           <button
             onClick={scrollToTop}

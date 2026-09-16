@@ -14,7 +14,7 @@ function SelectedWork() {
       title: 'NOBROKER PACKERS & MOVERS REDESIGN',
       subtitle: 'UX Research & Usability Testing',
       category: 'CASE STUDY',
-      src: '/nobroker_behance.jpg',
+      src: '/nobroker_behance.webp',
       desc: 'Usability Testing, Friction Elimination & Flow Optimization for 2BHK Relocation.'
     },
     {
@@ -23,7 +23,7 @@ function SelectedWork() {
       title: 'HOZATRA CORPORATE & AFTTER STOREFRONT',
       subtitle: 'Brand Identity & Storefront',
       category: 'CASE STUDY',
-      src: '/real_aftter.png',
+      src: '/real_aftter.webp',
       desc: 'E-commerce Storefront, Design System & Corporate UI Experience.'
     },
     {
@@ -32,7 +32,7 @@ function SelectedWork() {
       title: 'SEED TO SOUL E-COMMERCE',
       subtitle: 'Conversion E-Commerce & Hospitality',
       category: 'LIVE WEBSITE',
-      src: '/real_seedtosoul.png',
+      src: '/real_seedtosoul.webp',
       externalUrl: 'https://www.seedtosoul.co/',
       desc: 'High-conversion organic store & sustainable hospitality experience.'
     },
@@ -42,7 +42,7 @@ function SelectedWork() {
       title: 'LYNK FOODS & TEXTURE LAB 3D APP',
       subtitle: 'Regional Sweets & Creative Tech',
       category: 'LIVE WEBSITE',
-      src: '/real_lynk.png',
+      src: '/real_lynk.webp',
       externalUrl: 'https://lynkfoods.com/',
       desc: '3D interactive sweet texture lab & immersive regional branding.'
     }

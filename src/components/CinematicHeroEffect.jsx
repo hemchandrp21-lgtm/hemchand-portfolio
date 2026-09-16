@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className = '' }) {
+function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.webp', className = '' }) {
   const containerRef = useRef(null);
   const imgRef = useRef(null);
   const spotlightRef = useRef(null);
@@ -37,18 +37,27 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
     let currentX = 0;
     let currentY = 0;
     let time = 0;
-    let rect = container.getBoundingClientRect();
+    let rectWidth = window.innerWidth;
+    let rectHeight = window.innerHeight;
+    let rectLeft = 0;
+    let rectTop = 0;
 
     const updateRect = () => {
-      rect = container.getBoundingClientRect();
+      if (container) {
+        const r = container.getBoundingClientRect();
+        rectWidth = r.width || window.innerWidth;
+        rectHeight = r.height || window.innerHeight;
+        rectLeft = r.left;
+        rectTop = r.top;
+      }
     };
+    updateRect();
 
     window.addEventListener('resize', updateRect, { passive: true });
 
     const handleMouseMove = (e) => {
-      if (!rect.width || !rect.height) rect = container.getBoundingClientRect();
-      targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+      targetX = ((e.clientX - rectLeft) / rectWidth - 0.5) * 2;
+      targetY = ((e.clientY - rectTop) / rectHeight - 0.5) * 2;
     };
 
     const handleMouseLeave = () => {
@@ -103,6 +112,7 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
 
     animFrameId = requestAnimationFrame(loop);
 
+    container.addEventListener('mouseenter', updateRect, { passive: true });
     container.addEventListener('mousemove', handleMouseMove, { passive: true });
     container.addEventListener('mouseleave', handleMouseLeave, { passive: true });
 
@@ -110,6 +120,7 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
       observer.disconnect();
       document.removeEventListener('visibilitychange', handleVisibility);
       window.removeEventListener('resize', updateRect);
+      container.removeEventListener('mouseenter', updateRect);
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
       if (animFrameId) cancelAnimationFrame(animFrameId);
@@ -127,6 +138,8 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.jpg', className =
         ref={imgRef}
         src={imageSrc}
         alt="Hemchand Paunikar"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover object-center opacity-100 will-change-transform"
         style={{
           transform: 'scale3d(1.06, 1.06, 1) translate3d(0px, 0px, 0)',

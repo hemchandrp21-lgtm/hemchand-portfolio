@@ -3,38 +3,38 @@ import { Link } from 'react-router-dom';
 import { playHoverSound, playClickSound } from '../utils/audioEngine';
 
 function ServicesSection() {
-  const [activeImage, setActiveImage] = useState('/work1.jpg');
+  const [activeImage, setActiveImage] = useState('/.webp');
 
   const services = [
     {
       num: '01',
       title: 'BRAND IDENTITY',
       desc: 'Visual systems, logo direction, guidelines and campaign-ready design tokens built for brand scale.',
-      img: '/nobroker_behance.jpg',
+      img: '/.webp',
     },
     {
       num: '02',
       title: 'UI/UX & PRODUCT DESIGN',
       desc: 'Interfaces, mobile app flows and product systems shaped for clarity, ergonomics and high conversion.',
-      img: '/mobile_app_behance.jpg',
+      img: '/.webp',
     },
     {
       num: '03',
       title: 'DESIGN SYSTEMS',
       desc: 'Reusable visual rules, component libraries and content logic ensuring brand coherence over time.',
-      img: '/inkscale_behance.jpg',
+      img: '/.webp',
     },
     {
       num: '04',
       title: 'CREATIVE DIRECTION',
       desc: 'A flexible, strategic approach that keeps digital products relevant while maintaining design excellence.',
-      img: '/hozatra_behance.jpg',
+      img: '/.webp',
     },
     {
       num: '05',
       title: 'CREATIVE TECHNOLOGY & MOTION',
       desc: 'Micro-interactions, rapid prototyping, AI-driven workflows and interactive WebGL experiences.',
-      img: '/texture_lab_behance.jpg',
+      img: '/.webp',
     },
   ];
 

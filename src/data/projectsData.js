@@ -30,12 +30,12 @@ export const projects = [
     role: 'UX Researcher & Product Designer',
     behanceUrl: 'https://www.behance.net/gallery/252993955/NOBROKERS-Redesign',
     tools: ['Figma', 'Usability Testing', 'Wireframing', 'Interactive Prototyping', 'User Research', 'Information Architecture'],
-    image: '/nobroker_behance.jpg',
+    image: '/nobroker_behance.webp',
     gallery: [
-      '/nobroker_behance.jpg',
-      '/nobroker_ux.jpg',
-      '/real_nobroker.png',
-      '/nobroker_cropped.jpg'
+      '/nobroker_behance.webp',
+      '/nobroker_ux.webp',
+      '/real_nobroker.webp',
+      '/nobroker_cropped.webp'
     ],
     aspect: 'aspect-video lg:aspect-[16/9]',
     colSpan: 'lg:col-span-8',
@@ -84,7 +84,7 @@ export const projects = [
         subtitle: 'Replaced text-heavy dropdowns with visual item cards & quick counters',
         description: 'Users can quickly tap item categories (Living Room, Bedroom, Appliances, Fragile) with visual icons, item dimensions, and real-time weight estimation.',
         keyFeature: 'Visual Thumbnail Previews & Quantity Toggles',
-        image: '/nobroker_ux.jpg'
+        image: '/nobroker_ux.webp'
       },
       {
         id: 'screen-2',
@@ -92,7 +92,7 @@ export const projects = [
         subtitle: 'Live cost calculation header updating with every item added',
         description: 'Eliminates checkout pricing shock by showing an itemized cost breakdown (Base Fare + Material + Handling) anchored right at the top HUD.',
         keyFeature: 'Anchored Real-Time Price Breakdown',
-        image: '/real_nobroker.png'
+        image: '/real_nobroker.webp'
       },
       {
         id: 'screen-3',
@@ -100,7 +100,7 @@ export const projects = [
         subtitle: 'Clear price guarantee lock & verified partner ratings',
         description: 'Includes explicit Trust Badges: Zero Hidden Fee Guarantee, Free Slot Rescheduling up to 24h, and 100% Damage Insurance badge.',
         keyFeature: 'Trust & Verification Guarantee Badges',
-        image: '/nobroker_cropped.jpg'
+        image: '/nobroker_cropped.webp'
       }
     ],
 
@@ -139,11 +139,11 @@ export const projects = [
     role: 'Mobile UX & Interface Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Mobile UX', 'Micro-Interactions', 'Dark Mode UI', 'Prototyping', 'Design Tokens'],
-    image: '/mobile_app_behance.jpg',
+    image: '/mobile_app_behance.webp',
     gallery: [
-      '/mobile_app_behance.jpg',
-      '/quash_laundry.jpg',
-      '/real_quash.png'
+      '/mobile_app_behance.webp',
+      '/quash_laundry.webp',
+      '/real_quash.webp'
     ],
     aspect: 'aspect-[4/3]',
     colSpan: 'lg:col-span-4 lg:translate-y-8',
@@ -191,7 +191,7 @@ export const projects = [
         subtitle: 'Glanceable financial dashboard with instant expense analytics',
         description: 'Presents net worth, monthly spending breakdown, and upcoming bills in a clean card stack optimized for dark mode readability.',
         keyFeature: 'Glanceable Card Hierarchy',
-        image: '/mobile_app_behance.jpg'
+        image: '/mobile_app_behance.webp'
       },
       {
         id: 'fintech-2',
@@ -199,7 +199,7 @@ export const projects = [
         subtitle: 'Frequent contact avatars with pre-saved payment handles',
         description: 'Reduces transfer steps from 6 screens down to a single bottom drawer overlay with instant biometric confirmation.',
         keyFeature: 'Thumb-Zone Quick Actions',
-        image: '/quash_laundry.jpg'
+        image: '/quash_laundry.webp'
       },
       {
         id: 'fintech-3',
@@ -207,7 +207,7 @@ export const projects = [
         subtitle: 'Color-coded progress rings for dining, travel & shopping',
         description: 'Visualizes category spending with vibrant neon indicators, preventing overspending through proactive warnings.',
         keyFeature: 'Visual Budget Tracking',
-        image: '/real_quash.png'
+        image: '/real_quash.webp'
       }
     ],
 
@@ -241,11 +241,11 @@ export const projects = [
     role: 'UI/UX & Brand Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Design Systems', 'E-commerce Flows', 'Mobile Prototyping', 'Brand Identity'],
-    image: '/inkscale_behance.jpg',
+    image: '/inkscale_behance.webp',
     gallery: [
-      '/inkscale_behance.jpg',
-      '/inkscale_real.png',
-      '/work2.jpg'
+      '/inkscale_behance.webp',
+      '/inkscale_real.webp',
+      '/work2.webp'
     ],
     aspect: 'aspect-[16/9]',
     colSpan: 'lg:col-span-7',
@@ -291,7 +291,7 @@ export const projects = [
         subtitle: 'Full-bleed product imagery with sticky purchase triggers',
         description: 'High-contrast typography paired with full-width photography allows shoppers to inspect fabric textures effortlessly.',
         keyFeature: 'Full-Bleed Outfit Gallery',
-        image: '/inkscale_behance.jpg'
+        image: '/inkscale_behance.webp'
       },
       {
         id: 'inkscale-2',
@@ -299,7 +299,7 @@ export const projects = [
         subtitle: '1-tap size selection without leaving the photo view',
         description: 'Eliminates context switching by sliding up a lightweight drawer with inline measurements (S, M, L, XL) and stock availability.',
         keyFeature: 'Sticky Purchase Drawer',
-        image: '/inkscale_real.png'
+        image: '/inkscale_real.webp'
       },
       {
         id: 'inkscale-3',
@@ -307,7 +307,7 @@ export const projects = [
         subtitle: 'Instant address autofill & 1-tap UPI payment',
         description: 'Reduces cart abandonment by auto-selecting saved delivery addresses and offering instant one-tap UPI payments.',
         keyFeature: 'Express 2-Step Checkout',
-        image: '/work2.jpg'
+        image: '/work2.webp'
       }
     ],
 
@@ -341,12 +341,12 @@ export const projects = [
     role: 'Web UI/UX Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Responsive Web Design', 'Web Architecture', 'Design System', 'Analytics UX'],
-    image: '/hozatra_behance.jpg',
+    image: '/hozatra_behance.webp',
     gallery: [
-      '/hozatra_behance.jpg',
-      '/real_aftter.png',
-      '/aftter_storefront.jpg',
-      '/work3.jpg'
+      '/hozatra_behance.webp',
+      '/real_aftter.webp',
+      '/aftter_storefront.webp',
+      '/work3.webp'
     ],
     aspect: 'aspect-[3/4]',
     colSpan: 'lg:col-span-5 lg:-translate-y-6',
@@ -390,7 +390,7 @@ export const projects = [
         subtitle: 'Cinematic contrast grid with electric green accent CTA',
         description: 'Establishes instant market authority through bold typography, glowing grid overlays, and clear value statements.',
         keyFeature: 'Cinematic Obsidian Hero Grid',
-        image: '/hozatra_behance.jpg'
+        image: '/hozatra_behance.webp'
       },
       {
         id: 'hozatra-2',
@@ -398,7 +398,7 @@ export const projects = [
         subtitle: 'Filterable service cards for enterprise analytics & cloud',
         description: 'Organizes complex B2B capabilities into structured, interactive cards that expand with key architecture diagrams.',
         keyFeature: 'Interactive Capabilities Grid',
-        image: '/real_aftter.png'
+        image: '/real_aftter.webp'
       },
       {
         id: 'hozatra-3',
@@ -406,7 +406,7 @@ export const projects = [
         subtitle: 'High-converting 3-field lead capture modal',
         description: 'Replaces long corporate inquiry forms with a sleek 3-field scheduler integrated directly with calendar booking.',
         keyFeature: 'High-Converting Executive Consultation',
-        image: '/work3.jpg'
+        image: '/work3.webp'
       }
     ],
 
@@ -439,10 +439,10 @@ export const projects = [
     role: 'UI/UX & Web Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Accessibility (WCAG)', 'Responsive Web', 'Child-Centric Design', 'Enrollment UX'],
-    image: '/little_craft_behance.jpg',
+    image: '/little_craft_behance.webp',
     gallery: [
-      '/little_craft_behance.jpg',
-      '/family_research.jpg'
+      '/little_craft_behance.webp',
+      '/family_research.webp'
     ],
     aspect: 'aspect-video lg:aspect-[16/9]',
     colSpan: 'lg:col-span-8',
@@ -486,7 +486,7 @@ export const projects = [
         subtitle: 'Playful micro-illustrations with clear parent navigation',
         description: 'Evokes warmth and security through rounded typography, friendly colors, and high-visibility parent action buttons.',
         keyFeature: 'Child-Centric Visual Design',
-        image: '/little_craft_behance.jpg'
+        image: '/little_craft_behance.webp'
       },
       {
         id: 'school-2',
@@ -494,7 +494,7 @@ export const projects = [
         subtitle: 'Transparent fee calculator & age eligibility guide',
         description: 'Replaces static PDF downloads with an intuitive fee matrix showing meals, activity kits, and transport options.',
         keyFeature: 'Transparent Tuition Calculator',
-        image: '/family_research.jpg'
+        image: '/family_research.webp'
       }
     ],
 
@@ -527,11 +527,11 @@ export const projects = [
     role: 'UI/UX Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web', 'Luxury Branding'],
-    image: '/resort_web_behance.jpg',
+    image: '/resort_web_behance.webp',
     gallery: [
-      '/resort_web_behance.jpg',
-      '/real_seedtosoul.png',
-      '/seed_to_soul.jpg'
+      '/resort_web_behance.webp',
+      '/real_seedtosoul.webp',
+      '/seed_to_soul.webp'
     ],
     aspect: 'aspect-[4/3]',
     colSpan: 'lg:col-span-4 lg:translate-y-8',
@@ -575,7 +575,7 @@ export const projects = [
         subtitle: 'Atmospheric visual storytelling with floating booking HUD',
         description: 'Immerses guests in destination photography while keeping check-in date selection accessible at the bottom HUD.',
         keyFeature: 'Full-Bleed Visual Storytelling',
-        image: '/resort_web_behance.jpg'
+        image: '/resort_web_behance.webp'
       },
       {
         id: 'resort-2',
@@ -583,7 +583,7 @@ export const projects = [
         subtitle: '360 room photos, square footage & private pool tags',
         description: 'Displays complete villa specifications including private infinity pool dimensions, ocean views, and concierge services.',
         keyFeature: 'Villa Amenity Inspector',
-        image: '/real_seedtosoul.png'
+        image: '/real_seedtosoul.webp'
       }
     ],
 
@@ -616,11 +616,11 @@ export const projects = [
     role: 'Product & Web App Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Web App UX', 'Dark Mode UI', '3D Asset Management', 'PBR Shaders'],
-    image: '/texture_lab_behance.jpg',
+    image: '/texture_lab_behance.webp',
     gallery: [
-      '/texture_lab_behance.jpg',
-      '/real_lynk.png',
-      '/lynk_sweets.jpg'
+      '/texture_lab_behance.webp',
+      '/real_lynk.webp',
+      '/lynk_sweets.webp'
     ],
     aspect: 'aspect-[16/9]',
     colSpan: 'lg:col-span-7',
@@ -664,7 +664,7 @@ export const projects = [
         subtitle: 'High-contrast 4K material previews with surface tagging',
         description: 'Organizes thousands of materials into a high-density dark grid optimized for rapid scanning and previewing.',
         keyFeature: 'Dark Obsidian Material Grid',
-        image: '/texture_lab_behance.jpg'
+        image: '/texture_lab_behance.webp'
       },
       {
         id: 'texture-2',
@@ -672,7 +672,7 @@ export const projects = [
         subtitle: 'Interactive sliders for roughness, metalness & displacement',
         description: 'Allows 3D creators to customize PBR surface properties directly in the web app before exporting.',
         keyFeature: 'Live PBR Shader Inspector',
-        image: '/real_lynk.png'
+        image: '/real_lynk.webp'
       }
     ],
 
@@ -705,9 +705,9 @@ export const projects = [
     role: 'Visual & Product Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Photoshop', 'Product Branding', 'Visual Hierarchy', 'Lighting & Render FX'],
-    image: '/titan_watch_behance.jpg',
+    image: '/titan_watch_behance.webp',
     gallery: [
-      '/titan_watch_behance.jpg'
+      '/titan_watch_behance.webp'
     ],
     aspect: 'aspect-[3/4]',
     colSpan: 'lg:col-span-5 lg:-translate-y-4',
@@ -751,7 +751,7 @@ export const projects = [
         subtitle: 'Teal circular halo lighting highlighting dark metal casing',
         description: 'Creates a cinematic product presentation accentuating watch dial craftsmanship, casing bevels, and hands precision.',
         keyFeature: 'Refined Timepiece Display',
-        image: '/titan_watch_behance.jpg'
+        image: '/titan_watch_behance.webp'
       }
     ],
 
@@ -898,7 +898,7 @@ export const experiments = [
     category: 'CREATIVE TECH',
     description: 'Volumetric GLSL noise functions & real-time audio reactivity.',
     tools: 'THREE.JS / GLSL / WEBGL',
-    image: '/hozatra_behance.jpg'
+    image: '/hozatra_behance.webp'
   },
   {
     id: 'ai-design-nodes',
@@ -907,7 +907,7 @@ export const experiments = [
     category: 'AI / TOOLING',
     description: 'Interactive node graph interface for generative prompt engineering.',
     tools: 'REACT / TAILWIND / CANVAS',
-    image: '/mobile_app_behance.jpg'
+    image: '/mobile_app_behance.webp'
   },
   {
     id: 'kinetic-type',
@@ -916,7 +916,7 @@ export const experiments = [
     category: 'EXPERIMENTAL UI',
     description: 'Variable font weight distortion driven by mouse velocity & scroll momentum.',
     tools: 'GSAP / FRAMER MOTION',
-    image: '/inkscale_behance.jpg'
+    image: '/inkscale_behance.webp'
   },
   {
     id: 'spatial-audio',
@@ -925,7 +925,7 @@ export const experiments = [
     category: 'SOUND DESIGN',
     description: 'WebAudio API spatial panner node integrated with interactive 3D camera.',
     tools: 'WEBAUDIO API / CANVAS',
-    image: '/nobroker_behance.jpg'
+    image: '/nobroker_behance.webp'
   }
 ];
 

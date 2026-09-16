@@ -26,12 +26,12 @@ export function StarfieldCanvas() {
 
     window.addEventListener('resize', handleResize, { passive: true });
 
-    // Generate optimized stars array (max 140 stars for peak 60fps performance)
-    const starCount = Math.min(140, Math.floor((width * height) / 12000));
+    // Generate optimized stars array (max 80 stars for ultra-low CPU overhead)
+    const starCount = Math.min(80, Math.floor((width * height) / 18000));
     const stars = Array.from({ length: starCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: Math.random() * 1.3 + 0.3,
+      size: Math.random() * 1.2 + 0.3,
       alpha: Math.random() * 0.7 + 0.2,
       speed: Math.random() * 0.15 + 0.05,
       twinkleSpeed: Math.random() * 0.02 + 0.005,
@@ -56,8 +56,8 @@ export function StarfieldCanvas() {
 
       ctx.clearRect(0, 0, width, height);
 
-      const targetParallaxX = (mouseX - width / 2) * 0.015;
-      const targetParallaxY = (mouseY - height / 2) * 0.015;
+      const targetParallaxX = (mouseX - width / 2) * 0.012;
+      const targetParallaxY = (mouseY - height / 2) * 0.012;
 
       for (let i = 0; i < stars.length; i++) {
         const star = stars[i];

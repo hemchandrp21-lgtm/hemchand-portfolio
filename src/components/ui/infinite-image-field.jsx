@@ -15,7 +15,7 @@ const DEFAULT_IMAGES = [
   { id: '9', title: 'DATA STREAM MATRIX', category: 'CYBERNETICS', src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80' },
   { id: '10', title: 'COSMIC HORIZON', category: 'SPACE LAB', src: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&auto=format&fit=crop&q=80' },
   { id: '11', title: 'MODERNIST GEOMETRY', category: 'ARCHITECTURE', src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80' },
-  { id: '12', title: 'NOBROKER RELOCATION UX', category: 'CASE STUDY', src: '/nobroker_behance.jpg' },
+  { id: '12', title: 'NOBROKER RELOCATION UX', category: 'CASE STUDY', src: '/.webp' },
 ];
 
 const GRID_COLS = 12;

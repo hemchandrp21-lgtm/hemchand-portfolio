@@ -19,8 +19,8 @@ function ContactSection() {
       <div className="max-w-7xl mx-auto space-y-20 relative z-10 text-center flex flex-col items-center">
         {/* Header Red Line Indicator */}
         <div className="flex items-center gap-3 justify-center">
-          <span className="w-8 h-[2px] bg-white/40" />
-          <span className="text-[11px] font-display tracking-[0.25em] text-white/50 uppercase">
+          <span className="w-8 h-[2px] bg-white/60" />
+          <span className="text-[11px] font-display tracking-[0.25em] text-white/60 uppercase font-semibold">
             05 / LET&apos;S MAKE SOMETHING
           </span>
         </div>
@@ -73,7 +73,7 @@ function ContactSection() {
               </a>
             </div>
           </div>
-          <span className="text-[10px] font-display text-white/40 uppercase tracking-widest block pt-3">
+          <span className="text-[10px] font-display text-white/60 uppercase tracking-widest block pt-3">
             Open for commissions &bull; No noise.
           </span>
         </div>

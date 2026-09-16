@@ -92,7 +92,7 @@ function Hero() {
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 w-full h-full pointer-events-auto z-0 origin-center"
       >
-        <CinematicHeroEffect imageSrc="/hero_portrait_suit.jpg" />
+        <CinematicHeroEffect imageSrc="/.webp" />
       </motion.div>
 
       {/* Subtle Overlay Gradients for Readability */}
