@@ -99,60 +99,8 @@ function Hero() {
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#040507]/80 via-[#040507]/30 to-transparent pointer-events-none z-10" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#040507] via-[#040507]/60 to-transparent pointer-events-none z-10" />
 
-      {/* 2. TOP HEADER OVERLAY BAR */}
-      <div className="relative z-30 w-full px-6 sm:px-12 md:px-16 py-8 flex items-center justify-between font-mono text-xs tracking-[0.2em] uppercase text-white/90 pointer-events-auto">
-        {/* Top-Left: Brand Logo */}
-        <Link
-          to="/"
-          onMouseEnter={playHoverSound}
-          onClick={playClickSound}
-          className="font-display font-bold text-lg sm:text-xl tracking-tight text-white no-underline hover:text-white/80 transition-colors"
-        >
-          Hemchand&reg;
-        </Link>
-
-        {/* Top-Center: Live Location & Time Ticker */}
-        <div className="hidden md:flex items-center gap-2 font-mono text-[11px] sm:text-xs text-white/80 tracking-[0.25em]">
-          <span>INDIA</span>
-          <span className="font-bold text-white">{timeStr || '12:00:00'}</span>
-        </div>
-
-        {/* Top-Right: Clean Horizontal Navigation Links */}
-        <nav className="flex items-center gap-3.5 sm:gap-8 font-mono text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em]">
-          <Link
-            to="/about"
-            onMouseEnter={playHoverSound}
-            onClick={playClickSound}
-            className="hover:text-white transition-colors no-underline text-white/80"
-          >
-            About
-          </Link>
-          <Link
-            to="/work"
-            onMouseEnter={playHoverSound}
-            onClick={playClickSound}
-            className="hover:text-white transition-colors no-underline text-white/80"
-          >
-            Work
-          </Link>
-          <Link
-            to="/playground"
-            onMouseEnter={playHoverSound}
-            onClick={playClickSound}
-            className="hover:text-white transition-colors no-underline text-white/80"
-          >
-            Playground
-          </Link>
-          <Link
-            to="/contact"
-            onMouseEnter={playHoverSound}
-            onClick={playClickSound}
-            className="hover:text-white transition-colors no-underline text-white/80"
-          >
-            Contact
-          </Link>
-        </nav>
-      </div>
+      {/* Spacer for Global Responsive Floating Header */}
+      <div className="relative z-30 w-full h-20 sm:h-24 pointer-events-none" />
 
       {/* 3. MIDDLE SECTION (LEFT PERSONAL TAGLINE & RIGHT DISCIPLINES) */}
       <div className="relative z-20 w-full px-6 sm:px-12 md:px-16 my-auto grid grid-cols-12 items-center pointer-events-none">
