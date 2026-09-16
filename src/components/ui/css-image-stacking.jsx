@@ -15,21 +15,23 @@ function StackingCard({ slide, index, total, progress, targetScale, accentColor 
 
   return (
     <div
-      className="sticky top-20 sm:top-24 flex items-center justify-center my-6 sm:my-10"
+      className="sticky top-20 sm:top-24 flex items-center justify-center my-6 sm:my-10 transform-gpu"
       style={{
         top: `calc(12vh + ${index * 28}px)`,
       }}
     >
       <motion.div
         style={{ scale }}
-        className="relative w-full max-w-[1200px] min-h-[440px] sm:min-h-[500px] lg:min-h-[540px] rounded-3xl overflow-hidden border border-white/15 bg-[#080b12]/95 backdrop-blur-2xl shadow-[0_30px_70px_-15px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row justify-between p-6 sm:p-10 select-none group transition-shadow duration-500 hover:shadow-[0_35px_80px_-15px_rgba(169,50,7,0.3)]"
+        className="relative w-full max-w-[1200px] min-h-[440px] sm:min-h-[500px] lg:min-h-[540px] rounded-3xl overflow-hidden border border-white/15 bg-[#0a0d14] shadow-[0_20px_50px_rgba(0,0,0,0.9)] flex flex-col lg:flex-row justify-between p-6 sm:p-10 select-none group transition-shadow duration-300 hover:shadow-[0_25px_60px_rgba(169,50,7,0.25)] transform-gpu"
       >
         {/* Background Image & Ambient Gradient Vignette */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover object-top opacity-35 group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover object-top opacity-35 group-hover:scale-105 transition-transform duration-500 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#040507] via-[#080b12]/85 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#040507]/95 via-[#080b12]/60 to-transparent" />
@@ -40,7 +42,7 @@ function StackingCard({ slide, index, total, progress, targetScale, accentColor 
           {/* Top Tag & Stack Counter */}
           <div className="flex items-center justify-between">
             <span
-              className="px-4 py-1.5 rounded-full border font-mono text-xs font-bold tracking-wider uppercase backdrop-blur-md shadow-md"
+              className="px-4 py-1.5 rounded-full border font-mono text-xs font-bold tracking-wider uppercase bg-[#040507]/80 shadow-md"
               style={{
                 backgroundColor: `${accentColor}25`,
                 borderColor: `${accentColor}66`,

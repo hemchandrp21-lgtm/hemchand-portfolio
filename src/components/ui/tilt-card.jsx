@@ -22,15 +22,24 @@ export function TiltCard({
 
   const [isHovered, setIsHovered] = useState(false);
 
+  const rectRef = useRef(null);
+
+  const updateRect = () => {
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+  };
+
   // Physics spring config for realistic 3D movement
-  const springConfig = { damping: 22, stiffness: 220, mass: 0.6 };
+  const springConfig = { damping: 25, stiffness: 260, mass: 0.5 };
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [tiltMaxAngleX, -tiltMaxAngleX]), springConfig);
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-tiltMaxAngleY, tiltMaxAngleY]), springConfig);
   const scaleSpring = useSpring(isHovered ? scale : 1, springConfig);
 
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
+    if (!rectRef.current) updateRect();
+    const rect = rectRef.current;
+    if (!rect || !rect.width || !rect.height) return;
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
@@ -44,17 +53,19 @@ export function TiltCard({
     if (glareRef.current) {
       const gx = Math.round(px * 100);
       const gy = Math.round(py * 100);
-      glareRef.current.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 30%, transparent 70%)`;
+      glareRef.current.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(255,255,255,0.4) 0%, transparent 70%)`;
     }
   };
 
   const handleMouseEnter = (e) => {
+    updateRect();
     setIsHovered(true);
     if (onMouseEnter) onMouseEnter(e);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+    rectRef.current = null;
     x.set(0);
     y.set(0);
   };
