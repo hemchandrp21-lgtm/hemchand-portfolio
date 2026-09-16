@@ -112,7 +112,6 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.webp', className 
 
     animFrameId = requestAnimationFrame(loop);
 
-    container.addEventListener('mouseenter', updateRect, { passive: true });
     container.addEventListener('mousemove', handleMouseMove, { passive: true });
     container.addEventListener('mouseleave', handleMouseLeave, { passive: true });
 
@@ -120,7 +119,6 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.webp', className 
       observer.disconnect();
       document.removeEventListener('visibilitychange', handleVisibility);
       window.removeEventListener('resize', updateRect);
-      container.removeEventListener('mouseenter', updateRect);
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
       if (animFrameId) cancelAnimationFrame(animFrameId);

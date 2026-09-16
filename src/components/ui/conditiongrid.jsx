@@ -10,7 +10,7 @@ const defaultProjects = [
     title: 'NOBROKER PACKERS & MOVERS REDESIGN',
     subtitle: 'UX Research & Usability Testing',
     category: 'CASE STUDY',
-    image: '/.webp',
+    image: '/nobroker_behance.webp',
     colSpan: 'col-span-12 md:col-span-7',
     aspectRatio: 'h-[220px] sm:h-[250px] md:h-[270px] lg:h-[290px]'
   },
@@ -20,7 +20,7 @@ const defaultProjects = [
     title: 'HOZATRA CORPORATE & AFTTER STOREFRONT',
     subtitle: 'Brand Identity & Storefront',
     category: 'CASE STUDY',
-    image: '/.webp',
+    image: '/real_aftter.webp',
     colSpan: 'col-span-12 md:col-span-5',
     aspectRatio: 'h-[220px] sm:h-[250px] md:h-[270px] lg:h-[290px]'
   },
@@ -30,7 +30,7 @@ const defaultProjects = [
     title: 'SEED TO SOUL E-COMMERCE',
     subtitle: 'Conversion E-Commerce & Hospitality',
     category: 'LIVE WEBSITE',
-    image: '/.webp',
+    image: '/real_seedtosoul.webp',
     externalUrl: 'https://www.seedtosoul.co/',
     colSpan: 'col-span-12 md:col-span-5',
     aspectRatio: 'h-[220px] sm:h-[250px] md:h-[270px] lg:h-[290px]'
@@ -41,7 +41,7 @@ const defaultProjects = [
     title: 'LYNK FOODS & TEXTURE LAB 3D APP',
     subtitle: 'Regional Sweets & Creative Tech',
     category: 'LIVE WEBSITE',
-    image: '/.webp',
+    image: '/real_lynk.webp',
     externalUrl: 'https://lynkfoods.com/',
     colSpan: 'col-span-12 md:col-span-7',
     aspectRatio: 'h-[220px] sm:h-[250px] md:h-[270px] lg:h-[290px]'

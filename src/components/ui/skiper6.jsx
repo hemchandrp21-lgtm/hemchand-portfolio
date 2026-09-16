@@ -8,7 +8,7 @@ const DEFAULT_MEMBERS = [
     name: "HEMCHAND PAUNIKAR",
     role: "UI/UX DESIGNER & CREATIVE TECH",
     year: "2026",
-    image: "/.webp",
+    image: "/hozatra_behance.webp",
     tags: ["UX Research", "Figma", "Design Systems"]
   },
   {
@@ -16,7 +16,7 @@ const DEFAULT_MEMBERS = [
     name: "FAMILY TIME UX",
     role: "UEDP5 SOCIAL IMPACT CASE STUDY",
     year: "2025",
-    image: "/.webp",
+    image: "/nobroker_behance.webp",
     tags: ["User Experience", "Problem Framing", "Prototyping"]
   },
   {
@@ -24,7 +24,7 @@ const DEFAULT_MEMBERS = [
     name: "INKSCALE STORE",
     role: "E-COMMERCE & BRAND ARCHITECTURE",
     year: "2025",
-    image: "/.webp",
+    image: "/inkscale_behance.webp",
     tags: ["Brand Systems", "Shopify", "UI Design"]
   },
   {
@@ -32,7 +32,7 @@ const DEFAULT_MEMBERS = [
     name: "3D SPATIAL LAB",
     role: "CINEMATIC VISUAL EXPERIMENTS",
     year: "2024",
-    image: "/.webp",
+    image: "/mobile_app_behance.webp",
     tags: ["Art Direction", "Motion Graphics", "3D Art"]
   }
 ];

@@ -29,8 +29,6 @@ function StackingCard({ slide, index, total, progress, targetScale, accentColor 
           <img
             src={slide.image}
             alt={slide.title}
-            loading="lazy"
-            decoding="async"
             className="w-full h-full object-cover object-top opacity-35 group-hover:scale-105 transition-transform duration-700 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#040507] via-[#080b12]/85 to-transparent" />
@@ -112,8 +110,6 @@ function StackingCard({ slide, index, total, progress, targetScale, accentColor 
             <img
               src={slide.image}
               alt={slide.title}
-              loading="lazy"
-              decoding="async"
               className="w-full h-full object-cover object-top group-hover/preview:scale-105 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover/preview:opacity-20 transition-opacity pointer-events-none" />

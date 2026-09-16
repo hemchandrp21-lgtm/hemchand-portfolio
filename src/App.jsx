@@ -6,6 +6,7 @@ import GridLinesOverlay from './components/GridLinesOverlay';
 import Home from './pages/Home';
 import { trackPageView } from './utils/analytics';
 import { initGlobalAudioListeners } from './utils/audioEngine';
+
 import SiteLoader from './components/SiteLoader';
 
 const About = lazy(() => import('./pages/About'));

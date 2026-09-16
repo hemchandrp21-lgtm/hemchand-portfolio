@@ -6,21 +6,21 @@ const defaultItems = [
   {
     num: "01",
     name: "NOBROKER PACKERS",
-    image: "/.webp",
+    image: "/nobroker_behance.webp",
     tag: "CASE STUDY",
     linkUrl: "/work/nobroker-packers-movers-ux"
   },
   {
     num: "02",
     name: "HOZATRA STOREFRONT",
-    image: "/.webp",
+    image: "/real_aftter.webp",
     tag: "CASE STUDY",
     linkUrl: "/work/hozatra-corporate-web-ui"
   },
   {
     num: "03",
     name: "SEED TO SOUL",
-    image: "/.webp",
+    image: "/real_seedtosoul.webp",
     tag: "LIVE WEBSITE ↗",
     externalUrl: "https://www.seedtosoul.co/",
     linkUrl: "https://www.seedtosoul.co/"

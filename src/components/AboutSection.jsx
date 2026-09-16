@@ -66,12 +66,12 @@ function AboutSection() {
               {/* Photo Container */}
               <div className="sm:col-span-4 relative group aspect-[4/5] rounded-2xl overflow-hidden border border-white/15 bg-white/5 shadow-xl">
                 <img 
-                  src="/.webp" 
+                  src="/hero_portrait.webp" 
                   alt="Hemchand Paunikar" 
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = '/.webp';
+                    e.target.src = '/hero_portrait_suit.webp';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080a0f]/80 via-transparent to-transparent" />

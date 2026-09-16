@@ -11,7 +11,7 @@ const defaultProjects = [
     title: 'NOBROKER PACKERS & MOVERS REDESIGN',
     subtitle: 'UX Research & Usability Testing',
     category: 'CASE STUDY',
-    src: '/.webp',
+    src: '/nobroker_behance.webp',
     desc: 'Usability Testing & Flow Optimization'
   },
   {
@@ -20,7 +20,7 @@ const defaultProjects = [
     title: 'HOZATRA CORPORATE & AFTTER STOREFRONT',
     subtitle: 'Brand Identity & Storefront',
     category: 'CASE STUDY',
-    src: '/.webp',
+    src: '/real_aftter.webp',
     desc: 'E-commerce Storefront & Corporate UI'
   },
   {
@@ -29,7 +29,7 @@ const defaultProjects = [
     title: 'SEED TO SOUL E-COMMERCE',
     subtitle: 'Conversion E-Commerce & Hospitality',
     category: 'LIVE WEBSITE',
-    src: '/.webp',
+    src: '/real_seedtosoul.webp',
     externalUrl: 'https://www.seedtosoul.co/',
     desc: 'High-conversion organic store'
   },
@@ -39,7 +39,7 @@ const defaultProjects = [
     title: 'LYNK FOODS & TEXTURE LAB 3D APP',
     subtitle: 'Regional Sweets & Creative Tech',
     category: 'LIVE WEBSITE',
-    src: '/.webp',
+    src: '/real_lynk.webp',
     externalUrl: 'https://lynkfoods.com/',
     desc: '3D interactive sweet texture lab'
   }

@@ -13,6 +13,7 @@ function CustomCursor() {
     let animFrameId = null;
     let clientX = -100;
     let clientY = -100;
+    let targetEl = null;
     let scheduled = false;
     let isHovered = false;
     let currentText = '';
@@ -20,22 +21,7 @@ function CustomCursor() {
     const handleMouseMove = (e) => {
       clientX = e.clientX;
       clientY = e.clientY;
-
-      const target = e.target && e.target.closest ? e.target.closest('[data-cursor]') : null;
-      if (target) {
-        const text = target.getAttribute('data-cursor') || 'VIEW';
-        if (!isHovered || currentText !== text) {
-          isHovered = true;
-          currentText = text;
-          if (cursorRef.current) cursorRef.current.classList.add('is-hovered');
-          if (spanRef.current) spanRef.current.textContent = text;
-        }
-      } else if (isHovered) {
-        isHovered = false;
-        currentText = '';
-        if (cursorRef.current) cursorRef.current.classList.remove('is-hovered');
-        if (spanRef.current) spanRef.current.textContent = '';
-      }
+      targetEl = e.target;
 
       if (!scheduled) {
         scheduled = true;
@@ -43,6 +29,33 @@ function CustomCursor() {
           if (cursorRef.current) {
             cursorRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0) translate(-50%, -50%)`;
           }
+
+          if (targetEl) {
+            const target = targetEl.closest ? targetEl.closest('[data-cursor]') : null;
+            if (target) {
+              const text = target.getAttribute('data-cursor') || 'VIEW';
+              if (!isHovered || currentText !== text) {
+                isHovered = true;
+                currentText = text;
+                if (cursorRef.current) {
+                  cursorRef.current.classList.add('is-hovered');
+                }
+                if (spanRef.current) {
+                  spanRef.current.textContent = text;
+                }
+              }
+            } else if (isHovered) {
+              isHovered = false;
+              currentText = '';
+              if (cursorRef.current) {
+                cursorRef.current.classList.remove('is-hovered');
+              }
+              if (spanRef.current) {
+                spanRef.current.textContent = '';
+              }
+            }
+          }
+
           scheduled = false;
         });
       }
