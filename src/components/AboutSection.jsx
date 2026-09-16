@@ -138,11 +138,11 @@ function AboutSection() {
               </div>
 
               <div className="space-y-4 font-sans">
-                <div className="grid grid-cols-12 gap-3 items-start">
-                  <span className="col-span-4 text-xs font-display font-medium text-white/40 pt-1">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-3 items-start">
+                  <span className="col-span-12 sm:col-span-4 text-xs font-display font-medium text-white/40 pt-1">
                     2023 — 2027
                   </span>
-                  <div className="col-span-8 space-y-1">
+                  <div className="col-span-12 sm:col-span-8 space-y-1">
                     <h3 className="text-sm font-bold text-white leading-tight">
                       B.Des. — User Experience Design
                     </h3>
@@ -166,11 +166,11 @@ function AboutSection() {
 
               <div className="space-y-6 font-sans">
                 {/* Role 1 */}
-                <div className="grid grid-cols-12 gap-3 items-start">
-                  <span className="col-span-4 text-[11px] font-display font-medium text-white/40 pt-1 uppercase">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-3 items-start">
+                  <span className="col-span-12 sm:col-span-4 text-[11px] font-display font-medium text-white/40 pt-1 uppercase">
                     JAN 2025 — PRESENT
                   </span>
-                  <div className="col-span-8 space-y-1">
+                  <div className="col-span-12 sm:col-span-8 space-y-1">
                     <h3 className="text-sm font-bold text-white leading-tight">
                       Freelance UI/UX Designer
                     </h3>
@@ -181,11 +181,11 @@ function AboutSection() {
                 </div>
 
                 {/* Role 2 */}
-                <div className="grid grid-cols-12 gap-3 items-start">
-                  <span className="col-span-4 text-[11px] font-display font-medium text-white/40 pt-1 uppercase">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-3 items-start">
+                  <span className="col-span-12 sm:col-span-4 text-[11px] font-display font-medium text-white/40 pt-1 uppercase">
                     SEP 2025 — FEB 2026
                   </span>
-                  <div className="col-span-8 space-y-1">
+                  <div className="col-span-12 sm:col-span-8 space-y-1">
                     <h3 className="text-sm font-bold text-white leading-tight">
                       Design Intern
                     </h3>
@@ -199,11 +199,11 @@ function AboutSection() {
                 </div>
 
                 {/* Role 3 */}
-                <div className="grid grid-cols-12 gap-3 items-start">
-                  <span className="col-span-4 text-[11px] font-display font-medium text-white/40 pt-1 uppercase">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-3 items-start">
+                  <span className="col-span-12 sm:col-span-4 text-[11px] font-display font-medium text-white/40 pt-1 uppercase">
                     SEP 2025 — FEB 2026
                   </span>
-                  <div className="col-span-8 space-y-1">
+                  <div className="col-span-12 sm:col-span-8 space-y-1">
                     <h3 className="text-sm font-bold text-white leading-tight">
                       UI Design Intern
                     </h3>
@@ -217,11 +217,11 @@ function AboutSection() {
                 </div>
 
                 {/* Role 4 */}
-                <div className="grid grid-cols-12 gap-3 items-start">
-                  <span className="col-span-4 text-[11px] font-display font-medium text-white/40 pt-1 uppercase">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-3 items-start">
+                  <span className="col-span-12 sm:col-span-4 text-[11px] font-display font-medium text-white/40 pt-1 uppercase">
                     JUN 2025 — SEP 2025
                   </span>
-                  <div className="col-span-8 space-y-1">
+                  <div className="col-span-12 sm:col-span-8 space-y-1">
                     <h3 className="text-sm font-bold text-white leading-tight">
                       UI/UX Intern
                     </h3>

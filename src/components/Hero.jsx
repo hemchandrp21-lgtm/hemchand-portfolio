@@ -118,7 +118,7 @@ function Hero() {
         </div>
 
         {/* Top-Right: Clean Horizontal Navigation Links */}
-        <nav className="flex items-center gap-6 sm:gap-8 font-mono text-[11px] sm:text-xs tracking-[0.2em]">
+        <nav className="flex items-center gap-3.5 sm:gap-8 font-mono text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em]">
           <Link
             to="/about"
             onMouseEnter={playHoverSound}
@@ -176,14 +176,14 @@ function Hero() {
       {/* 4. BOTTOM GIANT DISPLAY TITLE (PERSONAL NAME OVERLAY) */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="relative z-20 w-full pb-4 sm:pb-8 px-6 sm:px-12 md:px-16 text-left pointer-events-none"
+        className="relative z-20 w-full pb-4 sm:pb-8 px-4 sm:px-12 md:px-16 text-left pointer-events-none"
       >
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display font-extrabold uppercase tracking-tight text-white leading-none whitespace-nowrap drop-shadow-[0_10px_40px_rgba(0,0,0,0.9)] select-none text-left text-4xl sm:text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] 2xl:text-[12.5rem]"
-          style={{ fontSize: 'clamp(2.2rem, 7.8vw, 12.5rem)' }}
+          className="font-display font-extrabold uppercase tracking-tight text-white leading-none whitespace-nowrap sm:whitespace-nowrap drop-shadow-[0_10px_40px_rgba(0,0,0,0.9)] select-none text-left text-3xl sm:text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] 2xl:text-[12.5rem]"
+          style={{ fontSize: 'clamp(1.5rem, 7.5vw, 12.5rem)' }}
         >
           HEMCHAND PAUNIKAR
         </motion.h1>
