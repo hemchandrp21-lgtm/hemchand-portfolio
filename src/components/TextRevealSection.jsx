@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-function Word({ children, progress, range, isHighlight }) {
-  const opacity = useTransform(progress, range, [0.18, 1]);
+function Word({ children, progress, range }) {
+  const opacity = useTransform(progress, range, [0.15, 1]);
   const color = useTransform(
     progress,
     range,
     [
-      'rgba(255, 255, 255, 0.18)',
+      'rgba(255, 255, 255, 0.15)',
       '#FFFFFF'
     ]
   );
@@ -27,7 +27,6 @@ function TextRevealSection() {
 
   const statementText = "I collect ideas, chase experiences, and turn random thoughts into things that actually exist.";
   const words = statementText.split(" ");
-  const highlightWords = ["ideas,", "experiences,", "random", "thoughts", "exist."];
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -35,9 +34,9 @@ function TextRevealSection() {
   });
 
   return (
-    // Track container stays pinned sticky top-0 for 220vh until text reveal completes 100%
-    <div ref={targetRef} className="relative h-[200vh] sm:h-[220vh] bg-[#040507] z-10">
-      {/* Viewport container stays fixed on screen during the animation */}
+    // Track container keeps screen pinned sticky for 280vh-300vh so all words including "actually exist." finish fully before unpinning
+    <div ref={targetRef} className="relative h-[280vh] sm:h-[320vh] bg-[#040507] z-10">
+      {/* Sticky viewport container stays 100% fixed on screen until entire text reveal is finished */}
       <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center px-5 sm:px-12 lg:px-20 overflow-hidden select-none">
         <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8">
           {/* Label Indicator */}
@@ -51,17 +50,17 @@ function TextRevealSection() {
           {/* Sticky Word-by-Word Text Reveal */}
           <h2 className="font-display font-bold text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.12] tracking-tight uppercase">
             {words.map((word, i) => {
-              // Illumination completes by 0.78 progress, keeping the complete text bright white until unpinning
-              const start = (i / words.length) * 0.78;
-              const end = Math.min(1, start + (1.5 / words.length) * 0.78);
-              const isHighlight = highlightWords.includes(word);
+              // Illumination for all words (including "actually exist.") completes by 0.67 progress, keeping screen stuck while text is fully revealed
+              const totalWords = words.length;
+              const step = 0.65 / totalWords;
+              const start = i * step;
+              const end = start + step * 1.5;
 
               return (
                 <Word
                   key={i}
                   progress={scrollYProgress}
                   range={[start, end]}
-                  isHighlight={isHighlight}
                 >
                   {word}
                 </Word>
