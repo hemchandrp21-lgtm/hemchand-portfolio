@@ -1,30 +1,30 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { playHoverSound, playClickSound } from "../../utils/audioEngine";
 import { TiltCard } from "./tilt-card";
 
 function StackingCard({ slide, index, total, progress, accentColor }) {
-  // 21st.dev @ishamsu/scroll-cards card stacking calculations
+  // 21st.dev @ishamsu/scroll-cards stacking calculation
   const targetScale = 1 - (total - index) * 0.04;
-  const startRange = index / total;
+  const startRange = (index / total) * 0.8;
   const scale = useTransform(progress, [startRange, 1], [1, targetScale]);
   
-  // Card top offset for clean layered stacking
-  const topOffset = 80 + index * 24;
+  // Card top offset for layered stacking
+  const topOffset = 84 + index * 24;
 
   return (
     <div
-      className="sticky flex items-center justify-center my-6 sm:my-10 transform-gpu"
+      className="sticky flex items-center justify-center my-4 transform-gpu"
       style={{
         top: `${topOffset}px`,
       }}
     >
       <motion.div
         style={{ scale }}
-        className="relative w-full max-w-[1140px] min-h-[420px] sm:min-h-[500px] lg:min-h-[520px] rounded-3xl overflow-hidden border border-white/15 bg-[#090c14] shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row justify-between p-6 sm:p-10 select-none group transition-all duration-300 hover:border-[#A93207]/60 transform-gpu"
+        className="relative w-full max-w-[1180px] min-h-[420px] sm:min-h-[480px] lg:min-h-[500px] rounded-3xl overflow-hidden border border-white/15 bg-[#090c14] shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row justify-between p-6 sm:p-10 select-none group transition-all duration-300 hover:border-[#A93207]/60 transform-gpu"
       >
-        {/* Background Image Vignette Accent */}
+        {/* Ambient Dark Gradient Accent */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={slide.image}
@@ -34,12 +34,12 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
             className="w-full h-full object-cover object-top opacity-20 group-hover:scale-105 transition-transform duration-700 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#040507] via-[#090c14]/90 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#090c14] via-[#090c14]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#090c14] via-[#090c14]/85 to-transparent" />
         </div>
 
-        {/* Card Content (Left) */}
+        {/* Card Info (Left) */}
         <div className="relative z-10 flex flex-col justify-between h-full space-y-6 lg:max-w-[52%]">
-          {/* Top Pill Header */}
+          {/* Tag & Counter */}
           <div className="flex items-center justify-between gap-3">
             <span
               className="px-3.5 py-1.5 rounded-full border font-mono text-xs font-bold tracking-wider uppercase bg-black/60 backdrop-blur-md shadow-md"
@@ -87,7 +87,7 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
           </div>
         </div>
 
-        {/* Right Project Preview Image Frame */}
+        {/* Right Preview Frame */}
         <div className="relative z-10 hidden lg:flex flex-col justify-center items-end w-[44%] h-full">
           <TiltCard
             tiltMaxAngleX={12}
@@ -95,7 +95,7 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
             scale={1.03}
             glareEnable={true}
             glareMaxOpacity={0.25}
-            className="w-full h-[320px] sm:h-[350px] rounded-2xl overflow-hidden shadow-2xl relative group/preview border border-white/10"
+            className="w-full h-[300px] sm:h-[340px] rounded-2xl overflow-hidden shadow-2xl relative group/preview border border-white/10"
           >
             <img
               src={slide.image}
@@ -120,7 +120,8 @@ export function CSSImageStacking({ slides = [], accent = "#A93207" }) {
   if (!slides || slides.length === 0) return null;
 
   return (
-    <div ref={containerRef} className="relative w-full py-8 select-none">
+    // 250vh - 300vh scroll track allows cards to stack smoothly as user scrolls
+    <div ref={containerRef} className="relative h-[250vh] sm:h-[280vh] w-full select-none pb-24">
       {slides.map((slide, i) => (
         <StackingCard
           key={slide.id || i}
