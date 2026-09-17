@@ -35,9 +35,9 @@ function TextRevealSection() {
   });
 
   return (
-    // Outer scroll track container calibrated for seamless transition to Featured Work without blank space
-    <div ref={targetRef} className="relative h-[120vh] sm:h-[140vh] bg-[#040507] z-10">
-      {/* Inner viewport container stays sticky-pinned on screen until text reveal completes */}
+    // Track container stays pinned sticky top-0 for 220vh until text reveal completes 100%
+    <div ref={targetRef} className="relative h-[200vh] sm:h-[220vh] bg-[#040507] z-10">
+      {/* Viewport container stays fixed on screen during the animation */}
       <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center px-5 sm:px-12 lg:px-20 overflow-hidden select-none">
         <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8">
           {/* Label Indicator */}
@@ -51,9 +51,9 @@ function TextRevealSection() {
           {/* Sticky Word-by-Word Text Reveal */}
           <h2 className="font-display font-bold text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.12] tracking-tight uppercase">
             {words.map((word, i) => {
-              // Word illumination occurs across the scroll length, completing right before unpinning
-              const start = (i / words.length) * 0.92;
-              const end = start + (1 / words.length) * 0.92;
+              // Illumination completes by 0.78 progress, keeping the complete text bright white until unpinning
+              const start = (i / words.length) * 0.78;
+              const end = Math.min(1, start + (1.5 / words.length) * 0.78);
               const isHighlight = highlightWords.includes(word);
 
               return (
