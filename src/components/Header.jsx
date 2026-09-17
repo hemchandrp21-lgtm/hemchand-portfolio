@@ -97,25 +97,8 @@ function Header() {
           <span className="font-bold text-white">{timeStr || '12:00:00'}</span>
         </div>
 
-        {/* Right Section: Mobile Touch Actions + Mute Toggle + Hamburger */}
+        {/* Right Section: Mobile Touch Actions + Hamburger */}
         <div className="flex items-center gap-2.5 sm:gap-6 pointer-events-auto">
-          {/* Audio Engine Mute Toggle Button */}
-          <button
-            onClick={handleSoundToggle}
-            onMouseEnter={playHoverSound}
-            title={isMuted ? "Enable sound effects" : "Mute sound effects"}
-            aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-            className="px-3 py-2 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 active:bg-white/20 text-white/80 hover:text-white transition-all text-xs font-mono tracking-wider flex items-center gap-1.5 cursor-pointer min-h-[40px]"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            {isMuted ? (
-              <VolumeX className="w-3.5 h-3.5 text-white/60 shrink-0" />
-            ) : (
-              <Volume2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-            )}
-            <span className="hidden sm:inline">{isMuted ? 'SOUND: OFF' : 'SOUND: ON'}</span>
-          </button>
-
           {/* Desktop Navigation Links (Hidden on screen < 1024px) */}
           <nav className="hidden lg:flex items-center gap-8 font-mono text-xs tracking-[0.2em] uppercase">
             <Link
