@@ -34,8 +34,8 @@ function TextRevealSection() {
   });
 
   return (
-    // Calibrated track height (120vh-125vh) eliminates dead scroll pause and blank space between statement and featured section
-    <div ref={targetRef} className="relative h-[120vh] sm:h-[125vh] bg-[#040507] z-10">
+    // Track height (250vh-280vh) keeps section sticky until all words are read, then seamlessly unpins into SelectedWork
+    <div ref={targetRef} className="relative h-[250vh] sm:h-[280vh] bg-[#040507] z-10">
       {/* Viewport container stays fixed on screen during the animation */}
       <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center px-5 sm:px-12 lg:px-20 overflow-hidden select-none">
         <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8">
@@ -50,11 +50,11 @@ function TextRevealSection() {
           {/* Sticky Word-by-Word Text Reveal */}
           <h2 className="font-display font-bold text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.12] tracking-tight uppercase">
             {words.map((word, i) => {
-              // Word reveal completes by 0.92 progress, seamlessly flowing into the featured section without blank space
+              // Word reveal is evenly distributed across progress 0.0 to 0.95 so text stays stuck on screen until reading completes
               const totalWords = words.length;
-              const step = 0.85 / totalWords;
+              const step = 0.88 / totalWords;
               const start = i * step;
-              const end = Math.min(start + step * 1.4, 0.95);
+              const end = Math.min(start + step * 1.5, 0.96);
 
               return (
                 <Word
