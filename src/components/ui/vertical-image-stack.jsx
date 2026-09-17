@@ -110,11 +110,9 @@ export function VerticalImageStack({
             const opacity = isFront ? 1 : Math.max(0.15, 1 - offset * 0.25);
             const zIndex = items.length - offset;
 
-            const isExternal = Boolean(item.externalUrl);
-            const CardWrapper = isExternal ? 'a' : Link;
-            const linkProps = isExternal
-              ? { href: item.externalUrl, target: '_blank', rel: 'noopener noreferrer' }
-              : { to: `/work/${item.id}` };
+            const targetUrl = item.externalUrl || item.behanceUrl || 'https://www.behance.net/hemchanpaunika';
+            const CardWrapper = 'a';
+            const linkProps = { href: targetUrl, target: '_blank', rel: 'noopener noreferrer' };
 
             return (
               <motion.div

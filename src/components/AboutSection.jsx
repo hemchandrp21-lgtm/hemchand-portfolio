@@ -28,8 +28,8 @@ function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative w-full py-24 px-6 sm:px-10 lg:px-16 bg-[#040507] text-white overflow-hidden border-t border-white/10">
-      {/* Background Volumetric Glows (Consistent Obsidian Dark Palette) */}
+    <section id="about" className="relative w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white overflow-hidden border-t border-white/10">
+      {/* Background Volumetric Glows */}
       <div className="absolute top-1/4 left-[-10%] w-[600px] h-[600px] rounded-full filter blur-[180px] pointer-events-none bg-white/[0.025]" />
       <div className="absolute bottom-10 right-[-10%] w-[500px] h-[500px] rounded-full filter blur-[180px] pointer-events-none bg-white/[0.02]" />
 
@@ -38,16 +38,16 @@ function AboutSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
-        className="max-w-7xl mx-auto relative z-10 space-y-16"
+        className="max-w-7xl mx-auto relative z-10 space-y-12 sm:space-y-16"
       >
-        {/* Main Two-Column Layout matching PDF & Reference Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Main Two-Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           
           {/* ================= LEFT COLUMN: HERO STATEMENTS & BIO ================= */}
-          <motion.div variants={itemVariants} className="lg:col-span-7 space-y-12">
+          <motion.div variants={itemVariants} className="lg:col-span-7 space-y-8 sm:space-y-12">
             
             {/* 1. Primary Headline Statement */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-white/40" />
                 <span className="text-[11px] font-display tracking-[0.25em] text-white/50 uppercase font-bold">
@@ -55,16 +55,16 @@ function AboutSection() {
                 </span>
               </div>
               
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.08]">
+              <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.1]">
                 I like understanding people,{' '}
                 <span className="text-white/60 font-extrabold">solving messy problems</span>, and turning ideas into experiences that make sense.
               </h1>
             </div>
 
             {/* 2. Photo & Bio Intro Card */}
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center p-6 sm:p-8 rounded-3xl bg-[#080a0f] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-white/20 transition-all">
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#080a0f] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-white/20 transition-all">
               {/* Photo Container */}
-              <div className="sm:col-span-4 relative group aspect-[4/5] rounded-2xl overflow-hidden border border-white/15 bg-white/5 shadow-xl">
+              <div className="sm:col-span-4 relative group aspect-[4/5] rounded-2xl overflow-hidden border border-white/15 bg-white/5 shadow-xl max-w-[280px] sm:max-w-none mx-auto w-full">
                 <img 
                   src="/hero_portrait.webp" 
                   alt="Hemchand Paunikar" 
@@ -78,7 +78,7 @@ function AboutSection() {
               </div>
 
               {/* Bio Paragraphs */}
-              <div className="sm:col-span-8 space-y-4 text-sm sm:text-base font-sans text-white/80 leading-relaxed">
+              <div className="sm:col-span-8 space-y-3 sm:space-y-4 text-xs xs:text-sm sm:text-base font-sans text-white/80 leading-relaxed">
                 <p>
                   I&apos;m <strong className="text-white font-bold">Hemchand Paunikar</strong>, a{' '}
                   <strong className="text-white">UI/UX design student</strong> at Symbiosis International University. I&apos;m interested in understanding how people think and designing digital experiences around their real needs.
@@ -95,31 +95,31 @@ function AboutSection() {
               <span className="text-[10px] font-display tracking-[0.25em] text-white/40 uppercase font-bold block">
                 CONTACT
               </span>
-              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-sans font-medium">
+              <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-sans font-medium">
                 <a 
                   href="mailto:hemchandrp21@gmail.com" 
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-[#080a0f] border border-white/10 hover:border-white/30 hover:text-white transition-all text-white/90 shadow-lg group"
+                  className="flex-1 sm:flex-none flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-[#080a0f] border border-white/10 hover:border-white/30 hover:text-white active:bg-white/10 transition-all text-white/90 shadow-lg group min-h-[44px]"
                 >
-                  <Mail className="w-4 h-4 text-white/70 group-hover:text-white group-hover:scale-110 transition-all" />
-                  <span>hemchandrp21@gmail.com</span>
+                  <Mail className="w-4 h-4 text-white/70 group-hover:text-white group-hover:scale-110 transition-all shrink-0" />
+                  <span className="truncate">hemchandrp21@gmail.com</span>
                 </a>
 
                 <a 
                   href="https://www.linkedin.com/in/hemchand-paunikar/" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-[#080a0f] border border-white/10 hover:border-white/30 hover:text-white transition-all text-white/90 shadow-lg group"
+                  className="flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-[#080a0f] border border-white/10 hover:border-white/30 hover:text-white active:bg-white/10 transition-all text-white/90 shadow-lg group min-h-[44px]"
                 >
                   <LinkedInIcon />
                   <span>LinkedIn</span>
-                  <ExternalLink className="w-3 h-3 text-white/40" />
+                  <ExternalLink className="w-3.5 h-3.5 text-white/40" />
                 </a>
               </div>
             </div>
 
             {/* 4. Secondary Highlight Statement */}
-            <div className="pt-6 border-t border-white/10">
-              <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-white tracking-tight leading-snug">
+            <div className="pt-4 sm:pt-6 border-t border-white/10">
+              <h2 className="text-xl xs:text-2xl sm:text-4xl font-display font-extrabold text-white tracking-tight leading-snug">
                 I&apos;m curious about people, drawn to good interfaces, and{' '}
                 <span className="text-white/60">always looking for simpler ways to solve a problem.</span>
               </h2>

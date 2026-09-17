@@ -15,6 +15,7 @@ function SelectedWork() {
       subtitle: 'UX Research & Usability Testing',
       category: 'CASE STUDY',
       src: '/nobroker_behance.webp',
+      behanceUrl: 'https://www.behance.net/gallery/252993955/NOBROKERS-Redesign',
       desc: 'Usability Testing, Friction Elimination & Flow Optimization for 2BHK Relocation.'
     },
     {
@@ -24,6 +25,7 @@ function SelectedWork() {
       subtitle: 'Brand Identity & Storefront',
       category: 'CASE STUDY',
       src: '/real_aftter.webp',
+      behanceUrl: 'https://www.behance.net/hemchanpaunika',
       desc: 'E-commerce Storefront, Design System & Corporate UI Experience.'
     },
     {
@@ -56,12 +58,12 @@ function SelectedWork() {
     imageAlt: proj.title,
     overlay: `${proj.number} • ${proj.category}`,
     action: proj.externalUrl ? 'EXPLORE LIVE SITE' : 'EXPLORE CASE STUDY',
-    href: proj.externalUrl || `/work/${proj.id}`,
-    target: proj.externalUrl ? '_blank' : undefined,
+    href: proj.externalUrl || proj.behanceUrl || 'https://www.behance.net/hemchanpaunika',
+    target: '_blank',
   }));
 
   return (
-    <section id="work" className="relative w-full bg-[#040507] text-white select-none py-16 px-6 sm:px-12 overflow-visible">
+    <section id="work" className="relative w-full max-w-full bg-[#040507] text-white select-none py-16 px-6 sm:px-12 overflow-hidden">
       {/* Volumetric Ambient Glow */}
       <div 
         className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] rounded-full pointer-events-none opacity-20 filter blur-[180px]"

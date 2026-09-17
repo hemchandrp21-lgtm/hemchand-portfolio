@@ -5,7 +5,7 @@ import InfiniteImageField from '../components/ui/infinite-image-field';
 
 function Playground() {
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#040507] text-white selection:bg-[#A93207] selection:text-white">
+    <div className="relative w-full max-w-full h-screen overflow-hidden bg-[#040507] text-white selection:bg-[#A93207] selection:text-white">
       <FilmOverlay />
       <CustomCursor />
       <Header />

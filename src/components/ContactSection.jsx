@@ -12,53 +12,53 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative w-full py-36 px-6 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
+    <section id="contact" className="relative w-full py-20 sm:py-36 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
       {/* Volumetric Glow Backdrop */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full filter blur-[180px] pointer-events-none bg-white/[0.03]" />
 
-      <div className="max-w-7xl mx-auto space-y-20 relative z-10 text-center flex flex-col items-center">
-        {/* Header Red Line Indicator */}
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20 relative z-10 text-center flex flex-col items-center">
+        {/* Header Indicator */}
         <div className="flex items-center gap-3 justify-center">
           <span className="w-8 h-[2px] bg-white/40" />
-          <span className="text-[11px] font-display tracking-[0.25em] text-white/50 uppercase">
+          <span className="text-[11px] font-display tracking-[0.25em] text-white/50 uppercase font-bold">
             05 / LET&apos;S MAKE SOMETHING
           </span>
         </div>
 
-        {/* Giant Monumental Headline */}
+        {/* Monumental Headline */}
         <div className="space-y-4 max-w-5xl">
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.02] text-center">
+          <h2 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.05] text-center">
             HAVE AN IDEA? <br />
             <span className="text-white/90">LET&apos;S TURN IT INTO SOMETHING REAL.</span>
           </h2>
-          <p className="text-sm sm:text-base text-white/70 font-sans leading-relaxed tracking-wide max-w-xl mx-auto pt-4">
+          <p className="text-xs sm:text-base text-white/70 font-sans leading-relaxed tracking-wide max-w-xl mx-auto pt-2 sm:pt-4">
             Whether it&apos;s a digital product, visual identity, website or an idea that doesn&apos;t have a shape yet — I&apos;d love to hear about it.
           </p>
         </div>
 
-        {/* Single-Line Email Box */}
-        <div className="w-full max-w-2xl pt-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between border-b border-white/20 pb-4 gap-4">
+        {/* Email Box */}
+        <div className="w-full max-w-2xl pt-2 sm:pt-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-white/20 pb-4 gap-3 sm:gap-4 text-left sm:text-left">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="text-lg sm:text-2xl font-display font-bold text-white hover:text-white/70 transition-colors no-underline tracking-wide"
+              className="text-base xs:text-lg sm:text-2xl font-display font-bold text-white hover:text-white/70 transition-colors no-underline tracking-wide truncate max-w-full"
             >
               {personalInfo.email}
             </a>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end border-t sm:border-t-0 border-white/10 pt-3 sm:pt-0">
               <button
                 onClick={handleCopyEmail}
-                className="text-xs font-display tracking-widest text-white/60 hover:text-white uppercase transition-colors flex items-center gap-1.5 cursor-pointer"
+                className="text-xs font-display tracking-widest text-white/60 hover:text-white uppercase transition-colors flex items-center gap-1.5 cursor-pointer min-h-[40px] px-2"
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <Check className="w-4 h-4 text-emerald-400" />
                     <span className="text-emerald-400 font-bold">COPIED</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5" />
+                    <Copy className="w-4 h-4" />
                     <span>COPY</span>
                   </>
                 )}
@@ -66,31 +66,31 @@ function ContactSection() {
 
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="inline-flex items-center gap-2 text-xs font-display font-bold tracking-[0.2em] uppercase text-white hover:text-white/70 transition-all"
+                className="inline-flex items-center gap-2 text-xs font-display font-bold tracking-[0.2em] uppercase text-white hover:text-white/70 transition-all min-h-[40px]"
               >
-                <span>START A CONVERSATION</span>
+                <span>TALK</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>
-          <span className="text-[10px] font-display text-white/40 uppercase tracking-widest block pt-3">
+          <span className="text-[10px] font-display text-white/40 uppercase tracking-widest block pt-3 text-left sm:text-center">
             Open for commissions &bull; No noise.
           </span>
         </div>
 
         {/* Social Links Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full pt-12 text-left font-display text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 w-full pt-6 sm:pt-12 text-left font-display text-xs">
           <a
             href={personalInfo.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-[#080a0f] border border-white/10 space-y-2 hover:border-white/20 transition-all no-underline group block"
+            className="p-5 sm:p-6 rounded-2xl bg-[#080a0f] border border-white/10 space-y-2 hover:border-white/20 active:bg-white/5 transition-all no-underline group block"
           >
             <div className="flex items-center justify-between text-white/50">
               <span className="text-[10px] uppercase tracking-widest">NETWORK</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </div>
-            <span className="text-base font-bold text-white group-hover:text-white/70 transition-colors block">
+            <span className="text-sm sm:text-base font-bold text-white group-hover:text-white/70 transition-colors block">
               LINKEDIN &rarr;
             </span>
           </a>
@@ -99,13 +99,13 @@ function ContactSection() {
             href={personalInfo.socials.behance}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-[#080a0f] border border-white/10 space-y-2 hover:border-white/20 transition-all no-underline group block"
+            className="p-5 sm:p-6 rounded-2xl bg-[#080a0f] border border-white/10 space-y-2 hover:border-white/20 active:bg-white/5 transition-all no-underline group block"
           >
             <div className="flex items-center justify-between text-white/50">
               <span className="text-[10px] uppercase tracking-widest">PORTFOLIO BOARDS</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </div>
-            <span className="text-base font-bold text-white group-hover:text-white/70 transition-colors block">
+            <span className="text-sm sm:text-base font-bold text-white group-hover:text-white/70 transition-colors block">
               BEHANCE &rarr;
             </span>
           </a>
@@ -114,13 +114,13 @@ function ContactSection() {
             href={personalInfo.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-[#080a0f] border border-white/10 space-y-2 hover:border-white/20 transition-all no-underline group block"
+            className="p-5 sm:p-6 rounded-2xl bg-[#080a0f] border border-white/10 space-y-2 hover:border-white/20 active:bg-white/5 transition-all no-underline group block"
           >
             <div className="flex items-center justify-between text-white/50">
               <span className="text-[10px] uppercase tracking-widest">VISUAL JOURNAL</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </div>
-            <span className="text-base font-bold text-white group-hover:text-white/70 transition-colors block">
+            <span className="text-sm sm:text-base font-bold text-white group-hover:text-white/70 transition-colors block">
               INSTAGRAM &rarr;
             </span>
           </a>

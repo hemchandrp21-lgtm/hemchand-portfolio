@@ -160,52 +160,52 @@ function SkillsSection() {
   ];
 
   return (
-    <section className="relative w-full py-28 px-6 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-16 sm:py-28 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
       {/* Volumetric Glow */}
       <div className="absolute top-1/2 left-[-10%] w-[500px] h-[500px] rounded-full filter blur-[160px] pointer-events-none bg-white/[0.02]" />
 
-      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20 relative z-10">
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
-          className="space-y-6 border-b border-white/10 pb-10"
+          className="space-y-4 sm:space-y-6 border-b border-white/10 pb-8 sm:pb-10"
         >
           <div className="flex items-center gap-3">
             <span className="w-8 h-[2px] bg-white/40" />
-            <span className="text-[11px] font-display tracking-[0.25em] text-white/50 uppercase">
+            <span className="text-[11px] font-display tracking-[0.25em] text-white/50 uppercase font-bold">
               03 / SOFTWARE &amp; CAPABILITIES
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight text-white leading-none">
+          <h2 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight text-white leading-none">
             SOFTWARE &amp; TOOLS <br />
             <span className="text-white/60">I WORK WITH.</span>
           </h2>
         </motion.div>
 
-        {/* CLEAN SOFTWARE LOGOS SHOWCASE (MATCHING USER SCREENSHOT) */}
-        <div className="space-y-8 bg-[#080a0f] border border-white/10 p-8 sm:p-12 rounded-3xl backdrop-blur-xl shadow-2xl">
-          <div className="flex items-center gap-2 font-display text-xs text-white/50 uppercase tracking-widest border-b border-white/10 pb-4">
-            <Wrench className="w-4 h-4 text-white/70" />
+        {/* CLEAN SOFTWARE LOGOS SHOWCASE */}
+        <div className="space-y-6 sm:space-y-8 bg-[#080a0f] border border-white/10 p-5 sm:p-12 rounded-2xl sm:rounded-3xl backdrop-blur-xl shadow-2xl">
+          <div className="flex items-center gap-2 font-display text-[11px] sm:text-xs text-white/50 uppercase tracking-widest border-b border-white/10 pb-4">
+            <Wrench className="w-4 h-4 text-white/70 shrink-0" />
             <span className="font-bold text-white tracking-widest">CREATIVE SOFTWARE STACK</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {softwareTools.map((tool, idx) => (
               <motion.div
                 key={tool.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.4, delay: idx * 0.06 }}
-                whileHover={{ x: 6, transition: { duration: 0.2 } }}
-                className="flex items-center gap-4 cursor-pointer group py-1"
+                transition={{ duration: 0.4, delay: idx * 0.04 }}
+                whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                className="flex items-center gap-3 cursor-pointer group py-1 min-h-[44px]"
               >
                 {tool.component}
-                <span className="text-base sm:text-lg font-sans font-semibold text-white/90 group-hover:text-white transition-colors">
+                <span className="text-xs xs:text-sm sm:text-lg font-sans font-semibold text-white/90 group-hover:text-white transition-colors truncate">
                   {tool.name}
                 </span>
               </motion.div>

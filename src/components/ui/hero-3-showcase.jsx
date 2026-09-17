@@ -68,11 +68,9 @@ export function Hero3Showcase({ items = defaultProjects, className = '' }) {
           }}
         >
           {marqueeItems.map((item, idx) => {
-            const isExternal = Boolean(item.externalUrl);
-            const CardWrapper = isExternal ? 'a' : Link;
-            const linkProps = isExternal
-              ? { href: item.externalUrl, target: '_blank', rel: 'noopener noreferrer' }
-              : { to: `/work/${item.id}` };
+            const targetUrl = item.externalUrl || item.behanceUrl || 'https://www.behance.net/hemchanpaunika';
+            const CardWrapper = 'a';
+            const linkProps = { href: targetUrl, target: '_blank', rel: 'noopener noreferrer' };
 
             return (
               <div key={`${item.id}-${idx}`} className="pr-6 shrink-0">
@@ -80,7 +78,7 @@ export function Hero3Showcase({ items = defaultProjects, className = '' }) {
                   whileHover={{ y: -6, scale: 1.02 }}
                   transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
                   className="group relative w-[320px] sm:w-[420px] lg:w-[480px] h-[260px] sm:h-[310px] overflow-hidden rounded-3xl border border-white/10 bg-[#080a0f] shadow-2xl transition-all duration-[1200ms] ease-out hover:border-white/30 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)]"
-                  data-cursor={isExternal ? "LIVE SITE ↗" : "VIEW STUDY"}
+                  data-cursor={item.externalUrl ? "LIVE SITE ↗" : "BEHANCE ↗"}
                 >
                   <CardWrapper
                     {...linkProps}

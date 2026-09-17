@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Volume2, VolumeX, X, ArrowRight } from 'lucide-react';
 import { toggleAudioMute, getAudioMutedState, playHoverSound, playClickSound } from '../utils/audioEngine';
 
 function Header() {
@@ -43,7 +44,7 @@ function Header() {
   // Track scroll position to conditionally style sticky nav
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -72,12 +73,12 @@ function Header() {
 
   return (
     <>
-      {/* Sleek Floating Responsive Header */}
+      {/* Sleek Floating Mobile-Responsive Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-5 flex items-center justify-between transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-12 py-3.5 sm:py-5 flex items-center justify-between transition-all duration-300 ${
           scrolled || menuOpen
             ? 'bg-[#040507]/95 backdrop-blur-md border-b border-white/10 shadow-2xl'
-            : 'bg-gradient-to-b from-[#040507]/80 via-[#040507]/40 to-transparent'
+            : 'bg-gradient-to-b from-[#040507]/90 via-[#040507]/40 to-transparent'
         }`}
       >
         {/* Brand Logo */}
@@ -90,24 +91,29 @@ function Header() {
           Hemchand&reg;
         </Link>
 
-        {/* Center Live Ticker */}
+        {/* Center Live Ticker (Desktop) */}
         <div className="hidden md:flex items-center gap-2 font-mono text-[11px] sm:text-xs text-white/80 tracking-[0.25em] pointer-events-auto">
           <span>INDIA</span>
           <span className="font-bold text-white">{timeStr || '12:00:00'}</span>
         </div>
 
-        {/* Right Section: Desktop Navigation Links + Sound Toggle + Hamburger Button */}
-        <div className="flex items-center gap-4 sm:gap-6 pointer-events-auto">
+        {/* Right Section: Mobile Touch Actions + Mute Toggle + Hamburger */}
+        <div className="flex items-center gap-2.5 sm:gap-6 pointer-events-auto">
           {/* Audio Engine Mute Toggle Button */}
           <button
             onClick={handleSoundToggle}
             onMouseEnter={playHoverSound}
             title={isMuted ? "Enable sound effects" : "Mute sound effects"}
             aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-            className="p-2 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all text-xs font-mono tracking-wider flex items-center gap-1.5 cursor-pointer"
+            className="px-3 py-2 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 active:bg-white/20 text-white/80 hover:text-white transition-all text-xs font-mono tracking-wider flex items-center gap-1.5 cursor-pointer min-h-[40px]"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="hidden xs:inline">{isMuted ? 'SOUND: OFF' : 'SOUND: ON'}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            {isMuted ? (
+              <VolumeX className="w-3.5 h-3.5 text-white/60 shrink-0" />
+            ) : (
+              <Volume2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            )}
+            <span className="hidden sm:inline">{isMuted ? 'SOUND: OFF' : 'SOUND: ON'}</span>
           </button>
 
           {/* Desktop Navigation Links (Hidden on screen < 1024px) */}
@@ -146,7 +152,7 @@ function Header() {
             </Link>
           </nav>
 
-          {/* Accessible Hamburger Menu Button (Visible on screens < 1024px) */}
+          {/* Touch-Friendly Mobile Hamburger Button */}
           <button
             ref={hamburgerRef}
             onClick={() => {
@@ -157,7 +163,7 @@ function Header() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation-overlay"
-            className="lg:hidden p-2.5 text-white hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-white/30 rounded-xl bg-white/5 border border-white/10 transition-colors cursor-pointer z-50 flex items-center justify-center"
+            className="lg:hidden p-2.5 min-w-[44px] min-h-[44px] text-white hover:text-white/80 active:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30 rounded-xl bg-white/5 border border-white/10 transition-colors cursor-pointer z-50 flex items-center justify-center"
           >
             <div className="w-5 h-4 flex flex-col justify-between items-center relative">
               <span
@@ -180,7 +186,7 @@ function Header() {
         </div>
       </header>
 
-      {/* Fullscreen Premium Mobile Navigation Drawer / Overlay */}
+      {/* Fullscreen Touch-Optimized Mobile Navigation Overlay */}
       <div
         id="mobile-navigation-overlay"
         role="dialog"
@@ -191,25 +197,34 @@ function Header() {
             closeMenu();
           }
         }}
-        className={`fixed inset-0 z-40 bg-[#040507]/98 backdrop-blur-2xl transition-all duration-300 ease-in-out flex flex-col justify-between px-6 sm:px-12 md:px-20 py-24 sm:py-28 overflow-y-auto ${
+        className={`fixed inset-0 z-40 bg-[#040507]/98 backdrop-blur-2xl transition-all duration-300 ease-in-out flex flex-col justify-between px-5 sm:px-12 pt-20 pb-6 sm:py-28 overflow-y-auto h-[100dvh] ${
           menuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'
         }`}
       >
-        {/* Background Overlay Art Lines */}
+        {/* Background Overlay Graphic Lines */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
-          <div className="absolute top-1/4 left-10 w-80 h-80 border border-white rotate-12" />
-          <div className="absolute bottom-1/4 right-10 w-96 h-96 border border-white -rotate-45" />
+          <div className="absolute top-1/4 left-5 w-64 h-64 border border-white rotate-12" />
+          <div className="absolute bottom-1/4 right-5 w-80 h-80 border border-white -rotate-45" />
           <div className="absolute top-0 right-1/3 w-[1px] h-full bg-white/20" />
         </div>
 
-        {/* Menu Drawer Header Label */}
-        <div className="relative z-10 flex items-center justify-between pb-6 border-b border-white/10 font-mono text-xs text-white/50 tracking-[0.25em] uppercase">
+        {/* Menu Drawer Header */}
+        <div className="relative z-10 flex items-center justify-between pb-4 border-b border-white/10 font-mono text-[11px] text-white/50 tracking-[0.2em] uppercase shrink-0">
           <span>NAVIGATION MENU</span>
-          <span>{timeStr || 'INDIA'}</span>
+          <div className="flex items-center gap-3">
+            <span>{timeStr || 'INDIA'}</span>
+            <button
+              onClick={closeMenu}
+              className="p-1 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              title="Close menu"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
-        {/* Menu Navigation Links */}
-        <nav className="relative z-10 flex flex-col space-y-4 max-w-4xl my-auto py-8">
+        {/* Mobile Navigation Links */}
+        <nav className="relative z-10 flex flex-col space-y-2 my-auto py-4">
           {[
             { num: '01', label: 'HOME', path: '/' },
             { num: '02', label: 'ABOUT', path: '/about' },
@@ -222,50 +237,44 @@ function Header() {
               to={item.path}
               onMouseEnter={playHoverSound}
               onClick={() => { playClickSound(); closeMenu(); }}
-              style={{ transitionDelay: `${index * 50}ms` }}
-              className="group flex items-center justify-between text-white hover:text-white transition-all no-underline border-b border-white/10 pb-4 pt-2"
+              style={{ transitionDelay: `${index * 40}ms` }}
+              className="group flex items-center justify-between text-white hover:text-white transition-all no-underline border-b border-white/10 py-3.5 px-1 active:bg-white/5 rounded-xl"
             >
-              <div className="flex items-baseline gap-4 sm:gap-6">
-                <span className="font-display font-light text-base sm:text-xl text-white/40 group-hover:text-white transition-colors tracking-widest">
+              <div className="flex items-baseline gap-3 sm:gap-6">
+                <span className="font-display font-light text-sm sm:text-xl text-white/40 group-hover:text-white transition-colors tracking-widest">
                   {item.num}
                 </span>
-                <span className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl text-white tracking-wider group-hover:translate-x-3 transition-transform duration-300">
+                <span className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-white tracking-wider group-hover:translate-x-2 transition-transform duration-300">
                   {item.label}
                 </span>
               </div>
-              <span className="font-mono text-xs text-white/40 group-hover:text-white transition-colors tracking-widest hidden xs:inline">
-                &rarr;
-              </span>
+              <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white transition-colors shrink-0" />
             </Link>
           ))}
         </nav>
 
-        {/* Primary CTA & Contact Info */}
-        <div className="relative z-10 space-y-6 pt-6 border-t border-white/10">
+        {/* Primary Mobile Call-to-Action & Contact Info */}
+        <div className="relative z-10 space-y-4 pt-4 border-t border-white/10 shrink-0">
           <Link
             to="/contact"
             onMouseEnter={playHoverSound}
             onClick={() => { playClickSound(); closeMenu(); }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-black font-display font-extrabold text-xs sm:text-sm tracking-[0.2em] uppercase hover:bg-white/90 transition-all shadow-2xl no-underline"
+            className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-white text-black font-display font-extrabold text-xs sm:text-sm tracking-[0.2em] uppercase hover:bg-white/90 active:scale-[0.98] transition-all shadow-2xl no-underline min-h-[44px]"
           >
             <span>LET&apos;S WORK TOGETHER</span>
-            <span>&rarr;</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white/60 font-display text-[11px] sm:text-xs tracking-[0.16em] uppercase pt-4">
+          <div className="grid grid-cols-2 gap-3 text-white/60 font-display text-[10px] sm:text-xs tracking-[0.16em] uppercase pt-2">
             <div>
-              <span className="block text-white/30 text-[10px] font-mono">LOCATION</span>
-              <span>NAGPUR &amp; PUNE, INDIA</span>
+              <span className="block text-white/30 text-[9px] font-mono">LOCATION</span>
+              <span className="text-white/80 font-bold">NAGPUR &amp; PUNE, INDIA</span>
             </div>
             <div>
-              <span className="block text-white/30 text-[10px] font-mono">EMAIL</span>
-              <a href="mailto:hemchandrp21@gmail.com" className="text-white hover:underline no-underline">
+              <span className="block text-white/30 text-[9px] font-mono">EMAIL</span>
+              <a href="mailto:hemchandrp21@gmail.com" className="text-white hover:underline no-underline truncate block font-bold">
                 HEMCHANDRP21@GMAIL.COM
               </a>
-            </div>
-            <div>
-              <span className="block text-white/30 text-[10px] font-mono">DISCIPLINE</span>
-              <span>UI/UX &amp; PRODUCT DESIGN</span>
             </div>
           </div>
         </div>

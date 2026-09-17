@@ -244,7 +244,7 @@ export function InfiniteImageField({
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className={`relative w-screen h-screen overflow-hidden bg-[#040507] text-white select-none cursor-grab active:cursor-grabbing ${className}`}
+      className={`relative w-full max-w-full h-screen overflow-hidden bg-[#040507] text-white select-none cursor-grab active:cursor-grabbing ${className}`}
     >
       {/* Ambient Volumetric Red Glow Spotlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[900px] bg-[#A93207]/12 rounded-full blur-[240px] pointer-events-none z-10" />

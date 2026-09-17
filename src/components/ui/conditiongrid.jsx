@@ -77,21 +77,19 @@ export function ConditionGrid({ items = defaultProjects, className = '' }) {
       className={`grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 w-full ${className}`}
     >
       {items.map((item) => {
-        const isExternal = Boolean(item.externalUrl);
+        const targetUrl = item.externalUrl || item.behanceUrl || item.linkUrl || 'https://www.behance.net/hemchanpaunika';
         const colClass = item.colSpan || 'col-span-12 md:col-span-6';
         const heightClass = item.aspectRatio || 'h-[240px] sm:h-[270px]';
 
-        const CardWrapper = isExternal ? 'a' : Link;
-        const linkProps = isExternal
-          ? { href: item.externalUrl, target: '_blank', rel: 'noopener noreferrer' }
-          : { to: item.linkUrl || `/work/${item.id}` };
+        const CardWrapper = 'a';
+        const linkProps = { href: targetUrl, target: '_blank', rel: 'noopener noreferrer' };
 
         return (
           <motion.div
             key={item.id || item.num}
             variants={cardVariants}
             className={`${colClass} group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#080a0f] shadow-2xl transition-all duration-500 hover:border-white/30 hover:shadow-[0_0_40px_rgba(255,255,255,0.08)] ${heightClass}`}
-            data-cursor={isExternal ? "LIVE SITE ↗" : "VIEW STUDY"}
+            data-cursor={item.externalUrl ? "LIVE SITE ↗" : "BEHANCE ↗"}
           >
             <CardWrapper
               {...linkProps}

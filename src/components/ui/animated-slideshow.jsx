@@ -55,11 +55,9 @@ export function AnimatedSlideshow({ items = defaultProjects, autoPlayDuration = 
   }, [isPaused, items.length, autoPlayDuration]);
 
   const activeProject = items[activeIndex];
-  const isExternal = Boolean(activeProject.externalUrl);
-  const CardWrapper = isExternal ? 'a' : Link;
-  const linkProps = isExternal
-    ? { href: activeProject.externalUrl, target: '_blank', rel: 'noopener noreferrer' }
-    : { to: `/work/${activeProject.id}` };
+  const targetUrl = activeProject.externalUrl || activeProject.behanceUrl || 'https://www.behance.net/hemchanpaunika';
+  const CardWrapper = 'a';
+  const linkProps = { href: targetUrl, target: '_blank', rel: 'noopener noreferrer' };
 
   return (
     <div 

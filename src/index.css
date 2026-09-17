@@ -31,11 +31,20 @@
     --fire-orange: #A93207;
   }
 
+  html, body, #root {
+    max-width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    box-sizing: border-box;
+  }
+
   body {
     font-family: var(--font-sans);
     background: #000000;
     color: var(--text-primary);
     overflow-x: hidden;
+    max-width: 100%;
     min-height: 100vh;
     letter-spacing: 0.02em;
     -webkit-font-smoothing: antialiased;
@@ -163,6 +172,15 @@
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(15, 18, 24, 0.85);
   transform: translateY(-2px);
+}
+
+/* No Scrollbar Utility for Mobile Swipeable Containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Accessibility: Prefers Reduced Motion */

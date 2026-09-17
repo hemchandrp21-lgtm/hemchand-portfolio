@@ -389,11 +389,9 @@ export function ZoomSliderComp({
 
       <div ref={stripRef} className="absolute inset-0">
         {images.map((item, index) => {
-          const isExternal = Boolean(item.externalUrl);
-          const CardWrapper = isExternal ? 'a' : Link;
-          const linkProps = isExternal
-            ? { href: item.externalUrl, target: '_blank', rel: 'noopener noreferrer' }
-            : { to: `/work/${item.id}` };
+          const targetUrl = item.externalUrl || item.behanceUrl || 'https://www.behance.net/hemchanpaunika';
+          const CardWrapper = 'a';
+          const linkProps = { href: targetUrl, target: '_blank', rel: 'noopener noreferrer' };
 
           return (
             <div

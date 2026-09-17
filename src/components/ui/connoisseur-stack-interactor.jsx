@@ -8,14 +8,16 @@ const defaultItems = [
     name: "NOBROKER PACKERS",
     image: "/nobroker_behance.webp",
     tag: "CASE STUDY",
-    linkUrl: "/work/nobroker-packers-movers-ux"
+    behanceUrl: "https://www.behance.net/gallery/252993955/NOBROKERS-Redesign",
+    linkUrl: "https://www.behance.net/gallery/252993955/NOBROKERS-Redesign"
   },
   {
     num: "02",
     name: "HOZATRA STOREFRONT",
     image: "/real_aftter.webp",
     tag: "CASE STUDY",
-    linkUrl: "/work/hozatra-corporate-web-ui"
+    behanceUrl: "https://www.behance.net/hemchanpaunika",
+    linkUrl: "https://www.behance.net/hemchanpaunika"
   },
   {
     num: "03",
@@ -43,12 +45,8 @@ export const ConnoisseurStackInteractor = ({
   const activeItem = items[activeIndex] || items[0];
 
   const handleItemClick = (item) => {
-    if (!item.linkUrl) return;
-    if (item.externalUrl) {
-      window.open(item.externalUrl, "_blank", "noopener,noreferrer");
-    } else {
-      window.location.href = item.linkUrl;
-    }
+    const url = item.externalUrl || item.behanceUrl || item.linkUrl || "https://www.behance.net/hemchanpaunika";
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
