@@ -2,12 +2,12 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 function Word({ children, progress, range }) {
-  const opacity = useTransform(progress, range, [0.15, 1]);
+  const opacity = useTransform(progress, range, [0.2, 1]);
   const color = useTransform(
     progress,
     range,
     [
-      'rgba(255, 255, 255, 0.15)',
+      'rgba(255, 255, 255, 0.2)',
       '#FFFFFF'
     ]
   );
@@ -15,7 +15,7 @@ function Word({ children, progress, range }) {
   return (
     <motion.span
       style={{ opacity, color }}
-      className="inline-block mr-[0.22em] will-change-[opacity,color]"
+      className="inline-block mr-[0.25em] will-change-[opacity,color] transition-opacity duration-150"
     >
       {children}
     </motion.span>
@@ -34,27 +34,33 @@ function TextRevealSection() {
   });
 
   return (
-    // Long 500vh sticky track ensures section stays firmly stuck on screen during and long after animation finishes
-    <div ref={targetRef} className="relative h-[450vh] sm:h-[550vh] bg-[#040507] z-10">
-      {/* Viewport container stays 100% fixed & stuck on screen */}
-      <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center px-5 sm:px-12 lg:px-20 overflow-hidden select-none">
-        <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8">
-          {/* Label Indicator */}
-          <div className="flex items-center gap-3 justify-center mb-4 sm:mb-6">
-            <span className="w-8 h-[2px] bg-white/40" />
-            <span className="text-[11px] sm:text-xs font-display tracking-[0.25em] text-white/40 uppercase font-bold">
-              PHILOSOPHY / STATEMENT
+    // Inspired by yadavnarayan.in second section: 300vh sticky track with bold accent background & word-by-word reveal
+    <section id="about" ref={targetRef} className="relative h-[300vh] bg-[#A93207] text-white z-10">
+      {/* Sticky full-screen viewport container */}
+      <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center px-6 sm:px-16 lg:px-24 overflow-hidden select-none">
+        
+        {/* Subtle background texture overlay */}
+        <div className="absolute inset-0 bg-radial from-white/10 via-transparent to-black/30 pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-10 relative z-10">
+          
+          {/* Eyebrow Tag */}
+          <div className="flex items-center gap-3 justify-center">
+            <span className="w-8 h-[2px] bg-white/60" />
+            <span className="text-[11px] sm:text-xs font-mono tracking-[0.3em] text-white/80 uppercase font-bold">
+              (ABOUT &bull; PHILOSOPHY)
             </span>
+            <span className="w-8 h-[2px] bg-white/60" />
           </div>
 
-          {/* Sticky Word-by-Word Text Reveal */}
-          <h2 className="font-display font-bold text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.12] tracking-tight uppercase">
+          {/* Large Bold Statement Word-by-Word Text Reveal */}
+          <p className="font-display font-extrabold text-3xl xs:text-4xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[1.12] tracking-tight uppercase flex flex-wrap justify-center gap-x-[0.2em] gap-y-[0.1em] text-white drop-shadow-lg">
             {words.map((word, i) => {
-              // Word reveal completes by 0.50 progress, keeping the screen stuck with full text illuminated for the rest of the track
+              // Word illumination progresses smoothly from 0.05 to 0.70, staying 100% white until section unpins at 1.00
               const totalWords = words.length;
-              const step = 0.48 / totalWords;
-              const start = i * step;
-              const end = start + step * 1.4;
+              const step = 0.65 / totalWords;
+              const start = 0.05 + i * step;
+              const end = Math.min(1, start + step * 1.5);
 
               return (
                 <Word
@@ -66,10 +72,10 @@ function TextRevealSection() {
                 </Word>
               );
             })}
-          </h2>
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
