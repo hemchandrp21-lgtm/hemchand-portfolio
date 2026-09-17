@@ -120,8 +120,8 @@ export function CSSImageStacking({ slides = [], accent = "#A93207" }) {
   if (!slides || slides.length === 0) return null;
 
   return (
-    // 250vh - 300vh scroll track allows cards to stack smoothly as user scrolls
-    <div ref={containerRef} className="relative h-[250vh] sm:h-[280vh] w-full select-none pb-24">
+    // 200vh - 220vh scroll track allows 4 cards to stack smoothly as user scrolls without trailing blank space
+    <div ref={containerRef} className="relative h-[200vh] sm:h-[220vh] w-full select-none pb-12">
       {slides.map((slide, i) => (
         <StackingCard
           key={slide.id || i}
