@@ -34,9 +34,9 @@ function TextRevealSection() {
   });
 
   return (
-    // Track container keeps screen pinned sticky for 280vh-300vh so all words including "actually exist." finish fully before unpinning
-    <div ref={targetRef} className="relative h-[280vh] sm:h-[320vh] bg-[#040507] z-10">
-      {/* Sticky viewport container stays 100% fixed on screen until entire text reveal is finished */}
+    // Long 500vh sticky track ensures section stays firmly stuck on screen during and long after animation finishes
+    <div ref={targetRef} className="relative h-[450vh] sm:h-[550vh] bg-[#040507] z-10">
+      {/* Viewport container stays 100% fixed & stuck on screen */}
       <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center px-5 sm:px-12 lg:px-20 overflow-hidden select-none">
         <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8">
           {/* Label Indicator */}
@@ -50,11 +50,11 @@ function TextRevealSection() {
           {/* Sticky Word-by-Word Text Reveal */}
           <h2 className="font-display font-bold text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.12] tracking-tight uppercase">
             {words.map((word, i) => {
-              // Illumination for all words (including "actually exist.") completes by 0.67 progress, keeping screen stuck while text is fully revealed
+              // Word reveal completes by 0.50 progress, keeping the screen stuck with full text illuminated for the rest of the track
               const totalWords = words.length;
-              const step = 0.65 / totalWords;
+              const step = 0.48 / totalWords;
               const start = i * step;
-              const end = start + step * 1.5;
+              const end = start + step * 1.4;
 
               return (
                 <Word
