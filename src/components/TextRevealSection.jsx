@@ -35,8 +35,8 @@ function TextRevealSection() {
   });
 
   return (
-    // Outer scroll track container provides distance to pin the section
-    <div ref={targetRef} className="relative h-[160vh] sm:h-[250vh] bg-[#040507] z-10">
+    // Outer scroll track container (300vh = 3 full scrolls) keeps section pinned until animation finishes
+    <div ref={targetRef} className="relative h-[300vh] bg-[#040507] z-10">
       {/* Inner viewport container stays sticky-pinned on screen until text reveal completes */}
       <div className="sticky top-0 h-[100dvh] w-full flex flex-col items-center justify-center px-5 sm:px-12 lg:px-20 overflow-hidden select-none">
         <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8">
@@ -48,12 +48,12 @@ function TextRevealSection() {
             </span>
           </div>
 
-          {/* Sticky Word-by-Word Text Reveal */}
+          {/* Sticky Word-by-Word Text Reveal over 3 scrolls */}
           <h2 className="font-display font-bold text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.12] tracking-tight uppercase">
             {words.map((word, i) => {
-              // Word illumination occurs between 0 and 0.85 scroll progress
-              const start = (i / words.length) * 0.85;
-              const end = start + (1 / words.length) * 0.85;
+              // Word illumination finishes by 0.75 progress, leaving 0.25 scroll buffer to read before unpinning
+              const start = (i / words.length) * 0.75;
+              const end = start + (1 / words.length) * 0.75;
               const isHighlight = highlightWords.includes(word);
 
               return (
