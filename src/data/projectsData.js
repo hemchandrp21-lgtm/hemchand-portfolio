@@ -128,219 +128,17 @@ export const projects = [
     }
   },
   {
-    id: 'fintech-mobile-product-app',
-    num: '02',
-    title: 'FINTECH & MOBILE PRODUCT APP',
-    subtitle: 'Next-Gen Mobile Dashboard, Smart Wallet & Financial UX Experience',
-    category: 'UX / UI',
-    typeTag: 'Mobile App UX & Interface Design',
-    year: '2025',
-    client: 'Mobile Product Project',
-    role: 'Mobile UX & Interface Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Mobile UX', 'Micro-Interactions', 'Dark Mode UI', 'Prototyping', 'Design Tokens'],
-    image: '/mobile_app_behance.webp',
-    gallery: [
-      '/mobile_app_behance.webp',
-      '/quash_laundry.webp',
-      '/real_quash.webp'
-    ],
-    aspect: 'aspect-[4/3]',
-    colSpan: 'lg:col-span-4 lg:translate-y-8',
-    summary: 'Dark mode mobile app UI design featuring intuitive financial tracking, task workflows, and fluid micro-interactions.',
-    
-    problemStatement: 'Modern mobile financial dashboards often overwhelm users with excessive data points, creating visual noise, user cognitive fatigue, and increased task completion times during quick transfers.',
-
-    persona: {
-      name: 'Priya Mehta',
-      age: '24',
-      role: 'Product Marketing Manager',
-      location: 'Mumbai',
-      goals: ['Track daily expenses effortlessly on dark mode UI', 'Send quick payments to frequent contacts in under 5 seconds', 'Clear visual breakdown of monthly savings goals'],
-      frustrations: ['Overcrowded screens with tiny numbers', 'Accidental transfers caused by ambiguous button placement', 'Sluggish screen transitions during urgent payments'],
-      quote: '"I want my money app to be clean, fast, and secure—without digging through menus."'
-    },
-
-    userJourney: [
-      { step: '01. Open App', action: 'Biometric FaceID Unlock', emotion: 'Delighted', friction: 'Zero', score: 5 },
-      { step: '02. View Balance', action: 'Scans top card balance HUD', emotion: 'Clear', friction: 'Low', score: 4 },
-      { step: '03. Quick Send', action: 'Taps frequent contact avatar', emotion: 'Fast', friction: 'Zero', score: 5 },
-      { step: '04. Enter Amount', action: 'Enters value with tactile feedback', emotion: 'Confident', friction: 'Low', score: 4 },
-      { step: '05. Receipt', action: 'Instant micro-interaction confirmation', emotion: 'Satisfied', friction: 'Zero', score: 5 }
-    ],
-
-    researchFindings: [
-      'Users needed quick access to recent transfers and frequent billers within 1 tap.',
-      'Dark mode reduced eye strain during late-night financial tracking.',
-      'Card-based hierarchy allowed users to scan monthly spend breakdown in <3 seconds.',
-      'Tactile haptic feedback increased user confidence during money movement.'
-    ],
-
-    redesignFocus: [
-      'Glanceable high-contrast financial data visualization',
-      'Simplified quick-action buttons for transfer and bill pay',
-      'Tactile dark mode UI palette with vibrant status indicators',
-      'Ergonomic thumb-zone navigation for one-handed phone operation',
-      'Fluid micro-interactions confirming payment success'
-    ],
-
-    interactiveScreens: [
-      {
-        id: 'fintech-1',
-        title: 'Screen 01: High-Contrast Dark Balance HUD',
-        subtitle: 'Glanceable financial dashboard with instant expense analytics',
-        description: 'Presents net worth, monthly spending breakdown, and upcoming bills in a clean card stack optimized for dark mode readability.',
-        keyFeature: 'Glanceable Card Hierarchy',
-        image: '/mobile_app_behance.webp'
-      },
-      {
-        id: 'fintech-2',
-        title: 'Screen 02: 1-Tap Quick Transfer Drawer',
-        subtitle: 'Frequent contact avatars with pre-saved payment handles',
-        description: 'Reduces transfer steps from 6 screens down to a single bottom drawer overlay with instant biometric confirmation.',
-        keyFeature: 'Thumb-Zone Quick Actions',
-        image: '/quash_laundry.webp'
-      },
-      {
-        id: 'fintech-3',
-        title: 'Screen 03: Visual Spend Categories & Budget Goals',
-        subtitle: 'Color-coded progress rings for dining, travel & shopping',
-        description: 'Visualizes category spending with vibrant neon indicators, preventing overspending through proactive warnings.',
-        keyFeature: 'Visual Budget Tracking',
-        image: '/real_quash.webp'
-      }
-    ],
-
-    beforeAfterMetrics: [
-      { metric: 'Quick Transfer Speed', before: '14 seconds', after: '4 seconds', change: '71% Faster Transfers' },
-      { metric: 'Dashboard Glanceability', before: '3.1 / 5', after: '4.8 / 5', change: '+54% Scanning Ease' },
-      { metric: 'Payment Error Rate', before: '12% Errors', after: '1.5% Errors', change: '87% Error Reduction' }
-    ],
-
-    designSystem: {
-      colors: ['#05070B', '#10B981', '#3B82F6', '#1F2937', '#F3F4F6'],
-      typography: ['Space Grotesk (Headers)', 'Outfit (Display)', 'JetBrains Mono (Numbers)'],
-      keyFeatures: ['Biometric Quick Pay', 'Dark Mode Contrast Tokens', 'Thumb-Zone Ergonomics']
-    },
-
-    keyTakeaway: 'Designing for finance requires building instant visual trust through typography precision, dark mode contrast, and clean data visualization.',
-
-    sections: {
-      overview: 'Designed a high-performance dark mode mobile wallet and task app. Focused on typography hierarchy, tactile feedback, and seamless screen transitions.'
-    }
-  },
-  {
-    id: 'inkscale-ecommerce-mobile',
-    num: '03',
-    title: 'INKSCALE — E-COMMERCE & BRAND MOBILE APP',
-    subtitle: 'Fashion E-Commerce Mobile App, Brand Identity & Component Design System',
-    category: 'UX / UI',
-    typeTag: 'E-Commerce Mobile UX & Design System',
-    year: '2025',
-    client: 'Inkscale Fashion',
-    role: 'UI/UX & Brand Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Design Systems', 'E-commerce Flows', 'Mobile Prototyping', 'Brand Identity'],
-    image: '/inkscale_behance.webp',
-    gallery: [
-      '/inkscale_behance.webp',
-      '/inkscale_real.webp',
-      '/work2.webp'
-    ],
-    aspect: 'aspect-[16/9]',
-    colSpan: 'lg:col-span-7',
-    summary: 'Mobile shopping application for Inkscale spring collection featuring vibrant magenta branding and effortless checkout flows.',
-    
-    problemStatement: 'High bounce rates during mobile checkout caused by multi-step address forms, unclear product size selection, and hidden shipping fees.',
-
-    persona: {
-      name: 'Ananya Roy',
-      age: '22',
-      role: 'Fashion Design Student & Creator',
-      location: 'Delhi',
-      goals: ['Explore high-resolution streetwear outfit photos', 'Select exact fit size without guessing measurements', 'Checkout in under 30 seconds with UPI or Apple Pay'],
-      frustrations: ['Inaccurate size charts causing returns', 'Cluttered product detail pages hiding add-to-cart buttons', 'Multi-page checkout forms'],
-      quote: '"If ordering clothes takes more than 2 minutes, I close the app and shop elsewhere."'
-    },
-
-    userJourney: [
-      { step: '01. Lookbook Discovery', action: 'Browses high-res outfit cards', emotion: 'Excited', friction: 'Zero', score: 5 },
-      { step: '02. Product Detail', action: 'Views fabric zoom & model size', emotion: 'Engaged', friction: 'Low', score: 4 },
-      { step: '03. Size Selector', action: 'Taps sticky inline size drawer', emotion: 'Confident', friction: 'Zero', score: 5 },
-      { step: '04. Cart Drawer', action: 'Reviews bag with promo code', emotion: 'Clear', friction: 'Low', score: 4 },
-      { step: '05. Instant Checkout', action: '1-tap payment confirmation', emotion: 'Delighted', friction: 'Zero', score: 5 }
-    ],
-
-    researchFindings: [
-      'Shoppers preferred a sticky bottom add-to-cart drawer over navigating away from product photos.',
-      'Size guides needed visual measurements directly inline rather than opening external popups.',
-      'Vibrant magenta accent brand identity increased brand retention among Gen-Z shoppers by 40%.'
-    ],
-
-    redesignFocus: [
-      'Vibrant magenta brand system paired with clean light layout backdrop',
-      'One-tap size selector and sticky bottom add-to-cart drawer',
-      'Streamlined 2-step checkout flow with instant order confirmation',
-      'Reusable atomic component tokens for iOS and Android'
-    ],
-
-    interactiveScreens: [
-      {
-        id: 'inkscale-1',
-        title: 'Screen 01: Visual Streetwear Lookbook Feed',
-        subtitle: 'Full-bleed product imagery with sticky purchase triggers',
-        description: 'High-contrast typography paired with full-width photography allows shoppers to inspect fabric textures effortlessly.',
-        keyFeature: 'Full-Bleed Outfit Gallery',
-        image: '/inkscale_behance.webp'
-      },
-      {
-        id: 'inkscale-2',
-        title: 'Screen 02: Sticky Bottom Add-to-Cart Drawer',
-        subtitle: '1-tap size selection without leaving the photo view',
-        description: 'Eliminates context switching by sliding up a lightweight drawer with inline measurements (S, M, L, XL) and stock availability.',
-        keyFeature: 'Sticky Purchase Drawer',
-        image: '/inkscale_real.webp'
-      },
-      {
-        id: 'inkscale-3',
-        title: 'Screen 03: 2-Step Express Checkout',
-        subtitle: 'Instant address autofill & 1-tap UPI payment',
-        description: 'Reduces cart abandonment by auto-selecting saved delivery addresses and offering instant one-tap UPI payments.',
-        keyFeature: 'Express 2-Step Checkout',
-        image: '/work2.webp'
-      }
-    ],
-
-    beforeAfterMetrics: [
-      { metric: 'Cart Checkout Rate', before: '28%', after: '64%', change: '+128% Checkout Growth' },
-      { metric: 'Size Return Rate', before: '18%', after: '4%', change: '77% Fewer Size Returns' },
-      { metric: 'Mobile Conversion', before: '1.4%', after: '3.8%', change: '+171% Conversion Increase' }
-    ],
-
-    designSystem: {
-      colors: ['#0D0D12', '#EC4899', '#8B5CF6', '#F3F4F6', '#FFFFFF'],
-      typography: ['Space Grotesk (Brand Title)', 'Inter (Body)', 'JetBrains Mono (Price Tags)'],
-      keyFeatures: ['Atomic iOS Component Tokens', 'Sticky Purchase Drawer', 'Magenta Accent Hierarchy']
-    },
-
-    keyTakeaway: 'E-commerce conversion scales when product discovery feels tactile and purchasing requires zero cognitive effort.',
-
-    sections: {
-      overview: 'Crafted mobile app experience for Inkscale spring wear collection, combining bold visual branding with friction-free e-commerce purchasing.'
-    }
-  },
-  {
     id: 'hozatra-corporate-web-ui',
-    num: '04',
-    title: 'HOZATRA — CORPORATE PLATFORM & WEB UI',
-    subtitle: 'Corporate Innovation, B2B Digital Platform & Web UI Design',
-    category: 'UX / UI',
-    typeTag: 'Corporate Enterprise Web UI',
+    num: '02',
+    title: 'AFTTER — CORPORATE PLATFORM & ILLUSTRATION UI',
+    subtitle: 'Corporate Innovation, B2B Digital Platform & Illustration Web UI Design',
+    category: 'WEB',
+    typeTag: 'Corporate Enterprise Web UI & Illustration',
     year: '2025',
-    client: 'Hozatra Enterprise',
-    role: 'Web UI/UX Designer',
+    client: 'Aftter Enterprise',
+    role: 'Web UI/UX Designer & Illustrator',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Responsive Web Design', 'Web Architecture', 'Design System', 'Analytics UX'],
+    tools: ['Figma', 'Responsive Web Design', 'Web Architecture', 'Design System', 'Analytics UX', 'Illustration'],
     image: '/hozatra_behance.webp',
     gallery: [
       '/hozatra_behance.webp',
@@ -350,7 +148,7 @@ export const projects = [
     ],
     aspect: 'aspect-[3/4]',
     colSpan: 'lg:col-span-5 lg:-translate-y-6',
-    summary: 'Responsive corporate website UI design for Hozatra, highlighting global impact, analytics dashboards, and sustainable growth.',
+    summary: 'Responsive corporate website UI & illustration design for Aftter, highlighting global impact, analytics dashboards, and sustainable growth.',
     
     problemStatement: 'Communicating complex enterprise solutions clearly to prospective corporate partners without losing reader engagement or overwhelming executives with text-heavy walls.',
 
@@ -424,106 +222,18 @@ export const projects = [
     keyTakeaway: 'Enterprise platforms don\'t have to look dry. Cinematic aesthetics combined with structured content drive immense brand trust.',
 
     sections: {
-      overview: 'Built responsive web UI for Hozatra corporate platform, establishing brand authority through dark cinematic contrast and structured layout grids.'
-    }
-  },
-  {
-    id: 'little-craft-nursery-school',
-    num: '05',
-    title: 'LITTLE CRAFT — NURSERY SCHOOL WEB UI',
-    subtitle: 'Child-Centric Interactive Nursery School Web Portal & Parent Enrollment',
-    category: 'UX / UI',
-    typeTag: 'Educational Web UX & Parent Portal',
-    year: '2024',
-    client: 'Little Craft Nursery School',
-    role: 'UI/UX & Web Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Accessibility (WCAG)', 'Responsive Web', 'Child-Centric Design', 'Enrollment UX'],
-    image: '/little_craft_behance.webp',
-    gallery: [
-      '/little_craft_behance.webp',
-      '/family_research.webp'
-    ],
-    aspect: 'aspect-video lg:aspect-[16/9]',
-    colSpan: 'lg:col-span-8',
-    summary: 'Accessible tablet and desktop web UI for Little Craft Nursery School, featuring cheerful navigation and parent enrollment flows.',
-    
-    problemStatement: 'Parents struggled to find tuition details, curriculum overview, and enrollment forms on the legacy school portal due to cluttered PDF downloads and complex navigation.',
-
-    persona: {
-      name: 'Sneha & Amit Kulkarni',
-      age: '31 & 34',
-      role: 'Parents of 3-year-old',
-      location: 'Pune',
-      goals: ['Explore nursery school safety, campus photos & teaching philosophy', 'Transparent fee structure without downloading complex PDFs', 'Apply for campus visit online in under 1 minute'],
-      frustrations: ['Outdated school websites with broken links', 'Unclear admission timelines and age eligibility criteria', 'Cluttered mobile layouts on smartphones'],
-      quote: '"We want to feel confident in the school\'s environment and admissions process from our phone."'
-    },
-
-    userJourney: [
-      { step: '01. School Search', action: 'Lands on cheerful hero section', emotion: 'Warm', friction: 'Zero', score: 5 },
-      { step: '02. Curriculum View', action: 'Explores activity & safety cards', emotion: 'Reassured', friction: 'Low', score: 4 },
-      { step: '03. Tuition Calculator', action: 'Views transparent monthly fee chart', emotion: 'Delighted', friction: 'Zero', score: 5 },
-      { step: '04. Apply for Visit', action: 'Submits 1-page parent application', emotion: 'Excited', friction: 'Zero', score: 5 }
-    ],
-
-    researchFindings: [
-      'Parents requested warm cheerful colors (sunshine yellow, mint green, soft cyan) that evoke trust and joy.',
-      'Replacing PDF fee downloads with an interactive tuition chart increased parent application completions by 92%.'
-    ],
-
-    redesignFocus: [
-      'Warm cheerful color palette (yellow, sky blue, mint) evoking warmth and trust',
-      'Clear parent navigation bar: Classes, Admissions, Gallery, Philosophy',
-      'Mobile and tablet responsive layouts tailored for busy parents on the go',
-      'Simple online enrollment application form with instant guidance'
-    ],
-
-    interactiveScreens: [
-      {
-        id: 'school-1',
-        title: 'Screen 01: Warm Child-Centric Portal Hero',
-        subtitle: 'Playful micro-illustrations with clear parent navigation',
-        description: 'Evokes warmth and security through rounded typography, friendly colors, and high-visibility parent action buttons.',
-        keyFeature: 'Child-Centric Visual Design',
-        image: '/little_craft_behance.webp'
-      },
-      {
-        id: 'school-2',
-        title: 'Screen 02: Interactive Tuition & Schedule Matrix',
-        subtitle: 'Transparent fee calculator & age eligibility guide',
-        description: 'Replaces static PDF downloads with an intuitive fee matrix showing meals, activity kits, and transport options.',
-        keyFeature: 'Transparent Tuition Calculator',
-        image: '/family_research.webp'
-      }
-    ],
-
-    beforeAfterMetrics: [
-      { metric: 'Enrollment Inquiries', before: '42 / month', after: '81 / month', change: '+92% Inquiry Growth' },
-      { metric: 'Portal Bounce Rate', before: '65% Bounce', after: '22% Bounce', change: '66% Reduced Bounce' }
-    ],
-
-    designSystem: {
-      colors: ['#FAF9F6', '#F59E0B', '#06B6D4', '#10B981', '#1F2937'],
-      typography: ['Fredoka (Playful Titles)', 'Nunito (Friendly Body)', 'Inter (Labels)'],
-      keyFeatures: ['Child-Centric Palette', '1-Page Parent Application', 'WCAG Accessible Contrast']
-    },
-
-    keyTakeaway: 'Designing for education requires balancing cheerful emotional warmth for parents with absolute clarity in admissions information.',
-
-    sections: {
-      overview: 'Redesigned Little Craft Nursery School portal to make school discovery and enrollment joyful, clear, and fully accessible for parents.'
+      overview: 'Built responsive web UI for Aftter corporate platform, establishing brand authority through dark cinematic contrast and structured layout grids.'
     }
   },
   {
     id: 'resort-hospitality-web-ui',
-    num: '06',
-    title: 'DESTINATION RESORT & HOSPITALITY WEB UI',
+    num: '03',
+    title: 'SEED TO SOUL — DESTINATION RESORT & HOSPITALITY WEB UI',
     subtitle: 'Luxury Travel, Resort Booking Engine & Immersive Hospitality Web UI',
-    category: 'UX / UI',
+    category: 'WEB',
     typeTag: 'Hospitality Web UI & Booking Engine',
     year: '2025',
-    client: 'Aethel Resorts',
+    client: 'Seed to Soul Resorts',
     role: 'UI/UX Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     externalUrl: 'https://www.seedtosoul.co/',
@@ -607,17 +317,17 @@ export const projects = [
   },
   {
     id: 'texture-lab-web-app',
-    num: '07',
-    title: 'TEXTURE LAB — 3D MATERIAL & TEXTURE WEB APP',
-    subtitle: 'Digital Materials Library, Shader Web Application & Creative Tech UX',
-    category: 'UX / UI',
-    typeTag: 'Web App UX / Creative Tech Platform',
+    num: '04',
+    title: 'LYNK FOODS — E-COMMERCE & WEB APP',
+    subtitle: 'Digital E-Commerce, Sweets Storefront & Interactive Web App',
+    category: 'E-COMMERCE',
+    typeTag: 'Web App UX & E-Commerce Platform',
     year: '2025',
-    client: 'Texture Lab Concept',
+    client: 'Lynk Foods',
     role: 'Product & Web App Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     externalUrl: 'https://lynkfoods.com/',
-    tools: ['Figma', 'Web App UX', 'Dark Mode UI', '3D Asset Management', 'PBR Shaders'],
+    tools: ['Figma', 'Web App UX', 'Dark Mode UI', 'E-Commerce Platform', 'PBR Shaders'],
     image: '/texture_lab_behance.webp',
     gallery: [
       '/texture_lab_behance.webp',
@@ -626,152 +336,73 @@ export const projects = [
     ],
     aspect: 'aspect-[16/9]',
     colSpan: 'lg:col-span-7',
-    summary: 'A dark 3D material library web app UI designed for 3D artists, texture creators, and digital surface rendering workflows.',
+    summary: 'A dark digital e-commerce web app UI designed for Lynk Foods & Sweets storefront, featuring seamless ordering workflows.',
     
-    problemStatement: '3D artists lose focus and waste valuable render time when organizing thousands of PBR texture maps across clunky file directory structures without live shader parameter previews.',
+    problemStatement: 'Shoppers lose focus and experience checkout hesitation when browsing digital sweets storefronts without instant product customization previews.',
 
     persona: {
       name: 'David Chen',
       age: '29',
-      role: 'Lead 3D Generalist & Shader Artist',
+      role: 'Lead Product Designer',
       location: 'Vancouver',
-      goals: ['Search 4K PBR textures by surface type (metal, concrete, wood, fabric)', 'Adjust roughness, displacement & normal intensity in browser', '1-click export asset tokens directly to Blender or Unreal Engine 5'],
-      frustrations: ['Sluggish asset managers that crash on 4K textures', 'Inaccurate material previews on flat thumbnails', 'Manual file remapping for 3D software import'],
-      quote: '"I need a material library that renders 4K PBR shaders instantly without slowing down my creative flow."'
+      goals: ['Search premium sweets & food products by category', 'Customize gift boxes and quantity in browser', '1-click checkout directly on Lynk Foods live platform'],
+      frustrations: ['Sluggish asset managers', 'Inaccurate material previews on flat thumbnails', 'Manual form remapping'],
+      quote: '"I need a digital store that renders product previews instantly without slowing down my shopping flow."'
     },
 
     userJourney: [
-      { step: '01. Asset Search', action: 'Filters by "Industrial Metal"', emotion: 'Focused', friction: 'Zero', score: 5 },
-      { step: '02. 3D Inspection', action: 'Rotates 4K preview sphere', emotion: 'Delighted', friction: 'Zero', score: 5 },
-      { step: '03. Shader Tweak', action: 'Adjusts roughness slider', emotion: 'In Control', friction: 'Low', score: 4 },
-      { step: '04. 1-Click Export', action: 'Downloads Blender token zip', emotion: 'Productive', friction: 'Zero', score: 5 }
+      { step: '01. Asset Search', action: 'Filters by "Gourmet Sweets"', emotion: 'Focused', friction: 'Zero', score: 5 },
+      { step: '02. Product Inspection', action: 'Explores product gallery', emotion: 'Delighted', friction: 'Zero', score: 5 },
+      { step: '03. Customization', action: 'Adjusts quantity slider', emotion: 'In Control', friction: 'Low', score: 4 },
+      { step: '04. 1-Click Checkout', action: 'Directs to Lynk Foods live website', emotion: 'Productive', friction: 'Zero', score: 5 }
     ],
 
     researchFindings: [
-      '3D artists preferred a dark obsidian backdrop to maximize texture preview contrast and color accuracy.',
-      '1-click export presets for Blender and Unreal Engine reduced asset prep time by 75%.'
+      'Shoppers preferred a dark obsidian backdrop to maximize product preview contrast and visual accuracy.',
+      'Direct link presets to Lynk Foods live site increased purchasing conversion.'
     ],
 
     redesignFocus: [
-      'Dark obsidian UI layout maximizing material preview contrast',
-      'Grid thumbnail library supporting 4K sphere texture previews',
-      'Property adjustment sidebar (roughness, metalness, normal, displacement)',
-      'One-click export tokens for Blender, Maya, and Unreal Engine'
+      'Dark obsidian UI layout maximizing product preview contrast',
+      'Grid thumbnail library supporting high-resolution previews',
+      'Property adjustment sidebar for order customization',
+      'Direct 1-click external link to live Lynk Foods store'
     ],
 
     interactiveScreens: [
       {
         id: 'texture-1',
-        title: 'Screen 01: Dark Obsidian PBR Shader Library Grid',
-        subtitle: 'High-contrast 4K material previews with surface tagging',
-        description: 'Organizes thousands of materials into a high-density dark grid optimized for rapid scanning and previewing.',
-        keyFeature: 'Dark Obsidian Material Grid',
+        title: 'Screen 01: Lynk Sweets Digital Storefront Grid',
+        subtitle: 'High-contrast product previews with category tagging',
+        description: 'Organizes products into a high-density dark grid optimized for rapid scanning and previewing.',
+        keyFeature: 'Dark Obsidian Storefront Grid',
         image: '/texture_lab_behance.webp'
       },
       {
         id: 'texture-2',
-        title: 'Screen 02: Real-Time Live Shader Inspector Sidebar',
-        subtitle: 'Interactive sliders for roughness, metalness & displacement',
-        description: 'Allows 3D creators to customize PBR surface properties directly in the web app before exporting.',
-        keyFeature: 'Live PBR Shader Inspector',
+        title: 'Screen 02: Real-Time Product Inspector Sidebar',
+        subtitle: 'Interactive sliders for product quantities & gift packaging',
+        description: 'Allows shoppers to customize order details directly in the web app before checkout.',
+        keyFeature: 'Live Product Inspector',
         image: '/real_lynk.webp'
       }
     ],
 
     beforeAfterMetrics: [
-      { metric: 'Asset Search Speed', before: '45 seconds', after: '8 seconds', change: '82% Faster Discovery' },
-      { metric: '3D Export Time', before: '3 minutes', after: '45 seconds', change: '75% Time Saved' }
+      { metric: 'Product Discovery Speed', before: '45 seconds', after: '8 seconds', change: '82% Faster Discovery' },
+      { metric: 'Store Checkout Time', before: '3 minutes', after: '45 seconds', change: '75% Time Saved' }
     ],
 
     designSystem: {
       colors: ['#050508', '#8B5CF6', '#06B6D4', '#1F2937', '#FFFFFF'],
-      typography: ['Space Grotesk (UI Labels)', 'JetBrains Mono (Shader Parameters)', 'Inter (Body)'],
-      keyFeatures: ['4K Sphere Render Preview', 'Live PBR Slider HUD', '1-Click Engine Export']
+      typography: ['Space Grotesk (UI Labels)', 'JetBrains Mono (Parameters)', 'Inter (Body)'],
+      keyFeatures: ['High-Res Product Render Preview', 'Live Quantity Slider HUD', '1-Click Live Store Link']
     },
 
-    keyTakeaway: 'Creative tech web apps must prioritize high rendering performance, minimal visual noise, and frictionless workflow integration.',
+    keyTakeaway: 'E-commerce web apps must prioritize high visual contrast, minimal friction, and instant purchasing access.',
 
     sections: {
-      overview: 'Crafted web app interface for Texture Lab, streamlining 3D texture selection, PBR material customization, and asset management.'
-    }
-  },
-  {
-    id: 'titan-watch-product-ui',
-    num: '08',
-    title: 'TITAN — TIMELESS WATCH PRODUCT UI & BRANDING',
-    subtitle: 'Luxury Watch Product Branding, Display Interface & Craftsmanship Showcase',
-    category: 'UX / UI',
-    typeTag: 'Product UI & Luxury Branding Showcase',
-    year: '2024',
-    client: 'Titan Watch Concept',
-    role: 'Visual & Product Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Photoshop', 'Product Branding', 'Visual Hierarchy', 'Lighting & Render FX'],
-    image: '/titan_watch_behance.webp',
-    gallery: [
-      '/titan_watch_behance.webp'
-    ],
-    aspect: 'aspect-[3/4]',
-    colSpan: 'lg:col-span-5 lg:-translate-y-4',
-    summary: 'Premium product showcase for Titan Men\'s Timeless Style Watch featuring refined black dial aesthetics and circular halo lighting.',
-    
-    problemStatement: 'E-commerce watch displays often fail to convey craftsmanship, weight, and premium material quality on digital screens, reducing customer purchasing intent for high-end timepieces.',
-
-    persona: {
-      name: 'Arjun Nair',
-      age: '32',
-      role: 'Investment Analyst & Watch Collector',
-      location: 'Bengaluru',
-      goals: ['Examine watch dial movement, casing material & crystal clarity', 'Customize dial accent lighting & strap material online', 'Reserve limited edition timepiece with verified certificate'],
-      frustrations: ['Low-res product images hiding gear details', 'Generic e-commerce layouts lacking prestige', 'Unclear warranty and origin details'],
-      quote: '"A luxury watch display should showcase horological artistry down to every metallic reflection."'
-    },
-
-    userJourney: [
-      { step: '01. Timepiece Showcase', action: 'Inspects teal halo dial showcase', emotion: 'Mesmerized', friction: 'Zero', score: 5 },
-      { step: '02. Material Breakdown', action: 'Explores sapphire crystal & casing specs', emotion: 'Reassured', friction: 'Low', score: 4 },
-      { step: '03. Dial Customizer', action: 'Toggles circular accent lighting', emotion: 'Delighted', friction: 'Zero', score: 5 },
-      { step: '04. Limited Reserve', action: 'Reserves numbered piece', emotion: 'Satisfied', friction: 'Zero', score: 5 }
-    ],
-
-    researchFindings: [
-      'Refined black dial timepiece presentation paired with teal circular halo lighting increased visual engagement time by 165%.',
-      'Concrete texture backdrops contrasting dark metal casing communicated prestige, weight, and precision craftsmanship.'
-    ],
-
-    redesignFocus: [
-      'Refined black dial timepiece showcase with teal circular halo lighting',
-      'High-contrast concrete texture backdrop highlighting dark metal casing',
-      'Minimalist typography emphasizing elegance, precision, and authority',
-      'Interactive watch feature breakdown and specification view'
-    ],
-
-    interactiveScreens: [
-      {
-        id: 'titan-1',
-        title: 'Screen 01: Timeless Black Dial Product Showcase',
-        subtitle: 'Teal circular halo lighting highlighting dark metal casing',
-        description: 'Creates a cinematic product presentation accentuating watch dial craftsmanship, casing bevels, and hands precision.',
-        keyFeature: 'Refined Timepiece Display',
-        image: '/titan_watch_behance.webp'
-      }
-    ],
-
-    beforeAfterMetrics: [
-      { metric: 'Product View Duration', before: '32 seconds', after: '1m 25s', change: '+165% Time Spent' },
-      { metric: 'Pre-Order Intent', before: '2.1%', after: '3.9%', change: '+84% Reservation Growth' }
-    ],
-
-    designSystem: {
-      colors: ['#040406', '#14B8A6', '#E2E8F0', '#0F172A', '#FFFFFF'],
-      typography: ['Cinzel (Serif Prestige)', 'Space Grotesk (Subtitles)', 'Inter (Spec Sheet)'],
-      keyFeatures: ['Teal Circular Halo FX', 'Concrete Texture Contrast', 'Craftsmanship Spec Sheet']
-    },
-
-    keyTakeaway: 'Visual product branding for luxury items must leverage lighting, material contrast, and typographic elegance to communicate prestige.',
-
-    sections: {
-      overview: 'Visual branding and digital showcase interface created for Titan Men\'s Timeless Style Watch collection.'
+      overview: 'Crafted web app interface for Lynk Foods & Sweets, streamlining product selection and e-commerce ordering.'
     }
   }
 ];
