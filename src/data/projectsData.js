@@ -18,265 +18,147 @@ export const personalInfo = {
 };
 
 export const projects = [
-  // ================= UI/UX & PRODUCT DESIGN =================
+  // ==========================================
+  // 1. UI/UX & PRODUCT DESIGN
+  // ==========================================
   {
     id: 'nobroker-packers-movers-ux',
     num: '01',
-    title: 'NOBROKERS REDESIGN',
-    subtitle: 'End-to-End Packers & Movers UX Case Study: Usability Testing, Friction Mapping & Transparent Pricing',
+    title: 'NOBROKERS REDESIGN — PACKERS & MOVERS UX',
+    subtitle: 'End-to-End Case Study: Research, Friction Mapping, Wireframes & High-Fidelity UX',
     category: 'UI/UX & Product Design',
-    typeTag: 'Full UX Case Study & Usability Redesign',
+    typeTag: 'UX Case Study & Usability Redesign',
     year: '2025',
     client: 'NoBroker Concept UX Redesign',
     role: 'UX Researcher & Product Designer',
     behanceUrl: 'https://www.behance.net/gallery/252993955/NOBROKERS-Redesign',
-    tools: ['Figma', 'Usability Testing', 'Wireframing', 'User Research', 'Information Architecture'],
+    tools: ['Figma', 'Usability Testing', 'Wireframing', 'Interactive Prototyping', 'User Research'],
     image: '/nobroker_behance.webp',
-    gallery: [
-      '/nobroker_behance.webp',
-      '/nobroker_ux.webp',
-      '/real_nobroker.webp',
-      '/nobroker_cropped.webp'
-    ],
-    summary: 'An end-to-end UX evaluation and redesign focused on eliminating price uncertainty and streamlining item selection.'
+    gallery: ['/nobroker_behance.webp', '/nobroker_ux.webp', '/real_nobroker.webp', '/nobroker_cropped.webp'],
+    aspect: 'aspect-video lg:aspect-[16/9]',
+    colSpan: 'lg:col-span-8',
+    summary: 'An end-to-end UX evaluation and redesign focused on eliminating price uncertainty and reducing booking friction for Packers & Movers.',
+    sections: { overview: 'Conducted end-to-end UX evaluation and redesign of the Packers & Movers booking funnel.' }
   },
   {
     id: 'quash-laundry-ui-ux',
     num: '02',
     title: 'QUASH LAUNDRY UI UX',
-    subtitle: 'On-Demand Mobile Laundry Booking & Doorstep Delivery Service Interface',
+    subtitle: 'On-Demand Laundry Mobile App UI & Order Tracking Experience',
     category: 'UI/UX & Product Design',
-    typeTag: 'Mobile App UX/UI',
+    typeTag: 'Mobile App UX & Service Design',
     year: '2025',
-    client: 'Quash Laundry App',
-    role: 'UI/UX Designer',
+    client: 'Quash Laundry Services',
+    role: 'Product Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Mobile UX', 'User Flows', 'Design System'],
+    tools: ['Figma', 'Mobile UX', 'User Flow', 'Order Tracking', 'Design System'],
     image: '/quash_laundry.webp',
-    gallery: ['/quash_laundry.webp', '/quash_real.webp', '/real_quash.webp'],
-    summary: 'A clean mobile application interface streamlining laundry pickups, garment care options, and real-time tracking.'
+    gallery: ['/quash_laundry.webp', '/quash_real.png', '/real_quash.webp'],
+    aspect: 'aspect-[4/3]',
+    colSpan: 'lg:col-span-4',
+    summary: 'Streamlined mobile app experience for scheduling laundry pickups, tracking garment care, and digital payments.',
+    sections: { overview: 'Designed mobile UI/UX for Quash Laundry, simplifying schedule management and order tracking.' }
   },
   {
     id: 'inkscale-ecommerce-mobile',
     num: '03',
-    title: 'INKSCALE',
-    subtitle: 'Modern Mobile E-Commerce Storefront & Seamless Shopping Checkout Flow',
+    title: 'INKSCALE — E-COMMERCE MOBILE APP',
+    subtitle: 'Custom Apparel, Printing & E-Commerce Mobile Interface',
     category: 'UI/UX & Product Design',
-    typeTag: 'E-Commerce Mobile UX',
+    typeTag: 'Mobile E-Commerce App',
     year: '2025',
-    client: 'InkScale Apparel',
-    role: 'Product Designer',
+    client: 'InkScale Store',
+    role: 'UI/UX Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'E-Commerce UX', 'Micro-Interactions', 'Prototyping'],
+    tools: ['Figma', 'E-Commerce UX', 'Mobile UI', 'Checkout Flow'],
     image: '/inkscale_behance.webp',
     gallery: ['/inkscale_behance.webp', '/inkscale_real.webp', '/real_inkscale.webp'],
-    summary: 'Mobile-first e-commerce UX designed for rapid product discovery, interactive sizing preview, and 1-tap checkout.'
+    aspect: 'aspect-video',
+    colSpan: 'lg:col-span-6',
+    summary: 'E-commerce mobile experience engineered for browsing custom print apparel and seamless item checkout.',
+    sections: { overview: 'Created high-converting mobile e-commerce flows for custom print merchandise.' }
   },
   {
     id: 'hozatra-corporate-web-ui',
     num: '04',
-    title: 'HOZATRA',
-    subtitle: 'Corporate Innovation, B2B Digital Platform & Responsive Web Architecture',
+    title: 'HOZATRA — CORPORATE DIGITAL PLATFORM',
+    subtitle: 'B2B Enterprise Web UI, Service Architecture & Solution Matrix',
     category: 'UI/UX & Product Design',
-    typeTag: 'Corporate Web UI & B2B Architecture',
+    typeTag: 'Enterprise Web UI',
     year: '2025',
     client: 'Hozatra Enterprise',
     role: 'Web UI/UX Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Web UI', 'Design Systems', 'B2B UX'],
+    tools: ['Figma', 'Responsive Web Design', 'Enterprise UX', 'Design System'],
     image: '/hozatra_behance.webp',
-    gallery: ['/hozatra_behance.webp', '/aftter_storefront.png', '/real_aftter.webp'],
-    summary: 'Dark obsidian enterprise web platform highlighting solution architecture and global analytics.'
+    gallery: ['/hozatra_behance.webp', '/aftter_storefront.webp', '/real_aftter.webp'],
+    aspect: 'aspect-[3/4]',
+    colSpan: 'lg:col-span-6',
+    summary: 'Responsive enterprise web interface designed to communicate complex corporate services through structured card grids.',
+    sections: { overview: 'Designed web architecture and B2B interface for Hozatra platform.' }
   },
   {
     id: 'little-craft-nursery-school',
     num: '05',
-    title: 'NURSERY WEB PAGE',
-    subtitle: 'Interactive Educational Portal & Early Learning Childhood Website',
+    title: 'NURSERY WEB PAGE — LITTLE CRAFT',
+    subtitle: 'Vibrant Early Childhood Education & Nursery School Web Portal',
     category: 'UI/UX & Product Design',
-    typeTag: 'Web Design & Educational UX',
+    typeTag: 'Educational Web UI',
     year: '2025',
-    client: 'Little Craft Nursery',
-    role: 'UI Designer',
+    client: 'Little Craft Nursery School',
+    role: 'Web UI Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Visual Design', 'Playful UI', 'Responsive Web'],
+    tools: ['Figma', 'Visual Design', 'Parent Portal UX', 'Color Theory'],
     image: '/little_craft_behance.webp',
     gallery: ['/little_craft_behance.webp'],
-    summary: 'Warm, intuitive nursery school landing portal designed to build parental trust and streamline admissions.'
+    aspect: 'aspect-video',
+    colSpan: 'lg:col-span-6',
+    summary: 'Engaging web portal for parents to explore nursery curricula, campus facilities, and online admission forms.',
+    sections: { overview: 'Crafted friendly educational website UI for Little Craft Nursery School.' }
   },
   {
     id: 'melody-music-app-ui',
     num: '06',
-    title: 'MELODY',
-    subtitle: 'Immersive Mobile Music Streaming Platform & Playlist Discovery UI',
+    title: 'MELODY — MUSIC STREAMING APP UI',
+    subtitle: 'Immersive Audio Streaming, Spatial Player & Personalized Playlists UI',
     category: 'UI/UX & Product Design',
-    typeTag: 'Mobile Music App UI',
+    typeTag: 'Mobile Audio App',
     year: '2025',
-    client: 'Melody Audio',
-    role: 'Mobile UI Designer',
+    client: 'Melody Audio Concept',
+    role: 'Mobile UI/UX Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Audio UX', 'Dark Mode UI', 'Prototyping'],
+    tools: ['Figma', 'Music Player UX', 'Dark Mode UI', 'Micro-interactions'],
     image: '/mobile_app_behance.webp',
     gallery: ['/mobile_app_behance.webp'],
-    summary: 'Minimalist mobile music interface featuring personalized player HUD, lyrics sync, and wave visualizations.'
+    aspect: 'aspect-[4/3]',
+    colSpan: 'lg:col-span-6',
+    summary: 'Dark mode music streaming app interface with fluid gesture controls and high-contrast typography.',
+    sections: { overview: 'Designed next-gen mobile music player interface focused on audio immersion.' }
   },
   {
     id: 'texture-lab-web-app',
     num: '07',
-    title: 'TEXTURE LAB',
-    subtitle: 'Digital Storefront, E-Commerce Platform & Interactive Material Web App',
+    title: 'TEXTURE LAB — DIGITAL E-COMMERCE STOREFRONT',
+    subtitle: 'Digital E-Commerce, Sweets Storefront & Interactive Web App',
     category: 'UI/UX & Product Design',
     typeTag: 'Web App UX & E-Commerce',
     year: '2025',
     client: 'Lynk Foods / Texture Lab',
-    role: 'Product Designer',
+    role: 'Product & Web App Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     externalUrl: 'https://lynkfoods.com/',
-    tools: ['Figma', 'Web App UX', 'Dark Mode UI', 'E-Commerce'],
-    image: '/texture_lab_behance.webp',
-    gallery: ['/texture_lab_behance.webp', '/lynk_sweets.png', '/real_lynk.webp'],
-    summary: 'High-density dark grid web application streamlining product selection and real-time custom ordering.'
+    tools: ['Figma', 'Web App UX', 'Dark Mode UI', 'E-Commerce Platform'],
+    image: '/lynk_sweets.png',
+    gallery: ['/lynk_sweets.png', '/real_lynk.webp', '/lynk_real.webp'],
+    aspect: 'aspect-[16/9]',
+    colSpan: 'lg:col-span-7',
+    summary: 'A dark digital e-commerce web app UI designed for Lynk Foods & Sweets storefront, featuring seamless ordering workflows.',
+    sections: { overview: 'Crafted web app interface for Lynk Foods & Sweets storefront.' }
   },
-
-  // ================= BRANDING & VISUAL DESIGN =================
-  {
-    id: 'titan-watch-product-ui',
-    num: '08',
-    title: 'TITAN REFINED WATCH',
-    subtitle: 'Luxury Timepiece Brand Identity, Packaging Concept & Digital Product UI',
-    category: 'Branding & Visual Design',
-    typeTag: 'Luxury Branding & Product Design',
-    year: '2025',
-    client: 'Titan Watch Concept',
-    role: 'Visual & Brand Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Photoshop', 'Brand Identity', 'Visual Storytelling'],
-    image: '/titan_watch_behance.webp',
-    gallery: ['/titan_watch_behance.webp'],
-    summary: 'Elevated luxury watch branding system combining precision typography with premium product showcase layouts.'
-  },
-  {
-    id: 'social-media-design',
-    num: '09',
-    title: 'SOCIAL MEDIA DESIGN',
-    subtitle: 'Digital Campaign Assets, Brand Social Kits & Engagement Visuals',
-    category: 'Branding & Visual Design',
-    typeTag: 'Social Media & Brand Identity',
-    year: '2025',
-    client: 'Brand Agency Clients',
-    role: 'Visual Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Illustrator', 'Photoshop', 'Social Strategy', 'Typography'],
-    image: '/family_research.webp',
-    gallery: ['/family_research.webp'],
-    summary: 'High-impact social media campaign creative direction for brand building and audience engagement.'
-  },
-
-  // ================= ILLUSTRATION & DIGITAL ART =================
-  {
-    id: 'aftter-illustration-ui',
-    num: '10',
-    title: 'AFTTER',
-    subtitle: 'Corporate Illustration System & Custom Platform Character Artwork',
-    category: 'Illustration & Digital Art',
-    typeTag: 'Digital Illustration & Platform Artwork',
-    year: '2025',
-    client: 'Aftter Enterprise',
-    role: 'Illustrator & UI Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Illustrator', 'Digital Vector Art', 'Character Design', 'Storytelling'],
-    image: '/aftter_storefront.webp',
-    gallery: ['/aftter_storefront.webp', '/real_aftter.webp'],
-    summary: 'Custom vector illustration system designed to give corporate B2B web pages human warmth and personality.'
-  },
-  {
-    id: 'kedarnath-temple-illustration',
-    num: '11',
-    title: 'KEDARNATH TEMPLE',
-    subtitle: 'Himalayan Heritage Digital Vector Artwork & Spiritual Landmark Series',
-    category: 'Illustration & Digital Art',
-    typeTag: 'Vector Landscape & Heritage Art',
-    year: '2025',
-    client: 'Personal Creative Art',
-    role: 'Digital Artist & Illustrator',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Adobe Illustrator', 'Color Theory', 'Digital Painting'],
-    image: '/swachh_maharashtra.webp',
-    gallery: ['/swachh_maharashtra.webp'],
-    summary: 'Atmospheric digital illustration capturing the majestic Himalayan architecture and sacred aura of Kedarnath.'
-  },
-  {
-    id: 'ram-mandir-digital-art',
-    num: '12',
-    title: 'RAM MANDIR',
-    subtitle: 'Architectural Digital Artwork & Monumental Cultural Vector Design',
-    category: 'Illustration & Digital Art',
-    typeTag: 'Cultural Architecture Illustration',
-    year: '2025',
-    client: 'Cultural Art Series',
-    role: 'Digital Illustrator',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Illustrator', 'Vector Art', 'Architectural Illustration'],
-    image: '/work4.webp',
-    gallery: ['/work4.webp'],
-    summary: 'Intricate digital artwork showcasing traditional Indian stone temple architecture and golden lighting.'
-  },
-  {
-    id: 'scenery-digital-landscape',
-    num: '13',
-    title: 'SCENERY',
-    subtitle: 'Cinematic Landscape Composition & Atmospheric Waterfall Matte Painting',
-    category: 'Illustration & Digital Art',
-    typeTag: 'Digital Environment Art',
-    year: '2025',
-    client: 'Visual Art Exploration',
-    role: 'Environment Artist',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Photoshop', 'Matte Painting', 'Lighting & Shading'],
-    image: '/hero_waterfall.webp',
-    gallery: ['/hero_waterfall.webp'],
-    summary: 'Cinematic digital environment artwork exploring lighting, volumetric fog, and nature landscapes.'
-  },
-
-  // ================= GRAPHIC & POSTER DESIGN =================
-  {
-    id: 'porsche-911-gt3-poster',
-    num: '14',
-    title: 'PORSCHE 911 GT3 R',
-    subtitle: 'Automotive Graphic Poster Design, Kinetic Typography & Motorsport Layout',
-    category: 'Graphic & Poster Design',
-    typeTag: 'Automotive Poster & Graphic Art',
-    year: '2025',
-    client: 'Automotive Design Series',
-    role: 'Graphic Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Photoshop', 'Illustrator', 'Poster Design', 'Kinetic Type'],
-    image: '/work2.webp',
-    gallery: ['/work2.webp'],
-    summary: 'High-octane poster layout celebrating the engineering precision and silhouette of the Porsche 911 GT3 R.'
-  },
-  {
-    id: 'supra-nezuko-graphic-art',
-    num: '15',
-    title: 'SUPRA NEZUKO',
-    subtitle: 'Anime x Automotive Culture Graphic Poster & Visual Collage Series',
-    category: 'Graphic & Poster Design',
-    typeTag: 'Anime & Automotive Graphic Design',
-    year: '2025',
-    client: 'Personal Graphic Work',
-    role: 'Graphic Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Photoshop', 'Compositing', 'Pop Art', 'Typography'],
-    image: '/work1.webp',
-    gallery: ['/work1.webp'],
-    summary: 'Bold fusion poster blending JDM Toyota Supra automotive culture with vibrant anime visual aesthetics.'
-  },
-
-  // ================= FEATURED SHOWCASE COMPATIBILITY ITEM =================
   {
     id: 'resort-hospitality-web-ui',
-    num: '00',
-    title: 'SEED TO SOUL — DESTINATION RESORT & HOSPITALITY WEB UI',
+    num: '08',
+    title: 'SEED TO SOUL — DESTINATION RESORT WEB UI',
     subtitle: 'Luxury Travel, Resort Booking Engine & Immersive Hospitality Web UI',
     category: 'UI/UX & Product Design',
     typeTag: 'Hospitality Web UI & Booking Engine',
@@ -285,10 +167,177 @@ export const projects = [
     role: 'UI/UX Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     externalUrl: 'https://www.seedtosoul.co/',
-    tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web', 'Luxury Branding'],
+    tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web'],
     image: '/seed_to_soul.png',
     gallery: ['/seed_to_soul.png', '/real_seedtosoul.webp'],
-    summary: 'High-end responsive resort portal bringing families together in beautiful destinations.'
+    aspect: 'aspect-[4/3]',
+    colSpan: 'lg:col-span-4',
+    summary: 'High-end responsive resort portal bringing families together in beautiful destinations with immersive villa photography.',
+    sections: { overview: 'Designed luxury hospitality web UI aimed at driving resort villa bookings.' }
+  },
+
+  // ==========================================
+  // 2. BRANDING & VISUAL DESIGN
+  // ==========================================
+  {
+    id: 'titan-watch-product-ui',
+    num: '09',
+    title: 'TITAN REFINED WATCH — BRANDING & PRODUCT UI',
+    subtitle: 'Luxury Watch Showcase, Brand Identity & Product UI Experience',
+    category: 'Branding & Visual Design',
+    typeTag: 'Brand Identity & Product Showcase',
+    year: '2025',
+    client: 'Titan Watches Concept',
+    role: 'Visual & Brand Designer',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Figma', 'Photoshop', 'Luxury Branding', 'Product Visualization'],
+    image: '/titan_watch_behance.webp',
+    gallery: ['/titan_watch_behance.webp'],
+    aspect: 'aspect-square',
+    colSpan: 'lg:col-span-6',
+    summary: 'Premium product visual design and digital showcase interface for Titan luxury timepiece collection.',
+    sections: { overview: 'Crafted luxury brand showcase and interface for Titan watch series.' }
+  },
+  {
+    id: 'social-media-design-branding',
+    num: '10',
+    title: 'SOCIAL MEDIA DESIGN & CAMPAIGN BRANDING',
+    subtitle: 'Creative Brand Campaign Assets, Social Creatives & Visual Identity',
+    category: 'Branding & Visual Design',
+    typeTag: 'Social Media & Brand Identity',
+    year: '2025',
+    client: 'Swachh Maharashtra & Digital Brands',
+    role: 'Visual Designer',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Illustrator', 'Photoshop', 'Social Strategy', 'Brand Assets'],
+    image: '/swachh_maharashtra.webp',
+    gallery: ['/swachh_maharashtra.webp'],
+    aspect: 'aspect-video',
+    colSpan: 'lg:col-span-6',
+    summary: 'Cohesive visual identity and high-impact social media campaign creative designs for public initiatives and brands.',
+    sections: { overview: 'Designed social media campaign assets and brand communication designs.' }
+  },
+
+  // ==========================================
+  // 3. ILLUSTRATION & DIGITAL ART
+  // ==========================================
+  {
+    id: 'aftter-illustration-art',
+    num: '11',
+    title: 'AFTTER — DIGITAL ILLUSTRATION & ARTWORK',
+    subtitle: 'Vector Illustration System & Custom Digital Artwork',
+    category: 'Illustration & Digital Art',
+    typeTag: 'Digital Illustration & Art',
+    year: '2025',
+    client: 'Aftter Creative',
+    role: 'Illustrator & Visual Artist',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Adobe Illustrator', 'Photoshop', 'Vector Art', 'Visual Storytelling'],
+    image: '/aftter_storefront.webp',
+    gallery: ['/aftter_storefront.webp', '/aftter_real.webp'],
+    aspect: 'aspect-[3/4]',
+    colSpan: 'lg:col-span-6',
+    summary: 'Custom digital illustrations combining isometric shapes, clean linework, and vibrant color gradients.',
+    sections: { overview: 'Created digital illustration system and custom vector artwork.' }
+  },
+  {
+    id: 'kedarnath-temple-art',
+    num: '12',
+    title: 'KEDARNATH TEMPLE — DIGITAL ARTWORK',
+    subtitle: 'Atmospheric Architectural Illustration of Kedarnath Dham',
+    category: 'Illustration & Digital Art',
+    typeTag: 'Architectural Digital Art',
+    year: '2025',
+    client: 'Personal Artwork',
+    role: 'Digital Artist',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Photoshop', 'Digital Painting', 'Lighting & Shading', 'Matte Art'],
+    image: '/hero_waterfall.webp',
+    gallery: ['/hero_waterfall.webp'],
+    aspect: 'aspect-square',
+    colSpan: 'lg:col-span-6',
+    summary: 'Atmospheric digital painting depicting the iconic Kedarnath Temple amidst misty Himalayan mountain peaks.',
+    sections: { overview: 'Painted digital architectural art honoring the sacred Kedarnath Temple.' }
+  },
+  {
+    id: 'ram-mandir-art',
+    num: '13',
+    title: 'RAM MANDIR — HERITAGE DIGITAL ILLUSTRATION',
+    subtitle: 'Heritage Temple Architecture & Cultural Artwork',
+    category: 'Illustration & Digital Art',
+    typeTag: 'Heritage Digital Illustration',
+    year: '2025',
+    client: 'Personal Artwork',
+    role: 'Digital Illustrator',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Illustrator', 'Photoshop', 'Cultural Illustration'],
+    image: '/work4.webp',
+    gallery: ['/work4.webp'],
+    aspect: 'aspect-[4/3]',
+    colSpan: 'lg:col-span-6',
+    summary: 'Detailed cultural vector artwork showcasing the intricate architectural heritage of Ram Mandir Ayodhya.',
+    sections: { overview: 'Illustrated detailed cultural heritage digital artwork of Ram Mandir.' }
+  },
+  {
+    id: 'scenery-digital-art',
+    num: '14',
+    title: 'SCENERY — NATURE DIGITAL PAINTING',
+    subtitle: 'Environmental Art, Landscape Composition & Lighting Study',
+    category: 'Illustration & Digital Art',
+    typeTag: 'Landscape Digital Art',
+    year: '2025',
+    client: 'Personal Art Project',
+    role: 'Environment Concept Artist',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Digital Painting', 'Photoshop', 'Atmospheric Lighting'],
+    image: '/family_research.webp',
+    gallery: ['/family_research.webp'],
+    aspect: 'aspect-video',
+    colSpan: 'lg:col-span-6',
+    summary: 'Scenic digital painting studying depth of field, atmospheric lighting, and organic environment textures.',
+    sections: { overview: 'Painted scenic environmental artwork focusing on mood and natural lighting.' }
+  },
+
+  // ==========================================
+  // 4. GRAPHIC & POSTER DESIGN
+  // ==========================================
+  {
+    id: 'porsche-911-gt3-r',
+    num: '15',
+    title: 'PORSCHE 911 GT3 R — AUTOMOTIVE POSTER DESIGN',
+    subtitle: 'High-Octane Automotive Typography & Graphic Poster Art',
+    category: 'Graphic & Poster Design',
+    typeTag: 'Automotive Poster & Graphic Art',
+    year: '2025',
+    client: 'Automotive Art Series',
+    role: 'Graphic Designer',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Photoshop', 'Illustrator', 'Typography Layout', 'Automotive Art'],
+    image: '/work1.webp',
+    gallery: ['/work1.webp'],
+    aspect: 'aspect-[3/4]',
+    colSpan: 'lg:col-span-6',
+    summary: 'Bold typographic poster design celebrating the legendary Porsche 911 GT3 R motorsport aesthetic.',
+    sections: { overview: 'Designed high-speed motorsport poster with bold typography layout.' }
+  },
+  {
+    id: 'supra-nezuko-poster',
+    num: '16',
+    title: 'SUPRA NEZUKO — ANIME AUTOMOTIVE POSTER',
+    subtitle: 'Cyberpunk Anime Concept Art & Toyota Supra Graphic Poster',
+    category: 'Graphic & Poster Design',
+    typeTag: 'Concept Art & Poster Design',
+    year: '2025',
+    client: 'Pop Culture Poster Series',
+    role: 'Graphic & Poster Artist',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Photoshop', 'Composition', 'Color Grading', 'Graphic Layout'],
+    image: '/work2.webp',
+    gallery: ['/work2.webp'],
+    aspect: 'aspect-[3/4]',
+    colSpan: 'lg:col-span-6',
+    summary: 'Stylized pop culture poster blending Toyota Supra JDM racing aesthetic with Nezuko anime visual motifs.',
+    sections: { overview: 'Created fusion automotive poster featuring JDM Supra and anime visual elements.' }
   }
 ];
 
@@ -298,7 +347,7 @@ export const internships = [
     company: 'ZIDIO DEVELOPMENT',
     role: 'UI/UX INTERN',
     summary: 'Worked on gamified learning experiences with a focus on engagement, intuitive interfaces and creative problem-solving.',
-    focus: ['UX/UI', 'Gamification', 'User Engagement', 'Interaction Design', 'Creative Problem Solving']
+    focus: ['UX/UI', 'Gamification', 'User Engagement', 'Interaction Design']
   },
   {
     period: 'SEPTEMBER 2025 — FEBRUARY 2026',
@@ -306,79 +355,33 @@ export const internships = [
     role: 'DESIGN INTERN',
     summary: 'Worked across 5 e-commerce platforms, contributing to UI/UX, design systems, user flows and responsive experiences.',
     projectsIncluded: ['Seed to Soul', 'Lynk Sweets', '3 Additional E-Commerce Websites'],
-    focus: ['E-commerce UX', 'Design Systems', 'User Flows', 'UI Design', 'Responsive Web Design', 'Consistency']
+    focus: ['E-commerce UX', 'Design Systems', 'User Flows', 'UI Design']
   },
   {
     period: 'SEPTEMBER 2025 — FEBRUARY 2026',
     company: 'GREY PLATFORMS',
     role: 'UI DESIGN INTERN / USER INTERACTION DESIGNER',
     summary: 'Contributed to the Apna BMS project while gaining hands-on experience in UI/UX design, wireframing and user-centered design.',
-    focus: ['UI Design', 'Wireframing', 'User-Centered Design', 'Interaction Design', 'BMS Interface']
+    focus: ['UI Design', 'Wireframing', 'User-Centered Design']
   },
   {
     period: 'JANUARY 2025 — PRESENT',
     company: 'FREELANCE UI/UX DESIGNER',
     role: 'FREELANCE UI/UX & BRAND DESIGNER',
     summary: 'Working on web, mobile and brand identity projects for real-world clients.',
-    selectedWork: ['Kailash Masala Employee Tracking System', 'Parikrushnum Brand Identity', 'Web & Mobile App Designs'],
-    focus: ['Enterprise UX', 'Mobile App Design', 'Brand Identity', 'Client Handoff']
+    selectedWork: ['Kailash Masala Employee Tracking System', 'Parikrushnum Brand Identity'],
+    focus: ['Enterprise UX', 'Mobile App Design', 'Brand Identity']
   }
 ];
 
 export const skillsSystem = {
-  uxProduct: [
-    'User Research',
-    'Usability Testing',
-    'Design Thinking',
-    'Information Architecture',
-    'User Flows',
-    'Interaction Design',
-    'Wireframing',
-    'Prototyping',
-    'Product Design',
-    'Design Systems'
-  ],
-  visual: [
-    'UI Design',
-    'Visual Design',
-    'Typography',
-    'Branding',
-    'Graphic Design',
-    'Art Direction',
-    'Visual Storytelling'
-  ],
-  techExperimentation: [
-    'AI-assisted workflows',
-    'AI optimization',
-    'HTML',
-    'CSS',
-    'Creative technology',
-    'Rapid prototyping',
-    'Tech + Design integration'
-  ],
-  specialities: [
-    'Dashboard Design',
-    'Responsive Design',
-    'Mobile UX',
-    'E-commerce UX',
-    'Accessible Design',
-    'Enterprise UX'
-  ]
+  uxProduct: ['User Research', 'Usability Testing', 'Design Thinking', 'Information Architecture', 'User Flows', 'Interaction Design', 'Wireframing', 'Prototyping', 'Product Design', 'Design Systems'],
+  visual: ['UI Design', 'Visual Design', 'Typography', 'Branding', 'Graphic Design', 'Art Direction', 'Visual Storytelling'],
+  techExperimentation: ['AI-assisted workflows', 'AI optimization', 'HTML', 'CSS', 'Creative technology', 'Rapid prototyping'],
+  specialities: ['Dashboard Design', 'Responsive Design', 'Mobile UX', 'E-commerce UX', 'Accessible Design']
 };
 
-export const toolsList = [
-  'Figma',
-  'Adobe Illustrator',
-  'Adobe Photoshop',
-  'Adobe After Effects',
-  'Adobe XD',
-  'Blender',
-  'Spline',
-  'FontForge',
-  'HTML',
-  'CSS',
-  'AI Design Tools'
-];
+export const toolsList = ['Figma', 'Adobe Illustrator', 'Adobe Photoshop', 'Adobe After Effects', 'Adobe XD', 'Blender', 'Spline', 'FontForge', 'HTML', 'CSS', 'AI Design Tools'];
 
 export const certifications = [
   { title: 'Digital Skills — User Experience', provider: 'Accenture' },

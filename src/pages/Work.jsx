@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';
 import SEOHead from '../components/SEOHead';
 import { playHoverSound, playClickSound } from '../utils/audioEngine';
-import { ExternalLink, Sparkles, Search, Palette, Image, Layers, ArrowUpRight, LayoutGrid } from 'lucide-react';
+import { ExternalLink, Sparkles, Search, Smartphone, Globe, ShoppingBag, Layers, ArrowUpRight, Palette, Brush, Image as ImageIcon } from 'lucide-react';
 
 function Work() {
   const [activeCategory, setActiveCategory] = useState('ALL');
@@ -17,11 +17,11 @@ function Work() {
   const workSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    'name': 'Hemchand Paunikar Work Portfolio',
+    'name': 'Hemchand Paunikar Case Studies & Portfolio',
     'url': 'https://hemchand-portfolio.vercel.app/work',
     'mainEntity': {
       '@type': 'ItemList',
-      'itemListElement': projects.filter(p => p.num !== '00').map((p, idx) => ({
+      'itemListElement': projects.map((p, idx) => ({
         '@type': 'ListItem',
         'position': idx + 1,
         'item': {
@@ -38,24 +38,18 @@ function Work() {
     }
   };
 
-  // 4 Core Categories as requested by user
+  // 4 User-Defined Project Categories
   const categories = [
     { id: 'ALL', label: 'ALL WORK', icon: Layers },
     { id: 'UI/UX & Product Design', label: 'UI/UX & PRODUCT DESIGN', icon: Sparkles },
-    { id: 'Branding & Visual Design', label: 'BRANDING & VISUAL DESIGN', icon: Palette },
-    { id: 'Illustration & Digital Art', label: 'ILLUSTRATION & DIGITAL ART', icon: Image },
-    { id: 'Graphic & Poster Design', label: 'GRAPHIC & POSTER DESIGN', icon: LayoutGrid }
+    { id: 'Branding & Visual Design', label: 'BRANDING & VISUAL DESIGN', icon: Globe },
+    { id: 'Illustration & Digital Art', label: 'ILLUSTRATION & DIGITAL ART', icon: Brush },
+    { id: 'Graphic & Poster Design', label: 'GRAPHIC & POSTER DESIGN', icon: Palette }
   ];
 
   const filteredProjects = useMemo(() => {
     return projects.filter((p) => {
-      // Exclude background compatibility fallback item from grid view
-      if (p.num === '00') return false;
-
-      let matchesCategory = true;
-      if (activeCategory !== 'ALL') {
-        matchesCategory = p.category === activeCategory;
-      }
+      const matchesCategory = activeCategory === 'ALL' || p.category === activeCategory;
 
       const matchesSearch =
         searchQuery.trim() === '' ||
@@ -68,21 +62,13 @@ function Work() {
     });
   }, [activeCategory, searchQuery]);
 
-  const displayCount = (catId) => {
-    return projects.filter((p) => {
-      if (p.num === '00') return false;
-      if (catId === 'ALL') return true;
-      return p.category === catId;
-    }).length;
-  };
-
   return (
     <div className="min-h-screen bg-[#040507] text-white selection:bg-[#A93207] selection:text-white relative font-sans">
       <SEOHead
         title="Selected Works & Case Studies | Hemchand Paunikar"
-        description="Explore UI/UX & Product Design, Branding & Visual Design, Illustration & Digital Art, and Graphic & Poster Design projects by Hemchand Paunikar."
+        description="Explore UI/UX & Product Design, Branding, Digital Illustration, and Graphic Posters by Hemchand Paunikar."
         path="/work"
-        keywords="Hemchand Paunikar projects, NoBroker Redesign, Quash Laundry, InkScale, HOZATRA, Titan Refined Watch, AFTTER Illustration, Porsche 911 GT3 Poster"
+        keywords="Hemchand Paunikar projects, NoBroker UX redesign, Quash Laundry, InkScale, HOZATRA, Titan Watch branding, Porsche poster"
         jsonLd={workSchema}
       />
       <FilmOverlay />
@@ -96,7 +82,7 @@ function Work() {
           <div className="space-y-4 border-b border-white/10 pb-8 sm:pb-12">
             <div className="flex items-center gap-3 font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#A93207] font-bold">
               <span className="w-2 h-2 rounded-full bg-[#A93207] animate-pulse" />
-              <span>BEHANCE PORTFOLIO &bull; {projects.filter(p => p.num !== '00').length} PROJECTS</span>
+              <span>BEHANCE PORTFOLIO &bull; {projects.length} PROJECTS</span>
             </div>
             
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
@@ -104,7 +90,7 @@ function Work() {
                 SELECTED <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-[#A93207]">WORKS</span>
               </h1>
               <p className="text-xs sm:text-sm text-zinc-400 font-mono max-w-md leading-relaxed uppercase">
-                Curated portfolio across UI/UX &amp; Product Design, Branding, Digital Illustration, and Graphic Posters.
+                Organized archive of UI/UX product design, brand identity systems, digital illustrations, and graphic posters.
               </p>
             </div>
           </div>
@@ -117,7 +103,8 @@ function Work() {
               {categories.map((cat) => {
                 const Icon = cat.icon;
                 const isActive = activeCategory === cat.id;
-                const count = displayCount(cat.id);
+
+                const count = projects.filter((p) => cat.id === 'ALL' || p.category === cat.id).length;
 
                 return (
                   <button
