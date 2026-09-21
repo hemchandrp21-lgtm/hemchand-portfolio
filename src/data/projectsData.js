@@ -13,7 +13,7 @@ export const personalInfo = {
     linkedin: 'https://linkedin.com/in/hemchand-paunikar',
     behance: 'https://www.behance.net/hemchanpaunika',
     instagram: 'https://www.instagram.com/hemchand.ux/',
-    resume: '#'
+    resume: '/Hemchand_Paunikar_Resume.pdf'
   }
 };
 

@@ -1,4 +1,4 @@
-import { Mail, ExternalLink, GraduationCap, Briefcase, Wrench, Award, Globe2 } from 'lucide-react';
+import { Mail, ExternalLink, GraduationCap, Briefcase, Wrench, Award, Globe2, FileText, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function LinkedInIcon() {
@@ -90,15 +90,27 @@ function AboutSection() {
               </div>
             </div>
 
-            {/* 3. Quick Contact Bar */}
+            {/* 3. Quick Contact & Download Resume Bar */}
             <div className="space-y-3 pt-2">
               <span className="text-[10px] font-display tracking-[0.25em] text-white/40 uppercase font-bold block">
-                CONTACT
+                CONTACT &amp; RESUME
               </span>
               <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-sans font-medium">
                 <a 
+                  href="/Hemchand_Paunikar_Resume.pdf"
+                  download="Hemchand_Paunikar_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-[#A93207] hover:bg-[#A93207]/80 active:scale-95 transition-all text-white font-bold text-xs shadow-xl group min-h-[44px] no-underline"
+                >
+                  <FileText className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                  <span>DOWNLOAD RESUME</span>
+                  <Download className="w-3.5 h-3.5 text-white/80" />
+                </a>
+
+                <a 
                   href="mailto:hemchandrp21@gmail.com" 
-                  className="flex-1 sm:flex-none flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-[#080a0f] border border-white/10 hover:border-white/30 hover:text-white active:bg-white/10 transition-all text-white/90 shadow-lg group min-h-[44px]"
+                  className="flex-1 sm:flex-none flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-[#080a0f] border border-white/10 hover:border-white/30 hover:text-white active:bg-white/10 transition-all text-white/90 shadow-lg group min-h-[44px] no-underline"
                 >
                   <Mail className="w-4 h-4 text-white/70 group-hover:text-white group-hover:scale-110 transition-all shrink-0" />
                   <span className="truncate">hemchandrp21@gmail.com</span>
@@ -108,7 +120,7 @@ function AboutSection() {
                   href="https://www.linkedin.com/in/hemchand-paunikar/" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-[#080a0f] border border-white/10 hover:border-white/30 hover:text-white active:bg-white/10 transition-all text-white/90 shadow-lg group min-h-[44px]"
+                  className="flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-[#080a0f] border border-white/10 hover:border-white/30 hover:text-white active:bg-white/10 transition-all text-white/90 shadow-lg group min-h-[44px] no-underline"
                 >
                   <LinkedInIcon />
                   <span>LinkedIn</span>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Volume2, VolumeX, X, ArrowRight } from 'lucide-react';
+import { Volume2, VolumeX, X, ArrowRight, Download } from 'lucide-react';
 import { toggleAudioMute, getAudioMutedState, playHoverSound, playClickSound } from '../utils/audioEngine';
 
 function Header() {
@@ -100,7 +100,7 @@ function Header() {
         {/* Right Section: Mobile Touch Actions + Hamburger */}
         <div className="flex items-center gap-2.5 sm:gap-6 pointer-events-auto">
           {/* Desktop Navigation Links (Hidden on screen < 1024px) */}
-          <nav className="hidden lg:flex items-center gap-8 font-mono text-xs tracking-[0.2em] uppercase">
+          <nav className="hidden lg:flex items-center gap-7 font-mono text-xs tracking-[0.2em] uppercase">
             <Link
               to="/about"
               onMouseEnter={playHoverSound}
@@ -133,6 +133,18 @@ function Header() {
             >
               Contact
             </Link>
+            <a
+              href="/Hemchand_Paunikar_Resume.pdf"
+              download="Hemchand_Paunikar_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={playHoverSound}
+              onClick={playClickSound}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#A93207] hover:bg-[#A93207]/80 active:scale-95 text-white font-bold tracking-widest no-underline shadow-lg transition-all duration-300"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>RESUME</span>
+            </a>
           </nav>
 
           {/* Touch-Friendly Mobile Hamburger Button */}
@@ -237,16 +249,31 @@ function Header() {
         </nav>
 
         {/* Primary Mobile Call-to-Action & Contact Info */}
-        <div className="relative z-10 space-y-4 pt-4 border-t border-white/10 shrink-0">
-          <Link
-            to="/contact"
-            onMouseEnter={playHoverSound}
-            onClick={() => { playClickSound(); closeMenu(); }}
-            className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-white text-black font-display font-extrabold text-xs sm:text-sm tracking-[0.2em] uppercase hover:bg-white/90 active:scale-[0.98] transition-all shadow-2xl no-underline min-h-[44px]"
-          >
-            <span>LET&apos;S WORK TOGETHER</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        <div className="relative z-10 space-y-3 pt-4 border-t border-white/10 shrink-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Link
+              to="/contact"
+              onMouseEnter={playHoverSound}
+              onClick={() => { playClickSound(); closeMenu(); }}
+              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-white text-black font-display font-extrabold text-xs tracking-[0.2em] uppercase hover:bg-white/90 active:scale-[0.98] transition-all shadow-2xl no-underline min-h-[44px]"
+            >
+              <span>LET&apos;S WORK TOGETHER</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <a
+              href="/Hemchand_Paunikar_Resume.pdf"
+              download="Hemchand_Paunikar_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={playHoverSound}
+              onClick={() => { playClickSound(); closeMenu(); }}
+              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#A93207] text-white font-display font-extrabold text-xs tracking-[0.2em] uppercase hover:bg-[#A93207]/80 active:scale-[0.98] transition-all shadow-2xl no-underline min-h-[44px]"
+            >
+              <Download className="w-4 h-4" />
+              <span>DOWNLOAD RESUME</span>
+            </a>
+          </div>
 
           <div className="grid grid-cols-2 gap-3 text-white/60 font-display text-[10px] sm:text-xs tracking-[0.16em] uppercase pt-2">
             <div>
