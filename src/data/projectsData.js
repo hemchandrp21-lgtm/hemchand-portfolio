@@ -526,6 +526,7 @@ export const projects = [
     client: 'Aethel Resorts',
     role: 'UI/UX Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    externalUrl: 'https://www.seedtosoul.co/',
     tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web', 'Luxury Branding'],
     image: '/resort_web_behance.webp',
     gallery: [
@@ -615,6 +616,7 @@ export const projects = [
     client: 'Texture Lab Concept',
     role: 'Product & Web App Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    externalUrl: 'https://lynkfoods.com/',
     tools: ['Figma', 'Web App UX', 'Dark Mode UI', '3D Asset Management', 'PBR Shaders'],
     image: '/texture_lab_behance.webp',
     gallery: [

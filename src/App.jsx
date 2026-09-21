@@ -17,7 +17,8 @@ const Contact = lazy(() => import('./pages/Contact'));
 import { projects } from './data/projectsData';
 
 function RedirectToBehance() {
-  const { id } = useLocation().pathname.split('/work/')[1] ? { id: useLocation().pathname.split('/work/')[1] } : { id: '' };
+  const location = useLocation();
+  const id = location.pathname.split('/work/')[1] || '';
   const project = projects.find((p) => p.id === id);
   const targetUrl = project?.behanceUrl || 'https://www.behance.net/hemchanpaunika';
 

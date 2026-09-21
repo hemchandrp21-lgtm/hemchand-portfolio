@@ -3,64 +3,40 @@ import { Link } from 'react-router-dom';
 import { useIceFire } from '../context/IceFireContext';
 import { CSSImageStacking } from './ui/css-image-stacking';
 import { playHoverSound, playClickSound } from '../utils/audioEngine';
+import { projects } from '../data/projectsData';
 
 function SelectedWork() {
   const { accentColor, glowGradient } = useIceFire();
 
-  const showcaseProjects = [
-    {
-      number: '01',
-      id: 'nobroker-packers-movers-ux',
-      title: 'NOBROKER PACKERS & MOVERS REDESIGN',
-      subtitle: 'UX Research & Usability Testing',
-      category: 'CASE STUDY',
-      src: '/nobroker_behance.webp',
-      behanceUrl: 'https://www.behance.net/gallery/252993955/NOBROKERS-Redesign',
-      desc: 'Usability Testing, Friction Elimination & Flow Optimization for 2BHK Relocation.'
-    },
-    {
-      number: '02',
-      id: 'hozatra-corporate-web-ui',
-      title: 'HOZATRA CORPORATE & AFTTER STOREFRONT',
-      subtitle: 'Brand Identity & Storefront',
-      category: 'CASE STUDY',
-      src: '/real_aftter.webp',
-      behanceUrl: 'https://www.behance.net/hemchanpaunika',
-      desc: 'E-commerce Storefront, Design System & Corporate UI Experience.'
-    },
-    {
-      number: '03',
-      id: 'resort-hospitality-web-ui',
-      title: 'SEED TO SOUL E-COMMERCE',
-      subtitle: 'Conversion E-Commerce & Hospitality',
-      category: 'LIVE WEBSITE',
-      src: '/real_seedtosoul.webp',
-      externalUrl: 'https://www.seedtosoul.co/',
-      desc: 'High-conversion organic store & sustainable hospitality experience.'
-    },
-    {
-      number: '04',
-      id: 'texture-lab-web-app',
-      title: 'LYNK FOODS & TEXTURE LAB 3D APP',
-      subtitle: 'Regional Sweets & Creative Tech',
-      category: 'LIVE WEBSITE',
-      src: '/real_lynk.webp',
-      externalUrl: 'https://lynkfoods.com/',
-      desc: '3D interactive sweet texture lab & immersive regional branding.'
-    }
+  // Selected 4 featured projects: NoBroker, Hozatra (Illustration/Corporate), Seed to Soul, Lynk Foods
+  const featuredIds = [
+    'nobroker-packers-movers-ux',
+    'hozatra-corporate-web-ui',
+    'resort-hospitality-web-ui',
+    'texture-lab-web-app'
   ];
 
-  const formattedSlides = showcaseProjects.map((proj) => ({
-    id: proj.id,
-    title: proj.title,
-    description: proj.subtitle || proj.desc,
-    image: proj.src,
-    imageAlt: proj.title,
-    overlay: `${proj.number} • ${proj.category}`,
-    action: proj.externalUrl ? 'EXPLORE LIVE SITE' : 'EXPLORE CASE STUDY',
-    href: proj.externalUrl || proj.behanceUrl || 'https://www.behance.net/hemchanpaunika',
-    target: '_blank',
-  }));
+  const showcaseProjects = projects.filter((p) => featuredIds.includes(p.id));
+
+  const formattedSlides = showcaseProjects.map((proj, idx) => {
+    const isLive = Boolean(proj.externalUrl);
+    const numStr = `0${idx + 1}`;
+    const categoryTag = isLive ? 'LIVE WEBSITE' : (proj.category || 'CASE STUDY');
+    const actionText = isLive ? 'EXPLORE LIVE SITE' : 'EXPLORE CASE STUDY';
+    const linkUrl = proj.externalUrl || proj.behanceUrl || 'https://www.behance.net/hemchanpaunika';
+
+    return {
+      id: proj.id,
+      title: proj.title,
+      description: proj.subtitle || proj.summary,
+      image: proj.image,
+      imageAlt: proj.title,
+      overlay: `${numStr} • ${categoryTag}`,
+      action: actionText,
+      href: linkUrl,
+      target: '_blank',
+    };
+  });
 
   return (
     <section id="work" className="relative w-full max-w-full bg-[#040507] text-white select-none pt-0 pb-12 px-6 sm:px-12 overflow-hidden">

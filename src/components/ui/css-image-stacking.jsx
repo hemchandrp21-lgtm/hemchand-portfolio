@@ -5,13 +5,16 @@ import { playHoverSound, playClickSound } from "../../utils/audioEngine";
 import { TiltCard } from "./tilt-card";
 
 function StackingCard({ slide, index, total, progress, accentColor }) {
-  // 21st.dev @ishamsu/scroll-cards stacking calculation
-  const targetScale = 1 - (total - index) * 0.04;
-  const startRange = (index / total) * 0.8;
-  const scale = useTransform(progress, [startRange, 1], [1, targetScale]);
+  // Stacking calculation supporting dynamic card count
+  const targetScale = 1 - (total - index) * 0.025;
+  const startRange = (index / total) * 0.85;
+  const scale = useTransform(progress, [startRange, 1], [1, Math.max(targetScale, 0.75)]);
   
   // Card top offset for layered stacking
-  const topOffset = 84 + index * 24;
+  const topOffset = 80 + index * 14;
+
+  const formattedIndex = index + 1 < 10 ? `0${index + 1}` : `${index + 1}`;
+  const formattedTotal = total < 10 ? `0${total}` : `${total}`;
 
   return (
     <div
@@ -49,13 +52,13 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
                 backgroundColor: `${accentColor}15`
               }}
             >
-              {slide.overlay || `PROJECT 0${index + 1}`}
+              {slide.overlay || `PROJECT ${formattedIndex}`}
             </span>
 
             <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-zinc-400 bg-white/5 px-3 py-1 rounded-full border border-white/10 shrink-0">
-              <span className="text-white">0{index + 1}</span>
+              <span className="text-white">{formattedIndex}</span>
               <span className="text-white/30">/</span>
-              <span>0{total}</span>
+              <span>{formattedTotal}</span>
             </div>
           </div>
 
@@ -119,9 +122,10 @@ export function CSSImageStacking({ slides = [], accent = "#A93207" }) {
 
   if (!slides || slides.length === 0) return null;
 
+  const trackHeight = `${Math.max(slides.length * 45 + 30, 220)}vh`;
+
   return (
-    // 200vh - 220vh scroll track allows 4 cards to stack smoothly as user scrolls without trailing blank space
-    <div ref={containerRef} className="relative h-[200vh] sm:h-[220vh] w-full select-none pb-12">
+    <div ref={containerRef} style={{ height: trackHeight }} className="relative w-full select-none pb-12">
       {slides.map((slide, i) => (
         <StackingCard
           key={slide.id || i}
