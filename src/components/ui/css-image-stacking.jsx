@@ -7,7 +7,8 @@ import { TiltCard } from "./tilt-card";
 function StackingCard({ slide, index, total, progress, accentColor }) {
   // Stacking calculation supporting dynamic card count
   const targetScale = 1 - (total - index) * 0.025;
-  const startRange = (index / total) * 0.85;
+  const denominator = Math.max(total - 1, 1);
+  const startRange = (index / denominator) * 0.65;
   const scale = useTransform(progress, [startRange, 1], [1, Math.max(targetScale, 0.75)]);
   
   // Card top offset for layered stacking
@@ -21,6 +22,7 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
       className="sticky flex items-center justify-center my-4 transform-gpu"
       style={{
         top: `${topOffset}px`,
+        zIndex: index + 10,
       }}
     >
       <motion.div
@@ -122,7 +124,7 @@ export function CSSImageStacking({ slides = [], accent = "#A93207" }) {
 
   if (!slides || slides.length === 0) return null;
 
-  const trackHeight = `${Math.max(slides.length * 45 + 30, 220)}vh`;
+  const trackHeight = `${Math.max(slides.length * 60 + 40, 260)}vh`;
 
   return (
     <div ref={containerRef} style={{ height: trackHeight }} className="relative w-full select-none pb-12">
