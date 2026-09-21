@@ -8,15 +8,8 @@ import { projects } from '../data/projectsData';
 function SelectedWork() {
   const { accentColor, glowGradient } = useIceFire();
 
-  // Selected 4 featured projects: NoBroker, Hozatra (Illustration/Corporate), Seed to Soul, Lynk Foods
-  const featuredIds = [
-    'nobroker-packers-movers-ux',
-    'hozatra-corporate-web-ui',
-    'resort-hospitality-web-ui',
-    'texture-lab-web-app'
-  ];
-
-  const showcaseProjects = projects.filter((p) => featuredIds.includes(p.id));
+  // Showcase all authentic projects from projectsData
+  const showcaseProjects = projects;
 
   const formattedSlides = showcaseProjects.map((proj, idx) => {
     const isLive = Boolean(proj.externalUrl);
