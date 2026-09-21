@@ -8,15 +8,17 @@ import { projects } from '../data/projectsData';
 function SelectedWork() {
   const { accentColor, glowGradient } = useIceFire();
 
-  // 4 Featured Projects: NoBroker, Aftter / Hozatra, Seed to Soul, and Lynk
+  // 4 Featured Projects: Seed to Soul, Lynk, Aftter, and NoBroker
   const featuredIds = [
-    'nobroker-packers-movers-ux',
-    'hozatra-corporate-web-ui',
     'resort-hospitality-web-ui',
-    'texture-lab-web-app'
+    'texture-lab-web-app',
+    'hozatra-corporate-web-ui',
+    'nobroker-packers-movers-ux'
   ];
 
-  const showcaseProjects = projects.filter((p) => featuredIds.includes(p.id));
+  const showcaseProjects = featuredIds
+    .map((id) => projects.find((p) => p.id === id))
+    .filter(Boolean);
 
   const formattedSlides = showcaseProjects.map((proj, idx) => {
     const isLive = Boolean(proj.externalUrl);

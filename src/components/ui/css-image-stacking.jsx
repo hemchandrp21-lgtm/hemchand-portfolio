@@ -94,21 +94,31 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
 
         {/* Right Preview Frame */}
         <div className="relative z-10 hidden lg:flex flex-col justify-center items-end w-[44%] h-full">
-          <TiltCard
-            tiltMaxAngleX={12}
-            tiltMaxAngleY={12}
-            scale={1.03}
-            glareEnable={true}
-            glareMaxOpacity={0.25}
-            className="w-full h-[300px] sm:h-[340px] rounded-2xl overflow-hidden shadow-2xl relative group/preview border border-white/10"
+          <a
+            href={slide.href}
+            target="_blank"
+            rel="noreferrer"
+            onMouseEnter={playHoverSound}
+            onClick={playClickSound}
+            className="w-full h-full block cursor-pointer group/poster no-underline"
+            title={`Open ${slide.title} live site`}
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover object-top group-hover/preview:scale-105 transition-transform duration-700 ease-out"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover/preview:opacity-10 transition-opacity pointer-events-none" />
-          </TiltCard>
+            <TiltCard
+              tiltMaxAngleX={12}
+              tiltMaxAngleY={12}
+              scale={1.03}
+              glareEnable={true}
+              glareMaxOpacity={0.25}
+              className="w-full h-[300px] sm:h-[340px] rounded-2xl overflow-hidden shadow-2xl relative group/preview border border-white/10 group-hover/poster:border-white/40 transition-colors"
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover object-top group-hover/preview:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover/preview:opacity-10 transition-opacity pointer-events-none" />
+            </TiltCard>
+          </a>
         </div>
       </motion.div>
     </div>

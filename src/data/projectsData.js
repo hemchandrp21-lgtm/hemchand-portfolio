@@ -19,8 +19,286 @@ export const personalInfo = {
 
 export const projects = [
   {
-    id: 'nobroker-packers-movers-ux',
+    id: 'resort-hospitality-web-ui',
     num: '01',
+    title: 'SEED TO SOUL — DESTINATION RESORT & HOSPITALITY WEB UI',
+    subtitle: 'Luxury Travel, Resort Booking Engine & Immersive Hospitality Web UI',
+    category: 'WEB',
+    typeTag: 'Hospitality Web UI & Booking Engine',
+    year: '2025',
+    client: 'Seed to Soul Resorts',
+    role: 'UI/UX Designer',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    externalUrl: 'https://www.seedtosoul.co/',
+    tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web', 'Luxury Branding'],
+    image: '/seed_to_soul.jpg',
+    gallery: [
+      '/seed_to_soul.jpg',
+      '/real_seedtosoul.webp',
+      '/seedtosoul_real.webp'
+    ],
+    aspect: 'aspect-[4/3]',
+    colSpan: 'lg:col-span-4 lg:translate-y-8',
+    summary: 'High-end responsive resort portal bringing families together in beautiful destinations with immersive villa photography.',
+    
+    problemStatement: 'Friction in luxury resort booking engines where prospective guests failed to visualize villa amenities before completing multi-date reservations.',
+
+    persona: {
+      name: 'Marcus Vance',
+      age: '36',
+      role: 'Creative Director & Traveler',
+      location: 'London',
+      goals: ['Book private luxury ocean villa for family vacation', 'Inspect 360 photography of rooms & private pool', 'Customize concierge package (private chef, spa, airport transfer)'],
+      frustrations: ['Cluttered date pickers that fail on mobile', 'Hidden resort fees added during payment step', 'Generic room photos without spatial context'],
+      quote: '"I want the booking experience to feel as luxurious and atmospheric as the resort itself."'
+    },
+
+    userJourney: [
+      { step: '01. Destination Hero', action: 'Views full-bleed ocean sunset imagery', emotion: 'Captivated', friction: 'Zero', score: 5 },
+      { step: '02. Villa Inspection', action: 'Filters by private pool & ocean view', emotion: 'Engaged', friction: 'Low', score: 4 },
+      { step: '03. Date Picker HUD', action: 'Selects check-in & guest count', emotion: 'Smooth', friction: 'Zero', score: 5 },
+      { step: '04. Concierge Reserve', action: 'Adds private chef & confirms booking', emotion: 'Delighted', friction: 'Zero', score: 5 }
+    ],
+
+    researchFindings: [
+      'Full-bleed imagery paired with ambient dark glass overlays increased villa booking conversions by 110%.',
+      'Inline concierge add-on selectors (spa, private chef, airport transfer) increased average order value by 35%.'
+    ],
+
+    redesignFocus: [
+      'Full-bleed resort imagery and atmospheric typography',
+      'Seamless multi-destination search and date picker HUD',
+      'Interactive room preview carousels with amenity tags',
+      'Effortless 3-step reservation and concierge checkout'
+    ],
+
+    interactiveScreens: [
+      {
+        id: 'resort-1',
+        title: 'Screen 01: Full-Bleed Resort Destination Hero',
+        subtitle: 'Atmospheric visual storytelling with floating booking HUD',
+        description: 'Immerses guests in destination photography while keeping check-in date selection accessible at the bottom HUD.',
+        keyFeature: 'Full-Bleed Visual Storytelling',
+        image: '/seed_to_soul.jpg'
+      },
+      {
+        id: 'resort-2',
+        title: 'Screen 02: Interactive Villa Amenity Inspector',
+        subtitle: '360 room photos, square footage & private pool tags',
+        description: 'Displays complete villa specifications including private infinity pool dimensions, ocean views, and concierge services.',
+        keyFeature: 'Villa Amenity Inspector',
+        image: '/real_seedtosoul.webp'
+      }
+    ],
+
+    beforeAfterMetrics: [
+      { metric: 'Villa Booking Conversion', before: '1.6%', after: '3.4%', change: '+110% Conversion Growth' },
+      { metric: 'Photo Engagement Time', before: '45s', after: '2m 10s', change: '+180% Engagement' }
+    ],
+
+    designSystem: {
+      colors: ['#090A0F', '#D97706', '#0284C7', '#1E293B', '#F8FAFC'],
+      typography: ['Playfair Display (Luxury Headers)', 'Inter (Body)', 'JetBrains Mono (Dates)'],
+      keyFeatures: ['Full-Bleed Visual HUD', 'Concierge Package Selector', 'Atmospheric Glassmorphism']
+    },
+
+    keyTakeaway: 'Luxury hospitality web UI must evoke emotion, elegance, and spatial confidence before presenting transactional booking fields.',
+
+    sections: {
+      overview: 'Designed luxury hospitality web UI aimed at evoking emotion and driving resort villa bookings through immersive visual storytelling.'
+    }
+  },
+  {
+    id: 'texture-lab-web-app',
+    num: '02',
+    title: 'LYNK FOODS — E-COMMERCE & WEB APP',
+    subtitle: 'Digital E-Commerce, Sweets Storefront & Interactive Web App',
+    category: 'E-COMMERCE',
+    typeTag: 'Web App UX & E-Commerce Platform',
+    year: '2025',
+    client: 'Lynk Foods',
+    role: 'Product & Web App Designer',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    externalUrl: 'https://lynkfoods.com/',
+    tools: ['Figma', 'Web App UX', 'Dark Mode UI', 'E-Commerce Platform', 'PBR Shaders'],
+    image: '/lynk_sweets.jpg',
+    gallery: [
+      '/lynk_sweets.jpg',
+      '/real_lynk.webp',
+      '/lynk_real.webp'
+    ],
+    aspect: 'aspect-[16/9]',
+    colSpan: 'lg:col-span-7',
+    summary: 'A dark digital e-commerce web app UI designed for Lynk Foods & Sweets storefront, featuring seamless ordering workflows.',
+    
+    problemStatement: 'Shoppers lose focus and experience checkout hesitation when browsing digital sweets storefronts without instant product customization previews.',
+
+    persona: {
+      name: 'David Chen',
+      age: '29',
+      role: 'Lead Product Designer',
+      location: 'Vancouver',
+      goals: ['Search premium sweets & food products by category', 'Customize gift boxes and quantity in browser', '1-click checkout directly on Lynk Foods live platform'],
+      frustrations: ['Sluggish asset managers', 'Inaccurate material previews on flat thumbnails', 'Manual form remapping'],
+      quote: '"I need a digital store that renders product previews instantly without slowing down my shopping flow."'
+    },
+
+    userJourney: [
+      { step: '01. Asset Search', action: 'Filters by "Gourmet Sweets"', emotion: 'Focused', friction: 'Zero', score: 5 },
+      { step: '02. Product Inspection', action: 'Explores product gallery', emotion: 'Delighted', friction: 'Zero', score: 5 },
+      { step: '03. Customization', action: 'Adjusts quantity slider', emotion: 'In Control', friction: 'Low', score: 4 },
+      { step: '04. 1-Click Checkout', action: 'Directs to Lynk Foods live website', emotion: 'Productive', friction: 'Zero', score: 5 }
+    ],
+
+    researchFindings: [
+      'Shoppers preferred a dark obsidian backdrop to maximize product preview contrast and visual accuracy.',
+      'Direct link presets to Lynk Foods live site increased purchasing conversion.'
+    ],
+
+    redesignFocus: [
+      'Dark obsidian UI layout maximizing product preview contrast',
+      'Grid thumbnail library supporting high-resolution previews',
+      'Property adjustment sidebar for order customization',
+      'Direct 1-click external link to live Lynk Foods store'
+    ],
+
+    interactiveScreens: [
+      {
+        id: 'texture-1',
+        title: 'Screen 01: Lynk Sweets Digital Storefront Grid',
+        subtitle: 'High-contrast product previews with category tagging',
+        description: 'Organizes products into a high-density dark grid optimized for rapid scanning and previewing.',
+        keyFeature: 'Dark Obsidian Storefront Grid',
+        image: '/lynk_sweets.jpg'
+      },
+      {
+        id: 'texture-2',
+        title: 'Screen 02: Real-Time Product Inspector Sidebar',
+        subtitle: 'Interactive sliders for product quantities & gift packaging',
+        description: 'Allows shoppers to customize order details directly in the web app before checkout.',
+        keyFeature: 'Live Product Inspector',
+        image: '/real_lynk.webp'
+      }
+    ],
+
+    beforeAfterMetrics: [
+      { metric: 'Product Discovery Speed', before: '45 seconds', after: '8 seconds', change: '82% Faster Discovery' },
+      { metric: 'Store Checkout Time', before: '3 minutes', after: '45 seconds', change: '75% Time Saved' }
+    ],
+
+    designSystem: {
+      colors: ['#050508', '#8B5CF6', '#06B6D4', '#1F2937', '#FFFFFF'],
+      typography: ['Space Grotesk (UI Labels)', 'JetBrains Mono (Parameters)', 'Inter (Body)'],
+      keyFeatures: ['High-Res Product Render Preview', 'Live Quantity Slider HUD', '1-Click Live Store Link']
+    },
+
+    keyTakeaway: 'E-commerce web apps must prioritize high visual contrast, minimal friction, and instant purchasing access.',
+
+    sections: {
+      overview: 'Crafted web app interface for Lynk Foods & Sweets, streamlining product selection and e-commerce ordering.'
+    }
+  },
+  {
+    id: 'hozatra-corporate-web-ui',
+    num: '03',
+    title: 'AFTTER — CORPORATE PLATFORM & ILLUSTRATION UI',
+    subtitle: 'Corporate Innovation, B2B Digital Platform & Illustration Web UI Design',
+    category: 'WEB',
+    typeTag: 'Corporate Enterprise Web UI & Illustration',
+    year: '2025',
+    client: 'Aftter Enterprise',
+    role: 'Web UI/UX Designer & Illustrator',
+    behanceUrl: 'https://www.behance.net/hemchanpaunika',
+    tools: ['Figma', 'Responsive Web Design', 'Web Architecture', 'Design System', 'Analytics UX', 'Illustration'],
+    image: '/aftter_storefront.jpg',
+    gallery: [
+      '/aftter_storefront.jpg',
+      '/real_aftter.webp',
+      '/aftter_real.webp',
+      '/work3.webp'
+    ],
+    aspect: 'aspect-[3/4]',
+    colSpan: 'lg:col-span-5 lg:-translate-y-6',
+    summary: 'Responsive corporate website UI & illustration design for Aftter, highlighting global impact, analytics dashboards, and sustainable growth.',
+    
+    problemStatement: 'Communicating complex enterprise solutions clearly to prospective corporate partners without losing reader engagement or overwhelming executives with text-heavy walls.',
+
+    persona: {
+      name: 'Vikram Verma',
+      age: '42',
+      role: 'VP of Digital Transformation',
+      location: 'Singapore',
+      goals: ['Evaluate enterprise platform capabilities in <2 minutes', 'Review verified client case studies and ROI metrics', 'Schedule executive strategy consultation easily'],
+      frustrations: ['Generic corporate boilerplate text without clear metrics', 'Hidden pricing tiers & complex contact forms', 'Poor mobile tablet rendering during executive meetings'],
+      quote: '"Show me concrete impact numbers and platform architecture upfront before asking for a sales call."'
+    },
+
+    userJourney: [
+      { step: '01. Hero Landing', action: 'Views obsidian cinematic video hero', emotion: 'Impressed', friction: 'Zero', score: 5 },
+      { step: '02. Platform Capabilities', action: 'Scans interactive service grid', emotion: 'Informed', friction: 'Low', score: 4 },
+      { step: '03. Global Impact', action: 'Inspects live client ROI metrics', emotion: 'Convinced', friction: 'Zero', score: 5 },
+      { step: '04. Demo Scheduling', action: 'Submits 3-field executive consultation', emotion: 'Satisfied', friction: 'Zero', score: 5 }
+    ],
+
+    researchFindings: [
+      'B2B enterprise clients prioritize clear value metrics, live client testimonials, and seamless contact scheduling.',
+      'Dark obsidian web UI paired with electric green accent hierarchy created immediate executive authority.'
+    ],
+
+    redesignFocus: [
+      'Sleek dark obsidian web design with electric green accent hierarchy',
+      'Interactive service breakdown cards and global impact charts',
+      'Clean typography scaling across desktop, tablet, and mobile displays',
+      'High-converting call-to-action hero sections'
+    ],
+
+    interactiveScreens: [
+      {
+        id: 'hozatra-1',
+        title: 'Screen 01: Obsidian Enterprise Hero Section',
+        subtitle: 'Cinematic contrast grid with electric green accent CTA',
+        description: 'Establishes instant market authority through bold typography, glowing grid overlays, and clear value statements.',
+        keyFeature: 'Cinematic Obsidian Hero Grid',
+        image: '/aftter_storefront.jpg'
+      },
+      {
+        id: 'hozatra-2',
+        title: 'Screen 02: Interactive Solution Architecture Matrix',
+        subtitle: 'Filterable service cards for enterprise analytics & cloud',
+        description: 'Organizes complex B2B capabilities into structured, interactive cards that expand with key architecture diagrams.',
+        keyFeature: 'Interactive Capabilities Grid',
+        image: '/real_aftter.webp'
+      },
+      {
+        id: 'hozatra-3',
+        title: 'Screen 03: Executive Consultation & Lead HUD',
+        subtitle: 'High-converting 3-field lead capture modal',
+        description: 'Replaces long corporate inquiry forms with a sleek 3-field scheduler integrated directly with calendar booking.',
+        keyFeature: 'High-Converting Executive Consultation',
+        image: '/work3.webp'
+      }
+    ],
+
+    beforeAfterMetrics: [
+      { metric: 'Inquiry Conversion', before: '1.8%', after: '4.6%', change: '+155% Lead Increase' },
+      { metric: 'Avg Session Duration', before: '1m 10s', after: '3m 45s', change: '+221% Time Spent' }
+    ],
+
+    designSystem: {
+      colors: ['#040507', '#22C55E', '#0EA5E9', '#1E293B', '#FFFFFF'],
+      typography: ['Syne (Bold Headers)', 'Inter (Body)', 'JetBrains Mono (Data Points)'],
+      keyFeatures: ['B2B Solution Matrix', 'Obsidian Dark Grid', 'Executive Lead Scheduler']
+    },
+
+    keyTakeaway: 'Enterprise platforms don\'t have to look dry. Cinematic aesthetics combined with structured content drive immense brand trust.',
+
+    sections: {
+      overview: 'Built responsive web UI for Aftter corporate platform, establishing brand authority through dark cinematic contrast and structured layout grids.'
+    }
+  },
+  {
+    id: 'nobroker-packers-movers-ux',
+    num: '04',
     title: 'NOBROKER — PACKERS & MOVERS UX REDESIGN',
     subtitle: 'End-to-End Case Study: Research, Friction Mapping, Wireframes & High-Fidelity Screens',
     category: 'UX / UI',
@@ -120,289 +398,7 @@ export const projects = [
     keyTakeaway: 'Great UX is not about packing more features into a screen. It is about systematically stripping away uncertainty and giving users total clarity at every step.',
 
     sections: {
-      overview: 'Conducted end-to-end UX evaluation and redesign of the Packers & Movers booking funnel. Used qualitative user testing to identify key hesitation moments and restructured the inventory-to-checkout journey.',
-      problem: 'Users felt anxious when selecting household items because the system lacked clear sizing context, and final pricing was hidden until the final step.',
-      research: 'Tested 6 representative users across the existing flow. Observed repeated back-and-forth navigation, pricing anxiety, and hesitation near the payment gateway.',
-      redesign: 'Introduced visual item previews, upfront estimate calculators, and inline trust badges reassuring users about transparent pricing guarantees.',
-      outcome: 'Discovered services 3x faster, reduced user hesitation, and increased user satisfaction score from 2.3 to 4.2 out of 5.'
-    }
-  },
-  {
-    id: 'hozatra-corporate-web-ui',
-    num: '02',
-    title: 'AFTTER — CORPORATE PLATFORM & ILLUSTRATION UI',
-    subtitle: 'Corporate Innovation, B2B Digital Platform & Illustration Web UI Design',
-    category: 'WEB',
-    typeTag: 'Corporate Enterprise Web UI & Illustration',
-    year: '2025',
-    client: 'Aftter Enterprise',
-    role: 'Web UI/UX Designer & Illustrator',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Responsive Web Design', 'Web Architecture', 'Design System', 'Analytics UX', 'Illustration'],
-    image: '/aftter_storefront.webp',
-    gallery: [
-      '/aftter_storefront.webp',
-      '/real_aftter.webp',
-      '/aftter_real.webp',
-      '/work3.webp'
-    ],
-    aspect: 'aspect-[3/4]',
-    colSpan: 'lg:col-span-5 lg:-translate-y-6',
-    summary: 'Responsive corporate website UI & illustration design for Aftter, highlighting global impact, analytics dashboards, and sustainable growth.',
-    
-    problemStatement: 'Communicating complex enterprise solutions clearly to prospective corporate partners without losing reader engagement or overwhelming executives with text-heavy walls.',
-
-    persona: {
-      name: 'Vikram Verma',
-      age: '42',
-      role: 'VP of Digital Transformation',
-      location: 'Singapore',
-      goals: ['Evaluate enterprise platform capabilities in <2 minutes', 'Review verified client case studies and ROI metrics', 'Schedule executive strategy consultation easily'],
-      frustrations: ['Generic corporate boilerplate text without clear metrics', 'Hidden pricing tiers & complex contact forms', 'Poor mobile tablet rendering during executive meetings'],
-      quote: '"Show me concrete impact numbers and platform architecture upfront before asking for a sales call."'
-    },
-
-    userJourney: [
-      { step: '01. Hero Landing', action: 'Views obsidian cinematic video hero', emotion: 'Impressed', friction: 'Zero', score: 5 },
-      { step: '02. Platform Capabilities', action: 'Scans interactive service grid', emotion: 'Informed', friction: 'Low', score: 4 },
-      { step: '03. Global Impact', action: 'Inspects live client ROI metrics', emotion: 'Convinced', friction: 'Zero', score: 5 },
-      { step: '04. Demo Scheduling', action: 'Submits 3-field executive consultation', emotion: 'Satisfied', friction: 'Zero', score: 5 }
-    ],
-
-    researchFindings: [
-      'B2B enterprise clients prioritize clear value metrics, live client testimonials, and seamless contact scheduling.',
-      'Dark obsidian web UI paired with electric green accent hierarchy created immediate executive authority.'
-    ],
-
-    redesignFocus: [
-      'Sleek dark obsidian web design with electric green accent hierarchy',
-      'Interactive service breakdown cards and global impact charts',
-      'Clean typography scaling across desktop, tablet, and mobile displays',
-      'High-converting call-to-action hero sections'
-    ],
-
-    interactiveScreens: [
-      {
-        id: 'hozatra-1',
-        title: 'Screen 01: Obsidian Enterprise Hero Section',
-        subtitle: 'Cinematic contrast grid with electric green accent CTA',
-        description: 'Establishes instant market authority through bold typography, glowing grid overlays, and clear value statements.',
-        keyFeature: 'Cinematic Obsidian Hero Grid',
-        image: '/aftter_storefront.webp'
-      },
-      {
-        id: 'hozatra-2',
-        title: 'Screen 02: Interactive Solution Architecture Matrix',
-        subtitle: 'Filterable service cards for enterprise analytics & cloud',
-        description: 'Organizes complex B2B capabilities into structured, interactive cards that expand with key architecture diagrams.',
-        keyFeature: 'Interactive Capabilities Grid',
-        image: '/real_aftter.webp'
-      },
-      {
-        id: 'hozatra-3',
-        title: 'Screen 03: Executive Consultation & Lead HUD',
-        subtitle: 'High-converting 3-field lead capture modal',
-        description: 'Replaces long corporate inquiry forms with a sleek 3-field scheduler integrated directly with calendar booking.',
-        keyFeature: 'High-Converting Executive Consultation',
-        image: '/work3.webp'
-      }
-    ],
-
-    beforeAfterMetrics: [
-      { metric: 'Inquiry Conversion', before: '1.8%', after: '4.6%', change: '+155% Lead Increase' },
-      { metric: 'Avg Session Duration', before: '1m 10s', after: '3m 45s', change: '+221% Time Spent' }
-    ],
-
-    designSystem: {
-      colors: ['#040507', '#22C55E', '#0EA5E9', '#1E293B', '#FFFFFF'],
-      typography: ['Syne (Bold Headers)', 'Inter (Body)', 'JetBrains Mono (Data Points)'],
-      keyFeatures: ['B2B Solution Matrix', 'Obsidian Dark Grid', 'Executive Lead Scheduler']
-    },
-
-    keyTakeaway: 'Enterprise platforms don\'t have to look dry. Cinematic aesthetics combined with structured content drive immense brand trust.',
-
-    sections: {
-      overview: 'Built responsive web UI for Aftter corporate platform, establishing brand authority through dark cinematic contrast and structured layout grids.'
-    }
-  },
-  {
-    id: 'resort-hospitality-web-ui',
-    num: '03',
-    title: 'SEED TO SOUL — DESTINATION RESORT & HOSPITALITY WEB UI',
-    subtitle: 'Luxury Travel, Resort Booking Engine & Immersive Hospitality Web UI',
-    category: 'WEB',
-    typeTag: 'Hospitality Web UI & Booking Engine',
-    year: '2025',
-    client: 'Seed to Soul Resorts',
-    role: 'UI/UX Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    externalUrl: 'https://www.seedtosoul.co/',
-    tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web', 'Luxury Branding'],
-    image: '/seed_to_soul.webp',
-    gallery: [
-      '/seed_to_soul.webp',
-      '/real_seedtosoul.webp',
-      '/seedtosoul_real.webp'
-    ],
-    aspect: 'aspect-[4/3]',
-    colSpan: 'lg:col-span-4 lg:translate-y-8',
-    summary: 'High-end responsive resort portal bringing families together in beautiful destinations with immersive villa photography.',
-    
-    problemStatement: 'Friction in luxury resort booking engines where prospective guests failed to visualize villa amenities before completing multi-date reservations.',
-
-    persona: {
-      name: 'Marcus Vance',
-      age: '36',
-      role: 'Creative Director & Traveler',
-      location: 'London',
-      goals: ['Book private luxury ocean villa for family vacation', 'Inspect 360 photography of rooms & private pool', 'Customize concierge package (private chef, spa, airport transfer)'],
-      frustrations: ['Cluttered date pickers that fail on mobile', 'Hidden resort fees added during payment step', 'Generic room photos without spatial context'],
-      quote: '"I want the booking experience to feel as luxurious and atmospheric as the resort itself."'
-    },
-
-    userJourney: [
-      { step: '01. Destination Hero', action: 'Views full-bleed ocean sunset imagery', emotion: 'Captivated', friction: 'Zero', score: 5 },
-      { step: '02. Villa Inspection', action: 'Filters by private pool & ocean view', emotion: 'Engaged', friction: 'Low', score: 4 },
-      { step: '03. Date Picker HUD', action: 'Selects check-in & guest count', emotion: 'Smooth', friction: 'Zero', score: 5 },
-      { step: '04. Concierge Reserve', action: 'Adds private chef & confirms booking', emotion: 'Delighted', friction: 'Zero', score: 5 }
-    ],
-
-    researchFindings: [
-      'Full-bleed imagery paired with ambient dark glass overlays increased villa booking conversions by 110%.',
-      'Inline concierge add-on selectors (spa, private chef, airport transfer) increased average order value by 35%.'
-    ],
-
-    redesignFocus: [
-      'Full-bleed resort imagery and atmospheric typography',
-      'Seamless multi-destination search and date picker HUD',
-      'Interactive room preview carousels with amenity tags',
-      'Effortless 3-step reservation and concierge checkout'
-    ],
-
-    interactiveScreens: [
-      {
-        id: 'resort-1',
-        title: 'Screen 01: Full-Bleed Resort Destination Hero',
-        subtitle: 'Atmospheric visual storytelling with floating booking HUD',
-        description: 'Immerses guests in destination photography while keeping check-in date selection accessible at the bottom HUD.',
-        keyFeature: 'Full-Bleed Visual Storytelling',
-        image: '/seed_to_soul.webp'
-      },
-      {
-        id: 'resort-2',
-        title: 'Screen 02: Interactive Villa Amenity Inspector',
-        subtitle: '360 room photos, square footage & private pool tags',
-        description: 'Displays complete villa specifications including private infinity pool dimensions, ocean views, and concierge services.',
-        keyFeature: 'Villa Amenity Inspector',
-        image: '/real_seedtosoul.webp'
-      }
-    ],
-
-    beforeAfterMetrics: [
-      { metric: 'Villa Booking Conversion', before: '1.6%', after: '3.4%', change: '+110% Conversion Growth' },
-      { metric: 'Photo Engagement Time', before: '45s', after: '2m 10s', change: '+180% Engagement' }
-    ],
-
-    designSystem: {
-      colors: ['#090A0F', '#D97706', '#0284C7', '#1E293B', '#F8FAFC'],
-      typography: ['Playfair Display (Luxury Headers)', 'Inter (Body)', 'JetBrains Mono (Dates)'],
-      keyFeatures: ['Full-Bleed Visual HUD', 'Concierge Package Selector', 'Atmospheric Glassmorphism']
-    },
-
-    keyTakeaway: 'Luxury hospitality web UI must evoke emotion, elegance, and spatial confidence before presenting transactional booking fields.',
-
-    sections: {
-      overview: 'Designed luxury hospitality web UI aimed at evoking emotion and driving resort villa bookings through immersive visual storytelling.'
-    }
-  },
-  {
-    id: 'texture-lab-web-app',
-    num: '04',
-    title: 'LYNK FOODS — E-COMMERCE & WEB APP',
-    subtitle: 'Digital E-Commerce, Sweets Storefront & Interactive Web App',
-    category: 'E-COMMERCE',
-    typeTag: 'Web App UX & E-Commerce Platform',
-    year: '2025',
-    client: 'Lynk Foods',
-    role: 'Product & Web App Designer',
-    behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    externalUrl: 'https://lynkfoods.com/',
-    tools: ['Figma', 'Web App UX', 'Dark Mode UI', 'E-Commerce Platform', 'PBR Shaders'],
-    image: '/lynk_sweets.webp',
-    gallery: [
-      '/lynk_sweets.webp',
-      '/real_lynk.webp',
-      '/lynk_real.webp'
-    ],
-    aspect: 'aspect-[16/9]',
-    colSpan: 'lg:col-span-7',
-    summary: 'A dark digital e-commerce web app UI designed for Lynk Foods & Sweets storefront, featuring seamless ordering workflows.',
-    
-    problemStatement: 'Shoppers lose focus and experience checkout hesitation when browsing digital sweets storefronts without instant product customization previews.',
-
-    persona: {
-      name: 'David Chen',
-      age: '29',
-      role: 'Lead Product Designer',
-      location: 'Vancouver',
-      goals: ['Search premium sweets & food products by category', 'Customize gift boxes and quantity in browser', '1-click checkout directly on Lynk Foods live platform'],
-      frustrations: ['Sluggish asset managers', 'Inaccurate material previews on flat thumbnails', 'Manual form remapping'],
-      quote: '"I need a digital store that renders product previews instantly without slowing down my shopping flow."'
-    },
-
-    userJourney: [
-      { step: '01. Asset Search', action: 'Filters by "Gourmet Sweets"', emotion: 'Focused', friction: 'Zero', score: 5 },
-      { step: '02. Product Inspection', action: 'Explores product gallery', emotion: 'Delighted', friction: 'Zero', score: 5 },
-      { step: '03. Customization', action: 'Adjusts quantity slider', emotion: 'In Control', friction: 'Low', score: 4 },
-      { step: '04. 1-Click Checkout', action: 'Directs to Lynk Foods live website', emotion: 'Productive', friction: 'Zero', score: 5 }
-    ],
-
-    researchFindings: [
-      'Shoppers preferred a dark obsidian backdrop to maximize product preview contrast and visual accuracy.',
-      'Direct link presets to Lynk Foods live site increased purchasing conversion.'
-    ],
-
-    redesignFocus: [
-      'Dark obsidian UI layout maximizing product preview contrast',
-      'Grid thumbnail library supporting high-resolution previews',
-      'Property adjustment sidebar for order customization',
-      'Direct 1-click external link to live Lynk Foods store'
-    ],
-
-    interactiveScreens: [
-      {
-        id: 'texture-1',
-        title: 'Screen 01: Lynk Sweets Digital Storefront Grid',
-        subtitle: 'High-contrast product previews with category tagging',
-        description: 'Organizes products into a high-density dark grid optimized for rapid scanning and previewing.',
-        keyFeature: 'Dark Obsidian Storefront Grid',
-        image: '/lynk_sweets.webp'
-      },
-      {
-        id: 'texture-2',
-        title: 'Screen 02: Real-Time Product Inspector Sidebar',
-        subtitle: 'Interactive sliders for product quantities & gift packaging',
-        description: 'Allows shoppers to customize order details directly in the web app before checkout.',
-        keyFeature: 'Live Product Inspector',
-        image: '/real_lynk.webp'
-      }
-    ],
-
-    beforeAfterMetrics: [
-      { metric: 'Product Discovery Speed', before: '45 seconds', after: '8 seconds', change: '82% Faster Discovery' },
-      { metric: 'Store Checkout Time', before: '3 minutes', after: '45 seconds', change: '75% Time Saved' }
-    ],
-
-    designSystem: {
-      colors: ['#050508', '#8B5CF6', '#06B6D4', '#1F2937', '#FFFFFF'],
-      typography: ['Space Grotesk (UI Labels)', 'JetBrains Mono (Parameters)', 'Inter (Body)'],
-      keyFeatures: ['High-Res Product Render Preview', 'Live Quantity Slider HUD', '1-Click Live Store Link']
-    },
-
-    keyTakeaway: 'E-commerce web apps must prioritize high visual contrast, minimal friction, and instant purchasing access.',
-
-    sections: {
-      overview: 'Crafted web app interface for Lynk Foods & Sweets, streamlining product selection and e-commerce ordering.'
+      overview: 'Conducted end-to-end UX evaluation and redesign of the Packers & Movers booking funnel. Used qualitative user testing to identify key hesitation moments and restructured the inventory-to-checkout journey.'
     }
   }
 ];
