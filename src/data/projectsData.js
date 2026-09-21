@@ -31,9 +31,9 @@ export const projects = [
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     externalUrl: 'https://www.seedtosoul.co/',
     tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web', 'Luxury Branding'],
-    image: '/seed_to_soul.jpg',
+    image: '/seed_to_soul.png',
     gallery: [
-      '/seed_to_soul.jpg',
+      '/seed_to_soul.png',
       '/real_seedtosoul.webp',
       '/seedtosoul_real.webp'
     ],
@@ -79,7 +79,7 @@ export const projects = [
         subtitle: 'Atmospheric visual storytelling with floating booking HUD',
         description: 'Immerses guests in destination photography while keeping check-in date selection accessible at the bottom HUD.',
         keyFeature: 'Full-Bleed Visual Storytelling',
-        image: '/seed_to_soul.jpg'
+        image: '/seed_to_soul.png'
       },
       {
         id: 'resort-2',
@@ -121,9 +121,9 @@ export const projects = [
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     externalUrl: 'https://lynkfoods.com/',
     tools: ['Figma', 'Web App UX', 'Dark Mode UI', 'E-Commerce Platform', 'PBR Shaders'],
-    image: '/lynk_sweets.jpg',
+    image: '/lynk_sweets.png',
     gallery: [
-      '/lynk_sweets.jpg',
+      '/lynk_sweets.png',
       '/real_lynk.webp',
       '/lynk_real.webp'
     ],
@@ -169,7 +169,7 @@ export const projects = [
         subtitle: 'High-contrast product previews with category tagging',
         description: 'Organizes products into a high-density dark grid optimized for rapid scanning and previewing.',
         keyFeature: 'Dark Obsidian Storefront Grid',
-        image: '/lynk_sweets.jpg'
+        image: '/lynk_sweets.png'
       },
       {
         id: 'texture-2',
@@ -210,9 +210,9 @@ export const projects = [
     role: 'Web UI/UX Designer & Illustrator',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Responsive Web Design', 'Web Architecture', 'Design System', 'Analytics UX', 'Illustration'],
-    image: '/aftter_storefront.jpg',
+    image: '/aftter_storefront.png',
     gallery: [
-      '/aftter_storefront.jpg',
+      '/aftter_storefront.png',
       '/real_aftter.webp',
       '/aftter_real.webp',
       '/work3.webp'
@@ -259,7 +259,7 @@ export const projects = [
         subtitle: 'Cinematic contrast grid with electric green accent CTA',
         description: 'Establishes instant market authority through bold typography, glowing grid overlays, and clear value statements.',
         keyFeature: 'Cinematic Obsidian Hero Grid',
-        image: '/aftter_storefront.jpg'
+        image: '/aftter_storefront.png'
       },
       {
         id: 'hozatra-2',
