@@ -6,47 +6,55 @@ import CustomCursor from '../components/CustomCursor';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';
+import SEOHead from '../components/SEOHead';
 import { playHoverSound, playClickSound } from '../utils/audioEngine';
-import { ExternalLink, Sparkles, Search, Smartphone, Globe, ShoppingBag, Layers, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Sparkles, Search, Palette, Image, Layers, ArrowUpRight, LayoutGrid } from 'lucide-react';
 
 function Work() {
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Clean minimal categories
+  const workSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': 'Hemchand Paunikar Work Portfolio',
+    'url': 'https://hemchand-portfolio.vercel.app/work',
+    'mainEntity': {
+      '@type': 'ItemList',
+      'itemListElement': projects.filter(p => p.num !== '00').map((p, idx) => ({
+        '@type': 'ListItem',
+        'position': idx + 1,
+        'item': {
+          '@type': 'CreativeWork',
+          'name': p.title,
+          'description': p.subtitle,
+          'url': p.behanceUrl || 'https://www.behance.net/hemchanpaunika',
+          'creator': {
+            '@type': 'Person',
+            'name': 'Hemchand Paunikar'
+          }
+        }
+      }))
+    }
+  };
+
+  // 4 Core Categories as requested by user
   const categories = [
     { id: 'ALL', label: 'ALL WORK', icon: Layers },
-    { id: 'UX / UI', label: 'UX / UI', icon: Sparkles },
-    { id: 'MOBILE', label: 'MOBILE', icon: Smartphone },
-    { id: 'WEB', label: 'WEB', icon: Globe },
-    { id: 'E-COMMERCE', label: 'E-COMMERCE', icon: ShoppingBag }
+    { id: 'UI/UX & Product Design', label: 'UI/UX & PRODUCT DESIGN', icon: Sparkles },
+    { id: 'Branding & Visual Design', label: 'BRANDING & VISUAL DESIGN', icon: Palette },
+    { id: 'Illustration & Digital Art', label: 'ILLUSTRATION & DIGITAL ART', icon: Image },
+    { id: 'Graphic & Poster Design', label: 'GRAPHIC & POSTER DESIGN', icon: LayoutGrid }
   ];
-
-  const getProjectCategoryGroup = (p) => {
-    const tag = p.typeTag?.toUpperCase() || '';
-    const title = p.title?.toUpperCase() || '';
-    const cat = p.category?.toUpperCase() || '';
-
-    const isMobile = tag.includes('MOBILE') || title.includes('MOBILE') || p.id.includes('mobile');
-    const isWeb = tag.includes('WEB') || tag.includes('CORPORATE') || title.includes('WEB') || p.id.includes('web');
-    const isEcom = tag.includes('E-COMMERCE') || tag.includes('BRANDING') || title.includes('BRAND') || p.id.includes('ecommerce');
-
-    return { isMobile, isWeb, isEcom };
-  };
 
   const filteredProjects = useMemo(() => {
     return projects.filter((p) => {
-      const { isMobile, isWeb, isEcom } = getProjectCategoryGroup(p);
+      // Exclude background compatibility fallback item from grid view
+      if (p.num === '00') return false;
 
       let matchesCategory = true;
-      if (activeCategory === 'UX / UI') {
-        matchesCategory = p.category === 'UX / UI' || p.typeTag?.includes('UX');
-      } else if (activeCategory === 'MOBILE') {
-        matchesCategory = isMobile;
-      } else if (activeCategory === 'WEB') {
-        matchesCategory = isWeb;
-      } else if (activeCategory === 'E-COMMERCE') {
-        matchesCategory = isEcom || p.category === 'E-COMMERCE & BRANDING';
+      if (activeCategory !== 'ALL') {
+        matchesCategory = p.category === activeCategory;
       }
 
       const matchesSearch =
@@ -60,8 +68,23 @@ function Work() {
     });
   }, [activeCategory, searchQuery]);
 
+  const displayCount = (catId) => {
+    return projects.filter((p) => {
+      if (p.num === '00') return false;
+      if (catId === 'ALL') return true;
+      return p.category === catId;
+    }).length;
+  };
+
   return (
     <div className="min-h-screen bg-[#040507] text-white selection:bg-[#A93207] selection:text-white relative font-sans">
+      <SEOHead
+        title="Selected Works & Case Studies | Hemchand Paunikar"
+        description="Explore UI/UX & Product Design, Branding & Visual Design, Illustration & Digital Art, and Graphic & Poster Design projects by Hemchand Paunikar."
+        path="/work"
+        keywords="Hemchand Paunikar projects, NoBroker Redesign, Quash Laundry, InkScale, HOZATRA, Titan Refined Watch, AFTTER Illustration, Porsche 911 GT3 Poster"
+        jsonLd={workSchema}
+      />
       <FilmOverlay />
       <CustomCursor />
       <Header />
@@ -73,7 +96,7 @@ function Work() {
           <div className="space-y-4 border-b border-white/10 pb-8 sm:pb-12">
             <div className="flex items-center gap-3 font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#A93207] font-bold">
               <span className="w-2 h-2 rounded-full bg-[#A93207] animate-pulse" />
-              <span>BEHANCE PORTFOLIO &bull; {projects.length} CASE STUDIES</span>
+              <span>BEHANCE PORTFOLIO &bull; {projects.filter(p => p.num !== '00').length} PROJECTS</span>
             </div>
             
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
@@ -81,7 +104,7 @@ function Work() {
                 SELECTED <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-[#A93207]">WORKS</span>
               </h1>
               <p className="text-xs sm:text-sm text-zinc-400 font-mono max-w-md leading-relaxed uppercase">
-                Direct portfolio archive of end-to-end UX research, mobile interfaces, web architecture, and design systems.
+                Curated portfolio across UI/UX &amp; Product Design, Branding, Digital Illustration, and Graphic Posters.
               </p>
             </div>
           </div>
@@ -94,16 +117,7 @@ function Work() {
               {categories.map((cat) => {
                 const Icon = cat.icon;
                 const isActive = activeCategory === cat.id;
-
-                const count = projects.filter((p) => {
-                  if (cat.id === 'ALL') return true;
-                  const { isMobile, isWeb, isEcom } = getProjectCategoryGroup(p);
-                  if (cat.id === 'UX / UI') return p.category === 'UX / UI';
-                  if (cat.id === 'MOBILE') return isMobile;
-                  if (cat.id === 'WEB') return isWeb;
-                  if (cat.id === 'E-COMMERCE') return isEcom;
-                  return false;
-                }).length;
+                const count = displayCount(cat.id);
 
                 return (
                   <button
@@ -136,7 +150,7 @@ function Work() {
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500" />
               <input
                 type="text"
-                placeholder="Search case studies..."
+                placeholder="Search projects..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 rounded-full bg-white/5 border border-white/10 text-white font-mono text-xs uppercase placeholder:text-zinc-600 focus:outline-none focus:border-white/30 transition-all"
@@ -148,7 +162,7 @@ function Work() {
           <div>
             {filteredProjects.length === 0 ? (
               <div className="p-16 text-center rounded-3xl bg-white/5 border border-white/10 space-y-4 font-mono">
-                <h3 className="text-lg font-display uppercase text-white">NO MATCHING CASE STUDIES</h3>
+                <h3 className="text-lg font-display uppercase text-white">NO MATCHING PROJECTS</h3>
                 <p className="text-xs text-zinc-500">TRY CLEARING YOUR SEARCH OR SWITCHING CATEGORIES.</p>
                 <button
                   onClick={() => { setActiveCategory('ALL'); setSearchQuery(''); }}
