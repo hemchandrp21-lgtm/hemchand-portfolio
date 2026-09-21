@@ -139,11 +139,11 @@ export const projects = [
     role: 'Web UI/UX Designer & Illustrator',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     tools: ['Figma', 'Responsive Web Design', 'Web Architecture', 'Design System', 'Analytics UX', 'Illustration'],
-    image: '/hozatra_behance.webp',
+    image: '/aftter_storefront.webp',
     gallery: [
-      '/hozatra_behance.webp',
-      '/real_aftter.webp',
       '/aftter_storefront.webp',
+      '/real_aftter.webp',
+      '/aftter_real.webp',
       '/work3.webp'
     ],
     aspect: 'aspect-[3/4]',
@@ -188,7 +188,7 @@ export const projects = [
         subtitle: 'Cinematic contrast grid with electric green accent CTA',
         description: 'Establishes instant market authority through bold typography, glowing grid overlays, and clear value statements.',
         keyFeature: 'Cinematic Obsidian Hero Grid',
-        image: '/hozatra_behance.webp'
+        image: '/aftter_storefront.webp'
       },
       {
         id: 'hozatra-2',
@@ -238,11 +238,11 @@ export const projects = [
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     externalUrl: 'https://www.seedtosoul.co/',
     tools: ['Figma', 'Visual Storytelling', 'Booking UX', 'Responsive Web', 'Luxury Branding'],
-    image: '/resort_web_behance.webp',
+    image: '/seed_to_soul.webp',
     gallery: [
-      '/resort_web_behance.webp',
+      '/seed_to_soul.webp',
       '/real_seedtosoul.webp',
-      '/seed_to_soul.webp'
+      '/seedtosoul_real.webp'
     ],
     aspect: 'aspect-[4/3]',
     colSpan: 'lg:col-span-4 lg:translate-y-8',
@@ -286,7 +286,7 @@ export const projects = [
         subtitle: 'Atmospheric visual storytelling with floating booking HUD',
         description: 'Immerses guests in destination photography while keeping check-in date selection accessible at the bottom HUD.',
         keyFeature: 'Full-Bleed Visual Storytelling',
-        image: '/resort_web_behance.webp'
+        image: '/seed_to_soul.webp'
       },
       {
         id: 'resort-2',
@@ -328,11 +328,11 @@ export const projects = [
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
     externalUrl: 'https://lynkfoods.com/',
     tools: ['Figma', 'Web App UX', 'Dark Mode UI', 'E-Commerce Platform', 'PBR Shaders'],
-    image: '/texture_lab_behance.webp',
+    image: '/lynk_sweets.webp',
     gallery: [
-      '/texture_lab_behance.webp',
+      '/lynk_sweets.webp',
       '/real_lynk.webp',
-      '/lynk_sweets.webp'
+      '/lynk_real.webp'
     ],
     aspect: 'aspect-[16/9]',
     colSpan: 'lg:col-span-7',
@@ -376,7 +376,7 @@ export const projects = [
         subtitle: 'High-contrast product previews with category tagging',
         description: 'Organizes products into a high-density dark grid optimized for rapid scanning and previewing.',
         keyFeature: 'Dark Obsidian Storefront Grid',
-        image: '/texture_lab_behance.webp'
+        image: '/lynk_sweets.webp'
       },
       {
         id: 'texture-2',
