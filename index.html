@@ -30,22 +30,21 @@
     <!-- Preload Hero LCP Image -->
     <link rel="preload" as="image" href="/hero_portrait_suit.webp" fetchpriority="high" type="image/webp" />
 
-    <!-- Self-hosted / Local Font System (GDPR Compliant - No External Google Fonts Requests) -->
-
-    <!-- Google Analytics 4 (GA4) with Privacy Controls & Session Replay Disabled -->
+    <!-- Google Fonts: Adero Typography System (Instrument Serif, Plus Jakarta Sans, Barlow Condensed, Space Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+    </noscript>
+    
+    <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ6J6XVPK1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-CZ6J6XVPK1', {
-        'anonymize_ip': true,
-        'allow_google_signals': false,
-        'allow_ad_personalization_signals': false,
-        'restricted_data_processing': true,
-        'disable_session_replay': true,
-        'mask_all_inputs': true
-      });
+      gtag('config', 'G-CZ6J6XVPK1');
     </script>
 
     <!-- Structured Data (JSON-LD Person & WebSite Schema) -->
