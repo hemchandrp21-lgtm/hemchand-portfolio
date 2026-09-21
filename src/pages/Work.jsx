@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';
 import SEOHead from '../components/SEOHead';
 import { playHoverSound, playClickSound } from '../utils/audioEngine';
-import { ExternalLink, Sparkles, Search, Smartphone, Globe, ShoppingBag, Layers, ArrowUpRight, Palette, Brush, Image as ImageIcon } from 'lucide-react';
+import { ExternalLink, Sparkles, Search, Smartphone, Globe, ShoppingBag, Layers, ArrowUpRight } from 'lucide-react';
 
 function Work() {
   const [activeCategory, setActiveCategory] = useState('ALL');
@@ -17,7 +17,7 @@ function Work() {
   const workSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    'name': 'Hemchand Paunikar Case Studies & Portfolio',
+    'name': 'Hemchand Paunikar Case Studies & Work Portfolio',
     'url': 'https://hemchand-portfolio.vercel.app/work',
     'mainEntity': {
       '@type': 'ItemList',
@@ -38,18 +38,41 @@ function Work() {
     }
   };
 
-  // 4 User-Defined Project Categories
+  // Clean minimal categories
   const categories = [
     { id: 'ALL', label: 'ALL WORK', icon: Layers },
-    { id: 'UI/UX & Product Design', label: 'UI/UX & PRODUCT DESIGN', icon: Sparkles },
-    { id: 'Branding & Visual Design', label: 'BRANDING & VISUAL DESIGN', icon: Globe },
-    { id: 'Illustration & Digital Art', label: 'ILLUSTRATION & DIGITAL ART', icon: Brush },
-    { id: 'Graphic & Poster Design', label: 'GRAPHIC & POSTER DESIGN', icon: Palette }
+    { id: 'UX / UI', label: 'UX / UI', icon: Sparkles },
+    { id: 'MOBILE', label: 'MOBILE', icon: Smartphone },
+    { id: 'WEB', label: 'WEB', icon: Globe },
+    { id: 'E-COMMERCE', label: 'E-COMMERCE', icon: ShoppingBag }
   ];
+
+  const getProjectCategoryGroup = (p) => {
+    const tag = p.typeTag?.toUpperCase() || '';
+    const title = p.title?.toUpperCase() || '';
+    const cat = p.category?.toUpperCase() || '';
+
+    const isMobile = tag.includes('MOBILE') || title.includes('MOBILE') || p.id.includes('mobile');
+    const isWeb = tag.includes('WEB') || tag.includes('CORPORATE') || title.includes('WEB') || p.id.includes('web');
+    const isEcom = tag.includes('E-COMMERCE') || tag.includes('BRANDING') || title.includes('BRAND') || p.id.includes('ecommerce');
+
+    return { isMobile, isWeb, isEcom };
+  };
 
   const filteredProjects = useMemo(() => {
     return projects.filter((p) => {
-      const matchesCategory = activeCategory === 'ALL' || p.category === activeCategory;
+      const { isMobile, isWeb, isEcom } = getProjectCategoryGroup(p);
+
+      let matchesCategory = true;
+      if (activeCategory === 'UX / UI') {
+        matchesCategory = p.category === 'UX / UI' || p.typeTag?.includes('UX');
+      } else if (activeCategory === 'MOBILE') {
+        matchesCategory = isMobile;
+      } else if (activeCategory === 'WEB') {
+        matchesCategory = isWeb;
+      } else if (activeCategory === 'E-COMMERCE') {
+        matchesCategory = isEcom || p.category === 'E-COMMERCE & BRANDING';
+      }
 
       const matchesSearch =
         searchQuery.trim() === '' ||
@@ -66,9 +89,9 @@ function Work() {
     <div className="min-h-screen bg-[#040507] text-white selection:bg-[#A93207] selection:text-white relative font-sans">
       <SEOHead
         title="Selected Works & Case Studies | Hemchand Paunikar"
-        description="Explore UI/UX & Product Design, Branding, Digital Illustration, and Graphic Posters by Hemchand Paunikar."
+        description="Explore UI/UX case studies and design projects by Hemchand Paunikar, featuring NoBroker Packers & Movers UX, Seed to Soul Resort, Lynk Foods E-commerce, and Aftter Enterprise Web UI."
         path="/work"
-        keywords="Hemchand Paunikar projects, NoBroker UX redesign, Quash Laundry, InkScale, HOZATRA, Titan Watch branding, Porsche poster"
+        keywords="Hemchand Paunikar projects, Hemchand Paunikar Behance, NoBroker UX redesign, Seed to Soul UI UX, Lynk Foods ecommerce, Hemchand Paunikar case studies"
         jsonLd={workSchema}
       />
       <FilmOverlay />
@@ -82,7 +105,7 @@ function Work() {
           <div className="space-y-4 border-b border-white/10 pb-8 sm:pb-12">
             <div className="flex items-center gap-3 font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#A93207] font-bold">
               <span className="w-2 h-2 rounded-full bg-[#A93207] animate-pulse" />
-              <span>BEHANCE PORTFOLIO &bull; {projects.length} PROJECTS</span>
+              <span>BEHANCE PORTFOLIO &bull; {projects.length} CASE STUDIES</span>
             </div>
             
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
@@ -90,7 +113,7 @@ function Work() {
                 SELECTED <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-[#A93207]">WORKS</span>
               </h1>
               <p className="text-xs sm:text-sm text-zinc-400 font-mono max-w-md leading-relaxed uppercase">
-                Organized archive of UI/UX product design, brand identity systems, digital illustrations, and graphic posters.
+                Direct portfolio archive of end-to-end UX research, mobile interfaces, web architecture, and design systems.
               </p>
             </div>
           </div>
@@ -104,7 +127,15 @@ function Work() {
                 const Icon = cat.icon;
                 const isActive = activeCategory === cat.id;
 
-                const count = projects.filter((p) => cat.id === 'ALL' || p.category === cat.id).length;
+                const count = projects.filter((p) => {
+                  if (cat.id === 'ALL') return true;
+                  const { isMobile, isWeb, isEcom } = getProjectCategoryGroup(p);
+                  if (cat.id === 'UX / UI') return p.category === 'UX / UI';
+                  if (cat.id === 'MOBILE') return isMobile;
+                  if (cat.id === 'WEB') return isWeb;
+                  if (cat.id === 'E-COMMERCE') return isEcom;
+                  return false;
+                }).length;
 
                 return (
                   <button
@@ -137,7 +168,7 @@ function Work() {
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500" />
               <input
                 type="text"
-                placeholder="Search projects..."
+                placeholder="Search case studies..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 rounded-full bg-white/5 border border-white/10 text-white font-mono text-xs uppercase placeholder:text-zinc-600 focus:outline-none focus:border-white/30 transition-all"
@@ -149,7 +180,7 @@ function Work() {
           <div>
             {filteredProjects.length === 0 ? (
               <div className="p-16 text-center rounded-3xl bg-white/5 border border-white/10 space-y-4 font-mono">
-                <h3 className="text-lg font-display uppercase text-white">NO MATCHING PROJECTS</h3>
+                <h3 className="text-lg font-display uppercase text-white">NO MATCHING CASE STUDIES</h3>
                 <p className="text-xs text-zinc-500">TRY CLEARING YOUR SEARCH OR SWITCHING CATEGORIES.</p>
                 <button
                   onClick={() => { setActiveCategory('ALL'); setSearchQuery(''); }}
