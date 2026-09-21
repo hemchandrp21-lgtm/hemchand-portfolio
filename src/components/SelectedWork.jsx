@@ -8,11 +8,11 @@ import { projects } from '../data/projectsData';
 function SelectedWork() {
   const { accentColor, glowGradient } = useIceFire();
 
-  // 4 Featured Projects: Seed to Soul, Lynk, Aftter, and NoBroker
+  // 4 Featured Projects: Seed to Soul, Lynk Foods, Aftter, and NoBroker
   const featuredIds = [
     'resort-hospitality-web-ui',
-    'texture-lab-web-app',
-    'hozatra-corporate-web-ui',
+    'lynk-foods-ecommerce',
+    'aftter-illustration',
     'nobroker-packers-movers-ux'
   ];
 

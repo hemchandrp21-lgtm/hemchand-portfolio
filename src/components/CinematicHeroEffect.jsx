@@ -131,16 +131,16 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.webp', className 
       className={`relative w-full h-full overflow-hidden select-none bg-[#040507] ${className}`}
       style={{ contain: 'layout style paint' }}
     >
-      {/* 1. Original Cinematic Portrait Background Image (100% True Color & Clarity) */}
+      {/* 1. Original Cinematic Portrait Background Image (100% High Definition Clarity) */}
       <img
         ref={imgRef}
         src={imageSrc}
         alt="Hemchand Paunikar"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 w-full h-full object-cover object-center opacity-100 will-change-transform"
+        className="absolute inset-0 w-full h-full object-cover object-center opacity-100 will-change-transform brightness-105 contrast-[1.03]"
         style={{
-          transform: 'scale3d(1.06, 1.06, 1) translate3d(0px, 0px, 0)',
+          transform: 'scale3d(1.02, 1.02, 1) translate3d(0px, 0px, 0)',
         }}
       />
 
@@ -150,8 +150,8 @@ function CinematicHeroEffect({ imageSrc = '/hero_portrait_suit.webp', className 
         className="absolute inset-0 pointer-events-none transition-colors duration-500 z-10"
       />
 
-      {/* 3. Bottom Blend Gradient for Seamless Section Transition */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#040507] via-[#040507]/60 to-transparent pointer-events-none z-20" />
+      {/* 3. Bottom Subtle Transition */}
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#040507] via-[#040507]/40 to-transparent pointer-events-none z-20" />
     </div>
   );
 }

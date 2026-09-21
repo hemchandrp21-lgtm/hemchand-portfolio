@@ -3,20 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Maximize2, RefreshCw, X, Compass, Move } from 'lucide-react';
 import { playHoverSound, playClickSound } from '../../utils/audioEngine';
 
-const DEFAULT_IMAGES = [
-  { id: '1', title: 'CHROMATIC SHADER LAB', category: '3D GRAPHICS', src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80' },
-  { id: '2', title: 'QUANTUM GRID MATRIX', category: 'SCI-FI LAB', src: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&auto=format&fit=crop&q=80' },
-  { id: '3', title: 'CYBERPUNK NEON DRIFT', category: 'CREATIVE TECH', src: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=800&auto=format&fit=crop&q=80' },
-  { id: '4', title: 'ABSTRACT FLUID SYNTH', category: 'SHADERS', src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&auto=format&fit=crop&q=80' },
-  { id: '5', title: 'KINETIC PROCESSOR CORE', category: 'HARDWARE', src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80' },
-  { id: '6', title: 'DEEP SPACE NEBULA', category: 'ASTRONOMY', src: 'https://images.unsplash.com/photo-1633167606207-d840b5070fc2?w=800&auto=format&fit=crop&q=80' },
-  { id: '7', title: 'RETRO TECH LAB', category: 'SYSTEMS', src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=80' },
-  { id: '8', title: 'CYBER CITY LIGHTS', category: 'ENVIRONMENTS', src: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&auto=format&fit=crop&q=80' },
-  { id: '9', title: 'DATA STREAM MATRIX', category: 'CYBERNETICS', src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80' },
-  { id: '10', title: 'COSMIC HORIZON', category: 'SPACE LAB', src: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&auto=format&fit=crop&q=80' },
-  { id: '11', title: 'MODERNIST GEOMETRY', category: 'ARCHITECTURE', src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80' },
-  { id: '12', title: 'NOBROKER RELOCATION UX', category: 'CASE STUDY', src: '/nobroker_behance.webp' },
-];
+import { projects } from '../../data/projectsData';
+
+const DEFAULT_IMAGES = projects.map((p) => ({
+  id: p.id,
+  title: p.title,
+  category: p.category.toUpperCase(),
+  src: p.image,
+}));
 
 const GRID_COLS = 12;
 const GRID_ROWS = 12;

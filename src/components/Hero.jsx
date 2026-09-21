@@ -70,17 +70,17 @@ function Hero() {
       ref={containerRef}
       className="relative w-full max-w-full h-[100dvh] min-h-[580px] overflow-hidden bg-[#040507] text-white flex flex-col justify-between select-none"
     >
-      {/* 1. BACKGROUND CINEMATIC VISUAL IMAGE */}
+      {/* 1. BACKGROUND CINEMATIC VISUAL IMAGE (FULL HIGH-RES CRISP SHARP IMAGE) */}
       <motion.div
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 w-full h-full pointer-events-auto z-0 origin-center overflow-hidden"
       >
-        <CinematicHeroEffect imageSrc="/hero_portrait_suit.webp" />
+        <CinematicHeroEffect imageSrc="/hero_portrait_suit.jpg" />
       </motion.div>
 
-      {/* Subtle Overlay Gradients for Readability */}
-      <div className="absolute inset-x-0 top-0 h-28 sm:h-32 bg-gradient-to-b from-[#040507]/90 via-[#040507]/40 to-transparent pointer-events-none z-10" />
-      <div className="absolute inset-x-0 bottom-0 h-44 sm:h-48 bg-gradient-to-t from-[#040507] via-[#040507]/70 to-transparent pointer-events-none z-10" />
+      {/* Subtle Minimal Gradients for Maximum Clarity & Sharpness */}
+      <div className="absolute inset-x-0 top-0 h-20 sm:h-24 bg-gradient-to-b from-[#040507]/60 to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-28 sm:h-32 bg-gradient-to-t from-[#040507]/60 to-transparent pointer-events-none z-10" />
 
       {/* Spacer for Global Floating Header */}
       <div className="relative z-30 w-full h-16 sm:h-24 pointer-events-none" />

@@ -26,7 +26,7 @@ function Home() {
       'sameAs': [
         'https://www.linkedin.com/in/hemchand-paunikar',
         'https://www.behance.net/hemchanpaunika',
-        'https://instagram.com/hemchand.design'
+        'https://www.instagram.com/hemchand.ux/'
       ]
     }
   };
