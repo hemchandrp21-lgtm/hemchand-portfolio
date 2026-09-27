@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Volume2, VolumeX, X, ArrowRight, Download, MessageSquare } from 'lucide-react';
 import { toggleAudioMute, getAudioMutedState, playHoverSound, playClickSound } from '../utils/audioEngine';
 
