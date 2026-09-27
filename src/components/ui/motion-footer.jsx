@@ -412,14 +412,6 @@ export function CinematicFooter() {
               &copy; {new Date().getFullYear()} HEMCHAND PAUNIKAR. ALL RIGHTS RESERVED.
             </div>
 
-            {/* "Made with Love" Badge */}
-            <div className="footer-glass-pill px-4 sm:px-6 py-2 sm:py-2.5 rounded-full flex items-center gap-2 order-1 sm:order-2 cursor-default border-white/10">
-              <span className="text-zinc-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest">CRAFTED WITH</span>
-              <span className="animate-footer-heartbeat text-sm sm:text-base text-[#A93207]">❤</span>
-              <span className="text-zinc-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest">BY</span>
-              <span className="text-white font-display font-black text-xs sm:text-sm tracking-normal ml-0.5">HEMCHAND</span>
-            </div>
-
             {/* Back to top */}
             <MagneticButton
               as="button"
