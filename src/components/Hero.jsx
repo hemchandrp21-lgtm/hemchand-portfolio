@@ -78,8 +78,15 @@ function Hero() {
   return (
     <section
       ref={containerRef}
+      itemScope
+      itemType="https://schema.org/Person"
       className="relative w-full max-w-full h-[100dvh] min-h-[580px] overflow-hidden bg-transparent text-white flex flex-col justify-between select-none"
     >
+      <meta itemProp="name" content="Hemchand Paunikar" />
+      <meta itemProp="jobTitle" content="UI/UX Designer & Product Designer" />
+      <meta itemProp="url" content="https://hemchand-portfolio.vercel.app/" />
+      <meta itemProp="image" content="https://hemchand-portfolio.vercel.app/hero_portrait_suit.webp" />
+
       {/* 1. BACKGROUND CINEMATIC VISUAL IMAGE (FULL HIGH-RES CRISP SHARP IMAGE) */}
       <motion.div
         style={{ y: bgY, scale: bgScale }}
@@ -144,11 +151,11 @@ function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display font-black uppercase tracking-tight text-white leading-[0.88] sm:leading-[0.95] drop-shadow-[0_10px_40px_rgba(0,0,0,0.95)] select-none text-left w-full"
-          style={{ fontSize: 'clamp(3.3rem, 16.5vw, 12.5rem)' }}
+          className="font-display font-black uppercase tracking-tight text-white leading-[0.88] sm:leading-[0.95] drop-shadow-[0_10px_40px_rgba(0,0,0,0.95)] select-none text-left w-full sm:whitespace-nowrap"
+          style={{ fontSize: 'clamp(3rem, 8.7vw, 10rem)' }}
         >
-          <span className="block sm:inline w-full">HEMCHAND</span>{' '}
-          <span className="block sm:inline w-full">PAUNIKAR</span>
+          <span className="block sm:inline">HEMCHAND</span>{' '}
+          <span className="block sm:inline">PAUNIKAR</span>
         </motion.h1>
       </motion.div>
 

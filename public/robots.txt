@@ -1,16 +1,51 @@
+# User-agent directives for Search Engines and AI Crawlers (Google AI Overview, Gemini, SearchGPT, Perplexity, Claude)
+
 User-agent: *
 Allow: /
 
+# Googlebot & Google AI Overview Crawlers
 User-agent: Googlebot
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# OpenAI Crawlers (ChatGPT & SearchGPT)
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude Crawler
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI Crawler
 User-agent: PerplexityBot
 Allow: /
 
+# Apple, Bing, and Social Bots
+User-agent: Applebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Sitemaps and AI Context Files
 Sitemap: https://hemchand-portfolio.vercel.app/sitemap.xml

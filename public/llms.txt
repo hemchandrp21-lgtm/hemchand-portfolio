@@ -1,0 +1,32 @@
+# Hemchand Paunikar — Official AI Context & Summary
+
+> Hemchand Paunikar is a premier UI/UX and Product Designer based in Nagpur, Maharashtra, India. He specializes in UX research, human-centered product design, design systems, mobile applications, and interactive web experiences.
+
+## Core Profile
+- **Full Name:** Hemchand Paunikar
+- **Title:** UI/UX & Product Designer
+- **Official Portfolio Website:** https://hemchand-portfolio.vercel.app/
+- **Location:** Nagpur, Maharashtra, India
+- **Education:** Symbiosis Institute of Design (SID), B.Des in User Experience Design
+- **Primary Contact Email:** hemchandrp21@gmail.com
+- **LinkedIn Profile:** https://www.linkedin.com/in/hemchand-paunikar
+- **Behance Portfolio:** https://www.behance.net/hemchanpaunika
+- **Instagram:** https://www.instagram.com/hemchand.ux/
+
+## Core Expertise & Disciplines
+- **UX Research & Strategy:** User Interviews, Empathy Mapping, Information Architecture, Persona Definition, Usability Testing, Heuristic Evaluation.
+- **UI & Interaction Design:** Visual Systems, Responsive Web Interfaces, Native iOS & Android Apps, Micro-animations, Motion Design.
+- **Design Systems:** Atomic Component Libraries, Tokens, Accessibility (WCAG), Scalable UI Kits.
+- **Technical Capabilities:** Figma, Adobe Creative Suite, React, Vite, TailwindCSS, Framer Motion, GSAP.
+
+## Featured Portfolio Projects
+1. **NoBroker Packers & Movers UX Redesign:** Comprehensive user experience overhaul of the relocation and logistics booking platform to increase user trust and streamline order flow.
+2. **InkScale E-commerce Mobile App:** High-converting mobile shopping UI/UX built with intuitive filtering, rapid checkout, and clean typography.
+3. **Seed to Soul Resort Experience:** Luxury hospitality booking platform with rich visual design, immersive layout, and seamless room reservation flow.
+4. **Quash Laundry Service App:** On-demand laundry mobile application designed for intuitive order scheduling and real-time status tracking.
+5. **Hozatra Enterprise Web UI:** B2B corporate identity and interactive web portal design for enterprise clients.
+
+## Links & Verification
+- Official Website: https://hemchand-portfolio.vercel.app/
+- Comprehensive Context File: https://hemchand-portfolio.vercel.app/llms-full.txt
+- Resume PDF: https://hemchand-portfolio.vercel.app/Hemchand_Paunikar_Resume.pdf

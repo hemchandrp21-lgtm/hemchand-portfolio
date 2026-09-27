@@ -4,10 +4,10 @@ const BASE_URL = 'https://hemchand-portfolio.vercel.app';
 const DEFAULT_SITE_NAME = 'Hemchand Paunikar — Official Portfolio';
 
 export default function SEOHead({
-  title = 'Hemchand Paunikar — Official Portfolio | UI/UX & Product Designer',
-  description = 'Official website and portfolio of Hemchand Paunikar, UI/UX and Product Designer based in India. View UX research, design systems, mobile apps, and product case studies.',
+  title = 'Hemchand Paunikar | Official Website & UI/UX Product Designer',
+  description = 'Hemchand Paunikar is an Indian UI/UX & Product Designer based in Nagpur, India. Official portfolio showcasing UX research, mobile app designs, design systems, and product case studies.',
   path = '',
-  keywords = 'Hemchand Paunikar, Hemchand Paunikar portfolio, Hemchand Paunikar UI UX, Hemchand Paunikar designer, Hemchand, Paunikar, UI UX Designer India, Product Designer Nagpur',
+  keywords = 'Hemchand Paunikar, Hemchand Paunikar portfolio, Hemchand Paunikar UI UX, Hemchand Paunikar designer, Hemchand, Paunikar, UI UX Designer India, Product Designer Nagpur, Hemchand Paunikar official website',
   ogImage = '/og-image.jpg',
   jsonLd = null,
 }) {

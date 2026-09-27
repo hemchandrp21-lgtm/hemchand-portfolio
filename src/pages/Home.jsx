@@ -33,10 +33,10 @@ function Home() {
   return (
     <div className="min-h-screen bg-transparent text-white selection:bg-white selection:text-black font-sans">
       <SEOHead
-        title="Hemchand Paunikar — Official Portfolio | UI/UX & Product Designer"
-        description="Official portfolio of Hemchand Paunikar, UI/UX and Product Designer based in India. Specializing in user research, design systems, mobile apps, and digital products."
+        title="Hemchand Paunikar | Official Website & UI/UX Product Designer"
+        description="Hemchand Paunikar is an Indian UI/UX & Product Designer based in Nagpur, India. Official portfolio showcasing UX research, design systems, mobile apps, and product case studies."
         path="/"
-        keywords="Hemchand Paunikar, Hemchand Paunikar portfolio, Hemchand Paunikar UI UX, Hemchand Paunikar designer, UI UX Designer Nagpur, Product Designer India, Behance Hemchand Paunikar"
+        keywords="Hemchand Paunikar, Hemchand Paunikar portfolio, Hemchand Paunikar UI UX, Hemchand Paunikar designer, Hemchand Paunikar official website, UI UX Designer Nagpur, Product Designer India, Behance Hemchand Paunikar"
         jsonLd={homeSchema}
       />
       <FilmOverlay />

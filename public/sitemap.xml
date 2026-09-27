@@ -1,91 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Home Page (Highest Priority) -->
   <url>
     <loc>https://hemchand-portfolio.vercel.app/</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hemchand-portfolio.vercel.app/hero_portrait_suit.webp</image:loc>
+      <image:title>Hemchand Paunikar — UI/UX &amp; Product Designer</image:title>
+      <image:caption>Official portrait of Hemchand Paunikar, UI/UX and Product Designer based in Nagpur, India.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Main Pages -->
-  <url>
-    <loc>https://hemchand-portfolio.vercel.app/work</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- Core Pages -->
   <url>
     <loc>https://hemchand-portfolio.vercel.app/about</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hemchand-portfolio.vercel.app/contact</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://hemchand-portfolio.vercel.app/work</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/services</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hemchand-portfolio.vercel.app/contact</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/playground</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
-  <!-- Case Studies / Projects -->
+  <!-- AI Context Standard Files -->
+  <url>
+    <loc>https://hemchand-portfolio.vercel.app/llms.txt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hemchand-portfolio.vercel.app/llms-full.txt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Case Studies & Key Projects -->
   <url>
     <loc>https://hemchand-portfolio.vercel.app/work/nobroker-packers-movers-ux</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/work/fintech-mobile-product-app</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/work/inkscale-ecommerce-mobile</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/work/hozatra-corporate-web-ui</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/work/little-craft-nursery-school</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/work/resort-hospitality-web-ui</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/work/texture-lab-web-app</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hemchand-portfolio.vercel.app/work/titan-watch-product-ui</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

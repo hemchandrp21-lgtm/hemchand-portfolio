@@ -232,22 +232,23 @@ export function CinematicFooter() {
 
     const ctx = gsap.context(() => {
       // Background Parallax
-      gsap.fromTo(
-        giantTextRef.current,
-        { y: "10vh", scale: 0.8, opacity: 0 },
-        {
-          y: "0vh",
-          scale: 1,
-          opacity: 1,
-          ease: "power1.out",
-          scrollTrigger: {
-            trigger: wrapperRef.current,
-            start: "top 85%",
-            end: "bottom bottom",
-            scrub: 1,
-          },
-        }
-      );
+      if (giantTextRef.current) {
+        gsap.fromTo(
+          giantTextRef.current,
+          { y: "5vh", opacity: 0.05 },
+          {
+            y: "0vh",
+            opacity: 0.25,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: "top 90%",
+              end: "bottom bottom",
+              scrub: 1,
+            },
+          }
+        );
+      }
 
       // Staggered Content Reveal
       gsap.fromTo(
@@ -257,12 +258,12 @@ export function CinematicFooter() {
           y: 0,
           opacity: 1,
           stagger: 0.15,
+          duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
             trigger: wrapperRef.current,
-            start: "top 50%",
-            end: "bottom bottom",
-            scrub: 1,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -281,150 +282,145 @@ export function CinematicFooter() {
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
       
       {/* 
-        The "Curtain Reveal" Wrapper:
-        It sits in standard flow with clip-path polygon.
+        Clean Relative Footer Container:
+        Ensures 100% visibility of all heading text, buttons, and links across desktop & mobile.
       */}
-      <div
+      <footer
         ref={wrapperRef}
-        className="relative h-[90vh] sm:h-screen w-full"
-        style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+        className="relative min-h-[90vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040507] text-white cinematic-footer-wrapper border-t border-white/10 pt-10 sm:pt-16 lg:pt-20 pb-12 sm:pb-20 z-20"
       >
-        {/* Fixed footer underneath */}
-        <footer className="fixed bottom-0 left-0 flex h-[90vh] sm:h-screen w-full flex-col justify-between overflow-hidden bg-[#040507] text-white cinematic-footer-wrapper border-t border-white/10">
-          
-          {/* Ambient Light & Grid Background */}
-          <div className="footer-aurora absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 animate-footer-breathe rounded-[50%] blur-[80px] pointer-events-none z-0" />
-          <div className="footer-bg-grid absolute inset-0 z-0 pointer-events-none" />
+        {/* Ambient Light & Grid Background */}
+        <div className="footer-aurora absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 animate-footer-breathe rounded-[50%] blur-[80px] pointer-events-none z-0" />
+        <div className="footer-bg-grid absolute inset-0 z-0 pointer-events-none" />
 
-          {/* Giant background text */}
-          <div
-            ref={giantTextRef}
-            className="footer-giant-bg-text absolute -bottom-[4vh] left-1/2 -translate-x-1/2 whitespace-nowrap z-0 pointer-events-none select-none"
+        {/* Giant background text */}
+        <div
+          ref={giantTextRef}
+          className="footer-giant-bg-text absolute -bottom-[2vh] left-1/2 -translate-x-1/2 whitespace-nowrap z-0 pointer-events-none select-none opacity-20"
+        >
+          HEMCHAND
+        </div>
+
+        {/* 1. Diagonal Sleek Marquee (Top of footer) */}
+        <div className="relative z-10 w-full overflow-hidden border-y border-white/10 bg-[#040507]/85 backdrop-blur-md py-3 sm:py-4 -rotate-1 sm:-rotate-2 scale-105 sm:scale-110 shadow-2xl mb-8 sm:mb-12">
+          <div className="flex w-max animate-footer-scroll-marquee text-[10px] sm:text-xs md:text-sm font-mono font-bold tracking-[0.3em] text-white/70 uppercase">
+            <MarqueeItem />
+            <MarqueeItem />
+          </div>
+        </div>
+
+        {/* 2. Main Center Content */}
+        <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 sm:px-6 my-6 sm:my-10 w-full max-w-5xl mx-auto">
+          <h2
+            ref={headingRef}
+            className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black uppercase footer-text-glow tracking-tight mb-8 sm:mb-10 text-center leading-tight"
           >
-            HEMCHAND
-          </div>
+            READY TO BUILD <br className="hidden sm:inline" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-[#A93207]">SOMETHING GREAT?</span>
+          </h2>
 
-          {/* 1. Diagonal Sleek Marquee (Top of footer) */}
-          <div className="absolute top-8 sm:top-12 left-0 w-full overflow-hidden border-y border-white/10 bg-[#040507]/85 backdrop-blur-md py-3 sm:py-4 z-10 -rotate-2 scale-110 shadow-2xl">
-            <div className="flex w-max animate-footer-scroll-marquee text-[10px] sm:text-xs md:text-sm font-mono font-bold tracking-[0.3em] text-white/70 uppercase">
-              <MarqueeItem />
-              <MarqueeItem />
-            </div>
-          </div>
+          {/* Interactive Magnetic Pills Layout */}
+          <div ref={linksRef} className="flex flex-col items-center gap-4 sm:gap-6 w-full">
+            {/* Primary Contact Actions */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full">
+              <MagneticButton
+                as="button"
+                onClick={() => {
+                  playClickSound();
+                  setShowMessageModal(true);
+                }}
+                className="footer-glass-pill px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-white font-mono font-bold text-xs sm:text-base flex items-center gap-2.5 sm:gap-3 group cursor-pointer bg-[#A93207]/20 border-[#A93207]/50 hover:bg-[#A93207] transition-all shadow-xl shadow-[#A93207]/20"
+              >
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-[#A93207] group-hover:text-white transition-colors" />
+                <span>SEND A MESSAGE</span>
+              </MagneticButton>
 
-          {/* 2. Main Center Content */}
-          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 sm:px-6 mt-16 sm:mt-20 w-full max-w-5xl mx-auto">
-            <h2
-              ref={headingRef}
-              className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black uppercase footer-text-glow tracking-tight mb-8 sm:mb-10 text-center leading-tight"
-            >
-              READY TO BUILD <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-[#A93207]">SOMETHING GREAT?</span>
-            </h2>
-
-            {/* Interactive Magnetic Pills Layout */}
-            <div ref={linksRef} className="flex flex-col items-center gap-4 sm:gap-6 w-full">
-              {/* Primary Contact Actions */}
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full">
-                <MagneticButton
-                  as="button"
-                  onClick={() => {
-                    playClickSound();
-                    setShowMessageModal(true);
-                  }}
-                  className="footer-glass-pill px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-white font-mono font-bold text-xs sm:text-base flex items-center gap-2.5 sm:gap-3 group cursor-pointer bg-[#A93207]/20 border-[#A93207]/50 hover:bg-[#A93207] transition-all shadow-xl shadow-[#A93207]/20"
-                >
-                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-[#A93207] group-hover:text-white transition-colors" />
-                  <span>SEND A MESSAGE</span>
-                </MagneticButton>
-
-                <MagneticButton
-                  as="a"
-                  href="mailto:hemchandrp21@gmail.com"
-                  onClick={playClickSound}
-                  className="footer-glass-pill px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-white font-mono font-bold text-xs sm:text-base flex items-center gap-2.5 sm:gap-3 group no-underline"
-                >
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-400 group-hover:text-[#A93207] transition-colors" />
-                  <span>hemchandrp21@gmail.com</span>
-                </MagneticButton>
-                
-                <MagneticButton
-                  as="a"
-                  href="https://linkedin.com/in/hemchand-paunikar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={playClickSound}
-                  className="footer-glass-pill px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-white font-mono font-bold text-xs sm:text-base flex items-center gap-2.5 sm:gap-3 group no-underline"
-                >
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-400 group-hover:text-[#A93207] transition-colors fill-current" viewBox="0 0 24 24">
-                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.49 1.49 0 1 0 0 2.97 1.49 1.49 0 0 0 0-2.97Z" />
-                  </svg>
-                  <span>CONNECT ON LINKEDIN</span>
-                </MagneticButton>
-              </div>
-
-              {/* Secondary Social & Resume Links */}
-              <div className="flex flex-wrap justify-center gap-2 sm:gap-4 w-full mt-1">
-                <MagneticButton
-                  as="a"
-                  href="https://www.behance.net/hemchanpaunika"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={playClickSound}
-                  className="footer-glass-pill px-4 sm:px-6 py-2 sm:py-3 rounded-full text-zinc-400 font-mono font-medium text-[11px] sm:text-sm hover:text-white flex items-center gap-1.5 no-underline"
-                >
-                  <span>BEHANCE PORTFOLIO</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </MagneticButton>
-
-                <MagneticButton
-                  as="a"
-                  href="https://www.instagram.com/hemchand.ux/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={playClickSound}
-                  className="footer-glass-pill px-4 sm:px-6 py-2 sm:py-3 rounded-full text-zinc-400 font-mono font-medium text-[11px] sm:text-sm hover:text-white flex items-center gap-1.5 no-underline"
-                >
-                  <span>INSTAGRAM @HEMCHAND.UX</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </MagneticButton>
-
-                <MagneticButton
-                  as="a"
-                  href="/Hemchand_Paunikar_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={playClickSound}
-                  className="footer-glass-pill px-4 sm:px-6 py-2 sm:py-3 rounded-full text-zinc-400 font-mono font-medium text-[11px] sm:text-sm hover:text-white flex items-center gap-1.5 no-underline"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>RESUME PDF</span>
-                </MagneticButton>
-              </div>
-            </div>
-          </div>
-
-          {/* 3. Bottom Bar / Credits */}
-          <div className="relative z-20 w-full pb-6 sm:pb-8 px-4 sm:px-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
-            
-            {/* Copyright */}
-            <div className="text-zinc-500 font-mono text-[10px] sm:text-xs font-semibold tracking-widest uppercase order-2 sm:order-1 text-center sm:text-left">
-              &copy; {new Date().getFullYear()} HEMCHAND PAUNIKAR. ALL RIGHTS RESERVED.
+              <MagneticButton
+                as="a"
+                href="mailto:hemchandrp21@gmail.com"
+                onClick={playClickSound}
+                className="footer-glass-pill px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-white font-mono font-bold text-xs sm:text-base flex items-center gap-2.5 sm:gap-3 group no-underline"
+              >
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-400 group-hover:text-[#A93207] transition-colors" />
+                <span>hemchandrp21@gmail.com</span>
+              </MagneticButton>
+              
+              <MagneticButton
+                as="a"
+                href="https://linkedin.com/in/hemchand-paunikar"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={playClickSound}
+                className="footer-glass-pill px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-white font-mono font-bold text-xs sm:text-base flex items-center gap-2.5 sm:gap-3 group no-underline"
+              >
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-400 group-hover:text-[#A93207] transition-colors fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.49 1.49 0 1 0 0 2.97 1.49 1.49 0 0 0 0-2.97Z" />
+                </svg>
+                <span>CONNECT ON LINKEDIN</span>
+              </MagneticButton>
             </div>
 
-            {/* Back to top */}
-            <MagneticButton
-              as="button"
-              onClick={scrollToTop}
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full footer-glass-pill flex items-center justify-center text-zinc-400 hover:text-white group order-3 cursor-pointer"
-              title="Back to top"
-            >
-              <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-y-1.5 transition-transform duration-300" />
-            </MagneticButton>
+            {/* Secondary Social & Resume Links */}
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 w-full mt-1">
+              <MagneticButton
+                as="a"
+                href="https://www.behance.net/hemchanpaunika"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={playClickSound}
+                className="footer-glass-pill px-4 sm:px-6 py-2 sm:py-3 rounded-full text-zinc-400 font-mono font-medium text-[11px] sm:text-sm hover:text-white flex items-center gap-1.5 no-underline"
+              >
+                <span>BEHANCE PORTFOLIO</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </MagneticButton>
 
+              <MagneticButton
+                as="a"
+                href="https://www.instagram.com/hemchand.ux/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={playClickSound}
+                className="footer-glass-pill px-4 sm:px-6 py-2 sm:py-3 rounded-full text-zinc-400 font-mono font-medium text-[11px] sm:text-sm hover:text-white flex items-center gap-1.5 no-underline"
+              >
+                <span>INSTAGRAM @HEMCHAND.UX</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </MagneticButton>
+
+              <MagneticButton
+                as="a"
+                href="/Hemchand_Paunikar_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={playClickSound}
+                className="footer-glass-pill px-4 sm:px-6 py-2 sm:py-3 rounded-full text-zinc-400 font-mono font-medium text-[11px] sm:text-sm hover:text-white flex items-center gap-1.5 no-underline"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>RESUME PDF</span>
+              </MagneticButton>
+            </div>
           </div>
-        </footer>
-      </div>
+        </div>
+
+        {/* 3. Bottom Bar / Credits */}
+        <div className="relative z-20 w-full pt-8 pb-4 sm:pb-6 px-4 sm:px-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 mt-8">
+          
+          {/* Copyright */}
+          <div className="text-zinc-500 font-mono text-[10px] sm:text-xs font-semibold tracking-widest uppercase order-2 sm:order-1 text-center sm:text-left">
+            &copy; {new Date().getFullYear()} HEMCHAND PAUNIKAR. ALL RIGHTS RESERVED.
+          </div>
+
+          {/* Back to top */}
+          <MagneticButton
+            as="button"
+            onClick={scrollToTop}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full footer-glass-pill flex items-center justify-center text-zinc-400 hover:text-white group order-3 cursor-pointer"
+            title="Back to top"
+          >
+            <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-y-1.5 transition-transform duration-300" />
+          </MagneticButton>
+
+        </div>
+      </footer>
 
       {/* Interactive Contact Message Box Modal Overlay */}
       <AnimatePresence>
