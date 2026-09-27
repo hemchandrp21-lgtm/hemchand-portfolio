@@ -11,23 +11,24 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
   const startRange = (index / denominator) * 0.65;
   const scale = useTransform(progress, [startRange, 1], [1, Math.max(targetScale, 0.75)]);
   
-  // Card top offset for layered stacking
-  const topOffset = 80 + index * 14;
+  // Card top offset for layered stacking (Compact top offset for mobile vs desktop)
+  const topOffsetDesktop = 80 + index * 14;
+  const topOffsetMobile = 64 + index * 10;
 
   const formattedIndex = index + 1 < 10 ? `0${index + 1}` : `${index + 1}`;
   const formattedTotal = total < 10 ? `0${total}` : `${total}`;
 
   return (
     <div
-      className="sticky flex items-center justify-center my-4 transform-gpu"
+      className="sticky flex items-center justify-center my-2 sm:my-4 transform-gpu"
       style={{
-        top: `${topOffset}px`,
+        top: `clamp(${topOffsetMobile}px, 12vh + ${index * 10}px, ${topOffsetDesktop}px)`,
         zIndex: index + 10,
       }}
     >
       <motion.div
         style={{ scale }}
-        className="relative w-full max-w-[1180px] min-h-[420px] sm:min-h-[480px] lg:min-h-[500px] rounded-3xl overflow-hidden border border-white/15 bg-[#090c14] shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row justify-between p-6 sm:p-10 select-none group transition-all duration-300 hover:border-[#A93207]/60 transform-gpu"
+        className="relative w-full max-w-[1180px] min-h-[260px] sm:min-h-[420px] lg:min-h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 bg-[#090c14] shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row justify-between p-4 sm:p-8 lg:p-10 select-none group transition-all duration-300 hover:border-[#A93207]/60 transform-gpu"
       >
         {/* Ambient Dark Gradient Accent */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -36,18 +37,18 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
             alt={slide.title}
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover object-top opacity-20 group-hover:scale-105 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover object-top opacity-20 sm:opacity-20 group-hover:scale-105 transition-transform duration-700 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#040507] via-[#090c14]/90 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#090c14] via-[#090c14]/85 to-transparent" />
         </div>
 
         {/* Card Info (Left) */}
-        <div className="relative z-10 flex flex-col justify-between h-full space-y-6 lg:max-w-[52%]">
+        <div className="relative z-10 flex flex-col justify-between h-full space-y-3 sm:space-y-6 lg:max-w-[52%]">
           {/* Tag & Counter */}
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-2">
             <span
-              className="px-3.5 py-1.5 rounded-full border font-mono text-xs font-bold tracking-wider uppercase bg-black/60 backdrop-blur-md shadow-md"
+              className="px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full border font-mono text-[10px] sm:text-xs font-bold tracking-wider uppercase bg-black/60 backdrop-blur-md shadow-md"
               style={{
                 borderColor: `${accentColor}55`,
                 color: accentColor === '#00E5FF' ? '#00E5FF' : '#FF6B00',
@@ -57,7 +58,7 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
               {slide.overlay || `PROJECT ${formattedIndex}`}
             </span>
 
-            <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-zinc-400 bg-white/5 px-3 py-1 rounded-full border border-white/10 shrink-0">
+            <div className="flex items-center gap-1 font-mono text-[10px] sm:text-xs font-bold text-zinc-400 bg-white/5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 shrink-0">
               <span className="text-white">{formattedIndex}</span>
               <span className="text-white/30">/</span>
               <span>{formattedTotal}</span>
@@ -65,29 +66,29 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
           </div>
 
           {/* Title & Description */}
-          <div className="space-y-3 sm:space-y-4">
-            <h3 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.05] drop-shadow-lg group-hover:text-white transition-colors">
+          <div className="space-y-1.5 sm:space-y-3">
+            <h3 className="text-lg sm:text-3xl lg:text-5xl font-display font-extrabold uppercase tracking-tight text-white leading-tight sm:leading-[1.05] drop-shadow-lg group-hover:text-white transition-colors">
               {slide.title}
             </h3>
             {slide.description && (
-              <p className="text-xs sm:text-sm font-mono text-zinc-300 leading-relaxed max-w-[500px]">
+              <p className="text-[11px] sm:text-sm font-mono text-zinc-300 leading-relaxed max-w-[500px] line-clamp-2 sm:line-clamp-none">
                 {slide.description}
               </p>
             )}
           </div>
 
           {/* Action CTA Button */}
-          <div className="pt-4">
+          <div className="pt-2 sm:pt-4">
             <a
               href={slide.href}
               target="_blank"
               rel="noreferrer"
               onMouseEnter={playHoverSound}
               onClick={playClickSound}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-white text-black font-mono text-xs font-bold uppercase tracking-widest hover:bg-[#A93207] hover:text-white active:scale-[0.98] transition-all duration-300 shadow-2xl group/btn no-underline min-h-[44px]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-white text-black font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest hover:bg-[#A93207] hover:text-white active:scale-[0.98] transition-all duration-300 shadow-xl group/btn no-underline min-h-[36px] sm:min-h-[44px]"
             >
               <span>{slide.action || "EXPLORE CASE STUDY"}</span>
-              <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+              <ExternalLink className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
             </a>
           </div>
         </div>
