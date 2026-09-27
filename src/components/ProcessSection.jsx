@@ -35,11 +35,11 @@ function ProcessSection() {
   ];
 
   return (
-    <section className="relative w-full py-28 px-6 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-12 sm:py-16 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
       {/* Ambient Glow */}
       <div className="absolute bottom-0 left-1/3 w-[450px] h-[450px] rounded-full filter blur-[160px] pointer-events-none bg-white/[0.02]" />
 
-      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-10 relative z-10">
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

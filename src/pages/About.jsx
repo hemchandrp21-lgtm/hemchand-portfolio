@@ -3,6 +3,7 @@ import CustomCursor from '../components/CustomCursor';
 import Header from '../components/Header';
 import AboutSection from '../components/AboutSection';
 import ExperienceSection from '../components/ExperienceSection';
+import PersonalGallerySection from '../components/PersonalGallerySection';
 import ProcessSection from '../components/ProcessSection';
 import SkillsSection from '../components/SkillsSection';
 import ContactSection from '../components/ContactSection';
@@ -47,8 +48,9 @@ function About() {
       <CustomCursor />
       <Header />
 
-      <main className="pt-20">
+      <main className="pt-14 sm:pt-16">
         <AboutSection />
+        <PersonalGallerySection />
         <ExperienceSection />
         <SkillsSection />
         <ProcessSection />

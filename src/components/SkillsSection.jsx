@@ -160,11 +160,11 @@ function SkillsSection() {
   ];
 
   return (
-    <section className="relative w-full py-16 sm:py-28 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-12 sm:py-16 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
       {/* Volumetric Glow */}
       <div className="absolute top-1/2 left-[-10%] w-[500px] h-[500px] rounded-full filter blur-[160px] pointer-events-none bg-white/[0.02]" />
 
-      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 relative z-10">
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

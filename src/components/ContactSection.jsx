@@ -12,11 +12,11 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative w-full py-20 sm:py-36 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
+    <section id="contact" className="relative w-full py-12 sm:py-16 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
       {/* Volumetric Glow Backdrop */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full filter blur-[180px] pointer-events-none bg-white/[0.03]" />
 
-      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20 relative z-10 text-center flex flex-col items-center">
+      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 relative z-10 text-center flex flex-col items-center">
         {/* Header Indicator */}
         <div className="flex items-center gap-3 justify-center">
           <span className="w-8 h-[2px] bg-white/40" />

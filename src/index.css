@@ -95,6 +95,15 @@
   background: rgba(255, 255, 255, 0.4);
 }
 
+/* Hide Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Typography Helpers matching claudiuangheloni.com */
 .tracking-cyber {
   letter-spacing: 0.16em;

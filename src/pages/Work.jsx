@@ -198,7 +198,7 @@ function Work() {
       <CustomCursor />
       <Header />
 
-      <main className="pt-28 sm:pt-36 pb-24 px-4 sm:px-12 lg:px-16 relative z-10">
+      <main className="pt-20 sm:pt-24 pb-12 px-4 sm:px-12 lg:px-16 relative z-10">
         <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12">
           
           {/* TOP CONTROL BAR: CATEGORY SLIDER BUTTONS ON TOP WITH SEARCH BAR ON THE SIDE */}
