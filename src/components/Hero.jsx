@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import CinematicHeroEffect from './CinematicHeroEffect';
-import { playHoverSound } from '../utils/audioEngine';
+import { playHoverSound, playClickSound } from '../utils/audioEngine';
+
+import { Link } from 'react-router-dom';
 
 // Individual Keyword Item Component
 function KeywordItem({ item, index, scrollYProgress }) {
@@ -9,21 +11,23 @@ function KeywordItem({ item, index, scrollYProgress }) {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.6], [1, 0.15]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 70 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{
-        duration: 0.75,
-        delay: 0.3 + index * 0.12,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      style={{ x: xTransform, opacity: opacityTransform }}
-      whileHover={{ x: -10, color: '#E1CBA6', transition: { duration: 0.2 } }}
-      onMouseEnter={playHoverSound}
-      className="cursor-pointer text-white/85 hover:text-white font-bold transition-colors select-none"
-    >
-      {item}
-    </motion.div>
+    <Link to={`/work?search=${encodeURIComponent(item)}`} onClick={playClickSound} className="no-underline block">
+      <motion.div
+        initial={{ opacity: 0, x: 70 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.75,
+          delay: 0.3 + index * 0.12,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        style={{ x: xTransform, opacity: opacityTransform }}
+        whileHover={{ x: -10, color: '#A93207', transition: { duration: 0.2 } }}
+        onMouseEnter={playHoverSound}
+        className="cursor-pointer text-white/85 hover:text-white font-bold transition-colors select-none"
+      >
+        {item}
+      </motion.div>
+    </Link>
   );
 }
 
@@ -101,9 +105,10 @@ function Hero() {
 
           {/* Touch-Friendly Discipline Pill Bar on Mobile Phone Screens */}
           <div className="flex sm:hidden items-center gap-1.5 pt-2 font-mono text-[10px] tracking-wider uppercase text-white/70 overflow-x-auto no-scrollbar py-1">
-            <span className="px-2.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md shrink-0">UX/UI</span>
-            <span className="px-2.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md shrink-0">RESEARCH</span>
-            <span className="px-2.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md shrink-0">DESIGN SYSTEMS</span>
+            <Link to="/work?search=UI%2FUX" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">UI/UX</Link>
+            <Link to="/work?search=RESEARCH" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">RESEARCH</Link>
+            <Link to="/work?search=PROTOTYPING" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">PROTOTYPING</Link>
+            <Link to="/work?search=DESIGN%20SYSTEMS" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">DESIGN SYSTEMS</Link>
           </div>
         </motion.div>
 

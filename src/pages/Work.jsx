@@ -1,4 +1,5 @@
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projectsData';
 import FilmOverlay from '../components/FilmOverlay';
@@ -8,7 +9,7 @@ import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';
 import SEOHead from '../components/SEOHead';
 import { playHoverSound, playClickSound } from '../utils/audioEngine';
-import { ExternalLink, Sparkles, Search, Smartphone, Globe, ShoppingBag, Layers, ArrowUpRight, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ExternalLink, Sparkles, Search, Smartphone, Globe, ShoppingBag, Layers, ArrowUpRight, ChevronLeft, ChevronRight, Star, X } from 'lucide-react';
 
 // Exact 4 Featured Projects from Home Page (SelectedWork.jsx)
 const FEATURED_IDS = [
@@ -110,9 +111,30 @@ function ProjectCard({ project, isFeatured = false }) {
 }
 
 function Work() {
-  const [activeCategory, setActiveCategory] = useState('ALL');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialQuery = searchParams.get('search') || searchParams.get('filter') || '';
+  const initialCategory = searchParams.get('category') || 'ALL';
+
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
   const categoryScrollRef = useRef(null);
+
+  // Sync state when URL query params change (e.g. clicking Hero links)
+  useEffect(() => {
+    const q = searchParams.get('search') || searchParams.get('filter') || '';
+    const cat = searchParams.get('category') || 'ALL';
+    setSearchQuery(q);
+    setActiveCategory(cat);
+  }, [searchParams]);
+
+  const updateSearchQuery = (val) => {
+    setSearchQuery(val);
+    if (val.trim()) {
+      setSearchParams({ search: val });
+    } else {
+      setSearchParams({});
+    }
+  };
 
   const scrollLeft = () => {
     playClickSound();
@@ -161,6 +183,8 @@ function Work() {
     { id: 'Graphic & Poster Design', label: 'GRAPHIC & POSTER DESIGN', icon: Smartphone }
   ];
 
+  const disciplineChips = ['RESEARCH', 'UI/UX', 'PROTOTYPING', 'DESIGN SYSTEMS'];
+
   const { featuredProjects, otherProjects, isDefaultAllView } = useMemo(() => {
     const isDefault = activeCategory === 'ALL' && searchQuery.trim() === '';
 
@@ -170,16 +194,30 @@ function Work() {
       return { featuredProjects: featured, otherProjects: others, isDefaultAllView: true };
     }
 
+    const q = searchQuery.trim().toLowerCase();
+
     const filtered = projects.filter((p) => {
       const matchesCategory = activeCategory === 'ALL' || p.category === activeCategory;
-      const matchesSearch =
-        searchQuery.trim() === '' ||
-        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.tools?.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+      if (!matchesCategory) return false;
+      if (!q) return true;
 
-      return matchesCategory && matchesSearch;
+      const titleMatch = p.title.toLowerCase().includes(q);
+      const subtitleMatch = p.subtitle.toLowerCase().includes(q);
+      const categoryMatch = p.category.toLowerCase().includes(q);
+      const summaryMatch = p.summary?.toLowerCase().includes(q);
+      const typeTagMatch = p.typeTag?.toLowerCase().includes(q);
+      const roleMatch = p.role?.toLowerCase().includes(q);
+      const toolMatch = p.tools?.some((t) => {
+        const toolLower = t.toLowerCase();
+        if (toolLower.includes(q)) return true;
+        if (q === 'ui/ux' && (toolLower.includes('ux') || toolLower.includes('ui'))) return true;
+        if (q === 'research' && toolLower.includes('research')) return true;
+        if (q === 'prototyping' && (toolLower.includes('prototype') || toolLower.includes('prototyping'))) return true;
+        if (q === 'design systems' && toolLower.includes('design system')) return true;
+        return false;
+      });
+
+      return titleMatch || subtitleMatch || categoryMatch || summaryMatch || typeTagMatch || roleMatch || toolMatch;
     });
 
     return { featuredProjects: [], otherProjects: filtered, isDefaultAllView: false };
@@ -237,6 +275,9 @@ function Work() {
                       onClick={() => {
                         playClickSound();
                         setActiveCategory(cat.id);
+                        if (activeCategory !== cat.id && cat.id !== 'ALL') {
+                          setSearchParams({ category: cat.id });
+                        }
                       }}
                       onMouseEnter={playHoverSound}
                       className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full font-mono text-xs tracking-wider uppercase transition-all duration-300 border cursor-pointer shrink-0 select-none ${
@@ -276,10 +317,48 @@ function Work() {
                 type="text"
                 placeholder="SEARCH CASE STUDIES..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-white font-mono text-xs uppercase placeholder:text-zinc-500 focus:outline-none focus:border-white/40 transition-all"
+                onChange={(e) => updateSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-9 py-2.5 rounded-full bg-white/5 border border-white/10 text-white font-mono text-xs uppercase placeholder:text-zinc-500 focus:outline-none focus:border-white/40 transition-all"
               />
+              {searchQuery && (
+                <button
+                  onClick={() => updateSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white p-1 rounded-full"
+                  title="Clear search"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
+          </div>
+
+          {/* QUICK DISCIPLINE FILTER CHIPS */}
+          <div className="flex flex-wrap items-center gap-2 pt-1 pb-1 font-mono text-xs">
+            <span className="text-zinc-500 uppercase tracking-widest text-[10px] font-bold mr-1">DISCIPLINES:</span>
+            {disciplineChips.map((chip) => {
+              const isSelected = searchQuery.toUpperCase() === chip;
+              return (
+                <button
+                  key={chip}
+                  onClick={() => {
+                    playClickSound();
+                    if (isSelected) {
+                      updateSearchQuery('');
+                    } else {
+                      updateSearchQuery(chip);
+                    }
+                  }}
+                  onMouseEnter={playHoverSound}
+                  className={`px-3 py-1 rounded-full border text-[10px] font-bold tracking-wider transition-all cursor-pointer ${
+                    isSelected
+                      ? 'bg-[#A93207] text-white border-[#A93207] shadow-lg shadow-[#A93207]/30 scale-105'
+                      : 'bg-white/5 text-zinc-400 border-white/10 hover:border-white/30 hover:text-white'
+                  }`}
+                >
+                  {chip} {isSelected && '×'}
+                </button>
+              );
+            })}
           </div>
 
           {/* EDITORIAL HEADER BELOW TOP CONTROL BAR */}
