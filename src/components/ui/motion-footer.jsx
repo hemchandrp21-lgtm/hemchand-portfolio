@@ -1,12 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUp, Mail, Download, ArrowUpRight } from "lucide-react";
+import { ArrowUp, Mail, Download, ArrowUpRight, MessageSquare, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { playHoverSound, playClickSound } from "../../utils/audioEngine";
+import ContactMessageBox from "../ContactMessageBox";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Register ScrollTrigger safely for React
 if (typeof window !== "undefined") {
@@ -222,6 +224,7 @@ export function CinematicFooter() {
   const giantTextRef = useRef(null);
   const headingRef = useRef(null);
   const linksRef = useRef(null);
+  const [showMessageModal, setShowMessageModal] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -324,6 +327,18 @@ export function CinematicFooter() {
               {/* Primary Contact Actions */}
               <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full">
                 <MagneticButton
+                  as="button"
+                  onClick={() => {
+                    playClickSound();
+                    setShowMessageModal(true);
+                  }}
+                  className="footer-glass-pill px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-white font-mono font-bold text-xs sm:text-base flex items-center gap-2.5 sm:gap-3 group cursor-pointer bg-[#A93207]/20 border-[#A93207]/50 hover:bg-[#A93207] transition-all shadow-xl shadow-[#A93207]/20"
+                >
+                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-[#A93207] group-hover:text-white transition-colors" />
+                  <span>SEND A MESSAGE</span>
+                </MagneticButton>
+
+                <MagneticButton
                   as="a"
                   href="mailto:hemchandrp21@gmail.com"
                   onClick={playClickSound}
@@ -418,6 +433,44 @@ export function CinematicFooter() {
           </div>
         </footer>
       </div>
+
+      {/* Interactive Contact Message Box Modal Overlay */}
+      <AnimatePresence>
+        {showMessageModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+            onClick={() => setShowMessageModal(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-2xl my-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  playClickSound();
+                  setShowMessageModal(false);
+                }}
+                onMouseEnter={playHoverSound}
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/15 transition-all cursor-pointer shadow-lg active:scale-95"
+                title="Close Modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              <ContactMessageBox isEmbedded={true} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
