@@ -49,7 +49,13 @@ function ScrollSlideKeywords({ items, scrollYProgress }) {
 
 function Hero() {
   const containerRef = useRef(null);
-  const disciplineItems = ['RESEARCH', 'UI/UX', 'PROTOTYPING', 'DESIGN SYSTEMS'];
+  const disciplineItems = [
+    'RESEARCH',
+    'UI/UX',
+    'PROTOTYPING',
+    'DESIGN SYSTEMS',
+    'AI-ASSISTED DESIGN & VIBE CODING'
+  ];
 
   // Track scroll position relative to Hero section for parallax
   const { scrollYProgress } = useScroll({
@@ -109,6 +115,7 @@ function Hero() {
             <Link to="/work?search=RESEARCH" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">RESEARCH</Link>
             <Link to="/work?search=PROTOTYPING" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">PROTOTYPING</Link>
             <Link to="/work?search=DESIGN%20SYSTEMS" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">DESIGN SYSTEMS</Link>
+            <Link to="/work?search=AI-ASSISTED%20DESIGN%20%26%20VIBE%20CODING" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">AI DESIGN & VIBE CODING</Link>
           </div>
         </motion.div>
 

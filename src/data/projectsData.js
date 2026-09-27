@@ -126,7 +126,7 @@ export const projects = [
     client: 'Personal Experiment',
     role: 'Product Designer',
     behanceUrl: 'https://www.behance.net/hemchanpaunika',
-    tools: ['Figma', 'Web App UX', 'Obsidian UI', 'Parameter Controls'],
+    tools: ['Figma', 'AI-Assisted Workflow', 'Vibe Coding', 'Web App UX', 'Parameter Controls'],
     image: '/texture_lab_artwork.png',
     summary: 'Digital web app optimizing high-resolution material previews and texture customization.',
     aspect: 'aspect-[16/9]'

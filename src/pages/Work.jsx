@@ -183,7 +183,7 @@ function Work() {
     { id: 'Graphic & Poster Design', label: 'GRAPHIC & POSTER DESIGN', icon: Smartphone }
   ];
 
-  const disciplineChips = ['RESEARCH', 'UI/UX', 'PROTOTYPING', 'DESIGN SYSTEMS'];
+  const disciplineChips = ['RESEARCH', 'UI/UX', 'PROTOTYPING', 'DESIGN SYSTEMS', 'AI-ASSISTED DESIGN & VIBE CODING'];
 
   const { featuredProjects, otherProjects, isDefaultAllView } = useMemo(() => {
     const isDefault = activeCategory === 'ALL' && searchQuery.trim() === '';
@@ -214,6 +214,8 @@ function Work() {
         if (q === 'research' && toolLower.includes('research')) return true;
         if (q === 'prototyping' && (toolLower.includes('prototype') || toolLower.includes('prototyping'))) return true;
         if (q === 'design systems' && toolLower.includes('design system')) return true;
+        if ((q.includes('ai') || q.includes('vibe') || q.includes('coding')) && 
+            (toolLower.includes('ai') || toolLower.includes('web app') || toolLower.includes('customizer') || toolLower.includes('obsidian') || toolLower.includes('interactive') || toolLower.includes('design system'))) return true;
         return false;
       });
 
