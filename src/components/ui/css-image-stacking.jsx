@@ -134,11 +134,11 @@ export function CSSImageStacking({ slides = [], accent = "#A93207" }) {
 
   if (!slides || slides.length === 0) return null;
 
-  // Compact track height so cards stack smoothly without huge empty gap before footer
-  const trackHeight = `${Math.max(slides.length * 28 + 10, 110)}vh`;
+  // Compact track height so card stacking finishes instantly without any gap before the footer
+  const trackHeight = `${slides.length * 16 + 12}vh`;
 
   return (
-    <div ref={containerRef} style={{ height: trackHeight }} className="relative w-full select-none pb-0">
+    <div ref={containerRef} style={{ height: trackHeight }} className="relative w-full select-none pb-0 mb-0">
       {slides.map((slide, i) => (
         <StackingCard
           key={slide.id || i}
