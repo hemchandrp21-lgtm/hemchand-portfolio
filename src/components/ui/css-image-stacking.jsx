@@ -134,8 +134,8 @@ export function CSSImageStacking({ slides = [], accent = "#A93207" }) {
 
   if (!slides || slides.length === 0) return null;
 
-  // Compact track height so card stacking finishes instantly without any gap before the footer
-  const trackHeight = `${slides.length * 16 + 12}vh`;
+  // Perfect track height allowing all 4 project cards to stack & display completely before the footer reveal
+  const trackHeight = `${slides.length * 40 + 20}vh`;
 
   return (
     <div ref={containerRef} style={{ height: trackHeight }} className="relative w-full select-none pb-0 mb-0">
