@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Volume2, VolumeX, X, ArrowRight, Download } from 'lucide-react';
+import { Volume2, VolumeX, X, ArrowRight, MessageSquare } from 'lucide-react';
 import { toggleAudioMute, getAudioMutedState, playHoverSound, playClickSound } from '../utils/audioEngine';
 
 function Header() {
@@ -129,22 +129,11 @@ function Header() {
               to="/contact"
               onMouseEnter={playHoverSound}
               onClick={playClickSound}
-              className="hover:text-white transition-colors no-underline text-white/80 px-4 py-2 rounded-full border border-white/20 hover:border-white text-white font-bold"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#A93207] hover:bg-[#A93207]/80 active:scale-95 text-white font-mono font-bold text-xs tracking-widest no-underline shadow-lg shadow-[#A93207]/30 border border-[#A93207]/50 transition-all duration-300"
             >
-              Contact
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>LET&apos;S CONNECT</span>
             </Link>
-            <a
-              href="/Hemchand_Paunikar_Resume.pdf"
-              download="Hemchand_Paunikar_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              onMouseEnter={playHoverSound}
-              onClick={playClickSound}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#A93207] hover:bg-[#A93207]/80 active:scale-95 text-white font-bold tracking-widest no-underline shadow-lg transition-all duration-300"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>RESUME</span>
-            </a>
           </nav>
 
           {/* Touch-Friendly Mobile Hamburger Button */}
