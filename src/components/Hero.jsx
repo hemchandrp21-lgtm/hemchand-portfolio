@@ -95,10 +95,10 @@ function Hero() {
       {/* Spacer for Global Floating Header */}
       <div className="relative z-30 w-full h-16 sm:h-24 pointer-events-none" />
 
-      {/* 2. MIDDLE SECTION (LEFT PERSONAL TAGLINE & RIGHT DISCIPLINES) */}
-      <div className="relative z-20 w-full max-w-full overflow-hidden px-4 sm:px-12 md:px-16 my-auto grid grid-cols-12 items-center pointer-events-none gap-4">
+      {/* 2. MIDDLE SECTION (DESKTOP DISCIPLINES & TAGLINE) */}
+      <div className="relative z-20 w-full max-w-full overflow-hidden px-4 sm:px-12 md:px-16 my-auto hidden sm:grid grid-cols-12 items-center pointer-events-none gap-4">
         
-        {/* Personal UX Statement */}
+        {/* Personal UX Statement (Desktop) */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -108,34 +108,47 @@ function Hero() {
           <p className="font-mono text-[11px] sm:text-[13px] leading-relaxed tracking-wider uppercase text-white/90 max-w-[320px] font-medium drop-shadow-md">
             I DESIGN INTUITIVE DIGITAL EXPERIENCES, USER FLOWS, AND PRODUCTS THAT ELIMINATE FRICTION.
           </p>
-
-          {/* Touch-Friendly Discipline Pill Bar on Mobile Phone Screens */}
-          <div className="flex sm:hidden items-center gap-1.5 pt-2 font-mono text-[10px] tracking-wider uppercase text-white/70 overflow-x-auto no-scrollbar py-1">
-            <Link to="/work?search=UI%2FUX" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">UI/UX</Link>
-            <Link to="/work?search=RESEARCH" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">RESEARCH</Link>
-            <Link to="/work?search=PROTOTYPING" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">PROTOTYPING</Link>
-            <Link to="/work?search=DESIGN%20SYSTEMS" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">DESIGN SYSTEMS</Link>
-            <Link to="/work?search=AI-ASSISTED%20DESIGN%20%26%20VIBE%20CODING" onClick={playClickSound} className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">AI DESIGN & VIBE CODING</Link>
-          </div>
         </motion.div>
 
         {/* Disciplines Vertical List for Desktop */}
         <ScrollSlideKeywords items={disciplineItems} scrollYProgress={smoothProgress} />
       </div>
 
-      {/* 3. BOTTOM MONUMENTAL NAME TITLE */}
+      {/* 3. BOTTOM MONUMENTAL NAME TITLE & MOBILE TAGLINE BLOCK */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="relative z-20 w-full max-w-full overflow-hidden pb-4 sm:pb-8 px-4 sm:px-12 md:px-16 text-left pointer-events-none"
+        className="relative z-20 w-full max-w-full overflow-hidden pb-6 sm:pb-8 px-4 sm:px-12 md:px-16 text-left pointer-events-none flex flex-col justify-end space-y-4 sm:space-y-0"
       >
+        {/* Personal UX Statement & Touch-Friendly Pill Bar for Mobile (Attached with breathing space) */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="block sm:hidden space-y-3 pointer-events-auto pb-1"
+        >
+          <p className="font-mono text-[11px] xs:text-[12px] leading-relaxed tracking-wider uppercase text-white/90 max-w-[310px] font-medium drop-shadow-lg">
+            I DESIGN INTUITIVE DIGITAL EXPERIENCES, USER FLOWS, AND PRODUCTS THAT ELIMINATE FRICTION.
+          </p>
+
+          <div className="flex items-center gap-2 pt-0.5 font-mono text-[10px] tracking-wider uppercase text-white/80 overflow-x-auto no-scrollbar py-1">
+            <Link to="/work?search=UI%2FUX" onClick={playClickSound} className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">UI/UX</Link>
+            <Link to="/work?search=RESEARCH" onClick={playClickSound} className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">RESEARCH</Link>
+            <Link to="/work?search=PROTOTYPING" onClick={playClickSound} className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">PROTOTYPING</Link>
+            <Link to="/work?search=DESIGN%20SYSTEMS" onClick={playClickSound} className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">DESIGN SYSTEMS</Link>
+            <Link to="/work?search=AI-ASSISTED%20DESIGN%20%26%20VIBE%20CODING" onClick={playClickSound} className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#A93207] border border-white/15 text-white backdrop-blur-md shrink-0 no-underline">AI DESIGN & VIBE CODING</Link>
+          </div>
+        </motion.div>
+
+        {/* Name Title */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display font-extrabold uppercase tracking-tight text-white leading-[0.95] break-words max-w-full drop-shadow-[0_10px_40px_rgba(0,0,0,0.95)] select-none text-left text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] 2xl:text-[12.5rem]"
-          style={{ fontSize: 'clamp(2.25rem, 9.5vw, 12.5rem)' }}
+          className="font-display font-black uppercase tracking-tight text-white leading-[0.88] sm:leading-[0.95] drop-shadow-[0_10px_40px_rgba(0,0,0,0.95)] select-none text-left w-full"
+          style={{ fontSize: 'clamp(3.3rem, 16.5vw, 12.5rem)' }}
         >
-          HEMCHAND PAUNIKAR
+          <span className="block sm:inline w-full">HEMCHAND</span>{' '}
+          <span className="block sm:inline w-full">PAUNIKAR</span>
         </motion.h1>
       </motion.div>
 

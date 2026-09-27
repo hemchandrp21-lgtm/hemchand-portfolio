@@ -8,7 +8,7 @@ import { projects } from '../data/projectsData';
 function SelectedWork() {
   const { accentColor, glowGradient } = useIceFire();
 
-  // 4 Featured Projects: Seed to Soul, Lynk Foods, Aftter, and NoBroker
+  // Strictly 4 Featured Projects for Homepage Showcase
   const featuredIds = [
     'resort-hospitality-web-ui',
     'lynk-foods-ecommerce',
@@ -41,7 +41,7 @@ function SelectedWork() {
   });
 
   return (
-    <section id="work" className="relative w-full max-w-full bg-transparent text-white select-none pt-0 pb-12 px-6 sm:px-12 overflow-hidden">
+    <section id="work" className="relative w-full max-w-full bg-transparent text-white select-none pt-0 pb-0 mb-0 px-6 sm:px-12 overflow-visible">
       {/* Volumetric Ambient Glow */}
       <div 
         className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] rounded-full pointer-events-none opacity-20 filter blur-[180px]"

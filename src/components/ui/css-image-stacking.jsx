@@ -28,7 +28,7 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
     >
       <motion.div
         style={{ scale }}
-        className="relative w-full max-w-[1180px] min-h-[260px] sm:min-h-[420px] lg:min-h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 bg-[#090c14] shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row justify-between p-4 sm:p-8 lg:p-10 select-none group transition-all duration-300 hover:border-[#A93207]/60 transform-gpu"
+        className="relative w-full max-w-[1180px] min-h-[380px] sm:min-h-[460px] lg:min-h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 bg-[#090c14] shadow-[0_25px_60px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row justify-between p-4 sm:p-8 lg:p-10 select-none group transition-all duration-300 hover:border-[#A93207]/60 transform-gpu"
       >
         {/* Ambient Dark Gradient Accent */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -44,7 +44,7 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
         </div>
 
         {/* Card Info (Left) */}
-        <div className="relative z-10 flex flex-col justify-between h-full space-y-3 sm:space-y-6 lg:max-w-[52%]">
+        <div className="relative z-10 flex flex-col justify-between h-full space-y-3 sm:space-y-6 w-full lg:max-w-[52%]">
           {/* Tag & Counter */}
           <div className="flex items-center justify-between gap-2">
             <span
@@ -75,6 +75,28 @@ function StackingCard({ slide, index, total, progress, accentColor }) {
                 {slide.description}
               </p>
             )}
+          </div>
+
+          {/* Mobile Image Preview Block */}
+          <div className="block lg:hidden my-1 sm:my-2 w-full">
+            <a
+              href={slide.href}
+              target="_blank"
+              rel="noreferrer"
+              onMouseEnter={playHoverSound}
+              onClick={playClickSound}
+              className="block w-full h-[160px] xs:h-[190px] sm:h-[230px] rounded-xl sm:rounded-2xl overflow-hidden border border-white/20 relative group/mobpreview shadow-xl no-underline"
+              title={`Open ${slide.title}`}
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover object-top group-hover/mobpreview:scale-105 transition-transform duration-500 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-50 pointer-events-none" />
+            </a>
           </div>
 
           {/* Action CTA Button */}
@@ -135,10 +157,11 @@ export function CSSImageStacking({ slides = [], accent = "#A93207" }) {
 
   if (!slides || slides.length === 0) return null;
 
-  const trackHeight = `${Math.max(slides.length * 60 + 40, 260)}vh`;
+  // Tight track height eliminating blank space while keeping Card 4 100% visible
+  const trackHeight = `${slides.length * 48}vh`;
 
   return (
-    <div ref={containerRef} style={{ height: trackHeight }} className="relative w-full select-none pb-12">
+    <div ref={containerRef} style={{ height: trackHeight }} className="relative w-full select-none pb-0 mb-0">
       {slides.map((slide, i) => (
         <StackingCard
           key={slide.id || i}
