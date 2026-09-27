@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import SmoothScroll from './components/SmoothScroll';
 import StarfieldCanvas from './components/StarfieldCanvas';
 import GridLinesOverlay from './components/GridLinesOverlay';
 import Home from './pages/Home';
@@ -50,7 +51,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <SmoothScroll>
       <SiteLoader />
       <StarfieldCanvas />
       <GridLinesOverlay />
@@ -70,7 +71,7 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
-    </>
+    </SmoothScroll>
   );
 }
 
