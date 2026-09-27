@@ -1,6 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Volume2, VolumeX, X, ArrowRight, Download } from 'lucide-react';
+import { Volume2, VolumeX, X, ArrowRight, Download, MessageSquare } from 'lucide-react';
 import { toggleAudioMute, getAudioMutedState, playHoverSound, playClickSound } from '../utils/audioEngine';
 
 function Header() {
@@ -125,14 +123,6 @@ function Header() {
             >
               Playground
             </Link>
-            <Link
-              to="/contact"
-              onMouseEnter={playHoverSound}
-              onClick={playClickSound}
-              className="hover:text-white transition-colors no-underline text-white/80 px-4 py-2 rounded-full border border-white/20 hover:border-white text-white font-bold"
-            >
-              Contact
-            </Link>
             <a
               href="/Hemchand_Paunikar_Resume.pdf"
               download="Hemchand_Paunikar_Resume.pdf"
@@ -140,11 +130,19 @@ function Header() {
               rel="noopener noreferrer"
               onMouseEnter={playHoverSound}
               onClick={playClickSound}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#A93207] hover:bg-[#A93207]/80 active:scale-95 text-white font-bold tracking-widest no-underline shadow-lg transition-all duration-300"
+              className="hover:text-white transition-colors no-underline text-white/80"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span>RESUME</span>
+              Resume
             </a>
+            <Link
+              to="/contact"
+              onMouseEnter={playHoverSound}
+              onClick={playClickSound}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#A93207] hover:bg-[#A93207]/80 active:scale-95 text-white font-mono font-bold text-xs tracking-widest no-underline shadow-lg shadow-[#A93207]/30 border border-[#A93207]/50 transition-all duration-300"
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>LET&apos;S CONNECT</span>
+            </Link>
           </nav>
 
           {/* Touch-Friendly Mobile Hamburger Button */}
@@ -255,10 +253,10 @@ function Header() {
               to="/contact"
               onMouseEnter={playHoverSound}
               onClick={() => { playClickSound(); closeMenu(); }}
-              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-white text-black font-display font-extrabold text-xs tracking-[0.2em] uppercase hover:bg-white/90 active:scale-[0.98] transition-all shadow-2xl no-underline min-h-[44px]"
+              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#A93207] text-white font-display font-extrabold text-xs tracking-[0.2em] uppercase hover:bg-[#A93207]/80 active:scale-[0.98] transition-all shadow-2xl no-underline min-h-[44px]"
             >
-              <span>LET&apos;S WORK TOGETHER</span>
-              <ArrowRight className="w-4 h-4" />
+              <MessageSquare className="w-4 h-4" />
+              <span>LET&apos;S CONNECT</span>
             </Link>
 
             <a
