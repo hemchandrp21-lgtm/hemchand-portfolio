@@ -373,6 +373,7 @@ export const skillsSystem = {
     'Visual Storytelling'
   ],
   techExperimentation: [
+    'AI-Assisted Design & Vibe Coding',
     'AI-assisted workflows',
     'AI optimization',
     'HTML',
@@ -393,6 +394,7 @@ export const skillsSystem = {
 
 export const toolsList = [
   'Figma',
+  'AI-Assisted Design & Vibe Coding',
   'Adobe Illustrator',
   'Adobe Photoshop',
   'Adobe After Effects',
