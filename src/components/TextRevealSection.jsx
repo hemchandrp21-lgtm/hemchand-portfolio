@@ -34,7 +34,7 @@ function TextRevealSection() {
   });
 
   return (
-    <section ref={targetRef} className="relative w-full bg-[#040507] text-white z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 px-5 sm:px-12 lg:px-20 select-none">
+    <section ref={targetRef} className="relative w-full bg-transparent text-white z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 px-5 sm:px-12 lg:px-20 select-none">
       <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-8">
         {/* Label Indicator */}
         <div className="flex items-center gap-3 justify-center mb-4 sm:mb-6">

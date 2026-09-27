@@ -76,7 +76,7 @@ function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="relative w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden font-sans">
+    <section id="experience" className="relative w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-transparent text-white border-t border-white/10 overflow-hidden font-sans">
       <div className="max-w-4xl mx-auto space-y-10 sm:space-y-12 relative z-10">
         
         {/* Header with Portfolio Typography & Overall Experience in Years */}

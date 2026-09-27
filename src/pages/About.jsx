@@ -6,7 +6,6 @@ import ExperienceSection from '../components/ExperienceSection';
 import PersonalGallerySection from '../components/PersonalGallerySection';
 import ProcessSection from '../components/ProcessSection';
 import SkillsSection from '../components/SkillsSection';
-import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 
@@ -36,7 +35,7 @@ function About() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040507] text-white font-sans selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-transparent text-white font-sans selection:bg-white selection:text-black">
       <SEOHead
         title="About Hemchand Paunikar — UI/UX & Product Designer"
         description="Learn about Hemchand Paunikar, B.Des UI/UX student at Symbiosis Institute of Design. Background in UX research, e-commerce platforms, design systems, and mobile apps."
@@ -54,7 +53,6 @@ function About() {
         <ExperienceSection />
         <SkillsSection />
         <ProcessSection />
-        <ContactSection />
       </main>
 
       <Footer />

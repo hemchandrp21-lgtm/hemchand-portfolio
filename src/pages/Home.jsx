@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import TextRevealSection from '../components/TextRevealSection';
 import SelectedWork from '../components/SelectedWork';
-import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 
@@ -32,7 +31,7 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040507] text-white selection:bg-white selection:text-black font-sans">
+    <div className="min-h-screen bg-transparent text-white selection:bg-white selection:text-black font-sans">
       <SEOHead
         title="Hemchand Paunikar — Official Portfolio | UI/UX & Product Designer"
         description="Official portfolio of Hemchand Paunikar, UI/UX and Product Designer based in India. Specializing in user research, design systems, mobile apps, and digital products."
@@ -52,9 +51,6 @@ function Home() {
 
         {/* 3. SELECTED WORK */}
         <SelectedWork />
-
-        {/* 4. CONTACT SECTION */}
-        <ContactSection />
       </main>
 
       {/* 4. FOOTER */}

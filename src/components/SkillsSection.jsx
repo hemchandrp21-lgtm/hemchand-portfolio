@@ -160,7 +160,7 @@ function SkillsSection() {
   ];
 
   return (
-    <section className="relative w-full py-12 sm:py-16 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-12 sm:py-16 px-4 sm:px-10 lg:px-16 bg-transparent text-white border-t border-white/10 overflow-hidden">
       {/* Volumetric Glow */}
       <div className="absolute top-1/2 left-[-10%] w-[500px] h-[500px] rounded-full filter blur-[160px] pointer-events-none bg-white/[0.02]" />
 

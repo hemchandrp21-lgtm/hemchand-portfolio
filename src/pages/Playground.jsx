@@ -6,7 +6,7 @@ import SEOHead from '../components/SEOHead';
 
 function Playground() {
   return (
-    <div className="relative w-full max-w-full h-screen overflow-hidden bg-[#040507] text-white selection:bg-[#A93207] selection:text-white">
+    <div className="relative w-full max-w-full h-screen overflow-hidden bg-transparent text-white selection:bg-[#A93207] selection:text-white">
       <SEOHead
         title="Design Playground & Experiments | Hemchand Paunikar"
         description="Interactive visual experiments, creative coding labs, shaders, and UI prototypes by Hemchand Paunikar."

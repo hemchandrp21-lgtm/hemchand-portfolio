@@ -6,7 +6,6 @@ import FilmOverlay from '../components/FilmOverlay';
 import CustomCursor from '../components/CustomCursor';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ContactSection from '../components/ContactSection';
 import SEOHead from '../components/SEOHead';
 import { playHoverSound, playClickSound } from '../utils/audioEngine';
 import { ExternalLink, Sparkles, Search, Smartphone, Globe, ShoppingBag, Layers, ArrowUpRight, ChevronLeft, ChevronRight, Star, X } from 'lucide-react';
@@ -224,7 +223,7 @@ function Work() {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-[#040507] text-white selection:bg-[#A93207] selection:text-white relative font-sans">
+    <div className="min-h-screen bg-transparent text-white selection:bg-[#A93207] selection:text-white relative font-sans">
       <SEOHead
         title="Selected Works & Case Studies | Hemchand Paunikar"
         description="Explore UI/UX case studies and design projects by Hemchand Paunikar, featuring Seed to Soul Resort, Lynk Foods E-commerce, Aftter Enterprise Web UI, and NoBroker Packers & Movers UX."
@@ -417,7 +416,6 @@ function Work() {
         </div>
       </main>
 
-      <ContactSection />
       <Footer />
     </div>
   );

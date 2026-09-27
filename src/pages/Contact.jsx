@@ -1,7 +1,6 @@
 import FilmOverlay from '../components/FilmOverlay';
 import CustomCursor from '../components/CustomCursor';
 import Header from '../components/Header';
-import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 
@@ -18,7 +17,7 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040507] text-white font-sans selection:bg-[#A93207] selection:text-white">
+    <div className="min-h-screen bg-transparent text-white font-sans selection:bg-[#A93207] selection:text-white">
       <SEOHead
         title="Contact Hemchand Paunikar — UI/UX & Product Designer"
         description="Get in touch with Hemchand Paunikar for UI/UX design, product design freelance opportunities, research inquiries, or design consultations."
@@ -31,7 +30,6 @@ function Contact() {
       <Header />
 
       <main className="pt-20">
-        <ContactSection />
       </main>
 
       <Footer />

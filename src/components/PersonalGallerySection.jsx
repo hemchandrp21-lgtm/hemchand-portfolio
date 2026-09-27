@@ -69,7 +69,7 @@ const personalCaptions = [
 
 function PersonalGallerySection() {
   return (
-    <section className="relative w-full py-14 sm:py-20 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-14 sm:py-20 bg-transparent text-white border-t border-white/10 overflow-hidden">
       {/* Ambient Background Blur Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full filter blur-[180px] pointer-events-none bg-white/[0.02]" />
       <div className="absolute top-10 right-[-10%] w-[450px] h-[450px] rounded-full filter blur-[160px] pointer-events-none bg-[#A93207]/[0.08]" />

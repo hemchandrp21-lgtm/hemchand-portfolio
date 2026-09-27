@@ -35,7 +35,7 @@ function ProcessSection() {
   ];
 
   return (
-    <section className="relative w-full py-12 sm:py-16 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white border-t border-white/10 overflow-hidden">
+    <section className="relative w-full py-12 sm:py-16 px-4 sm:px-10 lg:px-16 bg-transparent text-white border-t border-white/10 overflow-hidden">
       {/* Ambient Glow */}
       <div className="absolute bottom-0 left-1/3 w-[450px] h-[450px] rounded-full filter blur-[160px] pointer-events-none bg-white/[0.02]" />
 

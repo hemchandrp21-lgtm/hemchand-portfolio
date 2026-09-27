@@ -75,13 +75,13 @@ const STYLES = `
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
 }
 
-/* Theme-adaptive Aurora Glow with Orange Accent */
+/* Theme-adaptive Aurora Glow with Orange Accent & #040507 matching */
 .footer-aurora {
   background: radial-gradient(
     circle at 50% 50%, 
-    rgba(169, 50, 7, 0.22) 0%, 
-    rgba(255, 255, 255, 0.05) 40%, 
-    transparent 70%
+    rgba(169, 50, 7, 0.16) 0%, 
+    rgba(4, 5, 7, 0.6) 45%, 
+    #040507 75%
   );
 }
 
@@ -114,8 +114,8 @@ const STYLES = `
   font-weight: 900;
   letter-spacing: -0.05em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 65%);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 65%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -287,7 +287,7 @@ export function CinematicFooter() {
         style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
         {/* Fixed footer underneath */}
-        <footer className="fixed bottom-0 left-0 flex h-[90vh] sm:h-screen w-full flex-col justify-between overflow-hidden bg-[#040507] text-white cinematic-footer-wrapper">
+        <footer className="fixed bottom-0 left-0 flex h-[90vh] sm:h-screen w-full flex-col justify-between overflow-hidden bg-[#040507] text-white cinematic-footer-wrapper border-t border-white/10">
           
           {/* Ambient Light & Grid Background */}
           <div className="footer-aurora absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 animate-footer-breathe rounded-[50%] blur-[80px] pointer-events-none z-0" />
@@ -302,7 +302,7 @@ export function CinematicFooter() {
           </div>
 
           {/* 1. Diagonal Sleek Marquee (Top of footer) */}
-          <div className="absolute top-8 sm:top-12 left-0 w-full overflow-hidden border-y border-white/10 bg-[#040507]/70 backdrop-blur-md py-3 sm:py-4 z-10 -rotate-2 scale-110 shadow-2xl">
+          <div className="absolute top-8 sm:top-12 left-0 w-full overflow-hidden border-y border-white/10 bg-[#040507]/85 backdrop-blur-md py-3 sm:py-4 z-10 -rotate-2 scale-110 shadow-2xl">
             <div className="flex w-max animate-footer-scroll-marquee text-[10px] sm:text-xs md:text-sm font-mono font-bold tracking-[0.3em] text-white/70 uppercase">
               <MarqueeItem />
               <MarqueeItem />

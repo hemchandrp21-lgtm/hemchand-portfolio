@@ -78,7 +78,7 @@ function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full max-w-full h-[100dvh] min-h-[580px] overflow-hidden bg-[#040507] text-white flex flex-col justify-between select-none"
+      className="relative w-full max-w-full h-[100dvh] min-h-[580px] overflow-hidden bg-transparent text-white flex flex-col justify-between select-none"
     >
       {/* 1. BACKGROUND CINEMATIC VISUAL IMAGE (FULL HIGH-RES CRISP SHARP IMAGE) */}
       <motion.div

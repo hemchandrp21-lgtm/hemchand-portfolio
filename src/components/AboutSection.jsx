@@ -36,7 +36,7 @@ function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative w-full py-10 sm:py-14 px-4 sm:px-10 lg:px-16 bg-[#040507] text-white overflow-hidden border-t border-white/10">
+    <section id="about" className="relative w-full py-10 sm:py-14 px-4 sm:px-10 lg:px-16 bg-transparent text-white overflow-hidden border-t border-white/10">
       {/* Background Volumetric Ambient Glows */}
       <div className="absolute top-1/4 left-[-10%] w-[600px] h-[600px] rounded-full filter blur-[180px] pointer-events-none bg-white/[0.03]" />
       <div className="absolute bottom-10 right-[-10%] w-[500px] h-[500px] rounded-full filter blur-[180px] pointer-events-none bg-[#A93207]/[0.08]" />

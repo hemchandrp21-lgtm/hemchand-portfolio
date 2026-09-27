@@ -39,7 +39,7 @@ function ServicesSection() {
   ];
 
   return (
-    <section className="relative w-full bg-[#040507] text-white py-28 px-6 md:px-16 border-t border-white/10 overflow-hidden z-10">
+    <section className="relative w-full bg-transparent text-white py-28 px-6 md:px-16 border-t border-white/10 overflow-hidden z-10">
       <div className="max-w-[1280px] mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/10 pb-8 gap-4">
