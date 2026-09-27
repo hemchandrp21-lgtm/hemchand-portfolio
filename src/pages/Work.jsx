@@ -183,8 +183,6 @@ function Work() {
     { id: 'Graphic & Poster Design', label: 'GRAPHIC & POSTER DESIGN', icon: Smartphone }
   ];
 
-  const disciplineChips = ['RESEARCH', 'UI/UX', 'PROTOTYPING', 'DESIGN SYSTEMS', 'AI-ASSISTED DESIGN & VIBE CODING'];
-
   const { featuredProjects, otherProjects, isDefaultAllView } = useMemo(() => {
     const isDefault = activeCategory === 'ALL' && searchQuery.trim() === '';
 
@@ -332,35 +330,6 @@ function Work() {
                 </button>
               )}
             </div>
-          </div>
-
-          {/* QUICK DISCIPLINE FILTER CHIPS */}
-          <div className="flex flex-wrap items-center gap-2 pt-1 pb-1 font-mono text-xs">
-            <span className="text-zinc-500 uppercase tracking-widest text-[10px] font-bold mr-1">DISCIPLINES:</span>
-            {disciplineChips.map((chip) => {
-              const isSelected = searchQuery.toUpperCase() === chip;
-              return (
-                <button
-                  key={chip}
-                  onClick={() => {
-                    playClickSound();
-                    if (isSelected) {
-                      updateSearchQuery('');
-                    } else {
-                      updateSearchQuery(chip);
-                    }
-                  }}
-                  onMouseEnter={playHoverSound}
-                  className={`px-3 py-1 rounded-full border text-[10px] font-bold tracking-wider transition-all cursor-pointer ${
-                    isSelected
-                      ? 'bg-[#A93207] text-white border-[#A93207] shadow-lg shadow-[#A93207]/30 scale-105'
-                      : 'bg-white/5 text-zinc-400 border-white/10 hover:border-white/30 hover:text-white'
-                  }`}
-                >
-                  {chip} {isSelected && '×'}
-                </button>
-              );
-            })}
           </div>
 
           {/* EDITORIAL HEADER BELOW TOP CONTROL BAR */}
